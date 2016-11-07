@@ -1,0 +1,40 @@
+{
+  "name": "generator-at-angular",
+  "version": "0.0.0",
+  "description": "Yeoman Generator for angular that uses Webpack as a module bundler, SASS as CSS preprocessor and UI router as default angular router.",
+  "homepage": "http://dreidev.com",
+  "author": {
+    "name": "ahmed tarek",
+    "email": "ahmed.tokyo1@gmail.com",
+    "url": "github.com/a-tokyo"
+  },
+  "repository": "a-tokyo/generator-at-angular",
+  "files": [
+    "generators/app",
+    "generators/component",
+    "generators/directive",
+    "generators/partial",
+    "generators/service",
+    "generators/modal",
+    "generators/filter",
+    "generators/module"
+  ],
+  "main": "generators/app/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "generator",
+    "angular",
+    "es6",
+    "es2015",
+    "es2016",
+    "webpack",
+    "sass"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.24.1",
+    "yosay": "^1.2.1",
+    "chalk": "^1.1.3",
+    "lodash": "^4.16.6",
+    "mkdirp": "^0.5.1"
+  }
+}
