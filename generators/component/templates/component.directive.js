@@ -14,7 +14,7 @@ function <%= componentNameCamel %>Component($log) {
   return component;
 
   function <%= controllerName %>Controller () {
-	  $log.debug('Hello from' + <%= controllerName %> + 'Controller!');
+	  $log.debug('Hello from' + '<%= controllerName %>' + 'Controller!');
   }
 
 }
