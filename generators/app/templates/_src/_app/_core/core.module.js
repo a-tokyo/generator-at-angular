@@ -6,4 +6,6 @@ const shared = angular.module('core.shared', []);
 
 require('./services/store.factory')(shared);
 
+// Add new services above
+
 export default shared;

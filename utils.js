@@ -7,8 +7,9 @@ _.mixin(_.str.exports());
 
 
 exports.COMPONENT_MARKER = "/* Add New COMPONENTS Above */";
-exports.SCSS_MARKER = "// Add Component SCSS Above";
+exports.SERVICE_MARKER = "// Add new services above";
 
+exports.SCSS_MARKER = "// Add Component SCSS Above";
 exports.ROUTE_MARKER = "/* Add New Routes Above */";
 exports.STATE_MARKER = "/* Add New States Above */";
 
