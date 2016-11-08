@@ -9,6 +9,9 @@ module.exports = function (AngularATGenerator) {
         mkdirp("src/assets");
         mkdirp("src/assets/images");
         mkdirp("src/assets/js");
+        mkdirp("src/app/pages");
+        mkdirp("src/app/components");
+        mkdirp("src/app/core/directives");
 
         this.fs.copyTpl(
             this.templatePath('_package.json'),
