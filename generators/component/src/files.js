@@ -24,10 +24,13 @@ module.exports = function (AngularATGenerator) {
       data
     );
       this.fs.copyTpl(
-      this.templatePath('component.directive.js'),
-      this.destinationPath('src/app/components/'+this.props.componentName+'/'+this.props.componentName+'.directive'+'.js'),
+      this.templatePath('component.component.js'),
+      this.destinationPath('src/app/components/'+this.props.componentName+'/'+this.props.componentName+'.component'+'.js'),
       data
     );
-    utils.addToFile("index.components.js","test",utils.COMPONENT_MARKER,this.destinationRoot()+"/src/app");
+    var indexModulesWriteLine = "require('./components/"+this.props.componentName+"/"+this.props.componentName + ".module').name";
+    utils.addToFile("index.components.js",indexModulesWriteLine,utils.COMPONENT_MARKER,this.destinationRoot()+"/src/app");
+    var indexScssWriteLine = "@import '../../../app/components/"+this.props.componentName+"/"+this.props.componentName + ".scss';";
+    utils.addToFile("index.scss",indexScssWriteLine,utils.SCSS_MARKER,this.destinationRoot()+"/src/assets/styles/sass");
     };
 };

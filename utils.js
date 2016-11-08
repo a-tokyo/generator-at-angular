@@ -7,7 +7,7 @@ _.mixin(_.str.exports());
 
 
 exports.COMPONENT_MARKER = "/* Add New COMPONENTS Above */";
-exports.SCSS_MARKER = "/* Add Component LESS Above */";
+exports.SCSS_MARKER = "// Add Component SCSS Above";
 
 exports.ROUTE_MARKER = "/* Add New Routes Above */";
 exports.STATE_MARKER = "/* Add New States Above */";
@@ -26,7 +26,6 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
         fs.writeFileSync(fullPath,fileSrc);
     } catch(e) {
       console.log(e);
-        // throw e;
     }
 };
 
