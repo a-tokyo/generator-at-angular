@@ -1,0 +1,8 @@
+[
+  {
+    "type": "input",
+    "name": "componentName",
+    "message": "Your component's name",
+    "default": "component"
+  }
+]
