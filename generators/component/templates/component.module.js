@@ -1,9 +1,9 @@
 'use strict';
 
-import * as componentDirective from './component.component';
-import './component.scss';
+import * as componentDirective from './<%= componentName %>.component';
+import './<%= componentName %>.scss';
 
-const componentModule = angular.module(<%= props.componentName %> + '-module', []);
+const componentModule = angular.module(<%= componentNameCamel %>, []);
 
 componentModule
   .directive('componentTest', componentDirective);

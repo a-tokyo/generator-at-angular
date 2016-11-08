@@ -1,24 +1,22 @@
 'use strict';
 
-import componentTpl from './component.html';
+import componentTpl from './<%= componentName %>.html';
 
-function <%= props.componentName %>Component($log) {
+function <%= componentNameCamel %>Component($log) {
 	'ngInject';
 
   var component = {
     restrict: 'E',
     templateUrl: componentTpl,
-    controller: <%= props.componentName %>Controller,
-    controllerAs: 'vm',
-    bindToController: true
+    controller: <%= controllerName %>Controller
   };
 
   return component;
 
-  function <%= props.componentName %>Controller () {
-	  $log.debug('Hello from' + <%= props.componentName %> + 'controller!');
+  function <%= controllerName %>Controller () {
+	  $log.debug('Hello from' + <%= controllerName %> + 'Controller!');
   }
 
 }
 
-export default <%= props.componentName %>Component;
+export default <%= componentNameCamel %>Component;

@@ -4,5 +4,11 @@
     "name": "componentName",
     "message": "Your component's name",
     "default": "component"
+  },
+  {
+    "type": "input",
+    "name": "componentModule",
+    "message": "Your component's module name",
+    "default": "component"
   }
 ]
