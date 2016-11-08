@@ -3,7 +3,7 @@
 import * as componentDirective from './component.component';
 import './component.scss';
 
-const componentModule = angular.module('component-module', []);
+const componentModule = angular.module(<%= props.componentName %> + '-module', []);
 
 componentModule
   .directive('componentTest', componentDirective);

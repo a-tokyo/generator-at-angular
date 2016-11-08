@@ -1,24 +1,24 @@
 'use strict';
 
-import componentTpl from './footer.html';
+import componentTpl from './component.html';
 
-function componentComponent($log) {
+function <%= props.componentName %>Component($log) {
 	'ngInject';
 
   var component = {
     restrict: 'E',
     templateUrl: componentTpl,
-    controller: ComponentController,
+    controller: <%= props.componentName %>Controller,
     controllerAs: 'vm',
     bindToController: true
   };
 
   return component;
 
-  function ComponentController () {
-	  $log.debug('Hello from footer controller!');
+  function <%= props.componentName %>Controller () {
+	  $log.debug('Hello from' + <%= props.componentName %> + 'controller!');
   }
 
 }
 
-export default componentComponent;
+export default <%= props.componentName %>Component;
