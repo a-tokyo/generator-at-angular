@@ -1,0 +1,8 @@
+[
+  {
+    "type": "input",
+    "name": "serviceName",
+    "message": "Your service's name",
+    "default": "service"
+  }
+]
