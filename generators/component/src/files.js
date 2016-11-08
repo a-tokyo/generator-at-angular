@@ -5,11 +5,10 @@ var mkdirp = require('mkdirp');
 module.exports = function (AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
-
-        this.fs.copy(
-            this.templatePath('footer.html'),
-            this.destinationPath('src/app/components')
-        );
+      this.fs.copy(
+          this.templatePath('**/*'),
+          this.destinationPath('src/app/components/'+this.props.componentName)
+      );
     };
 
 };
