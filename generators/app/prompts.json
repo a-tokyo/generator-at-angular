@@ -49,7 +49,7 @@
           "module": "ngSanitize",
           "package": "angular-sanitize"
         },
-        "name": "angular-sanitize.js (to securely parse translate and manipulate HTML)",
+        "name": "angular-sanitize.js (to securely parse, translate and manipulate HTML)",
         "checked": true
       },
       {
@@ -58,7 +58,7 @@
           "module": "ngMessages",
           "package": "angular-messages"
         },
-        "name": "angular-messages.js (enhanced support for displaying messages within templates)",
+        "name": "angular-messages.js (enhanced support for displaying messages (i.e validation) within templates)",
         "checked": true
       },
       {
@@ -146,6 +146,12 @@
     "type": "confirm",
     "name": "moment",
     "message": "Would you like to include Moment.js - Library for parse, validate, manipulate, and display dates in JavaScript.",
+    "default": true
+  },
+  {
+    "type": "confirm",
+    "name": "ocLazyLoad",
+    "message": "Would you like to include angularOclazyLoad plugin to load angular modules asynchronously.",
     "default": true
   }
 ]

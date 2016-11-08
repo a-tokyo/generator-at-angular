@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"transform-runtime", 
+		"add-module-exports", 
+		"syntax-flow",
+		"angularjs-annotate"
+	],
+    "presets": [
+    	"stage-1",
+    	["es2015", { "modules": false }],
+    	"es2017"
+    ]
+}

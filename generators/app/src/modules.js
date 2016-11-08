@@ -16,7 +16,6 @@ module.exports = function (AngularATGenerator) {
         package: "oclazyload"
       });
     }
-
   };
 
   /**

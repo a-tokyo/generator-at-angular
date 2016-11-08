@@ -2,10 +2,9 @@
 
 var yeoman = require('yeoman-generator').Base;
 var yosay = require('yosay');
-var pkg = require('../../package.json');
 var chalk = require('chalk');
+var pkg = require('../../package.json');
 
-// Calling the super constructor to extend yoemen generator
 var AngularATGenerator = yeoman.extend({
     //loging the AT greeting message
     greeting: function () {
@@ -14,7 +13,7 @@ var AngularATGenerator = yeoman.extend({
         ));
     },
 
-    //exteding yoemen generator
+    //exteding yoemen generator with custom code
     constructor: function () {
         yeoman.apply(this, arguments);
 
@@ -23,10 +22,10 @@ var AngularATGenerator = yeoman.extend({
             type: String,
             required: false
         });
-        // console custom properties
-        this.props = {};
-        // app version
+
         this.version = pkg.version;
+
+        this.props = {};
     }
 
   });
