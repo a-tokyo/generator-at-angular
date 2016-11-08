@@ -30,10 +30,12 @@
     "webpack",
     "sass"
   ],
+  "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.1",
     "lodash": "^4.16.1",
     "mkdirp": "^0.5.1",
+    "underscore.string": "^3.3.4",
     "yeoman-generator": "^0.22.5",
     "yosay": "^1.2.1"
   }

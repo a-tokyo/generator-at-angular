@@ -2,6 +2,7 @@
 
 var mkdirp = require('mkdirp');
 var _ = require("lodash");
+var utils = require("../../../utils.js");
 
 module.exports = function (AngularATGenerator) {
 
@@ -27,5 +28,6 @@ module.exports = function (AngularATGenerator) {
       this.destinationPath('src/app/components/'+this.props.componentName+'/'+this.props.componentName+'.directive'+'.js'),
       data
     );
+    utils.addToFile("index.components.js","test",utils.COMPONENT_MARKER,this.destinationRoot()+"/src/app");
     };
 };
