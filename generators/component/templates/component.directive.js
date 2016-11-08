@@ -6,7 +6,7 @@ function <%= componentNameCamel %>Component($log) {
 	'ngInject';
 
   var component = {
-    restrict: 'E',
+		bindings: {},
     templateUrl: componentTpl,
     controller: <%= controllerName %>Controller
   };
