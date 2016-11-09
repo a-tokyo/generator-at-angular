@@ -1,22 +1,17 @@
 'use strict';
-
 import componentTpl from './<%= componentName %>.html';
 
-function <%= componentNameCamel %>Component($log) {
-	'ngInject';
+var <%= componentNameCamel %>Component = {
+    templateUrl: componentTpl,
+    controller: <%= controllerName %>Controller,
+    bindings: {}
+};
 
-  var component = {
-		templateUrl: componentTpl,
-		controller: <%= controllerName %>Controller,
-		bindings: {}
-  };
-
-  return component;
-
-  function <%= controllerName %>Controller ($scope) {
-	  $log.debug('Hello from' + '<%= controllerName %>' + 'Controller!');
-  }
-
+function <%= controllerName %>Controller($scope, $log) {
+    'ngInject';
+    $log.debug('Hello from' +
+        '<%= controllerName %>' +
+        'Controller (component)!');
 }
 
 export default <%= componentNameCamel %>Component;
