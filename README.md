@@ -26,9 +26,9 @@
 │   │   │   └── /component/                 #Shared component. Place component's styles, components, directives, templates here
 │   │   │   │   ├── /nested-component/      #Nested component. Place component's styles, components, directives, templates here
 │   │   │   │   ├── /component.component.js #Component js                 
-│   │   │   │   ├── /component.html         #Component template          
+│   │   │   │   ├── /component.component.html         #Component template          
 │   │   │   │   ├── /component.module.js    #Component module                 
-│   │   │   │   └── /component.scss.js      #Component styles             
+│   │   │   │   └── /component.component.scss.js      #Component styles             
 │   │   ├── /core/                          #Shared angular services/directives
 │   │   │   ├── /directives/                #Shared directives
 │   │   │   ├── /services/                  #Shared services
