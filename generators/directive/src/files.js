@@ -6,7 +6,7 @@ var utils = require("../../../utils.js");
 module.exports = function (AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
-      var data = {'directiveName': this.props.directiveName, 'directiveNameCamel': _.camelCase(this.props.directiveName)};
+      var data = {'directiveName': this.props.directiveName, 'directiveNameCamel': _.camelCase(this.props.directiveName), 'needsPartial': this.props.needsPartial};
       if(this.props.needsPartial){
       this.fs.copyTpl(
       this.templatePath('directive.html'),
@@ -21,7 +21,7 @@ module.exports = function (AngularATGenerator) {
     }
       this.fs.copyTpl(
       this.templatePath('directive.directive.js'),
-      this.destinationPath('src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.component'+'.js'),
+      this.destinationPath('src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.directive'+'.js'),
       data
     );
 

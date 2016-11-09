@@ -1,5 +1,7 @@
 'use strict';
-
+<% if (needsPartial) { %>
+import directiveTpl from './<%= directiveName %>.html';
+<% } %>
 export default function (app) {
 
     app.directive('<%= directiveNameCamel %>', <%= directiveNameCamel %>Directive);
@@ -9,7 +11,8 @@ export default function (app) {
 
         return {
             restrict: 'EA',
-            require: 'ngModel',
+            require: 'ngModel',<% if (needsPartial) { %>
+            templateUrl: 'directiveTpl',<% } %>
             link: linkFn
         };
 
