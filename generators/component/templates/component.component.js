@@ -6,14 +6,14 @@ function <%= componentNameCamel %>Component($log) {
 	'ngInject';
 
   var component = {
-		bindings: {},
-    templateUrl: componentTpl,
-    controller: <%= controllerName %>Controller
+		templateUrl: componentTpl,
+		controller: <%= controllerName %>Controller,
+		bindings: {}
   };
 
   return component;
 
-  function <%= controllerName %>Controller () {
+  function <%= controllerName %>Controller ($scope) {
 	  $log.debug('Hello from' + '<%= controllerName %>' + 'Controller!');
   }
 
