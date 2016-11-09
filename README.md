@@ -23,20 +23,20 @@
 ├── /src/                                 # Source folder
 │   ├── /app/                             # Application code
 │   │   ├── /components/                  # Shared UI components
-│   │   │   └── /footer/                  # Footer shared component. Place footer's styles, directives, templates here
+│   │   │   └── /component/                  #shared component. Place component's styles, components, directives, templates here
 │   │   ├── /core/                        # Shared angular services/directives
 │   │   │   ├── /directives/              # Shared directives
 │   │   │   ├── /services/                # Shared services
 │   │   │   └── /core.module.js           # Import of all core components should be here
 │   │   ├── /pages/                       # All pages-dependent content should place here
-│   │   │   ├── /main/                    # Main page
-│   │   │   │   ├── /main.controller.js   # Main page Controller
-│   │   │   │   ├── /main.html            # Main page template
-│   │   │   │   ├── /main.module.js       # Main page module
-│   │   │   │   └── /main.route.js        # Main page routes
+│   │   │   ├── /page/                    # page
+│   │   │   │   ├── /page.controller.js   # page Controller
+│   │   │   │   ├── /page.html            # page template
+│   │   │   │   ├── /page.module.js       # page module
+│   │   │   │   └── /page.route.js        # page routes
 │   │   │   └── /.../                     # Other pages...
 │   │   ├── /index.bootstrap.js           # Entry point. Import internal and external modules and bootstrap (RUN) angular application
-│   │   ├── /index.components.js          # Define all your custom components here
+│   │   ├── /index.components.js          # Custom components definition
 │   │   ├── /index.config.js              # Function that will be triggered in Angular's "config" phase
 │   │   ├── /index.module.js              # Main application's module
 │   │   ├── /index.routes.js              # Describe only "otherwise" and async routes here
@@ -66,12 +66,11 @@ Prerequisites: Node, Yeoman and Webpack. To install run:
 
 Next, install this generator:
 
-    <!-- npm install -g generator-at-angular -->
     Clone this repo and cd into it, then run:
       npm link
 
 
-To create a project:
+Creating a project:
 
     mkdir MyAwesomeApp && cd $_
     yo at-angular
@@ -94,6 +93,7 @@ Running a generator:
   > * **Problem**: Webpack2 unable to import function with only export default value.
 
   >   **Workaround**: Use ```import * as variable from "package" ``` instead of ```import variable from "package" ```
+
 
 
 ###### Inspired by Angular generator-cg-angular and generator-angular-webpack-es6
