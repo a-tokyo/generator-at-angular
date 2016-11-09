@@ -28,6 +28,10 @@ module.exports = function (AngularATGenerator) {
             this.destinationPath('.gitignore')
         );
         this.fs.copy(
+            this.templatePath('_.yo-rc.json'),
+            this.destinationPath('.yo-rc.json')
+        );
+        this.fs.copy(
             this.templatePath('_.babelrc'),
             this.destinationPath('.babelrc')
         );
