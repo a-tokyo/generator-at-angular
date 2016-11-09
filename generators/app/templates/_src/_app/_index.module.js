@@ -22,7 +22,7 @@ const App = angular.module(
 
     // pages
     // require("./pages/main/main.module").name
-
+    // Add new pages above
   ]
 );
 
