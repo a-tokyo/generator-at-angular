@@ -49,6 +49,7 @@
 │   │   ├── /index.run.js                   #Function that will be triggered in Angular's "run" phase
 │   │   ├── /index.vendor.js                #Import all vendors and 3rd party plugins here
 │   ├── /assets/                            #Static content
+│   │   ├── /fonts/                         #Fonts
 │   │   ├── /images/                        #Images
 │   │   ├── /js/                            #Extra libs folder
 │   │   └── /styles/                        #Styles folder

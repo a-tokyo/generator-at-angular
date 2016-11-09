@@ -7,6 +7,7 @@ module.exports = function (AngularATGenerator) {
     AngularATGenerator.prototype.copyFiles = function copyFiles() {
         mkdirp("src");
         mkdirp("src/assets");
+        mkdirp("src/assets/fonts");
         mkdirp("src/assets/images");
         mkdirp("src/assets/js");
         mkdirp("src/app/pages");
