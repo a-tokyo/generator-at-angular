@@ -14,55 +14,55 @@
 
 ```shell
 
-├── /config/                                #Build config
-│   └── /webpack/                           #Webpack config files
-│       ├── /environments/                  #Webpack env dependent configs
-│       └── global.js                       #Global webpack settings for all envs
-├── /dist/                                  #The built application directory to be deployed
-├── /node_modules/                          #3rd-party libraries and utilities
-├── /src/                                   #Source folder
-│   ├── /app/                               #Application code
-│   │   ├── /components/                    #Shared UI components
-│   │   │   └── /component/                 #Shared component. Place component's styles, components, directives, templates here
-│   │   │   │   ├── /nested-component/      #Nested component. Place component's styles, components, directives, templates here
-│   │   │   │   ├── /component.component.js #Component js                 
-│   │   │   │   ├── /component.component.html         #Component template          
-│   │   │   │   ├── /component.module.js    #Component module                 
-│   │   │   │   └── /component.component.scss.js      #Component styles             
-│   │   ├── /core/                          #Shared angular services/directives
-│   │   │   ├── /directives/                #Shared directives
-│   │   │   ├── /services/                  #Shared services
-│   │   │   └── /core.module.js             #Import of all core components should be here
-│   │   ├── /pages/                         #All pages-dependent content should place here
-│   │   │   ├── /page/                      #page
-│   │   │   │   ├── /page.controller.js     #page Controller
-│   │   │   │   ├── /page.html              #page template
-│   │   │   │   ├── /page.module.js         #page module
-│   │   │   │   ├── /page.route.js          #page routes
-│   │   │   │   └── /page.scss              #page styles
-│   │   │   └── /.../                       #Other pages...
-│   │   ├── /index.bootstrap.js             #Entry point. Import internal and external modules and bootstrap (RUN) angular application
-│   │   ├── /index.components.js            #Custom components definition
-│   │   ├── /index.config.js                #Function that will be triggered in Angular's "config" phase
-│   │   ├── /index.module.js                #Main application's module
-│   │   ├── /index.routes.js                #Describe only "otherwise" and async routes here
-│   │   ├── /index.run.js                   #Function that will be triggered in Angular's "run" phase
-│   │   ├── /index.vendor.js                #Import all vendors and 3rd party plugins here
-│   ├── /assets/                            #Static content
-│   │   ├── /fonts/                         #Fonts
-│   │   ├── /images/                        #Images
-│   │   ├── /js/                            #Extra libs folder
-│   │   └── /styles/                        #Styles folder
-│   │       ├── /css/                       #CSS, place external css files here
-│   │       └── /sass/                      #SASS
-│   │           └── /index.scss             #Main SASS file, define your global styling here.
-│   ├── favicon.ico                         #Application icon to be displayed in bookmarks
-│   └── tpl-index.html                      #Template for html-webpack-plugin that will be transpiled into index.html in /dist
-│── .babelrc                                #Babel config with presets and plugins
-│── .gitignore                              #List of files to ignore by git
-│── .yo-rc.json                             #Defines the root of the project, allows your user to run commands in subdirectories.
-│── package.json                            #The list of project dependencies and NPM scripts
-└── webpack.config.js                       #Bundling and optimization settings for Webpack
+├── /config/                                   #Build config
+│   └── /webpack/                              #Webpack config files
+│       ├── /environments/                     #Webpack env dependent configs
+│       └── global.js                          #Global webpack settings for all envs
+├── /dist/                                     #The built application directory to be deployed
+├── /node_modules/                             #3rd-party libraries and utilities
+├── /src/                                      #Source folder
+│   ├── /app/                                  #Application code
+│   │   ├── /components/                       #Shared UI components
+│   │   │   └── /component/                    #Shared component. Place component's styles, components, directives, templates here
+│   │   │   │   ├── /nested-component/         #Nested component. Place component's styles, components, directives, templates here
+│   │   │   │   ├── /component.component.js    #Component definition JS                 
+│   │   │   │   ├── /component.component.html  #Component template          
+│   │   │   │   ├── /component.module.js       #Component module                 
+│   │   │   │   └── /component.component.scss  #Component styles             
+│   │   ├── /core/                             #Shared angular services/directives
+│   │   │   ├── /directives/                   #Shared directives
+│   │   │   ├── /services/                     #Shared services
+│   │   │   └── /core.module.js                #Import of all core components should be here
+│   │   ├── /pages/                            #All pages-dependent content should place here
+│   │   │   ├── /page/                         #page
+│   │   │   │   ├── /page.controller.js        #page Controller
+│   │   │   │   ├── /page.html                 #page template
+│   │   │   │   ├── /page.module.js            #page module
+│   │   │   │   ├── /page.route.js             #page routes
+│   │   │   │   └── /page.scss                 #page styles
+│   │   │   └── /.../                          #Other pages...
+│   │   ├── /index.bootstrap.js                #Entry point. Import internal and external modules and bootstrap (RUN) angular application
+│   │   ├── /index.components.js               #Custom components definition
+│   │   ├── /index.config.js                   #Function that will be triggered in Angular's "config" phase
+│   │   ├── /index.module.js                   #Main application's module
+│   │   ├── /index.routes.js                   #Describe only "otherwise" and async routes here
+│   │   ├── /index.run.js                      #Function that will be triggered in Angular's "run" phase
+│   │   ├── /index.vendor.js                   #Import all vendors and 3rd party plugins here
+│   ├── /assets/                               #Static content
+│   │   ├── /fonts/                            #Fonts
+│   │   ├── /images/                           #Images
+│   │   ├── /js/                               #Extra libs folder
+│   │   └── /styles/                           #Styles folder
+│   │       ├── /css/                          #CSS, place external css files here
+│   │       └── /sass/                         #SASS
+│   │           └── /index.scss                #Main SASS file, define your global styling here.
+│   ├── favicon.ico                            #Application icon to be displayed in bookmarks
+│   └── tpl-index.html                         #Template for html-webpack-plugin that will be transpiled into index.html in /dist
+│── .babelrc                                   #Babel config with presets and plugins
+│── .gitignore                                 #List of files to ignore by git
+│── .yo-rc.json                                #Defines the root of the project, allows your user to run commands in subdirectories.
+│── package.json                               #The list of project dependencies and NPM scripts
+└── webpack.config.js                          #Bundling and optimization settings for Webpack
 ```
 
 
