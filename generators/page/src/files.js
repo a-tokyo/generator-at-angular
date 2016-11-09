@@ -10,27 +10,27 @@ module.exports = function (AngularATGenerator) {
       var data = {'pageName': this.props.pageName, 'pageNameCamel': _.camelCase(this.props.pageName), 'controllerName': _.upperFirst(_.camelCase(this.props.pageName)), 'pageModule': _.camelCase(this.props.pageModule), 'pageState': this.props.pageState, 'pageRoute': this.props.pageRoute};
       this.fs.copyTpl(
       this.templatePath('page.html'),
-      this.destinationPath('src/app/pages/'+data.pageName+'/'+data.pageName+'.html'),
+      this.destinationPath(this.destinationRoot()+'/src/app/pages/'+data.pageName+'/'+data.pageName+'.html'),
       data
     );
       this.fs.copyTpl(
       this.templatePath('page.scss'),
-      this.destinationPath('src/app/pages/'+data.pageName+'/'+data.pageName+'.scss'),
+      this.destinationPath(this.destinationRoot()+'/src/app/pages/'+data.pageName+'/'+data.pageName+'.scss'),
       data
     );
       this.fs.copyTpl(
       this.templatePath('page.module.js'),
-      this.destinationPath('src/app/pages/'+data.pageName+'/'+data.pageName+'.module'+'.js'),
+      this.destinationPath(this.destinationRoot()+'/src/app/pages/'+data.pageName+'/'+data.pageName+'.module'+'.js'),
       data
     );
       this.fs.copyTpl(
       this.templatePath('page.route.js'),
-      this.destinationPath('src/app/pages/'+data.pageName+'/'+data.pageName+'.route'+'.js'),
+      this.destinationPath(this.destinationRoot()+'/src/app/pages/'+data.pageName+'/'+data.pageName+'.route'+'.js'),
       data
     );
       this.fs.copyTpl(
       this.templatePath('page.controller.js'),
-      this.destinationPath('src/app/pages/'+data.pageName+'/'+data.pageName+'.controller'+'.js'),
+      this.destinationPath(this.destinationRoot()+'/src/app/pages/'+data.pageName+'/'+data.pageName+'.controller'+'.js'),
       data
     );
     var indexModulesWriteLine = "require('./pages/"+data.pageName+"/"+data.pageName+".module').name";

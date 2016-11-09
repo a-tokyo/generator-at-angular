@@ -10,18 +10,18 @@ module.exports = function (AngularATGenerator) {
       if(this.props.needsPartial){
       this.fs.copyTpl(
       this.templatePath('directive.html'),
-      this.destinationPath('src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.html'),
+      this.destinationPath(this.destinationRoot()+'/src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.html'),
       data
     );
       this.fs.copyTpl(
       this.templatePath('directive.scss'),
-      this.destinationPath('src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.scss'),
+      this.destinationPath(this.destinationRoot()+'/src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.scss'),
       data
     );
     }
       this.fs.copyTpl(
       this.templatePath('directive.directive.js'),
-      this.destinationPath('src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.directive'+'.js'),
+      this.destinationPath(this.destinationRoot()+'/src/app/core/directives/'+data.directiveName+'/'+data.directiveName+'.directive'+'.js'),
       data
     );
 

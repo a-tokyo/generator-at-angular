@@ -11,7 +11,7 @@ module.exports = function (AngularATGenerator) {
 
       this.fs.copyTpl(
       this.templatePath('service.factory.js'),
-      this.destinationPath('src/app/core/services/'+data.serviceName+'.factory'+'.js'),
+      this.destinationPath(this.destinationRoot()+'/src/app/core/services/'+data.serviceName+'.factory'+'.js'),
       data
     );
     var coreModulesWriteLine = "require('./services/"+data.serviceName+".factory"+"')(shared);";

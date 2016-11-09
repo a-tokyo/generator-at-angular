@@ -35,24 +35,25 @@ module.exports = function (AngularATGenerator) {
       }
 
       // Copy template files
+      //this.destinationRoot()+
       this.fs.copyTpl(
         this.templatePath('component.html'),
-        this.destinationPath('src/app/components/'+fullPath+'/'+data.componentName+'.html'),
+        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.html'),
         data
       );
       this.fs.copyTpl(
         this.templatePath('component.scss'),
-        this.destinationPath('src/app/components/'+fullPath+'/'+data.componentName+'.scss'),
+        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.scss'),
         data
       );
       this.fs.copyTpl(
         this.templatePath('component.module.js'),
-        this.destinationPath('src/app/components/'+fullPath+'/'+data.componentName+'.module'+'.js'),
+        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.module'+'.js'),
         data
       );
       this.fs.copyTpl(
         this.templatePath('component.component.js'),
-        this.destinationPath('src/app/components/'+fullPath+'/'+data.componentName+'.component'+'.js'),
+        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.component'+'.js'),
         data
       );
 
