@@ -1,0 +1,14 @@
+[
+  {
+    "type": "input",
+    "name": "directiveName",
+    "message": "Your directive's name",
+    "default": "directive"
+  },
+  {
+    "type": "confirm",
+    "name": "needsPartial",
+    "message": "Does this directive need a partial ?",
+    "default": true
+  }
+]
