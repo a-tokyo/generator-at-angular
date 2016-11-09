@@ -79,10 +79,12 @@ To create a project:
 
 Running a generator:
 
-    yo at-angular:component my-component
-    yo at-angular:directive my-directive
     yo at-angular:page my-page
     yo at-angular:service my-service
+    yo at-angular:directive my-directive
+    yo at-angular:component my-component
+    yo at-angular:component my-component/my-nested-component
+    yo at-angular:component my-component/my-nested-component/my-nested2-component
 
 
 ##### `npm start` or `npm run dev` - to start development server on http://localhost:8080.
