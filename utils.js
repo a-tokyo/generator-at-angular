@@ -11,13 +11,17 @@ exports.SERVICE_MARKER = "// Add new services above";
 exports.PAGE_MARKER = "// Add new pages above";
 exports.DIRECTIVE_MARKER = "// Add new directives above";
 
+exports.IMPORT_MODULE_MARKER = "// Add module imports above";
+exports.IMPORT_STYLE_MARKER = "// Add style imports above";
+exports.MODULE_DEPENDANCIES_MARKER = "// Add module dependencies above";
+
 exports.SCSS_MARKER = "// Add Component SCSS Above";
 exports.ROUTE_MARKER = "/* Add New Routes Above */";
 exports.STATE_MARKER = "/* Add New States Above */";
 
 exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     try {
-      console.log('try write');
+        console.log('Writing data to files');
         var fullPath = path.resolve(fullpathI,filename);
         var fileSrc = fs.readFileSync(fullPath,'utf8');
 
@@ -27,7 +31,9 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
         fileSrc = fileSrc.substring(0,indexOf) + lineToAdd + "\n" + indent + fileSrc.substring(indexOf);
 
         fs.writeFileSync(fullPath,fileSrc);
+        console.log('Written data to files');
     } catch(e) {
+      console.log('Could not write data to files');
       console.log(e);
     }
 };
