@@ -53,8 +53,9 @@
 │   │   ├── /images/                        #Images
 │   │   ├── /js/                            #Extra libs folder
 │   │   └── /styles/                        #Styles folder
-│   │       ├── /css/                       #CSS
+│   │       ├── /css/                       #CSS, place external css files here
 │   │       └── /sass/                      #SASS
+│   │           └── /index.scss             #Main SASS file, define your global styling here.
 │   ├── favicon.ico                         #Application icon to be displayed in bookmarks
 │   └── tpl-index.html                      #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 │── .babelrc                                #Babel config with presets and plugins
