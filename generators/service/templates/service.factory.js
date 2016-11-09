@@ -4,7 +4,7 @@ export default function (app) {
     app
         .factory('<%= serviceNameCamel %>', <%= serviceNameCamel %>Factory);
 
-        function s<%= serviceNameCamel %>Factory () {
+        function <%= serviceNameCamel %>Factory () {
             return {
 
             };
