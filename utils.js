@@ -37,7 +37,3 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
       console.log(e);
     }
 };
-
-exports.test = function(){
-  console.log('test');
-};
