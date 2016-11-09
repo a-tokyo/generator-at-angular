@@ -14,7 +14,7 @@ module.exports = function (AngularATGenerator) {
       var data = {'componentName': componentName, 'componentNameCamel': _.camelCase(componentName), 'controllerName': _.upperFirst(_.camelCase(componentName)), 'componentModule': _.camelCase(this.props.componentModule)};
       //if the component has no parent
       if(pathAsArray.length===1) {
-        var indexModulesWriteLine = "require('./components/"+this.props.componentName+"/"+this.props.componentName + ".module').name,";
+        var indexModulesWriteLine = "require('./components/"+data.componentName+"/"+data.componentName + ".module').name,";
         utils.addToFile("index.components.js",indexModulesWriteLine,utils.COMPONENT_MARKER,this.destinationRoot()+"/src/app");
       }
       else{
@@ -29,6 +29,9 @@ module.exports = function (AngularATGenerator) {
         //style
         var styleImport = "import './"+componentName+"/"+componentName+".scss';";
         utils.addToFile(parentComponentName+".module.js",styleImport,utils.IMPORT_STYLE_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
+        //dependency
+        var dependencyImport = "'"+ data.componentModule + "'";
+        utils.addToFile(parentComponentName+".module.js",dependencyImport,utils.IMPORT_DEPENDENCY_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
       }
 
       // Copy template files
