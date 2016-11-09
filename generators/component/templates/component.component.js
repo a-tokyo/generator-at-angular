@@ -1,5 +1,5 @@
 'use strict';
-import componentTpl from './<%= componentName %>.html';
+import componentTpl from './<%= componentName %>.component.html';
 
 var <%= componentNameCamel %>Component = {
     templateUrl: componentTpl,

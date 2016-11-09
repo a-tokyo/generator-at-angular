@@ -27,7 +27,7 @@ module.exports = function (AngularATGenerator) {
         var moduleImport = "import * as "+data.componentModule+" from './"+componentName+"/"+componentName+".module';";
         utils.addToFile(parentComponentName+".module.js",moduleImport,utils.IMPORT_MODULE_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
         //style
-        var styleImport = "import './"+componentName+"/"+componentName+".scss';";
+        var styleImport = "import './"+componentName+"/"+componentName+".component.scss';";
         utils.addToFile(parentComponentName+".module.js",styleImport,utils.IMPORT_STYLE_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
         //dependency
         var dependencyImport = "'"+ data.componentModule + "'";
@@ -38,17 +38,17 @@ module.exports = function (AngularATGenerator) {
       //this.destinationRoot()+
       this.fs.copyTpl(
         this.templatePath('component.html'),
-        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.html'),
+        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.component.html'),
         data
       );
       this.fs.copyTpl(
         this.templatePath('component.scss'),
-        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.scss'),
+        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.component.scss'),
         data
       );
       this.fs.copyTpl(
         this.templatePath('component.module.js'),
-        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.module'+'.js'),
+        this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.module.js'),
         data
       );
       this.fs.copyTpl(
