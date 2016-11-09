@@ -28,7 +28,7 @@ module.exports = function (AngularATGenerator) {
       this.destinationPath('src/app/components/'+this.props.componentName+'/'+this.props.componentName+'.component'+'.js'),
       data
     );
-    var indexModulesWriteLine = "require('./components/"+this.props.componentName+"/"+this.props.componentName + ".module').name";
+    var indexModulesWriteLine = "require('./components/"+this.props.componentName+"/"+this.props.componentName + ".module').name,";
     utils.addToFile("index.components.js",indexModulesWriteLine,utils.COMPONENT_MARKER,this.destinationRoot()+"/src/app");
     // var indexScssWriteLine = "@import '../../../app/components/"+this.props.componentName+"/"+this.props.componentName + ".scss';";
     // utils.addToFile("index.scss",indexScssWriteLine,utils.SCSS_MARKER,this.destinationRoot()+"/src/assets/styles/sass");
