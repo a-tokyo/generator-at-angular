@@ -10,9 +10,8 @@ export default function (app) {
         'ngInject';
 
         return {
-            restrict: 'EA',
-            require: 'ngModel',<% if (needsPartial) { %>
-            templateUrl: 'directiveTpl',<% } %>
+            restrict: 'EA',<% if (needsPartial) { %>
+            templateUrl: directiveTpl,<% } %>
             link: linkFn
         };
 
