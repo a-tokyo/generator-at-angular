@@ -24,7 +24,8 @@
 │   ├── /app/                                  #Application code
 │   │   ├── /components/                       #Shared UI components
 │   │   │   └── /component/                    #Shared component. Place component's styles, components, directives, templates here
-│   │   │   │   ├── /nested-component/         #Nested component. Place component's styles, components, directives, templates here
+│   │   │   │   ├── /components/               #Nested components. Place nested components here.
+│   │   │   │   ├── /directives/               #Component related directives.
 │   │   │   │   ├── /component.component.js    #Component definition JS                 
 │   │   │   │   ├── /component.component.html  #Component template          
 │   │   │   │   ├── /component.module.js       #Component module                 
