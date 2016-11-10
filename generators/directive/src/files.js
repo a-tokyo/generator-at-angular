@@ -45,7 +45,7 @@ module.exports = function (AngularATGenerator) {
 
       this.fs.copyTpl(
       this.templatePath('componentDirective.directive.js'),
-      this.destinationPath(this.destinationRoot()+appRelPath+'/'+parentPath+'/directives/'+data.directiveName+'/'+data.directiveName+'.directive'+'.js'),
+      this.destinationPath(fullPath+'/'+data.directiveName+'.directive'+'.js'),
       data
     );
 
