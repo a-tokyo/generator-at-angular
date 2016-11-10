@@ -23,6 +23,7 @@ module.exports = function (AngularATGenerator) {
         var parentPath = _.join(pathAsArray.slice(0, pathAsArray.length-1), '/');
         fullPath = parentPath + "/components/" + data.componentName;
         //writing imports to files
+        try{
         //module
         var moduleImport = "import * as "+data.componentModule+" from './components/"+componentName+"/"+componentName+".module';";
         utils.addToFile(parentComponentName+".module.js",moduleImport,utils.IMPORT_MODULE_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
@@ -32,6 +33,11 @@ module.exports = function (AngularATGenerator) {
         //dependency
         var dependencyImport = "'"+ data.componentModule + "',";
         utils.addToFile(parentComponentName+".module.js",dependencyImport,utils.IMPORT_DEPENDENCY_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
+        }
+        catch(err){
+          this.log('Parent component files not found.');
+          return;
+        }
       }
 
       // Copy template files

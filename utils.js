@@ -24,7 +24,6 @@ exports.STATE_MARKER = "/* Add New States Above */";
 
 exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     try {
-        console.log('Writing data to files');
         var fullPath = path.resolve(fullpathI,filename);
         var fileSrc = fs.readFileSync(fullPath,'utf8');
 
@@ -37,6 +36,6 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
         console.log('Written data to files');
     } catch(e) {
       console.log('Could not write data to files');
-      console.log(e);
+      throw e;
     }
 };
