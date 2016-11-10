@@ -11,25 +11,26 @@ module.exports = function (AngularATGenerator) {
       var directiveName = relPathAsArray[relPathAsArray.length-1];
 
       var data = {'directiveName': directiveName, 'directiveNameCamel': _.camelCase(directiveName), 'needsPartial': this.props.needsPartial};
-
+      var fullPath;
       if(relPathAsArray.length===1) {
         var appRelPath = '/src/app/core/directives';
+        fullPath = this.destinationRoot()+appRelPath+'/'+data.directiveName;
 
         if(this.props.needsPartial){
         this.fs.copyTpl(
         this.templatePath('directive.html'),
-        this.destinationPath(this.destinationRoot()+appRelPath+'/'+data.directiveName+'/'+data.directiveName+'.html'),
+        this.destinationPath(fullPath+'/'+data.directiveName+'.html'),
         data
       );
         this.fs.copyTpl(
         this.templatePath('directive.scss'),
-        this.destinationPath(this.destinationRoot()+appRelPath+'/'+data.directiveName+'/'+data.directiveName+'.scss'),
+        this.destinationPath(fullPath+'/'+data.directiveName+'.scss'),
         data
       );
       }
         this.fs.copyTpl(
         this.templatePath('directive.directive.js'),
-        this.destinationPath(this.destinationRoot()+appRelPath+'/'+data.directiveName+'/'+data.directiveName+'.directive'+'.js'),
+        this.destinationPath(fullPath+'/'+data.directiveName+'.directive'+'.js'),
         data
       );
 
@@ -37,7 +38,17 @@ module.exports = function (AngularATGenerator) {
       utils.addToFile("core.module.js",coreModulesWriteLine,utils.DIRECTIVE_MARKER,this.destinationRoot()+"/src/app/core");
 
     }else{
-      var parentComponentName = pathAsArray[relPathAsArray.length-2];
+      var appRelPath = '/src/app/components';
+      var parentName = relPathAsArray[relPathAsArray.length-2];
+      var parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length-1), '/');
+      fullPath = this.destinationRoot()+appRelPath+'/'+parentPath+'/directives/'+data.directiveName;
+
+      this.fs.copyTpl(
+      this.templatePath('componentDirective.directive.js'),
+      this.destinationPath(this.destinationRoot()+appRelPath+'/'+parentPath+'/directives/'+data.directiveName+'/'+data.directiveName+'.directive'+'.js'),
+      data
+    );
+
     }
 
 
