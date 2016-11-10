@@ -30,7 +30,7 @@ module.exports = function (AngularATGenerator) {
         var styleImport = "import './"+componentName+"/"+componentName+".component.scss';";
         utils.addToFile(parentComponentName+".module.js",styleImport,utils.IMPORT_STYLE_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
         //dependency
-        var dependencyImport = "'"+ data.componentModule + "'";
+        var dependencyImport = "'"+ data.componentModule + "',";
         utils.addToFile(parentComponentName+".module.js",dependencyImport,utils.IMPORT_DEPENDENCY_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
       }
 

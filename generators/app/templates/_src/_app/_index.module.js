@@ -21,7 +21,6 @@ const App = angular.module(
     require("./index.routes").name,
 
     // pages
-    // require("./pages/main/main.module").name
     // Add new pages above
   ]
 );
