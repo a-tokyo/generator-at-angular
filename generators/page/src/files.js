@@ -34,7 +34,5 @@ module.exports = function (AngularATGenerator) {
     );
     var indexModulesWriteLine = "require('./pages/"+data.pageName+"/"+data.pageName+".module').name,";
     utils.addToFile("index.module.js",indexModulesWriteLine,utils.PAGE_MARKER,this.destinationRoot()+"/src/app");
-    // var indexScssWriteLine = "@import '../../../app/components/"+this.props.componentName+"/"+this.props.componentName + ".scss';";
-    // utils.addToFile("index.scss",indexScssWriteLine,utils.SCSS_MARKER,this.destinationRoot()+"/src/assets/styles/sass");
     };
 };
