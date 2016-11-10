@@ -26,6 +26,7 @@
 │   │   │   └── /component/                    #Shared component. Place component's styles, components, directives, templates here
 │   │   │   │   ├── /components/               #Nested components. Place nested components here.
 │   │   │   │   ├── /directives/               #Component related directives.
+│   │   │   │   ├── /services/                 #Component services.
 │   │   │   │   ├── /component.component.js    #Component definition JS                 
 │   │   │   │   ├── /component.component.html  #Component template          
 │   │   │   │   ├── /component.module.js       #Component module                 
@@ -90,6 +91,7 @@ Running a generator:
 
     yo at-angular:page my-page                                                    # Generates a page
     yo at-angular:service my-service                                              # Generates a service
+    yo at-angular:service my-component/my-service                                 # Generates a service in a component
     yo at-angular:directive my-directive                                          # Generates a shared directive
     yo at-angular:directive my-component/my-directive                             # Generates a directive in a component
     yo at-angular:component my-component                                          # Generates a component
