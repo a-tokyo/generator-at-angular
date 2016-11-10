@@ -5,7 +5,6 @@ function routeConfig($urlRouterProvider, $stateProvider) {
   /* Add New States Above */
   /* Add New Routes Above */
   $urlRouterProvider.otherwise('/');
-
 }
 
 export default angular

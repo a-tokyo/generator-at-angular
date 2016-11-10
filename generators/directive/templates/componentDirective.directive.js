@@ -2,7 +2,6 @@
 <% if (needsPartial) { %>
 import directiveTpl from './<%= directiveName %>.html';
 <% } %>
-
 function <%= directiveNameCamel %>Directive() {
     'ngInject';
 
@@ -16,7 +15,6 @@ return {
 function linkFn(scope, elem, attrs, fn) {
 
   }
-
 }
 
 export default <%= directiveNameCamel %>Directive;

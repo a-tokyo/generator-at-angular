@@ -3,9 +3,7 @@
 import directiveTpl from './<%= directiveName %>.html';
 <% } %>
 export default function (app) {
-
     app.directive('<%= directiveNameCamel %>', <%= directiveNameCamel %>Directive);
-
     function <%= directiveNameCamel %>Directive () {
         'ngInject';
 

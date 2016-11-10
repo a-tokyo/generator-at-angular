@@ -7,7 +7,6 @@ const <%= pageName %>Module = angular.module('<%= pageModule %>', [
   'ui.router'
 ]);
 
-<%= pageName %>Module
-    .config(route);
+<%= pageName %>Module.config(route);
 
 export default <%= pageName %>Module;

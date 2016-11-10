@@ -4,7 +4,6 @@ import * as components from './index.components';
 import * as config from './index.config';
 import * as run from './index.run';
 
-
 const App = angular.module(
   "<%= props.appName %>", [
     // plugins
@@ -28,7 +27,5 @@ const App = angular.module(
 App
   .config(config)
   .run(run);
-
-
 
 export default App;

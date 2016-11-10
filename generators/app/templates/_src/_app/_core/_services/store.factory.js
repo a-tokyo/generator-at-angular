@@ -1,12 +1,11 @@
 'use strict';
 
 export default function (app) {
-    app
-        .factory('store', storeFactory);
+    app.factory('store', storeFactory);
 
         function storeFactory () {
             return {
-                "options": ["premium", "free"]
+              
             };
         }
 }
