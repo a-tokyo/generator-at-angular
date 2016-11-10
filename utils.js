@@ -13,10 +13,12 @@ exports.DIRECTIVE_MARKER = "// Add new directives above";
 
 exports.IMPORT_MODULE_MARKER = "// Add module imports above";
 exports.IMPORT_STYLE_MARKER = "// Add style imports above";
+exports.IMPORT_SERVICE_MARKER = "// Add service imports above";
 exports.IMPORT_DEPENDENCY_MARKER = "// Add module dependencies above";
 
 exports.IMPORT_DIRECTIVE_MARKER = "// Add directive imports above";
 exports.ADD_DIRECTIVE_TOMODULE_MARKER = "// Add directive to module above";
+exports.ADD_SERVICE_TOMODULE_MARKER = "// Add service to module above";
 
 exports.MAIN_SCSS_MARKER = "// Add Main SCSS Above";
 exports.ROUTE_MARKER = "/* Add New Routes Above */";
