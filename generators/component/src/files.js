@@ -22,12 +22,13 @@ module.exports = function (AngularATGenerator) {
         // setting defaults extra, component name and path settings
         var parentComponentName = pathAsArray[pathAsArray.length-2];
         var parentPath = _.join(pathAsArray.slice(0, pathAsArray.length-1), '/');
+        fullPath = parentPath + "/components/" + data.componentName;
         //writing imports to files
         //module
-        var moduleImport = "import * as "+data.componentModule+" from './"+componentName+"/"+componentName+".module';";
+        var moduleImport = "import * as "+data.componentModule+" from './components/"+componentName+"/"+componentName+".module';";
         utils.addToFile(parentComponentName+".module.js",moduleImport,utils.IMPORT_MODULE_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
         //style
-        var styleImport = "import './"+componentName+"/"+componentName+".component.scss';";
+        var styleImport = "import './components/"+componentName+"/"+componentName+".component.scss';";
         utils.addToFile(parentComponentName+".module.js",styleImport,utils.IMPORT_STYLE_MARKER,this.destinationRoot()+"/src/app/components/"+parentPath);
         //dependency
         var dependencyImport = "'"+ data.componentModule + "',";
@@ -35,7 +36,6 @@ module.exports = function (AngularATGenerator) {
       }
 
       // Copy template files
-      //this.destinationRoot()+
       this.fs.copyTpl(
         this.templatePath('component.html'),
         this.destinationPath(this.destinationRoot()+'/src/app/components/'+fullPath+'/'+data.componentName+'.component.html'),
