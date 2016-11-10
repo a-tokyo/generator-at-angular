@@ -10,12 +10,13 @@ export default function (app) {
         'ngInject';
 
         return {
-            restrict: 'EA',<% if (needsPartial) { %>
+            restrict: 'EA',
+            scope: {},<% if (needsPartial) { %>
             templateUrl: directiveTpl,<% } %>
             link: linkFn
         };
 
-        function linkFn (scope, elem, attrs, ngModelCtrl) {
+        function linkFn (scope, elem, attrs, fn) {
 
         }
     }
