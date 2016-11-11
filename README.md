@@ -59,7 +59,7 @@
 │   │       └── /sass/                         #SASS
 │   │           └── /index.scss                #Main SASS file, define your global styling here.
 │   ├── favicon.ico                            #Application icon to be displayed in bookmarks
-│   └── tpl-index.html                         #Template for html-webpack-plugin that will be transpiled into index.html in /dist
+│   └── tpl-index.ejs                          #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 │── .babelrc                                   #Babel config with presets and plugins
 │── .gitignore                                 #List of files to ignore by git
 │── .yo-rc.json                                #Defines the root of the project, allows your user to run commands in subdirectories.
