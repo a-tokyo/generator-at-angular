@@ -1,7 +1,7 @@
 'use strict';
 
 var mkdirp = require('mkdirp');
-var _ = require("lodash");
+var _ = require('lodash');
 
 module.exports = function (AngularATGenerator) {
 
@@ -9,21 +9,21 @@ module.exports = function (AngularATGenerator) {
       this.props.styles = {};
       var that = this;
       this.props.angularModules.forEach(function(elm){
-        if(elm.key === "material"){
+        if(elm.key === 'material'){
           that.props.styles.material = true;
         }
       });
     };
 
     AngularATGenerator.prototype.copyFiles = function copyFiles() {
-        mkdirp("src");
-        mkdirp("src/assets");
-        mkdirp("src/assets/fonts");
-        mkdirp("src/assets/images");
-        mkdirp("src/assets/js");
-        mkdirp("src/app/pages");
-        mkdirp("src/app/components");
-        mkdirp("src/app/core/directives");
+        mkdirp('src');
+        mkdirp('src/assets');
+        mkdirp('src/assets/fonts');
+        mkdirp('src/assets/images');
+        mkdirp('src/assets/js');
+        mkdirp('src/app/pages');
+        mkdirp('src/app/components');
+        mkdirp('src/app/core/directives');
 
         this.fs.copyTpl(
             this.templatePath('_package.json'),
