@@ -5,7 +5,7 @@ var _ = require("lodash");
 
 module.exports = function (AngularATGenerator) {
 
-    AngularATGenerator.prototype.testFileWr = function testFileWr() {
+    AngularATGenerator.prototype.adjustPropsForFiles = function adjustPropsForFiles() {
       this.props.styles = {};
       var that = this;
       this.props.angularModules.forEach(function(elm){
