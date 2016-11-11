@@ -1,7 +1,14 @@
-<% if (props.bootstrapSass) { %>
+@fa-font-path: "~font-awesome/fonts";<% if (props.bootstrapSass) { %>
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';<% } %><% if (props.styles.material) { %>
-@import '~angular-material/angular-material.css';
+@import '~angular-material/angular-material.scss';
 <% } %>
+// Add style imports above
+
+// Add font paths above
+
+.site-wrapper{
+
+}
 
 // Add Main SCSS Above

@@ -24,6 +24,10 @@ module.exports = function (AngularATGenerator) {
             deps.push("moment");
         }
 
+        if (this.props.styles.material) {
+            deps.push("material-design-icons");
+        }
+
         deps = _.concat(deps, this.importList);
 
         this.npmInstall(deps, {'save': true});
