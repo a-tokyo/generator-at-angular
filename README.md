@@ -106,7 +106,7 @@ Running a generator:
 
 
 ### Out of the box optional supports:
-    
+
   > * **Angular Material:**
        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
 
@@ -118,4 +118,5 @@ Running a generator:
 
 
 
-###### Inspired by Angular generator-cg-angular and generator-angular-webpack-es6
+##### TODO:
+  > Add Karma Testing
