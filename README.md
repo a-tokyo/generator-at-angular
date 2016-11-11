@@ -105,10 +105,10 @@ Running a generator:
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
 
 
-Out of the box optional supports:
+### Out of the box optional supports:
     
-   > * **Angular Material:**
-        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
+  > * **Angular Material:**
+       UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
 
 
 ### Known bugs:
