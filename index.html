@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Generator-at-angular by A-Tokyo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Generator-at-angular</h1>
+      <h2 class="project-tagline">Yeoman Generator for angular that uses Webpack2 as a module bundler, SASS as CSS preprocessor and UI router as default angular router.</h2>
+      <a href="https://github.com/A-Tokyo/generator-at-angular" class="btn">View on GitHub</a>
+      <a href="https://github.com/A-Tokyo/generator-at-angular/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/A-Tokyo/generator-at-angular/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="generator-at-angular" class="anchor" href="#generator-at-angular" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>generator-at-angular</h1>
+
+<blockquote>
+<p>Yeoman generator for AngularJS + Webpack with ES6 and SASS.</p>
+
+<ul>
+<li>Babel 6 with ES2017 features.</li>
+<li>Latest Webpack with Tree Shaking feature enabled.</li>
+<li>SASS as CSS preprocessor.</li>
+<li>Angular UI router as default router.</li>
+<li>All necessary webpack loaders already included (Sass, Images, Fonts, ngAnnotate, ngTemplateCache, etc.)</li>
+<li>Proxy configured to make cross origin requests with a simple prefix.</li>
+</ul>
+</blockquote>
+
+<h3>
+<a id="directory-layout" class="anchor" href="#directory-layout" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Directory Layout</h3>
+
+<div class="highlight highlight-source-shell"><pre>
+├── /config/                                   <span class="pl-c">#Build config</span>
+│   └── /webpack/                              <span class="pl-c">#Webpack config files</span>
+│       ├── /environments/                     <span class="pl-c">#Webpack env dependent configs</span>
+│       └── global.js                          <span class="pl-c">#Global webpack settings for all envs</span>
+├── /dist/                                     <span class="pl-c">#The built application directory to be deployed</span>
+├── /node_modules/                             <span class="pl-c">#3rd-party libraries and utilities</span>
+├── /src/                                      <span class="pl-c">#Source folder</span>
+│   ├── /app/                                  <span class="pl-c">#Application code</span>
+│   │   ├── /components/                       <span class="pl-c">#Shared UI components</span>
+│   │   │   └── /component/                    <span class="pl-c">#Shared component. Place component's styles, components, directives, templates here</span>
+│   │   │   │   ├── /components/               <span class="pl-c">#Nested components. Place nested components here.</span>
+│   │   │   │   ├── /directives/               <span class="pl-c">#Component related directives.</span>
+│   │   │   │   ├── /services/                 <span class="pl-c">#Component services.</span>
+│   │   │   │   ├── /component.component.js    <span class="pl-c">#Component definition JS                 </span>
+│   │   │   │   ├── /component.component.html  <span class="pl-c">#Component template          </span>
+│   │   │   │   ├── /component.module.js       <span class="pl-c">#Component module                 </span>
+│   │   │   │   └── /component.component.scss  <span class="pl-c">#Component styles             </span>
+│   │   ├── /core/                             <span class="pl-c">#Shared angular services/directives</span>
+│   │   │   ├── /directives/                   <span class="pl-c">#Shared directives</span>
+│   │   │   ├── /services/                     <span class="pl-c">#Shared services</span>
+│   │   │   └── /core.module.js                <span class="pl-c">#Import of all core components should be here</span>
+│   │   ├── /pages/                            <span class="pl-c">#All pages-dependent content should place here</span>
+│   │   │   ├── /page/                         <span class="pl-c">#page</span>
+│   │   │   │   ├── /page.controller.js        <span class="pl-c">#page Controller</span>
+│   │   │   │   ├── /page.html                 <span class="pl-c">#page template</span>
+│   │   │   │   ├── /page.module.js            <span class="pl-c">#page module</span>
+│   │   │   │   ├── /page.route.js             <span class="pl-c">#page routes</span>
+│   │   │   │   └── /page.scss                 <span class="pl-c">#page styles</span>
+│   │   │   └── /.../                          <span class="pl-c">#Other pages...</span>
+│   │   ├── /index.bootstrap.js                <span class="pl-c">#Entry point. Import internal and external modules and bootstrap (RUN) angular application</span>
+│   │   ├── /index.components.js               <span class="pl-c">#Custom components definition</span>
+│   │   ├── /index.config.js                   <span class="pl-c">#Function that will be triggered in Angular's "config" phase</span>
+│   │   ├── /index.module.js                   <span class="pl-c">#Main application's module</span>
+│   │   ├── /index.routes.js                   <span class="pl-c">#Describe only "otherwise" and async routes here</span>
+│   │   ├── /index.run.js                      <span class="pl-c">#Function that will be triggered in Angular's "run" phase</span>
+│   │   ├── /index.vendor.js                   <span class="pl-c">#Import all vendors and 3rd party plugins here</span>
+│   ├── /assets/                               <span class="pl-c">#Static content</span>
+│   │   ├── /fonts/                            <span class="pl-c">#Fonts</span>
+│   │   ├── /images/                           <span class="pl-c">#Images</span>
+│   │   ├── /js/                               <span class="pl-c">#Extra libs folder</span>
+│   │   └── /styles/                           <span class="pl-c">#Styles folder</span>
+│   │       ├── /css/                          <span class="pl-c">#CSS, place external css files here</span>
+│   │       └── /sass/                         <span class="pl-c">#SASS</span>
+│   │           └── /index.scss                <span class="pl-c">#Main SASS file, define your global styling here.</span>
+│   ├── favicon.ico                            <span class="pl-c">#Application icon to be displayed in bookmarks</span>
+│   └── tpl-index.ejs                          <span class="pl-c">#Template for html-webpack-plugin that will be transpiled into index.html in /dist</span>
+│── .babelrc                                   <span class="pl-c">#Babel config with presets and plugins</span>
+│── .gitignore                                 <span class="pl-c">#List of files to ignore by git</span>
+│── .yo-rc.json                                <span class="pl-c">#Defines the root of the project, allows your user to run commands in subdirectories.</span>
+│── package.json                               <span class="pl-c">#The list of project dependencies and NPM scripts</span>
+└── webpack.config.js                          <span class="pl-c">#Bundling and optimization settings for Webpack</span></pre></div>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>Prerequisites: Node, Yeoman and Webpack. To install run:</p>
+
+<pre><code>npm install -g yo webpack
+</code></pre>
+
+<p>Next, install this generator:</p>
+
+<pre><code>Clone this repo and cd into it, then link it to npm:
+  git clone https://github.com/A-Tokyo/generator-at-angular
+  cd generator-at-angular
+  npm link
+</code></pre>
+
+<p>Creating a project:</p>
+
+<pre><code>mkdir MyAwesomeApp &amp;&amp; cd $_
+yo at-angular
+</code></pre>
+
+<p>Running a generator:</p>
+
+<pre><code>yo at-angular:page my-page                                                    # Generates a page
+yo at-angular:service my-service                                              # Generates a service
+yo at-angular:service my-component/my-service                                 # Generates a service in a component
+yo at-angular:directive my-directive                                          # Generates a shared directive
+yo at-angular:directive my-component/my-directive                             # Generates a directive in a component
+yo at-angular:component my-component                                          # Generates a component
+yo at-angular:component my-component/my-nested-component                      # Generates a nested component
+yo at-angular:component my-component/my-nested-component/my-nested2-component # Generates a double nested component
+</code></pre>
+
+<h5>
+<a id="npm-start-or-npm-run-dev---to-start-development-server-on-httplocalhost8080" class="anchor" href="#npm-start-or-npm-run-dev---to-start-development-server-on-httplocalhost8080" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>npm start</code> or <code>npm run dev</code> - to start development server on http://localhost:8080.</h5>
+
+<h5>
+<a id="npm-run-build---to-make-production-ready-build-run--after-few-moments-you-will-see-build-id-dist-folder" class="anchor" href="#npm-run-build---to-make-production-ready-build-run--after-few-moments-you-will-see-build-id-dist-folder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>npm run build</code> - To make production-ready build run  after few moments you will see build id <code>dist</code> folder.</h5>
+
+<h3>
+<a id="out-of-the-box-optional-supports" class="anchor" href="#out-of-the-box-optional-supports" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Out of the box optional supports:</h3>
+
+<blockquote>
+<ul>
+<li>
+<strong>Angular Material:</strong>
+   UI Component framework provides a set of reusable UI components based on Google’s Material Design. <a href="https://material.angularjs.org/latest/getting-started">https://material.angularjs.org/latest/getting-started</a>
+</li>
+</ul>
+</blockquote>
+
+<h3>
+<a id="known-bugs" class="anchor" href="#known-bugs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known bugs:</h3>
+
+<blockquote>
+<ul>
+<li>
+<p><strong>Problem:</strong> Webpack2 unable to import function with only export default value.</p>
+
+<p><strong>Workaround</strong>: Use <code>import * as variable from 'package'</code> instead of <code>import variable from 'package'</code></p>
+</li>
+</ul>
+</blockquote>
+
+<h3>
+<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribution:</h3>
+
+<h4>
+<a id="to-contribute" class="anchor" href="#to-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To Contribute:</h4>
+
+<blockquote>
+<ul>
+<li>Fork repository and clone it.</li>
+<li>Install npm packages and create new branch.</li>
+<li>Link local project to be able use generator with <code>yo</code> by running: <code>npm link</code>
+</li>
+<li>Contribute to the project and push your changes.</li>
+<li>Make a Pull Request.</li>
+</ul>
+</blockquote>
+
+<h4>
+<a id="style-guide" class="anchor" href="#style-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Style Guide:</h4>
+
+<p>This project uses single-quotes, two space indentation, multiple var statements and multiple comments per function. Use a single space after keywords. Ex: var x = function() { ... }</p>
+
+<h5>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO:</h5>
+
+<blockquote>
+<ul>
+<li>Add Karma Testing</li>
+</ul>
+</blockquote>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/A-Tokyo/generator-at-angular">Generator-at-angular</a> is maintained by <a href="https://github.com/A-Tokyo">A-Tokyo</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
