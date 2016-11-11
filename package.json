@@ -2,7 +2,7 @@
   "name": "generator-at-angular",
   "version": "0.1.8",
   "description": "Yeoman Generator for angular that uses Webpack as a module bundler, SASS as CSS preprocessor and UI router as default angular router.",
-  "homepage": "http://dreidev.com",
+  "homepage": "http://a-tokyo.github.io/generator-at-angular/",
   "author": {
     "name": "ahmed tarek",
     "email": "ahmed.tokyo1@gmail.com",
