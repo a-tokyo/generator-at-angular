@@ -38,9 +38,10 @@
     "webpack2",
     "karma",
     "jasmine",
-    "tdd",
     "testing",
-    "sass"
+    "sass",
+    "a-tokyo",
+    "tokyo"
   ],
   "license": "MIT",
   "dependencies": {
