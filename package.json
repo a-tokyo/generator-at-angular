@@ -6,10 +6,13 @@
   "author": {
     "name": "ahmed tarek",
     "email": "ahmed.tokyo1@gmail.com",
-    "url": "github.com/a-tokyo",
+    "url": "http://github.com/a-tokyo",
     "organization": "dreidev"
   },
-  "repository": "a-tokyo/generator-at-angular",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/A-Tokyo/generator-at-angular.git"
+  },
   "files": [
     "generators/app",
     "generators/component",
