@@ -15,10 +15,11 @@ module.exports = function(AngularATGenerator) {
         };
 
         if (relPathAsArray.length === 1) {
+          fullPath = this.destinationRoot() + '/src/app/core/services';
             try {
                 var coreModulesWriteLine = "require('./services/" + data.serviceName + '/' + data.serviceName + '.factory' + "')(shared);";
                 utils.addToFile('core.module.js', coreModulesWriteLine, utils.SERVICE_MARKER, this.destinationRoot() + '/src/app/core');
-                this.fs.copyTpl(this.templatePath('service.factory.js'), this.destinationPath(this.destinationRoot() + '/src/app/core/services/' + data.serviceName + '/' + data.serviceName + '.factory' + '.js'), data);
+                this.fs.copyTpl(this.templatePath('service.factory.js'), this.destinationPath(fullPath + '/' + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');
             }
@@ -26,7 +27,7 @@ module.exports = function(AngularATGenerator) {
             // service within a component
             var parentComponentName = relPathAsArray[relPathAsArray.length - 2];
             var parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
-            fullPath = parentPath + '/services';
+            fullPath = this.destinationRoot() + '/src/app/components/' + parentPath + '/services';
             try {
                 var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
                 utils.addToFile(parentComponentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
@@ -36,8 +37,9 @@ module.exports = function(AngularATGenerator) {
                 this.log('Parent component files not found.');
                 return;
             }
-            this.fs.copyTpl(this.templatePath('componentService.factory.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory' + '.js'), data);
+            this.fs.copyTpl(this.templatePath('componentService.factory.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
         }
+        this.fs.copyTpl(this.templatePath('service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory-spec.js'), data);
 
     };
 };
