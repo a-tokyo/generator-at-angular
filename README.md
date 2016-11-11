@@ -119,11 +119,12 @@ Running a generator:
 
 ### Contribution:
 
-> * Fork repository and clone it
-> * Install npm packages and create new branch
-> * Link local project to be able install generator with `yo` by running:
-> ``` npm link ```
-> * Make a Pull Request
+#### To Contribute:
+  > * Fork repository and clone it
+  > * Install npm packages and create new branch
+  > * Link local project to be able install generator with `yo` by running:
+  > ``` npm link ```
+  > * Make a Pull Request
 
 #### Style Guide:
   This project uses single-quotes, two space indentation, multiple var statements and multiple comments per function. Use a single space after keywords. Ex: var x = function() { ... }
