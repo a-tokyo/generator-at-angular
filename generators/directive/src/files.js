@@ -41,6 +41,8 @@ module.exports = function(AngularATGenerator) {
             }
             this.fs.copyTpl(this.templatePath('componentDirective.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
         }
+        //Copy testing file
+        this.fs.copyTpl(this.templatePath('directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
         //Write view templates if needed
         if (this.props.needsPartial) {
             this.fs.copyTpl(this.templatePath('directive.html'), this.destinationPath(fullPath + '/' + data.directiveName + '.html'), data);

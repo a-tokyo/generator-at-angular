@@ -48,6 +48,7 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('component.scss'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component.scss'), data);
         this.fs.copyTpl(this.templatePath('component.module.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.module.js'), data);
         this.fs.copyTpl(this.templatePath('component.component.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component' + '.js'), data);
+        this.fs.copyTpl(this.templatePath('component.component-spec.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component-spec' + '.js'), data);
 
     };
 };

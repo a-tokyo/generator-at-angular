@@ -19,6 +19,7 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('page.module.js'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.module' + '.js'), data);
         this.fs.copyTpl(this.templatePath('page.route.js'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.route' + '.js'), data);
         this.fs.copyTpl(this.templatePath('page.controller.js'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.controller' + '.js'), data);
+        this.fs.copyTpl(this.templatePath('page.controller-spec.js'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.controller-spec' + '.js'), data);
         var indexModulesWriteLine = "require('./pages/" + data.pageName + "/" + data.pageName + ".module').name,";
         utils.addToFile('index.module.js', indexModulesWriteLine, utils.PAGE_MARKER, this.destinationRoot() + '/src/app');
     };
