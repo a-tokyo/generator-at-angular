@@ -16,9 +16,9 @@ module.exports = function(AngularATGenerator) {
 
         if (relPathAsArray.length === 1) {
             try {
-                var coreModulesWriteLine = "require('./services/" + data.serviceName + ".factory" + "')(shared);";
+                var coreModulesWriteLine = "require('./services/" + data.serviceName + '/' + data.serviceName + '.factory' + "')(shared);";
                 utils.addToFile('core.module.js', coreModulesWriteLine, utils.SERVICE_MARKER, this.destinationRoot() + '/src/app/core');
-                this.fs.copyTpl(this.templatePath('service.factory.js'), this.destinationPath(this.destinationRoot() + '/src/app/core/services/' + data.serviceName + '.factory' + '.js'), data);
+                this.fs.copyTpl(this.templatePath('service.factory.js'), this.destinationPath(this.destinationRoot() + '/src/app/core/services/' + data.serviceName + '/' + data.serviceName + '.factory' + '.js'), data);
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');
             }
@@ -30,13 +30,13 @@ module.exports = function(AngularATGenerator) {
             try {
                 var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
                 utils.addToFile(parentComponentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
-                var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceNameCamel + ".factory';";
+                var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceNameCamel + ".factory';";
                 utils.addToFile(parentComponentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
             } catch (err) {
                 this.log('Parent component files not found.');
                 return;
             }
-            this.fs.copyTpl(this.templatePath('componentService.factory.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.serviceName + '.factory' + '.js'), data);
+            this.fs.copyTpl(this.templatePath('componentService.factory.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory' + '.js'), data);
         }
 
     };
