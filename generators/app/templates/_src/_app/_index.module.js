@@ -5,19 +5,19 @@ import * as config from './index.config';
 import * as run from './index.run';
 
 const App = angular.module(
-  "<%= props.appName %>", [
+  '<%= props.appName %>', [
     // plugins
     require('angular-ui-router'),
     <%- modulesDependencies %>,
 
     // core
-    require("./core/core.module").name,
+    require('./core/core.module').name,
 
     // components
-    require("./index.components").name,
+    require('./index.components').name,
 
     // routes
-    require("./index.routes").name,
+    require('./index.routes').name,
 
     // pages
     // Add new pages above
