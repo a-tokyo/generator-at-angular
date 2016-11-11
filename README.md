@@ -81,9 +81,11 @@
 Getting Started
 -------------
 
-Prerequisites: Node, Yeoman and Webpack. To install run:
-
-    npm install -g yo webpack
+Prerequisites: Node, Yeoman and Webpack.
+  > * To install Node, visit [nodeJS](https://nodejs.org/en/)
+    
+  > * To install Yeoman and Webpack:
+        `npm install -g yo webpack`
 
 Next, install this generator:
 
