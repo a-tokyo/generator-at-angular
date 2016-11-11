@@ -25,7 +25,7 @@ module.exports = function (AngularATGenerator) {
         }
 
         if (this.props.styles.material) {
-            deps.push("material-design-icons");
+            deps.push("material-icons");
         }
 
         deps = _.concat(deps, this.importList);

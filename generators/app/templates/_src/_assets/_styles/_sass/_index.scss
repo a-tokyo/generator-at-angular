@@ -2,10 +2,13 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';<% } %><% if (props.styles.material) { %>
 @import '~angular-material/angular-material.scss';
+@import '~material-icons/css/material-icons.css';
 <% } %>
 // Add style imports above
 
 // Add font paths above
+
+//Add Main style variables above
 
 .site-wrapper{
 
