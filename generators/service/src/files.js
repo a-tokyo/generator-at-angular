@@ -1,7 +1,7 @@
 'use strict';
 
-var _ = require("lodash");
-var utils = require("../../../utils.js");
+var _ = require('lodash');
+var utils = require('../../../utils.js');
 
 module.exports = function(AngularATGenerator) {
 
@@ -17,7 +17,7 @@ module.exports = function(AngularATGenerator) {
         if (relPathAsArray.length === 1) {
             try {
                 var coreModulesWriteLine = "require('./services/" + data.serviceName + ".factory" + "')(shared);";
-                utils.addToFile("core.module.js", coreModulesWriteLine, utils.SERVICE_MARKER, this.destinationRoot() + "/src/app/core");
+                utils.addToFile('core.module.js', coreModulesWriteLine, utils.SERVICE_MARKER, this.destinationRoot() + '/src/app/core');
                 this.fs.copyTpl(this.templatePath('service.factory.js'), this.destinationPath(this.destinationRoot() + '/src/app/core/services/' + data.serviceName + '.factory' + '.js'), data);
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');
@@ -26,12 +26,12 @@ module.exports = function(AngularATGenerator) {
             // service within a component
             var parentComponentName = relPathAsArray[relPathAsArray.length - 2];
             var parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
-            fullPath = parentPath + "/services";
+            fullPath = parentPath + '/services';
             try {
-                var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + "Factory" + "', " + data.serviceNameCamel + "Factory" + ");";
-                utils.addToFile(parentComponentName + ".module.js", addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + "/src/app/components/" + parentPath);
-                var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + "Factory" + " from './services/" + data.serviceNameCamel + ".factory';";
-                utils.addToFile(parentComponentName + ".module.js", importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + "/src/app/components/" + parentPath);
+                var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
+                utils.addToFile(parentComponentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceNameCamel + ".factory';";
+                utils.addToFile(parentComponentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
             } catch (err) {
                 this.log('Parent component files not found.');
                 return;
