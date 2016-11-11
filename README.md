@@ -114,18 +114,18 @@ Running a generator:
 ### Known bugs:
   > * **Problem:** Webpack2 unable to import function with only export default value.
 
-  >   **Workaround**: Use ```import * as variable from "package" ``` instead of ```import variable from "package" ```
+  >   **Workaround**: Use ```import * as variable from 'package' ``` instead of ```import variable from 'package' ```
 
 
 ### Contribution:
 
 #### To Contribute:
-  > * Fork repository and clone it
-  > * Install npm packages and create new branch
-  > * Link local project to be able install generator with `yo` by running:
-  > ``` npm link ```
-  > * Make a Pull Request
-
+  > * Fork repository and clone it.
+  > * Install npm packages and create new branch.
+  > * Link local project to be able use generator with `yo` by running: `npm link`
+  > * Contribute to the project and push your changes.
+  > * Make a Pull Request.
+  
 #### Style Guide:
   This project uses single-quotes, two space indentation, multiple var statements and multiple comments per function. Use a single space after keywords. Ex: var x = function() { ... }
 
