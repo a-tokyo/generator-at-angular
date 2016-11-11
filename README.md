@@ -104,8 +104,15 @@ Running a generator:
 ##### `npm start` or `npm run dev` - to start development server on http://localhost:8080.
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
 
+
+Out of the box optional supports:
+    
+   > * **Angular Material:**
+        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
+
+
 ### Known bugs:
-  > * **Problem**: Webpack2 unable to import function with only export default value.
+  > * **Problem:** Webpack2 unable to import function with only export default value.
 
   >   **Workaround**: Use ```import * as variable from "package" ``` instead of ```import variable from "package" ```
 
