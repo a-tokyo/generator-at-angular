@@ -119,4 +119,4 @@ Running a generator:
 
 
 ##### TODO:
-  > Add Karma Testing
+  > * Add Karma Testing
