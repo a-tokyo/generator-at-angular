@@ -101,14 +101,14 @@ Creating a project:
 
 Running a generator:
 
-    yo at-angular:page my-page                                                    # Generates a page
-    yo at-angular:service my-service                                              # Generates a service
-    yo at-angular:service my-component/my-service                                 # Generates a service in a component
-    yo at-angular:directive my-directive                                          # Generates a shared directive
-    yo at-angular:directive my-component/my-directive                             # Generates a directive in a component
-    yo at-angular:component my-component                                          # Generates a component
-    yo at-angular:component my-component/my-nested-component                      # Generates a nested component
-    yo at-angular:component my-component/my-nested-component/my-nested2-component # Generates a double nested component
+    yo at-angular:page my-page                                   # Generates a page (partial)
+    yo at-angular:service my-service                             # Generates a service
+    yo at-angular:service my-component/my-service                # Generates a service in a component
+    yo at-angular:directive my-directive                         # Generates a shared directive
+    yo at-angular:directive my-component/my-directive            # Generates a directive in a component
+    yo at-angular:component my-component                         # Generates a component
+    yo at-angular:component my-component/my-nested-component     # Generates a nested component
+    yo at-angular:component my-component/my-nested-component/... # Generates a multiple nested component
 
 
 ##### `npm start` or `npm run dev` - to start development server on http://localhost:8080.
