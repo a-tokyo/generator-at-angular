@@ -69,6 +69,15 @@
         },
         "name": "angular-aria.js (support for common ARIA attributes)",
         "checked": true
+      },
+      {
+        "value": {
+          "key": "material",
+          "module": "ngMaterial",
+          "package": "angular-material"
+        },
+        "name": "angular-material.js (Angular UI Component framework provides a set of reusable UI components based on Google’s Material Design.)",
+        "checked": true
       }
     ]
   },

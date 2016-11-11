@@ -1,6 +1,7 @@
 <% if (props.bootstrapSass) { %>
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';<% } %><% if (props.styles.material) { %>
+@import '~angular-material/angular-material.css';
 <% } %>
 
 // Add Main SCSS Above

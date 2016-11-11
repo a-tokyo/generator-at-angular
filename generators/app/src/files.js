@@ -1,8 +1,19 @@
 'use strict';
 
 var mkdirp = require('mkdirp');
+var _ = require("lodash");
 
 module.exports = function (AngularATGenerator) {
+
+    AngularATGenerator.prototype.testFileWr = function testFileWr() {
+      this.props.styles = {};
+      var that = this;
+      this.props.angularModules.forEach(function(elm){
+        if(elm.key === "material"){
+          that.props.styles.material = true;
+        }
+      });
+    };
 
     AngularATGenerator.prototype.copyFiles = function copyFiles() {
         mkdirp("src");
