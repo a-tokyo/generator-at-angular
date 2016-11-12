@@ -3,7 +3,7 @@
 import * as route from './<%= pageName %>.route';
 import './<%= pageName %>.scss';
 
-const <%= pageName %>Module = angular.module('<%= pageModule %>Page', [
+const <%= pageName %>Module = angular.module('<%= pageModule %>', [
   'ui.router'
 ]);
 
