@@ -14,7 +14,7 @@ module.exports = function(AngularATGenerator) {
             'componentName': componentName,
             'componentNameCamel': _.camelCase(componentName),
             'controllerName': _.upperFirst(_.camelCase(componentName)),
-            'componentModule': _.camelCase(this.props.componentModule)
+            'componentModule': _.camelCase(componentName)
         };
         //if the component has no parent
         if (pathAsArray.length === 1) {

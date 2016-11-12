@@ -3,10 +3,10 @@
 import * as route from './<%= pageName %>.route';
 import './<%= pageName %>.scss';
 
-const <%= pageModule %>Module = angular.module('<%= pageModule %>', [
+const pageModule = angular.module('<%= pageModule %>', [
   'ui.router'
 ]);
 
-<%= pageModule %>Module.config(route);
+pageModule.config(route);
 
-export default <%= pageModule %>Module;
+export default pageModule;
