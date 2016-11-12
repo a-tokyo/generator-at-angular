@@ -26,6 +26,10 @@ var AngularATGenerator = yeoman.extend({
         this.version = pkg.version;
 
         this.props = {};
+
+        this.composeWith('git-init', {}, {
+          local: require.resolve('generator-git-init')
+        });
     }
 
   });

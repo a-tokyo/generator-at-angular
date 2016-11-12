@@ -10,8 +10,8 @@
     "organization": "dreidev"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/A-Tokyo/generator-at-angular.git"
+    "type": "git",
+    "url": "https://github.com/A-Tokyo/generator-at-angular.git"
   },
   "files": [
     "generators/app",
@@ -46,6 +46,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.1",
+    "generator-git-init": "^1.1.3",
     "lodash": "^4.16.1",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.3.4",
