@@ -10,9 +10,9 @@ module.exports = function(AngularATGenerator) {
             'pageName': this.props.pageName,
             'pageNameCamel': _.camelCase(this.props.pageName),
             'controllerName': _.upperFirst(_.camelCase(this.props.pageName)),
-            'pageModule': _.camelCase(this.props.pageModule),
-            'pageState': this.props.pageState,
-            'pageRoute': this.props.pageRoute
+            'pageModule': _.camelCase(this.props.pageName),
+            'pageState': this.props.pageState === 'default: pageName' ? this.props.pageName:this.props.pageState,
+            'pageRoute': this.props.pageRoute === 'default: /pageName' ? '/'+this.props.pageName : this.props.pageRoute
         };
         this.fs.copyTpl(this.templatePath('page.html'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.html'), data);
         this.fs.copyTpl(this.templatePath('page.scss'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.scss'), data);

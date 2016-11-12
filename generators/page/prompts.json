@@ -7,20 +7,14 @@
   },
   {
     "type": "input",
-    "name": "pageModule",
-    "message": "Your page's module name",
-    "default": "page"
-  },
-  {
-    "type": "input",
     "name": "pageState",
     "message": "Your page's state name",
-    "default": "state"
+    "default": "default: pageName"
   },
   {
     "type": "input",
     "name": "pageRoute",
     "message": "Your page's route",
-    "default": "/page"
+    "default": "default: /pageName"
   }
 ]
