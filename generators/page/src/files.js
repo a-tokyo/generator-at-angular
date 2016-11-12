@@ -10,7 +10,7 @@ module.exports = function(AngularATGenerator) {
             'pageName': this.props.pageName,
             'pageNameCamel': _.camelCase(this.props.pageName),
             'controllerName': _.upperFirst(_.camelCase(this.props.pageName)),
-            'pageModule': _.camelCase(this.props.pageName),
+            'pageModule': _.camelCase(this.props.pageName)+'Page',
             'pageState': this.props.pageState === 'default: pageName' ? this.props.pageName:this.props.pageState,
             'pageRoute': this.props.pageRoute === 'default: /pageName' ? '/'+this.props.pageName : this.props.pageRoute
         };
