@@ -2,6 +2,8 @@
 
 var yeoman = require('yeoman-generator').Base;
 var chalk = require('chalk');
+var _ = require('lodash');
+var prompts = require('./prompts.json');
 
 var AngularATGenerator = yeoman.extend({
 
@@ -16,12 +18,24 @@ var AngularATGenerator = yeoman.extend({
         });
 
         this.props = {};
+    },
+    prompting: function () {
+        if (this.skipConfig || this.options.default) {
+            return;
+        }
+
+        var done = this.async();
+        // calling prompts async
+        this.prompt(prompts, function (props) {
+            this.props = _.merge(this.props, props);
+            // calling done to continue run loop
+            done();
+        }.bind(this));
     }
 
   });
 
 
-require('./src/prompts')(AngularATGenerator);
 require('./src/files')(AngularATGenerator);
 
 
