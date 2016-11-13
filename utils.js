@@ -20,8 +20,6 @@ exports.IMPORT_DIRECTIVE_MARKER = '// Add directive imports above';
 exports.ADD_DIRECTIVE_TOMODULE_MARKER = '// Add directive to module above';
 exports.ADD_SERVICE_TOMODULE_MARKER = '// Add service to module above';
 
-exports.TOP_METATAG_MARKER = '<meta charset="utf-8">';
-
 exports.MAIN_SCSS_MARKER = '// Add Main SCSS Above';
 exports.ROUTE_MARKER = '/* Add New Routes Above */';
 exports.STATE_MARKER = '/* Add New States Above */';
