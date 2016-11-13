@@ -16,7 +16,7 @@ const componentModule = angular.module('<%= componentModule %>', [
 // Add module dependencies above
 ]);
 
-componentModule.component('<%= componentName %>', componentComponent);
+componentModule.component('<%= componentNameCamel %>', componentComponent);
 
 // Add directive to module above
 
