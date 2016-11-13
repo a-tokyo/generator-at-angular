@@ -36,16 +36,20 @@ module.exports = function (AngularATGenerator) {
             this
         );
         this.fs.copy(
+          this.templatePath('_.babelrc'),
+          this.destinationPath('.babelrc')
+        );
+        this.fs.copy(
+          this.templatePath('_.eslintrc.json'),
+          this.destinationPath('.eslintrc.json')
+        );
+        this.fs.copy(
             this.templatePath('_.gitignore'),
             this.destinationPath('.gitignore')
         );
         this.fs.copy(
             this.templatePath('_.yo-rc.json'),
             this.destinationPath('.yo-rc.json')
-        );
-        this.fs.copy(
-            this.templatePath('_.babelrc'),
-            this.destinationPath('.babelrc')
         );
 
         this.fs.copyTpl(
