@@ -83,7 +83,7 @@ Getting Started
 
 Prerequisites: Node, Yeoman and Webpack.
   > * To install Node, visit [nodeJS](https://nodejs.org/en/)
-    
+
   > * To install Yeoman and Webpack:
         `npm install -g yo webpack`
 
@@ -128,6 +128,11 @@ Running a generator:
 
   >   **Workaround**: Use ```import * as variable from 'package' ``` instead of ```import variable from 'package' ```
 
+  <hr/>
+
+  > * **Problem:** Webpack2 lastest build of today DEC 5 2016 throws an error while starting the server.
+
+  >   **Workaround**: Fixed Webpack version to: 2.1.0-beta.25 and Webpack-dev-server to "2.1.0-beta.7" until the build is stable.
 
 ### Contribution:
 
