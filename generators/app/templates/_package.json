@@ -42,8 +42,8 @@
     "style-loader": "^0.13.1",
     "url": "^0.11.0",
     "url-loader": "^0.5.7",
-    "webpack": "^2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.7"
+    "webpack": "2.1.0-beta.25",
+    "webpack-dev-server": "2.1.0-beta.7"
   },
   "engines": {
     "node": ">=0.12.0"
