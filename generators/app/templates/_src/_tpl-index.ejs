@@ -15,6 +15,7 @@
       <% for(var i=0; i < htmlWebpackPlugin.files.chunks; i++) { %>
           <script src="<%= htmlWebpackPlugin.files.chunks[i].entry %>" defer></script>
       <% } %>
+      <base href="/">
   </head>
   <body>
       <!--[if lt IE 10]>
