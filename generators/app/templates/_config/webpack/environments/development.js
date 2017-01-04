@@ -11,7 +11,7 @@ module.exports = function(_path) {
       hot: true,
       inline: true,
       host: '0.0.0.0',
-      port: 3000
+      port: 8080
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin()
