@@ -18,9 +18,15 @@ var AngularATGenerator = yeoman.extend({
         });
 
         this.props = {};
-    },
+    }
+    ,
     prompting: function () {
         if (this.skipConfig || this.options.default) {
+            return;
+        }
+        if (this.arguments[0]) {
+          // if component name was provided in arguments, set it and skip
+          this.props.componentName = this.arguments[0];
             return;
         }
 
