@@ -8,7 +8,6 @@ module.exports = function(AngularATGenerator) {
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
         // setting defaults, component name and path settings
         var fullPath = this.props.componentName;
-        console.log(this.arguments[0]);
         var pathAsArray = fullPath.split('/');
         var componentName = pathAsArray[pathAsArray.length - 1];
         var data = {
