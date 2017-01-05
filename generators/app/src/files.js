@@ -31,6 +31,11 @@ module.exports = function (AngularATGenerator) {
             this
         );
         this.fs.copyTpl(
+            this.templatePath('_README.md'),
+            this.destinationPath('README.md'),
+            this
+        );
+        this.fs.copyTpl(
             this.templatePath('_webpack.config.js'),
             this.destinationPath('webpack.config.js'),
             this
