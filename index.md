@@ -1,5 +1,7 @@
 # generator-at-angular
 
+[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular)
+
 > Yeoman generator for AngularJS + Webpack with ES6 and SASS.
 
 > * Babel 6 with ES2017 features.
@@ -89,10 +91,7 @@ Prerequisites: Node, Yeoman and Webpack.
 
 Next, install this generator:
 
-    Clone this repo and cd into it, then link it to npm:
-      git clone https://github.com/A-Tokyo/generator-at-angular
-      cd generator-at-angular
-      npm link
+    npm i -g generator-at-angular
 
 
 Creating a project:
@@ -112,6 +111,7 @@ Running a generator:
     yo at-angular:component my-component/my-nested-component     # Generates a nested component
     yo at-angular:component my-component/my-nested-component/... # Generates a multiple nested component
 
+Running the project:
 
 ##### `npm start` or `npm run dev` - to start development server on [localhost:8080](http://localhost:8080).
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
