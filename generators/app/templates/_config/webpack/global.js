@@ -88,24 +88,30 @@ module.exports = function (_path) {
         test: /\.(woff2|woff|ttf|eot|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loaders: [
           {
-            loader: 'url',
+            loader: 'file-loader',
             query: {
               name: 'assets/fonts/[name]_[hash].[ext]'
             }
           }
         ]
-      }, {
-        test: /\.(jpe?g|png|gif)$/i,
-        loaders: [
-          {
-            loader: 'url',
-            query: {
-              name: '/assets/images/[name]_[hash].[ext]',
-              limit: 10000
-            }
-          }
-        ]
-      }
+      },
+      /*
+       * Uncomment the following lines to copy all the images to assets/images
+       * and access them through 'assets/images/[name].[ext]'
+       *
+       */
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/i,
+      //   loaders: [
+      //     {
+      //       // load images to /assets/images/[name].[ext]
+      //       loader: 'file-loader',
+      //       query: {
+      //         name: 'assets/images/[name].[ext]'
+      //       }
+      //     }
+      //   ]
+      // }
       ]
     },
 
@@ -118,19 +124,19 @@ module.exports = function (_path) {
         }
       }),
       // new webpack.ProvidePlugin({
-      //     <% if (props.jQuery) { %>
+      //
       //     $: 'jquery',
       //     jQuery: 'jquery',
       //     'window.jQuery': 'jquery',
-      //     <% } %>
-      //     <% if (props.moment) { %>
+      //
+      //
       //     moment: 'moment',
       //     'window.moment': 'moment',
-      //     <% } %>
-      //     <% if (props.lodash) { %>
+      //
+      //
       //     _: 'lodash',
       //     'window._': 'lodash'
-      //     <% } %>
+      //
       // }),
       new webpack.DefinePlugin({
         'NODE_ENV': JSON.stringify(NODE_ENV)

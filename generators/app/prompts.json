@@ -36,15 +36,6 @@
       },
       {
         "value": {
-          "key": "touch",
-          "module": "ngTouch",
-          "package": "angular-touch"
-        },
-        "name": "angular-touch.js (for mobile development)",
-        "checked": true
-      },
-      {
-        "value": {
           "key": "sanitize",
           "module": "ngSanitize",
           "package": "angular-sanitize"

@@ -1,6 +1,6 @@
 'use strict';
 
-function <%= controllerName %>Controller($log) {
+function <%= controllerName %>Controller($scope, $log) {
   'ngInject';
 
   $log.debug('Hello from <%= controllerName %>Controller!');

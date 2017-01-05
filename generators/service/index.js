@@ -23,6 +23,11 @@ var AngularATGenerator = yeoman.extend({
         if (this.skipConfig || this.options.default) {
             return;
         }
+        if (this.arguments[0]) {
+            // if service name was provided in arguments, set it and skip
+            this.props.serviceName = this.arguments[0];
+            return;
+        }
 
         var done = this.async();
         // calling prompts async

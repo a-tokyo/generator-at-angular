@@ -31,6 +31,11 @@ module.exports = function (AngularATGenerator) {
             this
         );
         this.fs.copyTpl(
+            this.templatePath('_README.md'),
+            this.destinationPath('README.md'),
+            this
+        );
+        this.fs.copyTpl(
             this.templatePath('_webpack.config.js'),
             this.destinationPath('webpack.config.js'),
             this
@@ -69,6 +74,11 @@ module.exports = function (AngularATGenerator) {
         this.fs.copyTpl(
             this.templatePath('_src/_assets/_styles/_sass/_index.scss'),
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/index.scss'),
+            this
+        );
+        this.fs.copyTpl(
+            this.templatePath('_src/_assets/_styles/_sass/_main.scss'),
+            this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/main.scss'),
             this
         );
 
