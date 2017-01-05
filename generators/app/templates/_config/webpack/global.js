@@ -85,7 +85,7 @@ module.exports = function (_path) {
           loader: stylesLoader
         })
       }, {
-        test: /\.(woff2|woff|ttf|eot)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(woff2|woff|ttf|eot|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loaders: [
           {
             loader: 'file-loader',
