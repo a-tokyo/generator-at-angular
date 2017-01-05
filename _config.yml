@@ -1,0 +1,8 @@
+title: Generator-at-angular
+description: Yeoman Generator for angular that uses Webpack2 as a module bundler, SASS as CSS preprocessor and UI router as default angular router.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
