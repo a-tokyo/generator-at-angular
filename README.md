@@ -89,10 +89,7 @@ Prerequisites: Node, Yeoman and Webpack.
 
 Next, install this generator:
 
-    Clone this repo and cd into it, then link it to npm:
-      git clone https://github.com/A-Tokyo/generator-at-angular
-      cd generator-at-angular
-      npm link
+    npm i -g generator-at-angular
 
 
 Creating a project:
