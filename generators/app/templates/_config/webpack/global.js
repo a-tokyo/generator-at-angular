@@ -85,10 +85,10 @@ module.exports = function (_path) {
           loader: stylesLoader
         })
       }, {
-        test: /\.(woff2|woff|ttf|eot|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(ttf|otf|svg|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
         loaders: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             query: {
               name: 'assets/fonts/[name]_[hash].[ext]'
             }
