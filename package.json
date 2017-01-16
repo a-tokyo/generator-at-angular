@@ -1,6 +1,6 @@
 {
   "name": "generator-at-angular",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Yeoman Generator for angular that uses Webpack as a module bundler, SASS as CSS preprocessor, UI router as default angular router and Karma with Jasmine for testing.",
   "homepage": "http://a-tokyo.github.io/generator-at-angular/",
   "author": {
@@ -21,7 +21,8 @@
     "generators/service",
     "generators/modal",
     "generators/module",
-    "generators/filter"
+    "generators/filter",
+    "generators/utils.js"
   ],
   "main": "generators/app/index.js",
   "keywords": [
