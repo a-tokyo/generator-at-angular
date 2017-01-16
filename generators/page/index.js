@@ -26,6 +26,8 @@ var AngularATGenerator = yeoman.extend({
         if (this.arguments[0]) {
             // if page name was provided in arguments, set it and skip
             this.props.pageName = this.arguments[0];
+            this.props.pageState = 'default: pageName';
+            this.props.pageRoute = 'default: /pageName';
             return;
         }
 
