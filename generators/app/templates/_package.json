@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
-    "build": "cross-env NODE_ENV=production webpack -p --colors"
+    "build": "cross-env NODE_ENV=production webpack -p --colors",
+    "tests": "karma start"
   },
   "dependencies": {
     "assets-webpack-plugin": "^3.4.0",
@@ -43,7 +44,14 @@
     "url": "^0.11.0",
     "url-loader": "^0.5.7",
     "webpack": "2.1.0-beta.25",
-    "webpack-dev-server": "2.1.0-beta.7"
+    "webpack-dev-server": "2.1.0-beta.7",    
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.13.2",
+    "karma-jasmine": "^0.3.5",
+    "jasmine": "^2.2.1",
+    "karma-phantomjs2-launcher": "^0.5.0",
+    "karma-webpack": "^1.6.0",
+    "angular-mocks": "^1.6.1"
   },
   "engines": {
     "node": ">=0.12.0"

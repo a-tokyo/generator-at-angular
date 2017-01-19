@@ -41,6 +41,14 @@ module.exports = function (AngularATGenerator) {
             this
         );
         this.fs.copy(
+          this.templatePath('_test-context.js'),
+          this.destinationPath('test-context.js')
+        );
+        this.fs.copy(
+          this.templatePath('_karma.conf.js'),
+          this.destinationPath('karma.conf.js')
+        );
+        this.fs.copy(
           this.templatePath('_.babelrc'),
           this.destinationPath('.babelrc')
         );
