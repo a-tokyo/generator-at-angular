@@ -6,13 +6,14 @@ describe('<%= componentNameCamel %> component', () => {
   beforeEach(() => {
     angular
       .module('<%= componentNameCamel %>',[])
-      .component('<%= componentNameCamel %>', <%= componentNameCamel %>);
-    
+      .component('<%= componentNameCamel %>', <%= componentNameCamel %>);  
     angular.mock.module('<%= componentNameCamel %>');
   });
+
   it('should render blank page', angular.mock.inject(($rootScope, $compile) => {
     const element = $compile('<<%= componentName %>></<%= componentName %>>')($rootScope);
     $rootScope.$digest();
     expect(element).not.toBeNull();
   }));
+
 });
