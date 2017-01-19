@@ -84,6 +84,10 @@ module.exports = function (AngularATGenerator) {
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/index.scss'),
             this
         );
+        this.fs.copy(
+            this.templatePath('_src/_assets/_styles/_sass/_fonts.scss'),
+            this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/fonts.scss')
+        );
         this.fs.copyTpl(
             this.templatePath('_src/_assets/_styles/_sass/_main.scss'),
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/main.scss'),
