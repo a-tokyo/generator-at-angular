@@ -3,9 +3,9 @@
 
 ## Getting Started
 
-##### `npm start` or `npm run dev` - to start development server on [localhost:8080](http://localhost:8080).
+##### `npm start` or `npm run dev` - To start development server on [localhost:8080](http://localhost:8080).
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
-
+##### `npm run tests` - To run the tests.
 
 ## Contribution guide
 
