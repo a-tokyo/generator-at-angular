@@ -145,7 +145,3 @@ Running the project:
 
 #### Style Guide:
   This project uses single-quotes, two space indentation, multiple var statements and multiple comments per function. Use a single space after keywords. Ex: var x = function() { ... }
-
-
-##### TODO:
-  > * Add Karma + Jasmine Testing
