@@ -1,0 +1,14 @@
+{
+  "components": [
+    {"name": "", "path": "", "description": ""}
+  ],
+  "directives": [
+    {"name": "", "nameCamel": "", "path": "", "description": ""}
+  ],
+  "services": [
+    {"name": "", "nameCamel": "", "path": "", "description": ""}
+  ],
+  "pages": [
+    {"name": "", "route": "", "state": "", "description": ""}
+  ],
+}
