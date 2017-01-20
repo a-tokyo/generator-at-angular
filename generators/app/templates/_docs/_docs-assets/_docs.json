@@ -11,4 +11,5 @@
   "pages": [
     {"name": "", "route": "", "state": "", "description": ""}
   ],
+  "info": {"port": 8080}
 }
