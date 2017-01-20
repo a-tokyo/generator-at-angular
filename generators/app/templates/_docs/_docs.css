@@ -1,0 +1,16 @@
+.left-auto{
+  margin-left: auto;
+}
+footer{
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+}
+/*.footer__copyright{
+}*/
+.footer__copyright p{
+  margin-bottom: 0;
+  margin-top: 7px;
+}
