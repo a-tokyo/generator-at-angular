@@ -1,4 +1,3 @@
-'use strict';
 var webpack = require('webpack');
 
 module.exports = function(_path) {

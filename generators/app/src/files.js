@@ -1,5 +1,3 @@
-'use strict';
-
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 

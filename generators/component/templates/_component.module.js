@@ -1,5 +1,3 @@
-'use strict';
-
 import * as componentComponent from './<%= componentName %>.component';
 
 // Add module imports above

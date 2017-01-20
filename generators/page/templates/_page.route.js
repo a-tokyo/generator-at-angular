@@ -1,5 +1,3 @@
-'use strict';
-
 import pageTpl from './<%= pageName %>.html';
 
 function routeConfig($stateProvider) {

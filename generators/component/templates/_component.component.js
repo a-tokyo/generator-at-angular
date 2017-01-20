@@ -1,4 +1,3 @@
-'use strict';
 import componentTpl from './<%= componentName %>.component.html';
 
 var <%= componentNameCamel %>Component = {

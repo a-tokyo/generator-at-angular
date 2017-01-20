@@ -1,4 +1,3 @@
-'use strict';
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var webpack = require('webpack');
 

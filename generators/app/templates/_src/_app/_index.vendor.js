@@ -1,5 +1,3 @@
-'use strict';
-
 // node_modules
 import 'angular';
 

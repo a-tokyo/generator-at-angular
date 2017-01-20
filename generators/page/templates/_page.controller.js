@@ -1,5 +1,3 @@
-'use strict';
-
 function <%= controllerName %>Controller($scope, $log) {
   'ngInject';
 
