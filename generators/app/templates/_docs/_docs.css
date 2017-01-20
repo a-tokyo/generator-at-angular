@@ -21,5 +21,11 @@ footer{
   font-size: 2.5rem;
 }
 .docs-h2{
-  font-weight: 300; 
+  font-weight: 300;
+}
+.docs-accordion .card{
+  margin-bottom: 10px;
+}
+.docs-accordion .card:last-child{
+  margin-bottom: 0;
 }
