@@ -8,6 +8,7 @@
 > * Latest Webpack with Tree Shaking feature enabled.
 > * SASS as CSS preprocessor.
 > * Angular UI router as default router.
+> * Karma and Jasmine for testing.
 > * All necessary webpack loaders already included (Sass, Images, Fonts, ngAnnotate, ngTemplateCache, etc.)
 > * Proxy configured to make cross origin requests with a simple prefix.
 
@@ -120,14 +121,21 @@ Running a generator:
 
 Running the project:
 
-##### `npm start` or `npm run dev` - to start development server on [localhost:8080](http://localhost:8080).
+##### `npm start` or `npm run dev` - To start development server on [localhost:8080](http://localhost:8080).
+
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
-##### `npm run test` - To run the tests using karma.
+
+##### `npm test` - To run all tests once, should be used for the CI.
+
+##### `npm run tests` - To run tests in `watch` mode.
+
 
 ### Out of the box optional supports:
 
   > * **Angular Material:**
        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
+  > * **Boostrap Sass:**
+       bootstrap-sass is a Sass-powered version of Bootstrap       
 
 
 ### Known bugs:
