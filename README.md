@@ -140,6 +140,11 @@ Running the project:
        bootstrap-sass is a Sass-powered version of Bootstrap       
 
 
+### Tips:
+- To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
+- To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+
+
 ### Known bugs:
   > * **Problem:** Webpack2 unable to import function with only export default value.
 

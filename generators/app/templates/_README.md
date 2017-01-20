@@ -30,3 +30,8 @@ Run a sub-generator:
     yo at-angular:component my-component                         # Generates a component
     yo at-angular:component my-component/my-nested-component     # Generates a nested component
     yo at-angular:component my-component/my-nested-component/... # Generates a multiple nested component
+
+
+### Tips:
+  - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
+  - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
