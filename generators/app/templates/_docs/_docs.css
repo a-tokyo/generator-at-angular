@@ -1,32 +1,51 @@
-body{
-  overflow-x: hidden;
+body {
+    overflow-x: hidden;
 }
 
-.main-h{
-  font-size: 2.5rem;
+.docs-navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    top: 0;
 }
-.docs-body{
-  margin-bottom: 2rem;
+
+.docs-header-main {
+    margin-top: 56px;
 }
-.docs-h2{
-  font-weight: 300;
+
+.main-h {
+    font-size: 2.5rem;
 }
-.docs-accordion .card{
-  margin-bottom: 10px;
+
+.docs-body {
+    margin-bottom: 2rem;
 }
-.docs-accordion .card:last-child{
-  margin-bottom: 0;
+
+.docs-h2 {
+    font-weight: 300;
 }
+
+.docs-accordion .card {
+    margin-bottom: 10px;
+}
+
+.docs-accordion .card:last-child {
+    margin-bottom: 0;
+}
+
 
 /*Footer*/
-footer{
-  display: flex;
-  justify-content: space-around;
-  color: #fff;
-  flex-wrap: wrap;
-  padding: 8px 16px;
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    flex-wrap: wrap;
+    padding: 8px 16px;
 }
-.footer__copyright p{
-  margin-bottom: 0;
-  margin-top: 7px;
+
+.footer__copyright p {
+    margin-bottom: 0;
+    margin-top: 7px;
 }
