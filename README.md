@@ -129,6 +129,8 @@ Running the project:
 
   > * **Angular Material:**
        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
+  > * **Boostrap Sass:**
+       bootstrap-sass is a Sass-powered version of Bootstrap       
 
 
 ### Known bugs:
