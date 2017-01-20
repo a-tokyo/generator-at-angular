@@ -1,24 +1,12 @@
 body{
   overflow-x: hidden;
 }
-.left-auto{
-  margin-left: auto;
-}
-footer{
-  display: flex;
-  justify-content: space-around;
-  color: #fff;
-  flex-wrap: wrap;
-  padding: 8px 16px;
-}
-/*.footer__copyright{
-}*/
-.footer__copyright p{
-  margin-bottom: 0;
-  margin-top: 7px;
-}
+
 .main-h{
   font-size: 2.5rem;
+}
+.docs-body{
+  margin-bottom: 2rem;
 }
 .docs-h2{
   font-weight: 300;
@@ -28,4 +16,22 @@ footer{
 }
 .docs-accordion .card:last-child{
   margin-bottom: 0;
+}
+
+/*Footer*/
+footer{
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+}
+.footer__copyright p{
+  margin-bottom: 0;
+  margin-top: 7px;
+}
+
+/*General*/
+.left-auto{
+  margin-left: auto;
 }
