@@ -10,6 +10,7 @@ describe('store service', () => {
   });
 
   it('should...', angular.mock.inject((store) => {
-    //    expect(store.getData()).toEqual(3); //  Example test
+  //  expect(store.getData()).toEqual(3); //  Example test
   }));
+  
 });
