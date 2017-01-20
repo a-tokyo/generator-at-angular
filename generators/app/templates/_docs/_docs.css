@@ -48,4 +48,10 @@ footer {
 .footer__copyright p {
     margin-bottom: 0;
     margin-top: 7px;
+    font-weight: 300;
+}
+
+/*General*/
+.inline-block{
+  display: inline-block;
 }
