@@ -21,7 +21,7 @@
 │   └── /webpack/                                    #Webpack config files
 │   │   ├── /environments/                           #Webpack env configs
 │   │   │   ├── /development.js                      #Development env config
-│   │   │   ├── /production.js                       #Production env config
+│   │   │   └── /production.js                       #Production env config
 │   │   └── global.js                                #Global webpack config
 ├── /dist/                                           #The built application directory to be deployed
 ├── /node_modules/                                   #3rd-party libraries and utilities
