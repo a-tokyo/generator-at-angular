@@ -8,6 +8,7 @@
 > * Latest Webpack with Tree Shaking feature enabled.
 > * SASS as CSS preprocessor.
 > * Angular UI router as default router.
+> * Karma and Jasmine for testing.
 > * All necessary webpack loaders already included (Sass, Images, Fonts, ngAnnotate, ngTemplateCache, etc.)
 > * Proxy configured to make cross origin requests with a simple prefix.
 
