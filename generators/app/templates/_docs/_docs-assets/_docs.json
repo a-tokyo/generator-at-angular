@@ -1,15 +1,15 @@
 {
   "components": [
-    {"name": "", "path": "", "description": "", "components": [], "directives": [], "services": []}
+    {"name": "test-component", "path": "test-component", "description": "", "components": [], "directives": [], "services": []}
   ],
   "directives": [
-    {"name": "", "nameCamel": "", "path": "", "description": ""}
+    {"name": "testDirective", "nameCamel": "testDirective", "path": "test-directive", "description": ""}
   ],
   "services": [
-    {"name": "", "nameCamel": "", "path": "", "description": ""}
+    {"name": "store", "nameCamel": "store", "path": "store", "description": "Store service fetches and holds some application data like arrays for dropdowns and so on."}
   ],
   "pages": [
-    {"name": "", "route": "", "state": "", "description": ""}
+    {"name": "home", "route": "/", "state": "home", "description": "home page"}
   ],
   "info": {"port": 8080}
 }
