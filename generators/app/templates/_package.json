@@ -28,7 +28,6 @@
     "angular-sanitize": "^1.6.1",
     "angular-ui-router": "^0.4.0",
     "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-angularjs-annotate": "^0.5.2",
     "babel-plugin-syntax-flow": "^6.13.0",
@@ -47,6 +46,7 @@
   "devDependencies": {
     "assets-webpack-plugin": "^3.4.0",
     "autoprefixer": "^6.5.0",
+    "babel-loader": "^6.2.5",
     "baggage-loader": "^0.2.4",
     "clean-webpack-plugin": "^0.1.10",
     "copy-webpack-plugin": "^4.0.1",
