@@ -1,6 +1,6 @@
 {
   "components": [
-    {"name": "", "path": "", "description": ""}
+    {"name": "", "path": "", "description": "", "components": [], "directives": [], "services": []}
   ],
   "directives": [
     {"name": "", "nameCamel": "", "path": "", "description": ""}
