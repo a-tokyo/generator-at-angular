@@ -42,8 +42,8 @@
 │   │   │       └── /directive/                      #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /directive.directive-spec.js #Directive unit tests
 │   │   │   │   │   ├── /directive.directive.js      #Directive definition, link and controller
-│   │   │   │   │   ├── /directive.html              #Directive template
-│   │   │   │   │   └── /directive.scss              #Directive styles
+│   │   │   │   │   ├── /directive.html              #Directive template (optional)
+│   │   │   │   │   └── /directive.scss              #Directive styles (optional)
 │   │   │   ├── /services/                           #Shared services
 │   │   │       └── /service/                        #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /service.factory-spec.js     #Service unit tests
