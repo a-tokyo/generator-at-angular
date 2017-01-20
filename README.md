@@ -91,7 +91,7 @@
 
 
 Getting Started
--------------
+---------------
 
 Prerequisites: Node, Yeoman and Webpack.
   > * To install Node, visit [nodeJS](https://nodejs.org/en/)
