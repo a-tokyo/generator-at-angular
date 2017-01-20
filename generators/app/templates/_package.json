@@ -13,7 +13,8 @@
     "build": "cross-env NODE_ENV=production webpack -p --colors",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "start": "npm run dev",
-    "test": "karma start"
+    "test": "karma start --log-level debug --single-run",
+    "tests": "karma start --log-level debug"
   },
   "dependencies": {
     "angular": "^1.6.1",
