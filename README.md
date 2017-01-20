@@ -63,19 +63,26 @@
 │   │   ├── /index.run.js                            #Function that will be triggered in Angular's "run" phase
 │   │   ├── /index.vendor.js                         #Import all vendors and 3rd party plugins here
 │   ├── /assets/                                     #Static content
+│   │   ├── /data/                                   #Data (e.g: JSON files)
 │   │   ├── /fonts/                                  #Fonts
 │   │   ├── /images/                                 #Images
 │   │   ├── /js/                                     #Extra libs folder
 │   │   └── /styles/                                 #Styles folder
 │   │       ├── /css/                                #CSS, place external css files here
 │   │       └── /sass/                               #SASS
-│   │           └── /index.scss                      #Main SASS file, define your global styling here.
+│   │           │   /fonts.scss                      #Fonts SASS file, define your fonts here.
+│   │           │   /index.scss                      #Index SASS entry file, bundles all SASS files.
+│   │           └── /main.scss                       #Main SASS file, define your global styling here.
 │   ├── favicon.ico                                  #Application icon to be displayed in bookmarks
 │   └── tpl-index.ejs                                #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 │── .babelrc                                         #Babel config with presets and plugins
+│── .eslintrc.json                                   #eslint config with parse options, rules, etc.
 │── .gitignore                                       #List of files to ignore by git
 │── .yo-rc.json                                      #Defines the root of the project, allows your user to run commands in subdirectories.
+│── karma.conf.js                                    #Karma configuration file for testing
 │── package.json                                     #The list of project dependencies and NPM scripts
+│── README.md                                        #README file
+│── test-context.js                                  #Test context, '*-spec.js' files
 └── webpack.config.js                                #Bundling and optimization settings for Webpack
 ```
 
