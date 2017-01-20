@@ -17,7 +17,7 @@
 
 ```shell
 
-├── /config/                                         #Build config
+├── /config/                                         #Configurations
 │   └── /webpack/                                    #Webpack config files
 │   │   ├── /environments/                           #Webpack env configs
 │   │   │   ├── /development.js                      #Development env config
