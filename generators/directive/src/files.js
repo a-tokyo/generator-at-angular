@@ -47,5 +47,9 @@ module.exports = function(AngularATGenerator) {
             this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.scss'), data);
         }
 
+        // Documenting the creation of the directive
+        var docsAssetsRelPath = '/docs/docs-assets'
+        var directiveDocJSONString = {"name": directiveName, "nameCamel": data.directiveNameCamel, "path": this.props.directiveName, "description": directiveName + " directive"};
+        utils.addToFile('docs.js', directiveDocJSONString, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + docsAssetsRelPath);
     };
 };
