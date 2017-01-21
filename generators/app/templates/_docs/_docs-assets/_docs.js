@@ -4,7 +4,7 @@ var docs =
     {"name": "test-component", "path": "test-component", "components": [], "directives": [], "services": [], "description": "Test component for Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid."},
   ],
   "directives": [
-    {"name": "testDirective", "nameCamel": "testDirective", "path": "test-directive", "description": ""},
+    {"name": "testDirective", "nameCamel": "testDirective", "path": "test-directive", "description": "Test directive for Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid."},
   ],
   "services": [
     {"name": "store", "nameCamel": "store", "path": "store", "description": "Store service fetches and holds some application data like arrays for dropdowns and so on."},

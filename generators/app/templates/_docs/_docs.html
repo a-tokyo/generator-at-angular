@@ -98,19 +98,19 @@
       <div id="directives-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
         <!-- directive Cards -->
         <div class="card" ng-repeat="directive in directives">
-          <div class="card-header" role="tab" id="directive-directiveName">
+          <div class="card-header" role="tab" id="directive-{{directive.path}}">
             <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#directives-accordion" href="#collapse-directive-directiveName" aria-expanded="true" aria-controls="collapse-directive-directiveName">
-                Test directive #1
+              <a data-toggle="collapse" data-parent="#directives-accordion" href="#collapse-directive-{{directive.path}}" aria-expanded="true" aria-controls="collapse-directive-{{directive.path}}">
+                {{directive.path}}
               </a>
             </h5>
           </div>
-          <div id="collapse-directive-directiveName" class="collapse show" role="tabpanel" aria-labelledby="directive-directiveName">
+          <div id="collapse-directive-{{directive.path}}" class="collapse show" role="tabpanel" aria-labelledby="directive-{{directive.path}}">
             <div class="card-block">
-              <div class="docs-card__description mb-1">
+              <div class="docs-card__description mb-1" ng-if="directive.description.length">
                 <h6>description:</h6>
                 <p>
-                  Test directive for Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                  {{directive.description}}
                 </p>
               </div>
             </div>
@@ -166,7 +166,7 @@
           <div id="collapse-page-pageName" class="collapse show" role="tabpanel" aria-labelledby="page-pageName">
             <div class="card-block">
               <div class="docs-card__nested-items-listing mb-1">
-                <h6 class="inline-block">Route: </h6> <a href="http://localhost:8080/route" target="_blank">/route</a>
+                <h6 class="inline-block">Route: </h6> <a href="{{apphost}}/route" target="_blank">/route</a>
               </div>
               <div class="docs-card__nested-items-listing mb-1">
                 <h6 class="inline-block">State: </h6> <span>state</span>
