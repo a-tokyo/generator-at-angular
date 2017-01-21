@@ -50,6 +50,7 @@ module.exports = function(AngularATGenerator) {
         // Documenting the creation of the directive
         var docsAssetsRelPath = '/docs/docs-assets'
         var directiveDocJSONString = '{"name": directiveName, "nameCamel": data.directiveNameCamel, "path": this.props.directiveName, "description": directiveName + " directive"},';
-        utils.addToFile('docs.js', directiveDocJSONString, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + docsAssetsRelPath);
+        utils.addToFile('docs.js', directiveDocJSONString, utils.DIRECTIVE_MARKER, this.destinationRoot() + docsAssetsRelPath);
+        this.log('written doc');
     };
 };
