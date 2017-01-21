@@ -1,5 +1,3 @@
-'use strict';
-
 var _ = require("lodash");
 var utils = require("../../utils.js");
 
@@ -18,7 +16,7 @@ module.exports = function(AngularATGenerator) {
         if (relPathAsArray.length === 1) {
             var appRelPath = '/src/app/core/directives';
             fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
-            this.fs.copyTpl(this.templatePath('directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
+            this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
             // add the directive to the core.modules file of shared directives
             var coreModulesWriteLine = "require('./directives/" + data.directiveName + "/" + data.directiveName + ".directive')(shared);";
             utils.addToFile('core.module.js', coreModulesWriteLine, utils.DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
@@ -39,14 +37,14 @@ module.exports = function(AngularATGenerator) {
                 this.log('Parent component files not found.');
                 return;
             }
-            this.fs.copyTpl(this.templatePath('componentDirective.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
+            this.fs.copyTpl(this.templatePath('_componentDirective.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
         }
         //Copy testing file
-        this.fs.copyTpl(this.templatePath('directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
+        this.fs.copyTpl(this.templatePath('_directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
         //Write view templates if needed
         if (this.props.needsPartial) {
-            this.fs.copyTpl(this.templatePath('directive.html'), this.destinationPath(fullPath + '/' + data.directiveName + '.html'), data);
-            this.fs.copyTpl(this.templatePath('directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.scss'), data);
+            this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(fullPath + '/' + data.directiveName + '.html'), data);
+            this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.scss'), data);
         }
 
     };

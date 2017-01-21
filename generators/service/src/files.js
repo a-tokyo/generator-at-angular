@@ -1,5 +1,3 @@
-'use strict';
-
 var _ = require('lodash');
 var utils = require('../../utils.js');
 
@@ -19,7 +17,7 @@ module.exports = function(AngularATGenerator) {
             try {
                 var coreModulesWriteLine = "require('./services/" + data.serviceName + '/' + data.serviceName + '.factory' + "')(shared);";
                 utils.addToFile('core.module.js', coreModulesWriteLine, utils.SERVICE_MARKER, this.destinationRoot() + '/src/app/core');
-                this.fs.copyTpl(this.templatePath('service.factory.js'), this.destinationPath(fullPath + '/' + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
+                this.fs.copyTpl(this.templatePath('_service.factory.js'), this.destinationPath(fullPath + '/' + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');
             }
@@ -37,9 +35,9 @@ module.exports = function(AngularATGenerator) {
                 this.log('Parent component files not found.');
                 return;
             }
-            this.fs.copyTpl(this.templatePath('componentService.factory.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
+            this.fs.copyTpl(this.templatePath('_componentService.factory.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
         }
-        this.fs.copyTpl(this.templatePath('service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory-spec.js'), data);
+        this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory-spec.js'), data);
 
     };
 };

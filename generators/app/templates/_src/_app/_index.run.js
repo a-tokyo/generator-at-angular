@@ -1,5 +1,3 @@
-'use strict';
-
 function runBlock($log) {
 	'ngInject';
 

@@ -1,5 +1,3 @@
-'use strict';
-
 import * as components from './index.components';
 import * as config from './index.config';
 import * as run from './index.run';

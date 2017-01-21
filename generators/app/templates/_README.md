@@ -3,8 +3,13 @@
 
 ## Getting Started
 
-##### `npm start` or `npm run dev` - to start development server on [localhost:8080](http://localhost:8080).
+##### `npm start` or `npm run dev` - To start development server on [localhost:8080](http://localhost:8080).
+
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
+
+##### `npm test` - To run all tests once, should be used for the CI.
+
+##### `npm run tests` - To run tests in `watch` mode.
 
 
 ## Contribution guide
@@ -25,3 +30,8 @@ Run a sub-generator:
     yo at-angular:component my-component                         # Generates a component
     yo at-angular:component my-component/my-nested-component     # Generates a nested component
     yo at-angular:component my-component/my-nested-component/... # Generates a multiple nested component
+
+
+### Tips:
+  - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
+  - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)

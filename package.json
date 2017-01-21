@@ -1,6 +1,6 @@
 {
   "name": "generator-at-angular",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "Yeoman Generator for angular that uses Webpack as a module bundler, SASS as CSS preprocessor, UI router as default angular router and Karma with Jasmine for testing.",
   "homepage": "http://a-tokyo.github.io/generator-at-angular/",
   "author": {
@@ -22,33 +22,31 @@
     "url": "https://github.com/A-Tokyo/generator-at-angular.git"
   },
   "files": [
-    "generators/app",
-    "generators/component",
-    "generators/directive",
-    "generators/page",
-    "generators/service",
-    "generators/modal",
-    "generators/module",
-    "generators/filter",
-    "generators/utils.js"
+    "generators/"
   ],
   "main": "generators/app/index.js",
   "keywords": [
     "yeoman-generator",
     "generator",
     "sub-generator",
+    "architecture",
     "angular",
     "component",
     "es6",
     "es2015",
     "es2016",
     "es2017",
+    "babel",
     "webpack",
     "webpack2",
+    "testing",
+    "tests",
     "karma",
     "jasmine",
-    "testing",
     "sass",
+    "bootstrap",
+    "angular-material",
+    "angular-md",
     "tokyo"
   ],
   "license": "MIT",

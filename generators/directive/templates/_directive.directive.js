@@ -1,4 +1,3 @@
-'use strict';
 <% if (needsPartial) { %>
 import directiveTpl from './<%= directiveName %>.html';
 <% } %>

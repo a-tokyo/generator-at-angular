@@ -1,5 +1,3 @@
-'use strict';
-
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 
@@ -18,6 +16,7 @@ module.exports = function (AngularATGenerator) {
     AngularATGenerator.prototype.copyFiles = function copyFiles() {
         mkdirp('src');
         mkdirp('src/assets');
+        mkdirp('src/assets/data');
         mkdirp('src/assets/fonts');
         mkdirp('src/assets/images');
         mkdirp('src/assets/js');
@@ -83,6 +82,10 @@ module.exports = function (AngularATGenerator) {
             this.templatePath('_src/_assets/_styles/_sass/_index.scss'),
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/index.scss'),
             this
+        );
+        this.fs.copy(
+            this.templatePath('_src/_assets/_styles/_sass/_fonts.scss'),
+            this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/fonts.scss')
         );
         this.fs.copyTpl(
             this.templatePath('_src/_assets/_styles/_sass/_main.scss'),

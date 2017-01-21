@@ -1,5 +1,3 @@
-'use strict';
-
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
@@ -96,9 +94,10 @@ module.exports = function (_path) {
         ]
       },
       /*
-       * Uncomment the following lines to copy all the images to assets/images
+       * Uncomment the following lines to load all the images to assets/images
        * and access them through 'assets/images/[name].[ext]'
-       *
+       * p.s: some prefer to use copyWebpackPlugin to copy images as static files
+       * This is done below in the plugins part
        */
       // {
       //   test: /\.(jpe?g|png|gif|svg)$/i,
@@ -138,6 +137,16 @@ module.exports = function (_path) {
       //     'window._': 'lodash'
       //
       // }),
+      /*
+      * copyWebpackPlugin
+      * copies json files from src/assets/data to dist/assets/data
+      * copies image files from src/assets/images to dist/assets/images
+      * To be accessed through static links
+      */
+      // new CopyWebpackPlugin([
+      //   { from: 'src/assets/data', to: `${_path}/dist/assets/data`},
+      //   { from: 'src/assets/images', to: `${_path}/dist/assets/images`}
+      // ]),
       new webpack.DefinePlugin({
         'NODE_ENV': JSON.stringify(NODE_ENV)
       }),

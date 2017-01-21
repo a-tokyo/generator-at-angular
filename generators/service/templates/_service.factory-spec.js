@@ -5,11 +5,12 @@ describe('<%= serviceNameCamel %> service', () => {
 
   beforeEach(() => {
       const dummyModule = angular.module('dummyModule', []);
-      require('./<%= serviceName %>.factory')(dummyModule);
+      require('./<%= serviceNameCamel %>.factory')(dummyModule);
       angular.mock.module('dummyModule');
   });
 
   it('should...', angular.mock.inject((<%= serviceNameCamel %>) => {
-      //  expect(<%= serviceNameCamel %>.getData()).toEqual(3); //  Example test 
+  //  expect(<%= serviceNameCamel %>.getData()).toEqual(3); //  Example test
   }));
+
 });

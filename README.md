@@ -8,6 +8,7 @@
 > * Latest Webpack with Tree Shaking feature enabled.
 > * SASS as CSS preprocessor.
 > * Angular UI router as default router.
+> * Karma and Jasmine for testing.
 > * All necessary webpack loaders already included (Sass, Images, Fonts, ngAnnotate, ngTemplateCache, etc.)
 > * Proxy configured to make cross origin requests with a simple prefix.
 > * Karma + Jasmine Testing
@@ -16,10 +17,12 @@
 
 ```shell
 
-├── /config/                                         #Build config
+├── /config/                                         #Configurations
 │   └── /webpack/                                    #Webpack config files
-│       ├── /environments/                           #Webpack env dependent configs
-│       └── global.js                                #Global webpack settings for all envs
+│   │   ├── /environments/                           #Webpack env configs
+│   │   │   ├── /development.js                      #Development env config
+│   │   │   └── /production.js                       #Production env config
+│   │   └── global.js                                #Global webpack config
 ├── /dist/                                           #The built application directory to be deployed
 ├── /node_modules/                                   #3rd-party libraries and utilities
 ├── /src/                                            #Source folder
@@ -39,8 +42,8 @@
 │   │   │       └── /directive/                      #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /directive.directive-spec.js #Directive unit tests
 │   │   │   │   │   ├── /directive.directive.js      #Directive definition, link and controller
-│   │   │   │   │   ├── /directive.html              #Directive template
-│   │   │   │   │   └── /directive.scss              #Directive styles
+│   │   │   │   │   ├── /directive.html              #Directive template (optional)
+│   │   │   │   │   └── /directive.scss              #Directive styles (optional)
 │   │   │   ├── /services/                           #Shared services
 │   │   │       └── /service/                        #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /service.factory-spec.js     #Service unit tests
@@ -63,25 +66,32 @@
 │   │   ├── /index.run.js                            #Function that will be triggered in Angular's "run" phase
 │   │   ├── /index.vendor.js                         #Import all vendors and 3rd party plugins here
 │   ├── /assets/                                     #Static content
+│   │   ├── /data/                                   #Data (e.g: JSON files)
 │   │   ├── /fonts/                                  #Fonts
 │   │   ├── /images/                                 #Images
 │   │   ├── /js/                                     #Extra libs folder
 │   │   └── /styles/                                 #Styles folder
 │   │       ├── /css/                                #CSS, place external css files here
 │   │       └── /sass/                               #SASS
-│   │           └── /index.scss                      #Main SASS file, define your global styling here.
+│   │           ├── /fonts.scss                      #Fonts SASS file, define your fonts here.
+│   │           ├── /index.scss                      #Index SASS entry file, bundles all SASS files.
+│   │           └── /main.scss                       #Main SASS file, define your global styling here.
 │   ├── favicon.ico                                  #Application icon to be displayed in bookmarks
 │   └── tpl-index.ejs                                #Template for html-webpack-plugin that will be transpiled into index.html in /dist
-│── .babelrc                                         #Babel config with presets and plugins
-│── .gitignore                                       #List of files to ignore by git
-│── .yo-rc.json                                      #Defines the root of the project, allows your user to run commands in subdirectories.
-│── package.json                                     #The list of project dependencies and NPM scripts
+├── .babelrc                                         #Babel config with presets and plugins
+├── .eslintrc.json                                   #eslint config with parse options, rules, etc.
+├── .gitignore                                       #List of files to ignore by git
+├── .yo-rc.json                                      #Defines the root of the project, allows your user to run commands in subdirectories.
+├── karma.conf.js                                    #Karma configuration file for testing
+├── package.json                                     #The list of project dependencies and NPM scripts
+├── README.md                                        #README file
+├── test-context.js                                  #Test context, '*-spec.js' files
 └── webpack.config.js                                #Bundling and optimization settings for Webpack
 ```
 
 
 Getting Started
--------------
+---------------
 
 Prerequisites: Node, Yeoman and Webpack.
   > * To install Node, visit [nodeJS](https://nodejs.org/en/)
@@ -113,9 +123,14 @@ Running a generator:
 
 Running the project:
 
-##### `npm start` or `npm run dev` - to start development server on [localhost:8080](http://localhost:8080).
+##### `npm start` or `npm run dev` - To start development server on [localhost:8080](http://localhost:8080).
+
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
 ##### `npm test` - To run all tests once, should be used for CI.
+##### `npm run tests` - To run tests in `watch` mode.
+
+##### `npm test` - To run all tests once, should be used for the CI.
+
 ##### `npm run tests` - To run tests in `watch` mode.
 
 
@@ -123,6 +138,13 @@ Running the project:
 
   > * **Angular Material:**
        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
+  > * **Boostrap Sass:**
+       bootstrap-sass is a Sass-powered version of Bootstrap       
+
+
+### Tips:
+- To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
+- To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 
 ### Known bugs:

@@ -1,5 +1,3 @@
-'use strict';
-
 function <%= serviceNameCamel %>Factory() {
     return {
 

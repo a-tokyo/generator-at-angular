@@ -1,5 +1,3 @@
-'use strict';
-
 function routeConfig($urlRouterProvider, $stateProvider) {
   'ngInject';
   /* Add New States Above */

@@ -16,4 +16,5 @@ describe('<%= directiveNameCamel %> directive', () => {
     // $rootScope.$digest();
 
   }));
+  
 });

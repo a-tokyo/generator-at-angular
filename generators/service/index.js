@@ -1,5 +1,3 @@
-'use strict';
-
 var yeoman = require('yeoman-generator').Base;
 var chalk = require('chalk');
 var _ = require('lodash');

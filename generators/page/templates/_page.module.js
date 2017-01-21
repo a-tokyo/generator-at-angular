@@ -1,5 +1,3 @@
-'use strict';
-
 import * as route from './<%= pageName %>.route';
 import './<%= pageName %>.scss';
 
