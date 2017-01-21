@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="docs">
 
 <head>
   <!-- Required meta tags always come first -->
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./_docs-assets/_docs.css">
 </head>
 
-<body>
+<body ng-controller="docsCtrl" ng-cloak>
   <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary docs-navbar">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -64,8 +64,6 @@
               <div class="docs-card__nested-items-listing mb-1">
                 <h6>components:</h6>
                 <div>
-                  <a href="#component-compName" class="btn btn-link">Test component #2</a>
-                  <a href="#component-compName" class="btn btn-link">Test component #2</a>
                   <a href="#component-compName" class="btn btn-link">Test component #2</a>
                 </div>
               </div>
@@ -200,6 +198,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <!-- _docs.js script -->
   <script src="./_docs-assets/_docs.js" charset="utf-8"></script>
 </body>

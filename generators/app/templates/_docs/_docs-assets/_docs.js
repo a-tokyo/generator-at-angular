@@ -1,16 +1,16 @@
 var docs =
 {
   "components": [
-    {"name": "test-component", "path": "test-component", "description": "", "components": [], "directives": [], "services": []}
+    {"name": "test-component", "path": "test-component", "description": "", "components": [], "directives": [], "services": []},
   ],
   "directives": [
-    {"name": "testDirective", "nameCamel": "testDirective", "path": "test-directive", "description": ""}
+    {"name": "testDirective", "nameCamel": "testDirective", "path": "test-directive", "description": ""},
   ],
   "services": [
-    {"name": "store", "nameCamel": "store", "path": "store", "description": "Store service fetches and holds some application data like arrays for dropdowns and so on."}
+    {"name": "store", "nameCamel": "store", "path": "store", "description": "Store service fetches and holds some application data like arrays for dropdowns and so on."},
   ],
   "pages": [
-    {"name": "home", "route": "/", "state": "home", "description": "home page"}
+    {"name": "home", "route": "/", "state": "home", "description": "home page"},
   ],
   "info": {"port": 8080}
 };
@@ -25,3 +25,13 @@ $(document).ready(function () {
     var pageCurrIndex;
     console.log(docs);
 });
+
+
+  var App = angular.module(
+    'docs', []
+  );
+  //   .run(function(){});
+  App.controller('docsCtrl', function ctrl($scope){
+
+  });
+// angular.bootstrap(document, ['docs']);
