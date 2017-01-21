@@ -9,6 +9,14 @@
     "url": "http://github.com/a-tokyo",
     "organization": "dreidev"
   },
+  "contributors": [
+    {
+     "name": "Clive Makamara",
+     "email": "clive@makamara.me",
+     "url": "http://github.com/cmosh",
+     "organization": "dreidev"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/A-Tokyo/generator-at-angular.git"
