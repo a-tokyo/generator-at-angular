@@ -127,19 +127,19 @@
       <div id="services-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
         <!-- Service Cards -->
         <div class="card" ng-repeat="service in services">
-          <div class="card-header" role="tab" id="service-serviceName">
+          <div class="card-header" role="tab" id="service-{{service.path}}">
             <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#services-accordion" href="#collapse-service-serviceName" aria-expanded="true" aria-controls="collapse-service-serviceName">
-                Test service #1
+              <a data-toggle="collapse" data-parent="#services-accordion" href="#collapse-service-{{service.path}}" aria-expanded="true" aria-controls="collapse-service-{{service.path}}">
+                {{service.path}}
               </a>
             </h5>
           </div>
-          <div id="collapse-service-serviceName" class="collapse show" role="tabpanel" aria-labelledby="service-serviceName">
+          <div id="collapse-service-{{service.path}}" class="collapse show" role="tabpanel" aria-labelledby="service-{{service.path}}">
             <div class="card-block">
-              <div class="docs-card__description mb-1">
+              <div class="docs-card__description mb-1" ng-if="service.description.length">
                 <h6>description:</h6>
                 <p>
-                  Test service for Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                  {{service.description}}
                 </p>
               </div>
             </div>
