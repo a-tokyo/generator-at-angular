@@ -10,15 +10,12 @@ body {
     top: 0;
 }
 
-.docs-header-main {
-    margin-top: 56px;
-}
-
 .main-h {
     font-size: 2.5rem;
 }
 
 .docs-body {
+    margin-top: 56px;
     margin-bottom: 2rem;
 }
 
