@@ -156,25 +156,25 @@
       <div id="pages-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
         <!-- Page Cards -->
         <div class="card" ng-repeat="page in pages">
-          <div class="card-header" role="tab" id="page-pageName">
+          <div class="card-header" role="tab" id="page-{{page.name}}">
             <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#pages-accordion" href="#collapse-page-pageName" aria-expanded="true" aria-controls="collapse-page-pageName">
-                Test page #1
+              <a data-toggle="collapse" data-parent="#pages-accordion" href="#collapse-page-{{page.name}}" aria-expanded="true" aria-controls="collapse-page-{{page.name}}">
+                {{page.name}}
               </a>
             </h5>
           </div>
-          <div id="collapse-page-pageName" class="collapse show" role="tabpanel" aria-labelledby="page-pageName">
+          <div id="collapse-page-{{page.name}}" class="collapse show" role="tabpanel" aria-labelledby="page-{{page.name}}">
             <div class="card-block">
               <div class="docs-card__nested-items-listing mb-1">
-                <h6 class="inline-block">Route: </h6> <a href="{{apphost}}/route" target="_blank">/route</a>
+                <h6 class="inline-block">Route: </h6> <a href="{{apphost + page.route}}" target="_blank">{{page.route}}</a>
               </div>
               <div class="docs-card__nested-items-listing mb-1">
-                <h6 class="inline-block">State: </h6> <span>state</span>
+                <h6 class="inline-block">State: </h6> <span>{{page.state}}</span>
               </div>
-              <div class="docs-card__description mb-1">
+              <div class="docs-card__description mb-1" ng-if="page.description.length">
                 <h6>description:</h6>
                 <p>
-                  Test page for Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                  {{page.description}}
                 </p>
               </div>
             </div>
