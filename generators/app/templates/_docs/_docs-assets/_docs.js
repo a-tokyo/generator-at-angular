@@ -17,7 +17,7 @@ var docs =
     {"name": "home", "route": "/", "state": "home", "description": "home page"},
     // Add new pages above
   ],
-  "info": {"port": 8080}
+  "info": {"appname":"MyATApp", "port": 8080}
   // Add application info above
 };
 
@@ -26,6 +26,8 @@ var docs =
 $(document).ready(function () {
     //Setting copyright date
     document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
+    //Setting app name
+    document.getElementById('app-name').innerHTML = docs.info.appname;
 });
 
 
