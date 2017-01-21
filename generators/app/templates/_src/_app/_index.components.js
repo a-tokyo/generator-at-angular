@@ -1,3 +1,3 @@
 export default angular.module('index.components', [
-  /* Add New COMPONENTS Above */
+  // Add new components above
 ]);
