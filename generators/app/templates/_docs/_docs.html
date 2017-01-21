@@ -64,7 +64,7 @@
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.components.length">
                 <h6>components:</h6>
                 <div>
-                  <a ng-repeat="subComponent in component.components" href="#component-{{subComponent.path}}" class="btn btn-link">{{subComponent.path}}</a>
+                  <a ng-repeat="subComponent in component.components" href="#component-{{subComponent.path}}" class="btn btn-link">{{subComponent.name}}</a>
                 </div>
               </div>
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.services.length">
