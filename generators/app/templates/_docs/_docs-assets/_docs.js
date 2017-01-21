@@ -19,19 +19,19 @@ $(document).ready(function () {
     //Setting copyright date
     document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
     // preparing to loop over json file extracting the data and writing it to html
-    var componentCurrIndex;
-    var directiveCurrIndex;
-    var serviceCurrIndex;
-    var pageCurrIndex;
-    console.log(docs);
+    // var componentCurrIndex;
+    // var directiveCurrIndex;
+    // var serviceCurrIndex;
+    // var pageCurrIndex;
 });
 
 
-  var App = angular.module(
-    'docs', []
-  );
-  //   .run(function(){});
+  var App = angular.module('docs', []);
   App.controller('docsCtrl', function ctrl($scope){
-
+    $scope.components = docs.components;
+    $scope.directives = docs.directives;
+    $scope.services = docs.services;
+    $scope.pages = docs.pages;
+    // Base href for app
+    $scope.apphost = 'http://localhost:'+docs.info.port;
   });
-// angular.bootstrap(document, ['docs']);
