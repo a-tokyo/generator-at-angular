@@ -1,7 +1,7 @@
 var docs =
 {
   "components": [
-    {"name": "test-component", "path": "test-component", "description": "", "components": [], "directives": [], "services": []},
+    {"name": "test-component", "path": "test-component", "components": [], "directives": [], "services": [], "description": "Test component for Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid."},
   ],
   "directives": [
     {"name": "testDirective", "nameCamel": "testDirective", "path": "test-directive", "description": ""},
