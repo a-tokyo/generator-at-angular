@@ -10,7 +10,9 @@ describe('<%= serviceNameCamel %> service', () => {
   });
 
   it('should...', angular.mock.inject((<%= serviceNameCamel %>) => {
+
   //  expect(<%= serviceNameCamel %>.getData()).toEqual(3); //  Example test
+  
   }));
 
 });
