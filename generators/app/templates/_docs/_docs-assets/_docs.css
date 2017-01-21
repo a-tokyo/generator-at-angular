@@ -1,0 +1,69 @@
+/*body resets*/
+body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*Navbar*/
+.docs-navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    top: 0;
+}
+
+/*Body*/
+.main-h {
+    font-size: 2.5rem;
+}
+
+.docs-body {
+    margin-top: 56px;
+    margin-bottom: 2rem;
+}
+
+.docs-body>.jumbotron{
+  margin-bottom: 0;
+}
+
+.docs-body>section{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.docs-body>hr{
+  margin: 0;
+}
+
+.docs-h2 {
+    font-weight: 300;
+}
+
+.docs-accordion>.card {
+    margin-bottom: 10px;
+}
+
+.docs-accordion>.card:last-child {
+    margin-bottom: 0;
+}
+
+/*Footer*/
+footer {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    flex-wrap: wrap;
+    padding: 8px 16px;
+}
+
+.footer__copyright p {
+    margin-bottom: 0;
+    margin-top: 7px;
+    font-weight: 300;
+}
+
+/*General*/
+.inline-block{
+  display: inline-block;
+}
