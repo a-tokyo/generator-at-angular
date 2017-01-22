@@ -15,6 +15,6 @@ var docs =
   "pages": [
     // Add new pages above
   ],
-  "info": {"appName":"MyATApp", "port": 8080}
+  "info": {"appName":"<%= props.appName %>", "port": 8080}
   // Add application info above
 };
