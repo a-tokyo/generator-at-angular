@@ -25,6 +25,9 @@ exports.MAIN_SCSS_MARKER = '// Add Main SCSS Above';
 exports.ROUTE_MARKER = '/* Add New Routes Above */';
 exports.STATE_MARKER = '/* Add New States Above */';
 
+exports.DOCS_ASSETS_PATH = '/docs/docs-assets';
+exports.DOCS_STORAGE_FILENAME = 'docs.js';
+
 exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     try {
         var fullPath = path.resolve(fullpathI,filename);
