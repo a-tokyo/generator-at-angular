@@ -61,6 +61,12 @@
           </div>
           <div id="collapse-component-{{replaceSlashWith2Underscores(component.path)}}" class="collapse" role="tabpanel" aria-labelledby="component-{{replaceSlashWith2Underscores(component.path)}}">
             <div class="card-block">
+              <div class="docs-card__description mb-1">
+                <h6 class="inline-block">Name: </h6>
+                <span class="inline-block">
+                  {{component.name}}
+                </span>
+              </div>
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.components.length">
                 <h6>components:</h6>
                 <div>
