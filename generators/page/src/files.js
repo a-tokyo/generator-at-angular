@@ -4,6 +4,7 @@ var utils = require("../../utils.js");
 module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+        // data to be passed to templates and used to get info
         var data = {
             'pageName': this.props.pageName,
             'pageNameCamel': _.camelCase(this.props.pageName),
@@ -14,8 +15,10 @@ module.exports = function(AngularATGenerator) {
         };
 
         try{
+          // import the page to the pages module
           var indexModulesWriteLine = "require('./pages/" + data.pageName + "/" + data.pageName + ".module').name,";
           utils.addToFile('index.module.js', indexModulesWriteLine, utils.PAGE_MARKER, this.destinationRoot() + '/src/app');
+          // copy template files
           this.fs.copyTpl(this.templatePath('_page.html'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.html'), data);
           this.fs.copyTpl(this.templatePath('_page.scss'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.scss'), data);
           this.fs.copyTpl(this.templatePath('_page.module.js'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.module' + '.js'), data);

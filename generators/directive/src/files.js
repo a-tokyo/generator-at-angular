@@ -4,11 +4,13 @@ var utils = require("../../utils.js");
 module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+        // setting defaults, directive name and path settings
         var relPathAsArray = this.props.directiveName.split('/');
         var directiveName = relPathAsArray[relPathAsArray.length - 1];
         var fullPath;
         var parentName;
         var parentPath;
+        // data to be passed to templates and used to get info
         var data = {
             'directiveName': directiveName,
             'directiveNameCamel': _.camelCase(directiveName),
@@ -45,9 +47,9 @@ module.exports = function(AngularATGenerator) {
             }
             this.fs.copyTpl(this.templatePath('_componentDirective.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
         }
-        //Copy testing file
+        // copy testing file
         this.fs.copyTpl(this.templatePath('_directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
-        //Write view templates if needed
+        // copy view templates if needed
         if (this.props.needsPartial) {
             this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(fullPath + '/' + data.directiveName + '.html'), data);
             this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.scss'), data);
@@ -56,7 +58,7 @@ module.exports = function(AngularATGenerator) {
         // Documenting the creation of the directive
         var directiveDocJSONString = '{"name": "' + directiveName + '", "nameCamel": "' + data.directiveNameCamel + '", "path": "' + this.props.directiveName + '", "description": "' + directiveName + ' directive"},';
         utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocJSONString, utils.DIRECTIVE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-        //if the directive has a parent, Link it to its parent
+        // if the directive has a parent, Link it to its parent
         if (parentPath) {
           // Foreign Key String for directive is injected into the parent component
           var directiveDocForeignKeyJSONString = '{"path": "' + this.props.directiveName + '", "name": "' + data.directiveNameCamel + '"},';

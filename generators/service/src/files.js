@@ -4,11 +4,13 @@ var utils = require('../../utils.js');
 module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+        // setting defaults, service name and path settings
         var relPathAsArray = this.props.serviceName.split('/');
         var serviceName = relPathAsArray[relPathAsArray.length - 1];
         var fullPath;
         var parentName;
         var parentPath;
+        // data to be passed to templates and used to get info
         var data = {
             'serviceName': serviceName,
             'serviceNameCamel': _.camelCase(serviceName)
@@ -35,7 +37,7 @@ module.exports = function(AngularATGenerator) {
                 // import service into parent module
                 var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceNameCamel + ".factory';";
                 utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + appRelPath + parentPath);
-                //add service to parent module
+                // add service to parent module
                 var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
                 utils.addToFile(parentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + appRelPath + parentPath);
             } catch (err) {
@@ -44,13 +46,13 @@ module.exports = function(AngularATGenerator) {
             }
             this.fs.copyTpl(this.templatePath('_componentService.factory.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
         }
-        //Copy testing file
+        // copy testing file
         this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory-spec.js'), data);
 
         // Documenting the creation of the service
         var serviceDocJSONString = '{"name": "' + serviceName + '", "nameCamel": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + serviceName + ' service"},';
         utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocJSONString, utils.SERVICE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-        //if the service has a parent, Link it to its parent
+        // if the service has a parent, Link it to its parent
         if (parentPath) {
           // Foreign Key String for service is injected into the parent component
           var serviceDocForeignKeyJSONString = '{"path": "' + this.props.serviceName + '", "name": "' + data.serviceNameCamel + '"},';
