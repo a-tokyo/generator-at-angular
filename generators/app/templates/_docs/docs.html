@@ -42,7 +42,7 @@
   <article class="docs-body">
   <header class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-3 main-h"><span id="app-name">App</span> Documentation</h1>
+      <h1 class="display-3 main-h">{{appName || 'App'}} Documentation</h1>
       <p class="lead">Auto generated angular application documantion for components, directives, services and pages.</p>
     </div>
   </header>
@@ -187,7 +187,7 @@
   </article>
   <!-- Footer -->
   <footer class="bg-primary">
-    <div class="footer__copyright"><p>Copyright (c) <span id="copyright-year">2017</span> Generator-at-angular</p></div>
+    <div class="footer__copyright"><p>Copyright (c) {{currentYear || 2017}} Generator-at-angular</p></div>
     <div class="">
       <a href="http://github.com/A-Tokyo/generator-at-angular" class="btn btn-primary btn-sm" target="_blank">
         <i class="fa fa-github fa-2x" aria-hidden="true"></i>

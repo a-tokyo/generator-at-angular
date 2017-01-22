@@ -17,23 +17,15 @@ var docs =
     {"name": "home", "route": "/", "state": "home", "description": "home page"},
     // Add new pages above
   ],
-  "info": {"appname":"MyATApp", "port": 8080}
+  "info": {"appName":"MyATApp", "port": 8080}
   // Add application info above
 };
-
-
-// Waiting till the document is ready
-$(document).ready(function () {
-    //Setting copyright date
-    document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
-    //Setting app name
-    document.getElementById('app-name').innerHTML = docs.info.appname;
-});
-
 
 // generator-at-angular-docs angular application
 var docsApp = angular.module('generator-at-angular-docs', []);
 docsApp.controller('docsCtrl', function ($scope){
+  // attaching appName to scope
+  $scope.appName = docs.info.appName;
   // attaching docs to scope
   $scope.components = docs.components;
   $scope.directives = docs.directives;
@@ -41,4 +33,6 @@ docsApp.controller('docsCtrl', function ($scope){
   $scope.pages = docs.pages;
   // Base href for app routes
   $scope.apphost = 'http://localhost:'+docs.info.port;
+  // attaching currentYear to scope
+  $scope.currentYear = new Date().getFullYear();
 });
