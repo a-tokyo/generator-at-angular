@@ -1,7 +1,7 @@
 {
   "name": "generator-at-angular",
   "version": "0.2.6",
-  "description": "Yeoman Generator for angular that uses Webpack as a module bundler, SASS as CSS preprocessor, UI router as default angular router and Karma with Jasmine for testing.",
+  "description": "Yeoman angular application generator thet uses Webpack, SASS, UI router, Karma and Jasmine for testing, and auto generated docs.",
   "homepage": "http://a-tokyo.github.io/generator-at-angular/",
   "author": {
     "name": "ahmed tarek",
@@ -9,6 +9,20 @@
     "url": "http://github.com/a-tokyo",
     "organization": "dreidev"
   },
+  "contributors": [
+    {
+      "name": "ahmed tarek",
+      "email": "ahmed.tokyo1@gmail.com",
+      "url": "http://github.com/a-tokyo",
+      "organization": "dreidev"
+    },
+    {
+     "name": "Clive Makamara",
+     "email": "clive@makamara.me",
+     "url": "http://github.com/cmosh",
+     "organization": "dreidev"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/A-Tokyo/generator-at-angular.git"
@@ -39,6 +53,9 @@
     "bootstrap",
     "angular-material",
     "angular-md",
+    "docs",
+    "documentation",
+    "auto-document",
     "tokyo"
   ],
   "license": "MIT",

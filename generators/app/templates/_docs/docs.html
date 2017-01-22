@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="generator-at-angular-docs">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta author="generator-at-angular">
+  <meta description="generator-at-angular auto generated angular application documentation.">
+  <title>Docs</title>
+  <!-- Bootstrap CSS, Font Awesome CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Custom Docs CSS-->
+  <link rel="stylesheet" href="./docs-assets/docs.css">
+</head>
+
+<body ng-controller="docsCtrl" ng-cloak data-spy="scroll" data-target=".navbar" data-offset="56">
+  <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary docs-navbar">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">DOCS</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#components">Components</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#directives">Directives</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pages">Pages</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <article class="docs-body">
+  <header class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-3 main-h">{{appName || 'App'}} Documentation</h1>
+      <p class="lead">Auto generated angular application documantion for components, directives, services and pages.</p>
+    </div>
+  </header>
+  <!-- Documentation Body -->
+  <!-- Components Documentation -->
+    <section class="container-fluid" id="components">
+      <h2 class="docs-h2">Components</h2>
+      <div id="components-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
+        <div class="card" ng-repeat="component in components">
+          <div class="card-header" role="tab" id="component-{{replaceSlashWith2Underscores(component.path)}}">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" data-parent="#components-accordion" href="#collapse-component-{{replaceSlashWith2Underscores(component.path)}}" aria-expanded="true" aria-controls="collapse-component-{{replaceSlashWith2Underscores(component.path)}}">
+                {{component.path}}
+              </a>
+            </h5>
+          </div>
+          <div id="collapse-component-{{replaceSlashWith2Underscores(component.path)}}" class="collapse" role="tabpanel" aria-labelledby="component-{{replaceSlashWith2Underscores(component.path)}}">
+            <div class="card-block">
+              <div class="docs-card__description mb-1">
+                <h6 class="inline-block">Name: </h6>
+                <span class="inline-block">
+                  {{component.name}}
+                </span>
+              </div>
+              <div class="docs-card__nested-items-listing mb-1" ng-if="component.components.length">
+                <h6>components:</h6>
+                <div>
+                  <a ng-repeat="subComponent in component.components" href="#component-{{replaceSlashWith2Underscores(subComponent.path)}}" class="btn btn-link">{{subComponent.name}}</a>
+                </div>
+              </div>
+              <div class="docs-card__nested-items-listing mb-1" ng-if="component.services.length">
+                <h6>services:</h6>
+                <div>
+                  <a ng-repeat="subService in component.services" href="#service-{{replaceSlashWith2Underscores(subService.path)}}" class="btn btn-link">{{subService.name}}</a>
+                </div>
+              </div>
+              <div class="docs-card__nested-items-listing mb-1" ng-if="component.directives.length">
+                <h6>directives:</h6>
+                <div>
+                  <a ng-repeat="subDirective in component.directives" href="#directive-{{replaceSlashWith2Underscores(subDirective.path)}}" class="btn btn-link">{{subDirective.name}}</a>
+                </div>
+              </div>
+              <div class="docs-card__description mb-1" ng-if="component.description.length">
+                <h6>description:</h6>
+                <p>
+                  {{component.description}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="m-0" ng-if="!components.length">There are no documented components at the moment.</p>
+    </section>
+    <!-- ./Components Documentation -->
+    <hr>
+    <!-- Directives Documentation -->
+    <section class="container-fluid" id="directives">
+      <h2 class="docs-h2">Directives</h2>
+      <div id="directives-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
+        <!-- directive Cards -->
+        <div class="card" ng-repeat="directive in directives">
+          <div class="card-header" role="tab" id="directive-{{replaceSlashWith2Underscores(directive.path)}}">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" data-parent="#directives-accordion" href="#collapse-directive-{{replaceSlashWith2Underscores(directive.path)}}" aria-expanded="true" aria-controls="collapse-directive-{{replaceSlashWith2Underscores(directive.path)}}">
+                {{directive.path}}
+              </a>
+            </h5>
+          </div>
+          <div id="collapse-directive-{{replaceSlashWith2Underscores(directive.path)}}" class="collapse" role="tabpanel" aria-labelledby="directive-{{replaceSlashWith2Underscores(directive.path)}}">
+            <div class="card-block">
+              <div class="docs-card__description mb-1">
+                <h6 class="inline-block">Name: </h6>
+                <span class="inline-block">
+                  {{directive.name}}
+                </span>
+              </div>
+              <div class="docs-card__description mb-1" ng-if="directive.description.length">
+                <h6>description:</h6>
+                <p>
+                  {{directive.description}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./directive Cards -->
+      </div>
+      <p class="m-0" ng-if="!directives.length">There are no documented directives at the moment.</p>
+    </section>
+    <!-- ./Directives Documentation -->
+    <hr>
+    <!-- Services Documentation -->
+    <section class="container-fluid" id="services">
+      <h2 class="docs-h2">Services</h2>
+      <div id="services-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
+        <!-- Service Cards -->
+        <div class="card" ng-repeat="service in services">
+          <div class="card-header" role="tab" id="service-{{replaceSlashWith2Underscores(service.path)}}">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" data-parent="#services-accordion" href="#collapse-service-{{replaceSlashWith2Underscores(service.path)}}" aria-expanded="true" aria-controls="collapse-service-{{replaceSlashWith2Underscores(service.path)}}">
+                {{service.path}}
+              </a>
+            </h5>
+          </div>
+          <div id="collapse-service-{{replaceSlashWith2Underscores(service.path)}}" class="collapse" role="tabpanel" aria-labelledby="service-{{replaceSlashWith2Underscores(service.path)}}">
+            <div class="card-block">
+              <div class="docs-card__description mb-1">
+                <h6 class="inline-block">Name: </h6>
+                <span class="inline-block">
+                  {{service.name}}
+                </span>
+              </div>
+              <div class="docs-card__description mb-1" ng-if="service.description.length">
+                <h6>description:</h6>
+                <p>
+                  {{service.description}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./Service Cards -->
+      </div>
+      <p class="m-0" ng-if="!services.length">There are no documented services at the moment.</p>
+    </section>
+    <!-- ./Services Documentation -->
+    <hr>
+    <!-- Pages Documentation -->
+    <section class="container-fluid" id="pages">
+      <h2 class="docs-h2">Pages</h2>
+      <div id="pages-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
+        <!-- Page Cards -->
+        <div class="card" ng-repeat="page in pages">
+          <div class="card-header" role="tab" id="page-{{page.name}}">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" data-parent="#pages-accordion" href="#collapse-page-{{page.name}}" aria-expanded="true" aria-controls="collapse-page-{{page.name}}">
+                {{page.name}}
+              </a>
+            </h5>
+          </div>
+          <div id="collapse-page-{{page.name}}" class="collapse" role="tabpanel" aria-labelledby="page-{{page.name}}">
+            <div class="card-block">
+              <div class="docs-card__nested-items-listing mb-1">
+                <h6 class="inline-block">Route: </h6> <a href="{{apphost + page.route}}" target="_blank">{{page.route}}</a>
+              </div>
+              <div class="docs-card__nested-items-listing mb-1">
+                <h6 class="inline-block">State: </h6> <span>{{page.state}}</span>
+              </div>
+              <div class="docs-card__description mb-1" ng-if="page.description.length">
+                <h6>description:</h6>
+                <p>
+                  {{page.description}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./Page Cards -->
+      </div>
+      <p class="m-0" ng-if="!pages.length">There are no documented pages at the moment.</p>
+    </section>
+    <!-- ./Pages Documentation -->
+  </article>
+  <!-- Footer -->
+  <footer class="bg-primary">
+    <div class="footer__copyright"><p>Copyright (c) {{currentYear || 2017}} Generator-at-angular</p></div>
+    <div class="">
+      <a href="http://github.com/A-Tokyo/generator-at-angular" class="btn btn-primary btn-sm" target="_blank">
+        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+      </a>
+    </div>
+  </footer>
+  <!-- jQuery first, then Bootstrap JS. -->
+  <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <!-- docs as a JSON global object -->
+  <script src="./docs-assets/docs.js" charset="utf-8"></script>
+  <!-- docs-app.js script -->
+  <script src="./docs-assets/docs-app.js" charset="utf-8"></script>
+</body>
+
+</html>

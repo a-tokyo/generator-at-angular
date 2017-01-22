@@ -16,5 +16,10 @@
     "name": "pageRoute",
     "message": "Your page's route",
     "default": "default: /pageName"
+  },
+  {
+    "type": "input",
+    "name": "description",
+    "message": "Your page's description: "
   }
 ]

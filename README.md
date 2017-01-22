@@ -11,7 +11,8 @@
 > * Karma and Jasmine for testing.
 > * All necessary webpack loaders already included (Sass, Images, Fonts, ngAnnotate, ngTemplateCache, etc.)
 > * Proxy configured to make cross origin requests with a simple prefix.
-
+> * Karma + Jasmine Testing
+> * Automatic Application Documentation
 
 ### Directory Layout
 
@@ -24,6 +25,10 @@
 │   │   │   └── /production.js                       #Production env config
 │   │   └── global.js                                #Global webpack config
 ├── /dist/                                           #The built application directory to be deployed
+├── /docs/                                           #Application Documentation (Auto Generated)
+│   ├── /docs-assets/                                #Application Documentation assets
+│   │   └──/docs.js                                  #Application Documentation in JSON format (Auto Generated and editable)
+│   └── /docs.html                                   #Application Documentation HTML (Auto Generated)
 ├── /node_modules/                                   #3rd-party libraries and utilities
 ├── /src/                                            #Source folder
 │   ├── /app/                                        #Application code
@@ -131,14 +136,20 @@ Running the project:
 
 ##### `npm run tests` - To run tests in `watch` mode.
 
+##### `npm run docs` - To open the auto-generated docs in your default browser.
+
 
 ### Out of the box optional supports:
 
   > * **Angular Material:**
        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
   > * **Boostrap Sass:**
-       bootstrap-sass is a Sass-powered version of Bootstrap       
+       bootstrap-sass is a Sass-powered version of Bootstrap (Once Boostrap 4 is stable it'll be used instead of 3)       
 
+### Extra Features
+  - Automatic Application Documentation
+    - Documentation can be view in docs/docs.html which is a simple angular application to view the docs in a neat way.
+    - The Documentation itself is stored in docs/docs-assets/docs.js in JSON that can be edited and customized.  
 
 ### Tips:
 - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)

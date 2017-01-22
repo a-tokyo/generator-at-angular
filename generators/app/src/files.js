@@ -20,9 +20,9 @@ module.exports = function (AngularATGenerator) {
         mkdirp('src/assets/fonts');
         mkdirp('src/assets/images');
         mkdirp('src/assets/js');
-        mkdirp('src/app/pages');
         mkdirp('src/app/components');
         mkdirp('src/app/core/directives');
+        mkdirp('src/app/pages');
 
         this.fs.copyTpl(
             this.templatePath('_package.json'),
@@ -70,6 +70,12 @@ module.exports = function (AngularATGenerator) {
             this
         );
 
+        this.fs.copyTpl(
+            this.templatePath('_docs/**/*'),
+            this.destinationPath('docs/'),
+            this
+        );
+
         this.fs.copy(
             this.templatePath('_src/_favicon.ico'),
             this.destinationPath(this.destinationRoot()+'/src/favicon.ico')
@@ -78,6 +84,7 @@ module.exports = function (AngularATGenerator) {
             this.templatePath('_src/_tpl-index.ejs'),
             this.destinationPath(this.destinationRoot()+'/src/tpl-index.ejs')
         );
+        
         this.fs.copyTpl(
             this.templatePath('_src/_assets/_styles/_sass/_index.scss'),
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/index.scss'),

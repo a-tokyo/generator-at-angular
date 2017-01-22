@@ -4,5 +4,10 @@
     "name": "serviceName",
     "message": "Your service's name",
     "default": "service"
+  },
+  {
+    "type": "input",
+    "name": "description",
+    "message": "Your service's description: "
   }
 ]

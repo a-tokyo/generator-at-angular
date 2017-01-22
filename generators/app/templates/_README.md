@@ -11,6 +11,8 @@
 
 ##### `npm run tests` - To run tests in `watch` mode.
 
+##### `npm run docs` - To open the auto-generated docs in your default browser.
+
 
 ## Contribution guide
 
