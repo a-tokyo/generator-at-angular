@@ -18,10 +18,13 @@ module.exports = function(AngularATGenerator) {
         if (relPathAsArray.length === 1) {
             var appRelPath = '/src/app/core/directives';
             fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
-            this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
-            // add the directive to the core.modules file of shared directives
-            var coreModulesWriteLine = "require('./directives/" + data.directiveName + "/" + data.directiveName + ".directive')(shared);";
-            utils.addToFile('core.module.js', coreModulesWriteLine, utils.DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
+            try {
+                var coreModulesWriteLine = "require('./directives/" + data.directiveName + "/" + data.directiveName + ".directive')(shared);";
+                utils.addToFile('core.module.js', coreModulesWriteLine, utils.DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
+                this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
+            } catch (err) {
+                this.log('Could not generate this item due to missing file structure.');
+            }
         } else {
             // if the directive has a parent component, it belongs to that component
             var appRelPath = '/src/app/components';
@@ -29,7 +32,7 @@ module.exports = function(AngularATGenerator) {
             parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;
             try {
-                // import directive into controller
+                // import directive into parent module
                 var importInParentModuleWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
                 utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
                 //add directive to parent module

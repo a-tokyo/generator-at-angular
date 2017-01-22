@@ -13,8 +13,9 @@ module.exports = function(AngularATGenerator) {
             'serviceName': serviceName,
             'serviceNameCamel': _.camelCase(serviceName)
         };
-
+        // if the service has no parent, it is shared and belongs to the app
         if (relPathAsArray.length === 1) {
+          var appRelPath = '/src/app/core/services';
           fullPath = this.destinationRoot() + '/src/app/core/services';
             try {
                 var coreModulesWriteLine = "require('./services/" + data.serviceName + '/' + data.serviceName + '.factory' + "')(shared);";
@@ -25,20 +26,24 @@ module.exports = function(AngularATGenerator) {
             }
         } else {
             // service within a component
+            var appRelPath = '/src/app/components';
             parentName = relPathAsArray[relPathAsArray.length - 2];
             parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
             fullPath = this.destinationRoot() + '/src/app/components/' + parentPath + '/services';
             try {
-                var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
-                utils.addToFile(parentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                // import service into parent module
                 var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceNameCamel + ".factory';";
-                utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + appRelPath + parentPath);
+                //add service to parent module
+                var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
+                utils.addToFile(parentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + appRelPath + parentPath);
             } catch (err) {
                 this.log('Parent component files not found.');
                 return;
             }
             this.fs.copyTpl(this.templatePath('_componentService.factory.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
         }
+        //Copy testing file
         this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory-spec.js'), data);
 
         // Documenting the creation of the service
