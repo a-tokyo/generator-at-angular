@@ -137,7 +137,6 @@ Running the project:
 
 ##### `npm run tests` - To run tests in `watch` mode.
 
-
 ### Out of the box optional supports:
 
   > * **Angular Material:**
@@ -145,6 +144,10 @@ Running the project:
   > * **Boostrap Sass:**
        bootstrap-sass is a Sass-powered version of Bootstrap       
 
+### Extra Features
+  - Automatic Application Documentation
+    - Documentation can be view in docs/docs.html which is a simple angular application to view the docs in a neat way.
+    - The Documentation itself is stored in docs/docs-assets/docs.js in JSON that can be edited and customized.  
 
 ### Tips:
 - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
