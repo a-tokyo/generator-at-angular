@@ -10,5 +10,10 @@
     "name": "needsPartial",
     "message": "Does this directive need a partial ?",
     "default": true
+  },
+  {
+    "type": "input",
+    "name": "description",
+    "message": "Your directive's description: "
   }
 ]
