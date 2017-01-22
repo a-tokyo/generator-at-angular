@@ -12,6 +12,10 @@ exports.SERVICE_MARKER = '// Add new services above';
 exports.PAGE_MARKER = '// Add new pages above';
 exports.DIRECTIVE_MARKER = '// Add new directives above';
 
+exports.COMPONENT_NESTED_MARKER = '// Add new nested components above';
+exports.SERVICE_NESTED_MARKER = '// Add new nested services above';
+exports.DIRECTIVE_NESTED_MARKER = '// Add new nested directives above';
+
 exports.IMPORT_MODULE_MARKER = '// Add module imports above';
 exports.IMPORT_STYLE_MARKER = '// Add style imports above';
 exports.IMPORT_DIRECTIVE_MARKER = '// Add directive imports above';

@@ -2,7 +2,6 @@
 var docs =
 {
   "components": [
-    {"name": "test-component", "path": "test-component", "components": [], "directives": [], "services": [], "description": "Test component for Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid."},
     // Add new components above
   ],
   "directives": [

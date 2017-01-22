@@ -48,5 +48,9 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('_component.component.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component' + '.js'), data);
         this.fs.copyTpl(this.templatePath('_component.component-spec.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component-spec' + '.js'), data);
 
+        // Documenting the creation of the component
+        var componentDocJSONString = '{\n\t\t"name": "' + data.componentName + '", "path": "' + fullPath + '",\n\t\t"components": [\n\t\t\t'+utils.COMPONENT_NESTED_MARKER+'\n\t\t],\n\t\t"directives": [\n\t\t\t'+utils.DIRECTIVE_NESTED_MARKER+'\n\t\t],\n\t\t"services": [\n\t\t\t'+utils.SERVICE_NESTED_MARKER+'\n\t\t],\n\t\t"description": "Test component"\n\t\t},'
+        utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocJSONString, utils.COMPONENT_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+
     };
 };
