@@ -52,15 +52,16 @@ module.exports = function(AngularATGenerator) {
 
         // Documenting the creation of the component
         try{
-            // extending the nested Line marker with information about the component in order to insert there later
             var nestedLineMarkExtension = " for "+fullPath;
-            var componentDocJSONString = '{\n\t\t"name": "' + data.componentName + '", "path": "' + fullPath + '",\n\t\t"components": [\n\t\t\t'+utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"directives": [\n\t\t\t'+utils.DIRECTIVE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"services": [\n\t\t\t'+utils.SERVICE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"description": "' + data.componentName + ' component"\n\t\t},'
+            var descriptionForDocs = (this.props.description.length>0)?this.props.description:data.componentName + " component";
+            var componentDocJSONString = '{\n\t\t"name": "' + data.componentName + '", "path": "' + fullPath + '",\n\t\t"components": [\n\t\t\t'+utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"directives": [\n\t\t\t'+utils.DIRECTIVE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"services": [\n\t\t\t'+utils.SERVICE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"description": "'+ descriptionForDocs + ' component"\n\t\t},'
+            // extending the nested Line marker with information about the component in order to insert there later
             utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocJSONString, utils.COMPONENT_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
             // if the component has a parent, Link it to its parent
             if (pathAsArray.length !== 1) {
               // Foreign Key String for component is injected into the parent component
               var componentDocForeignKeyJSONString = '{"path": "' + fullPath + '", "name": "' + data.componentName + '"},';
-              utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocForeignKeyJSONString, utils.COMPONENT_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+              utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocForeignKeyJSONString, utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtension, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
             }
         } catch (err) {
             this.log('Could not document this item due to missing documentation file.');

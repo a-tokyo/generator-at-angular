@@ -57,7 +57,8 @@ module.exports = function(AngularATGenerator) {
 
         // Documenting the creation of the directive
         try{
-          var directiveDocJSONString = '{"name": "' + directiveName + '", "nameCamel": "' + data.directiveNameCamel + '", "path": "' + this.props.directiveName + '", "description": "' + directiveName + ' directive"},';
+          var descriptionForDocs = (this.props.description.length>0)?this.props.description:directiveName + " directive";
+          var directiveDocJSONString = '{"name": "' + directiveName + '", "nameCamel": "' + data.directiveNameCamel + '", "path": "' + this.props.directiveName + '", "description": "' + descriptionForDocs + '"},';
           utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocJSONString, utils.DIRECTIVE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
           // if the directive has a parent, Link it to its parent
           if (parentPath) {
