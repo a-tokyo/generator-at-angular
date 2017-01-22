@@ -18,6 +18,6 @@ docsApp.controller('docsCtrl', function ($scope){
    * replaces every '/' with '__'
    */
   $scope.replaceSlashWith2Underscores = function(string){
-    string.replace('/', '__');
+    return string.replace('/', '__');
   };
 });
