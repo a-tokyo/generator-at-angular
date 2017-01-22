@@ -84,6 +84,7 @@ module.exports = function (AngularATGenerator) {
             this.templatePath('_src/_tpl-index.ejs'),
             this.destinationPath(this.destinationRoot()+'/src/tpl-index.ejs')
         );
+        
         this.fs.copyTpl(
             this.templatePath('_src/_assets/_styles/_sass/_index.scss'),
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/index.scss'),
