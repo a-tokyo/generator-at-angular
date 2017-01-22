@@ -53,6 +53,9 @@
     "bootstrap",
     "angular-material",
     "angular-md",
+    "docs",
+    "documentation",
+    "auto-document",
     "tokyo"
   ],
   "license": "MIT",
