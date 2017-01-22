@@ -52,31 +52,31 @@
       <h2 class="docs-h2">Components</h2>
       <div id="components-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
         <div class="card" ng-repeat="component in components">
-          <div class="card-header" role="tab" id="component-{{component.path}}">
+          <div class="card-header" role="tab" id="component-{{replaceSlashWith2Underscores(component.path)}}">
             <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#components-accordion" href="#collapse-component-{{component.path}}" aria-expanded="true" aria-controls="collapse-component-{{component.path}}">
+              <a data-toggle="collapse" data-parent="#components-accordion" href="#collapse-component-{{replaceSlashWith2Underscores(component.path)}}" aria-expanded="true" aria-controls="collapse-component-{{replaceSlashWith2Underscores(component.path)}}">
                 {{component.path}}
               </a>
             </h5>
           </div>
-          <div id="collapse-component-{{component.path}}" class="collapse show" role="tabpanel" aria-labelledby="component-{{component.path}}">
+          <div id="collapse-component-{{replaceSlashWith2Underscores(component.path)}}" class="collapse" role="tabpanel" aria-labelledby="component-{{replaceSlashWith2Underscores(component.path)}}">
             <div class="card-block">
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.components.length">
                 <h6>components:</h6>
                 <div>
-                  <a ng-repeat="subComponent in component.components" href="#component-{{subComponent.path}}" class="btn btn-link">{{subComponent.name}}</a>
+                  <a ng-repeat="subComponent in component.components" href="#component-{{replaceSlashWith2Underscores(subComponent.path)}}" class="btn btn-link">{{subComponent.name}}</a>
                 </div>
               </div>
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.services.length">
                 <h6>services:</h6>
                 <div>
-                  <a ng-repeat="subService in component.services" href="#service-{{subService.path}}" class="btn btn-link">{{subService.nameCamel}}</a>
+                  <a ng-repeat="subService in component.services" href="#service-{{replaceSlashWith2Underscores(subService.path)}}" class="btn btn-link">{{subService.nameCamel}}</a>
                 </div>
               </div>
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.directives.length">
                 <h6>directives:</h6>
                 <div>
-                  <a ng-repeat="subDirective in component.directives" href="#directive-{{subDirective.path}}" class="btn btn-link">{{subDirective.nameCamel}}</a>
+                  <a ng-repeat="subDirective in component.directives" href="#directive-{{replaceSlashWith2Underscores(subDirective.path)}}" class="btn btn-link">{{subDirective.nameCamel}}</a>
                 </div>
               </div>
               <div class="docs-card__description mb-1" ng-if="component.description.length">
@@ -98,14 +98,14 @@
       <div id="directives-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
         <!-- directive Cards -->
         <div class="card" ng-repeat="directive in directives">
-          <div class="card-header" role="tab" id="directive-{{directive.path}}">
+          <div class="card-header" role="tab" id="directive-{{replaceSlashWith2Underscores(directive.path)}}">
             <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#directives-accordion" href="#collapse-directive-{{directive.path}}" aria-expanded="true" aria-controls="collapse-directive-{{directive.path}}">
+              <a data-toggle="collapse" data-parent="#directives-accordion" href="#collapse-directive-{{replaceSlashWith2Underscores(directive.path)}}" aria-expanded="true" aria-controls="collapse-directive-{{replaceSlashWith2Underscores(directive.path)}}">
                 {{directive.path}}
               </a>
             </h5>
           </div>
-          <div id="collapse-directive-{{directive.path}}" class="collapse show" role="tabpanel" aria-labelledby="directive-{{directive.path}}">
+          <div id="collapse-directive-{{replaceSlashWith2Underscores(directive.path)}}" class="collapse" role="tabpanel" aria-labelledby="directive-{{replaceSlashWith2Underscores(directive.path)}}">
             <div class="card-block">
               <div class="docs-card__description mb-1" ng-if="directive.description.length">
                 <h6>description:</h6>
@@ -127,14 +127,14 @@
       <div id="services-accordion" role="tablist" aria-multiselectable="true" class="docs-accordion">
         <!-- Service Cards -->
         <div class="card" ng-repeat="service in services">
-          <div class="card-header" role="tab" id="service-{{service.path}}">
+          <div class="card-header" role="tab" id="service-{{replaceSlashWith2Underscores(service.path)}}">
             <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#services-accordion" href="#collapse-service-{{service.path}}" aria-expanded="true" aria-controls="collapse-service-{{service.path}}">
+              <a data-toggle="collapse" data-parent="#services-accordion" href="#collapse-service-{{replaceSlashWith2Underscores(service.path)}}" aria-expanded="true" aria-controls="collapse-service-{{replaceSlashWith2Underscores(service.path)}}">
                 {{service.path}}
               </a>
             </h5>
           </div>
-          <div id="collapse-service-{{service.path}}" class="collapse show" role="tabpanel" aria-labelledby="service-{{service.path}}">
+          <div id="collapse-service-{{replaceSlashWith2Underscores(service.path)}}" class="collapse" role="tabpanel" aria-labelledby="service-{{replaceSlashWith2Underscores(service.path)}}">
             <div class="card-block">
               <div class="docs-card__description mb-1" ng-if="service.description.length">
                 <h6>description:</h6>
@@ -163,7 +163,7 @@
               </a>
             </h5>
           </div>
-          <div id="collapse-page-{{page.name}}" class="collapse show" role="tabpanel" aria-labelledby="page-{{page.name}}">
+          <div id="collapse-page-{{page.name}}" class="collapse" role="tabpanel" aria-labelledby="page-{{page.name}}">
             <div class="card-block">
               <div class="docs-card__nested-items-listing mb-1">
                 <h6 class="inline-block">Route: </h6> <a href="{{apphost + page.route}}" target="_blank">{{page.route}}</a>

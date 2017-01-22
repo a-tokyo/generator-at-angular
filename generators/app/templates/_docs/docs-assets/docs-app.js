@@ -12,4 +12,12 @@ docsApp.controller('docsCtrl', function ($scope){
   $scope.apphost = 'http://localhost:'+docs.info.port;
   // attaching currentYear to scope
   $scope.currentYear = new Date().getFullYear();
+  /*
+   * replaceSlashWith2Underscores
+   * takes a string as an input
+   * replaces every '/' with '__'
+   */
+  $scope.replaceSlashWith2Underscores = function(string){
+    string.replace('/', '__');
+  };
 });
