@@ -108,6 +108,12 @@
           </div>
           <div id="collapse-directive-{{replaceSlashWith2Underscores(directive.path)}}" class="collapse" role="tabpanel" aria-labelledby="directive-{{replaceSlashWith2Underscores(directive.path)}}">
             <div class="card-block">
+              <div class="docs-card__description mb-1">
+                <h6 class="inline-block">Name: </h6>
+                <span class="inline-block">
+                  {{directive.name}}
+                </span>
+              </div>
               <div class="docs-card__description mb-1" ng-if="directive.description.length">
                 <h6>description:</h6>
                 <p>
@@ -138,6 +144,12 @@
           </div>
           <div id="collapse-service-{{replaceSlashWith2Underscores(service.path)}}" class="collapse" role="tabpanel" aria-labelledby="service-{{replaceSlashWith2Underscores(service.path)}}">
             <div class="card-block">
+              <div class="docs-card__description mb-1">
+                <h6 class="inline-block">Name: </h6>
+                <span class="inline-block">
+                  {{directive.name}}
+                </span>
+              </div>
               <div class="docs-card__description mb-1" ng-if="service.description.length">
                 <h6>description:</h6>
                 <p>
