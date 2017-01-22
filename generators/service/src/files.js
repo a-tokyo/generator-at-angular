@@ -44,10 +44,10 @@ module.exports = function(AngularATGenerator) {
                 this.log('Parent component files not found.');
                 return;
             }
-            this.fs.copyTpl(this.templatePath('_componentService.factory.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
+            this.fs.copyTpl(this.templatePath('_componentService.factory.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '.factory.js'), data);
         }
         // copy testing file
-        this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory-spec.js'), data);
+        this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '.factory-spec.js'), data);
 
         // Documenting the creation of the service
         try{
