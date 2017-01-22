@@ -8,7 +8,7 @@ module.exports = function(AngularATGenerator) {
         var fullPath = this.props.componentName;
         var pathAsArray = fullPath.split('/');
         var componentName = pathAsArray[pathAsArray.length - 1];
-        var parentComponentName = null;
+        var parentName = null;
         var parentPath = null;
         var data = {
             'componentName': componentName,
@@ -23,20 +23,20 @@ module.exports = function(AngularATGenerator) {
         } else {
             //if the component is nested in a parent component
             // setting defaults extra, component name and path settings
-            parentComponentName = pathAsArray[pathAsArray.length - 2];
+            parentName = pathAsArray[pathAsArray.length - 2];
             parentPath = _.join(pathAsArray.slice(0, pathAsArray.length - 1), '/');
             fullPath = parentPath + '/components/' + data.componentName;
             //writing imports to files
             try {
                 //module
                 var moduleImport = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
-                utils.addToFile(parentComponentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                utils.addToFile(parentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
                 //style
                 var styleImport = "import './components/" + componentName + "/" + componentName + ".component.scss';";
-                utils.addToFile(parentComponentName + '.module.js', styleImport, utils.IMPORT_STYLE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                utils.addToFile(parentName + '.module.js', styleImport, utils.IMPORT_STYLE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
                 //dependency
                 var dependencyImport = "'" + data.componentModule + "',";
-                utils.addToFile(parentComponentName + '.module.js', dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                utils.addToFile(parentName + '.module.js', dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
             } catch (err) {
                 this.log('Parent component files not found.');
                 return;
