@@ -35,7 +35,7 @@ module.exports = function(AngularATGenerator) {
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/services/' + data.serviceName;
             try {
                 // import service into parent module
-                var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceNameCamel + ".factory';";
+                var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceName + ".factory';";
                 utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
                 // add service to parent module
                 var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
