@@ -20,5 +20,9 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('_page.controller-spec.js'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.controller-spec' + '.js'), data);
         var indexModulesWriteLine = "require('./pages/" + data.pageName + "/" + data.pageName + ".module').name,";
         utils.addToFile('index.module.js', indexModulesWriteLine, utils.PAGE_MARKER, this.destinationRoot() + '/src/app');
+
+        // Documenting the creation of the page
+        var pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + data.pageName + ' page"},';
+        utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
     };
 };
