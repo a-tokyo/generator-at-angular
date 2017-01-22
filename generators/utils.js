@@ -43,7 +43,7 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
         fileSrc = fileSrc.substring(0,indexOf) + lineToAdd + "\n" + indent + fileSrc.substring(indexOf);
 
         fs.writeFileSync(fullPath,fileSrc);
-        console.log('Written data to files');
+        // console.log('Written data to files');
     } catch(e) {
       console.log('Could not write data to files');
       throw e;
