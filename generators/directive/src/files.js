@@ -4,11 +4,13 @@ var utils = require("../../utils.js");
 module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+        // setting defaults, directive name and path settings
         var relPathAsArray = this.props.directiveName.split('/');
         var directiveName = relPathAsArray[relPathAsArray.length - 1];
         var fullPath;
         var parentName;
         var parentPath;
+        // data to be passed to templates and used to get info
         var data = {
             'directiveName': directiveName,
             'directiveNameCamel': _.camelCase(directiveName),
@@ -18,10 +20,14 @@ module.exports = function(AngularATGenerator) {
         if (relPathAsArray.length === 1) {
             var appRelPath = '/src/app/core/directives';
             fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
-            this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
-            // add the directive to the core.modules file of shared directives
-            var coreModulesWriteLine = "require('./directives/" + data.directiveName + "/" + data.directiveName + ".directive')(shared);";
-            utils.addToFile('core.module.js', coreModulesWriteLine, utils.DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
+            try {
+                var coreModulesWriteLine = "require('./directives/" + data.directiveName + "/" + data.directiveName + ".directive')(shared);";
+                utils.addToFile('core.module.js', coreModulesWriteLine, utils.DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
+                this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
+            } catch (err) {
+                this.log('Could not generate this item due to missing file structure.');
+                return;
+            }
         } else {
             // if the directive has a parent component, it belongs to that component
             var appRelPath = '/src/app/components';
@@ -29,7 +35,7 @@ module.exports = function(AngularATGenerator) {
             parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;
             try {
-                // import directive into controller
+                // import directive into parent module
                 var importInParentModuleWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
                 utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
                 //add directive to parent module
@@ -41,22 +47,26 @@ module.exports = function(AngularATGenerator) {
             }
             this.fs.copyTpl(this.templatePath('_componentDirective.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
         }
-        //Copy testing file
+        // copy testing file
         this.fs.copyTpl(this.templatePath('_directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
-        //Write view templates if needed
+        // copy view templates if needed
         if (this.props.needsPartial) {
             this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(fullPath + '/' + data.directiveName + '.html'), data);
             this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.scss'), data);
         }
 
         // Documenting the creation of the directive
-        var directiveDocJSONString = '{"name": "' + directiveName + '", "nameCamel": "' + data.directiveNameCamel + '", "path": "' + this.props.directiveName + '", "description": "' + directiveName + ' directive"},';
-        utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocJSONString, utils.DIRECTIVE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-        //if the directive has a parent, Link it to its parent
-        if (parentPath) {
-          // Foreign Key String for directive is injected into the parent component
-          var directiveDocForeignKeyJSONString = '{"path": "' + this.props.directiveName + '", "name": "' + data.directiveNameCamel + '"},';
-          utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocForeignKeyJSONString, utils.DIRECTIVE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        try{
+          var directiveDocJSONString = '{"name": "' + directiveName + '", "nameCamel": "' + data.directiveNameCamel + '", "path": "' + this.props.directiveName + '", "description": "' + directiveName + ' directive"},';
+          utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocJSONString, utils.DIRECTIVE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+          // if the directive has a parent, Link it to its parent
+          if (parentPath) {
+            // Foreign Key String for directive is injected into the parent component
+            var directiveDocForeignKeyJSONString = '{"path": "' + this.props.directiveName + '", "name": "' + data.directiveNameCamel + '"},';
+            utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocForeignKeyJSONString, utils.DIRECTIVE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+          }
+        } catch (err) {
+            this.log('Could not document this item due to missing documentation file.');
         }
     };
 };
