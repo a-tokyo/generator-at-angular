@@ -32,7 +32,7 @@ module.exports = function(AngularATGenerator) {
 
         // Documenting the creation of the page
         try{
-          var descriptionForDocs = (this.props.description.length>0)?this.props.description:data.pageName + " page";
+          var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.pageName + " page";
           var pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + descriptionForDocs + '"},';
           utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
         } catch (err) {

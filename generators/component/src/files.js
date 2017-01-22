@@ -53,7 +53,7 @@ module.exports = function(AngularATGenerator) {
         // Documenting the creation of the component
         try{
             var nestedLineMarkExtension = " for "+fullPath;
-            var descriptionForDocs = (this.props.description.length>0)?this.props.description:data.componentName + " component";
+            var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.componentName + " component";
             var componentDocJSONString = '{\n\t\t"name": "' + data.componentName + '", "path": "' + fullPath + '",\n\t\t"components": [\n\t\t\t'+utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"directives": [\n\t\t\t'+utils.DIRECTIVE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"services": [\n\t\t\t'+utils.SERVICE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"description": "'+ descriptionForDocs + ' component"\n\t\t},'
             // extending the nested Line marker with information about the component in order to insert there later
             utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocJSONString, utils.COMPONENT_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
