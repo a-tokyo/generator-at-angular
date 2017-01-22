@@ -31,7 +31,11 @@ module.exports = function(AngularATGenerator) {
         }
 
         // Documenting the creation of the page
-        var pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + data.pageName + ' page"},';
-        utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        try{
+          var pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + data.pageName + ' page"},';
+          utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        } catch (err) {
+          this.log('Could not document this item due to missing documentation file.');
+        }
     };
 };
