@@ -1,5 +1,6 @@
 // generator-at-angular-docs angular application
 var docsApp = angular.module('generator-at-angular-docs', []);
+// Docs main controller
 docsApp.controller('docsCtrl', function ($scope){
   // attaching appName to scope
   $scope.appName = docs.info.appName;
