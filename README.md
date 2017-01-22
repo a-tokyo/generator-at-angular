@@ -27,7 +27,7 @@
 ├── /dist/                                           #The built application directory to be deployed
 ├── /docs/                                           #Application Documentation (Auto Generated)
 │   ├── /docs-assets/                                #Application Documentation assets
-│   │   ├──/docs.js                                  #Application Documentation in JSON format (Auto Generated and editable)
+│   │   └──/docs.js                                  #Application Documentation in JSON format (Auto Generated and editable)
 │   └── /docs.html                                   #Application Documentation HTML (Auto Generated)
 ├── /node_modules/                                   #3rd-party libraries and utilities
 ├── /src/                                            #Source folder
