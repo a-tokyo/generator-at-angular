@@ -70,13 +70,13 @@
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.services.length">
                 <h6>services:</h6>
                 <div>
-                  <a ng-repeat="subService in component.services" href="#service-{{replaceSlashWith2Underscores(subService.path)}}" class="btn btn-link">{{subService.nameCamel}}</a>
+                  <a ng-repeat="subService in component.services" href="#service-{{replaceSlashWith2Underscores(subService.path)}}" class="btn btn-link">{{subService.name}}</a>
                 </div>
               </div>
               <div class="docs-card__nested-items-listing mb-1" ng-if="component.directives.length">
                 <h6>directives:</h6>
                 <div>
-                  <a ng-repeat="subDirective in component.directives" href="#directive-{{replaceSlashWith2Underscores(subDirective.path)}}" class="btn btn-link">{{subDirective.nameCamel}}</a>
+                  <a ng-repeat="subDirective in component.directives" href="#directive-{{replaceSlashWith2Underscores(subDirective.path)}}" class="btn btn-link">{{subDirective.name}}</a>
                 </div>
               </div>
               <div class="docs-card__description mb-1" ng-if="component.description.length">
