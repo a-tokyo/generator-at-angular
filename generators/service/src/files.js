@@ -39,5 +39,8 @@ module.exports = function(AngularATGenerator) {
         }
         this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '/' + data.serviceName + '.factory-spec.js'), data);
 
+        // Documenting the creation of the service
+        var serviceDocJSONString = '{"name": "' + serviceName + '", "nameCamel": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + serviceName + ' service"},';
+        utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocJSONString, utils.SERVICE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
     };
 };
