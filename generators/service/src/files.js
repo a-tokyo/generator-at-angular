@@ -7,7 +7,7 @@ module.exports = function(AngularATGenerator) {
         var relPathAsArray = this.props.serviceName.split('/');
         var serviceName = relPathAsArray[relPathAsArray.length - 1];
         var fullPath;
-        var parentComponentName;
+        var parentName;
         var parentPath;
         var data = {
             'serviceName': serviceName,
@@ -25,14 +25,14 @@ module.exports = function(AngularATGenerator) {
             }
         } else {
             // service within a component
-            parentComponentName = relPathAsArray[relPathAsArray.length - 2];
+            parentName = relPathAsArray[relPathAsArray.length - 2];
             parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
             fullPath = this.destinationRoot() + '/src/app/components/' + parentPath + '/services';
             try {
                 var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
-                utils.addToFile(parentComponentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                utils.addToFile(parentName + '.module.js', addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
                 var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceNameCamel + ".factory';";
-                utils.addToFile(parentComponentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+                utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
             } catch (err) {
                 this.log('Parent component files not found.');
                 return;
