@@ -24,6 +24,7 @@ module.exports = function(AngularATGenerator) {
                 this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');
+                return;
             }
         } else {
             // if the directive has a parent component, it belongs to that component

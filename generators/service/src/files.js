@@ -23,6 +23,7 @@ module.exports = function(AngularATGenerator) {
                 this.fs.copyTpl(this.templatePath('_service.factory.js'), this.destinationPath(fullPath + '/' + data.serviceName + '/' + data.serviceName + '.factory.js'), data);
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');
+                return;
             }
         } else {
             // service within a component
