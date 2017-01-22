@@ -131,12 +131,13 @@ Running the project:
 ##### `npm start` or `npm run dev` - To start development server on [localhost:8080](http://localhost:8080).
 
 ##### `npm run build` - To make production-ready build run  after few moments you will see build id `dist` folder.
-##### `npm test` - To run all tests once, should be used for CI.
-##### `npm run tests` - To run tests in `watch` mode.
 
 ##### `npm test` - To run all tests once, should be used for the CI.
 
 ##### `npm run tests` - To run tests in `watch` mode.
+
+##### `npm run docs` - To open the auto-generated docs in your default browser.
+
 
 ### Out of the box optional supports:
 
