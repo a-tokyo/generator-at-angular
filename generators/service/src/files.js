@@ -52,7 +52,7 @@ module.exports = function(AngularATGenerator) {
         // Documenting the creation of the service
         try{
           var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:serviceName + " service";
-          var serviceDocJSONString = '{"name": "' + serviceName + '", "nameCamel": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + descriptionForDocs + '"},';
+          var serviceDocJSONString = '{"name": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + descriptionForDocs + '"},';
           utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocJSONString, utils.SERVICE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
           // if the service has a parent, Link it to its parent
           if (parentPath) {
