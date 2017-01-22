@@ -7,6 +7,8 @@ module.exports = function(AngularATGenerator) {
         var relPathAsArray = this.props.serviceName.split('/');
         var serviceName = relPathAsArray[relPathAsArray.length - 1];
         var fullPath;
+        var parentComponentName;
+        var parentPath;
         var data = {
             'serviceName': serviceName,
             'serviceNameCamel': _.camelCase(serviceName)
@@ -23,8 +25,8 @@ module.exports = function(AngularATGenerator) {
             }
         } else {
             // service within a component
-            var parentComponentName = relPathAsArray[relPathAsArray.length - 2];
-            var parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
+            parentComponentName = relPathAsArray[relPathAsArray.length - 2];
+            parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
             fullPath = this.destinationRoot() + '/src/app/components/' + parentPath + '/services';
             try {
                 var addToParentModuleWriteLine = "componentModule.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
@@ -42,5 +44,11 @@ module.exports = function(AngularATGenerator) {
         // Documenting the creation of the service
         var serviceDocJSONString = '{"name": "' + serviceName + '", "nameCamel": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + serviceName + ' service"},';
         utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocJSONString, utils.SERVICE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        //if the service has a parent, Link it to its parent
+        if (parentPath) {
+          // Foreign Key String for service is injected into the parent component
+          var serviceDocForeignKeyJSONString = '{"path": "' + this.props.serviceName + '", "name": "' + data.serviceNameCamel + '"},';
+          utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocForeignKeyJSONString, utils.SERVICE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        }
     };
 };
