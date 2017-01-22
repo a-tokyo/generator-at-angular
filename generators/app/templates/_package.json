@@ -12,6 +12,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p --colors",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
+    "docs": "open docs/docs.html",
     "start": "npm run dev",
     "test": "karma start --log-level debug --single-run",
     "tests": "karma start --log-level debug"

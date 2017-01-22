@@ -8,6 +8,8 @@ module.exports = function(AngularATGenerator) {
         var fullPath = this.props.componentName;
         var pathAsArray = fullPath.split('/');
         var componentName = pathAsArray[pathAsArray.length - 1];
+        var parentComponentName = null;
+        var parentPath = null;
         var data = {
             'componentName': componentName,
             'componentNameCamel': _.camelCase(componentName),
@@ -21,8 +23,8 @@ module.exports = function(AngularATGenerator) {
         } else {
             //if the component is nested in a parent component
             // setting defaults extra, component name and path settings
-            var parentComponentName = pathAsArray[pathAsArray.length - 2];
-            var parentPath = _.join(pathAsArray.slice(0, pathAsArray.length - 1), '/');
+            parentComponentName = pathAsArray[pathAsArray.length - 2];
+            parentPath = _.join(pathAsArray.slice(0, pathAsArray.length - 1), '/');
             fullPath = parentPath + '/components/' + data.componentName;
             //writing imports to files
             try {
@@ -48,5 +50,16 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('_component.component.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component' + '.js'), data);
         this.fs.copyTpl(this.templatePath('_component.component-spec.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component-spec' + '.js'), data);
 
+        // Documenting the creation of the component
+        // Extending the nested Line marker with information about the component in order to insert there later
+        var nestedLineMarkExtension = " for "+fullPath;
+        var componentDocJSONString = '{\n\t\t"name": "' + data.componentName + '", "path": "' + fullPath + '",\n\t\t"components": [\n\t\t\t'+utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"directives": [\n\t\t\t'+utils.DIRECTIVE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"services": [\n\t\t\t'+utils.SERVICE_NESTED_MARKER+nestedLineMarkExtension+'\n\t\t],\n\t\t"description": "' + data.componentName + ' component"\n\t\t},'
+        utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocJSONString, utils.COMPONENT_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        //if the component has a parent, Link it to its parent
+        if (pathAsArray.length !== 1) {
+          // Foreign Key String for component is injected into the parent component
+          var componentDocForeignKeyJSONString = '{"path": "' + fullPath + '", "name": "' + data.componentName + '"},';
+          utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocForeignKeyJSONString, utils.COMPONENT_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        }
     };
 };

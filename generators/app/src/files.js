@@ -70,6 +70,12 @@ module.exports = function (AngularATGenerator) {
             this
         );
 
+        this.fs.copyTpl(
+            this.templatePath('_docs/**/*'),
+            this.destinationPath('docs/'),
+            this
+        );
+
         this.fs.copy(
             this.templatePath('_src/_favicon.ico'),
             this.destinationPath(this.destinationRoot()+'/src/favicon.ico')

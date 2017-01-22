@@ -7,6 +7,8 @@ module.exports = function(AngularATGenerator) {
         var relPathAsArray = this.props.directiveName.split('/');
         var directiveName = relPathAsArray[relPathAsArray.length - 1];
         var fullPath;
+        var parentName;
+        var parentPath;
         var data = {
             'directiveName': directiveName,
             'directiveNameCamel': _.camelCase(directiveName),
@@ -23,8 +25,8 @@ module.exports = function(AngularATGenerator) {
         } else {
             // if the directive has a parent component, it belongs to that component
             var appRelPath = '/src/app/components';
-            var parentName = relPathAsArray[relPathAsArray.length - 2];
-            var parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
+            parentName = relPathAsArray[relPathAsArray.length - 2];
+            parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;
             try {
                 // import directive into controller
@@ -47,5 +49,14 @@ module.exports = function(AngularATGenerator) {
             this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.scss'), data);
         }
 
+        // Documenting the creation of the directive
+        var directiveDocJSONString = '{"name": "' + directiveName + '", "nameCamel": "' + data.directiveNameCamel + '", "path": "' + this.props.directiveName + '", "description": "' + directiveName + ' directive"},';
+        utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocJSONString, utils.DIRECTIVE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        //if the directive has a parent, Link it to its parent
+        if (parentPath) {
+          // Foreign Key String for directive is injected into the parent component
+          var directiveDocForeignKeyJSONString = '{"path": "' + this.props.directiveName + '", "name": "' + data.directiveNameCamel + '"},';
+          utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocForeignKeyJSONString, utils.DIRECTIVE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+        }
     };
 };
