@@ -26,14 +26,11 @@ module.exports = function(AngularATGenerator) {
             parentName = pathAsArray[pathAsArray.length - 2];
             parentPath = _.join(pathAsArray.slice(0, pathAsArray.length - 1), '/');
             fullPath = parentPath + '/components/' + data.componentName;
-            //writing imports to files
+            // importing files to parent component
             try {
                 //module
                 var moduleImport = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
                 utils.addToFile(parentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
-                //style
-                var styleImport = "import './components/" + componentName + "/" + componentName + ".component.scss';";
-                utils.addToFile(parentName + '.module.js', styleImport, utils.IMPORT_STYLE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
                 //dependency
                 var dependencyImport = "'" + data.componentModule + "',";
                 utils.addToFile(parentName + '.module.js', dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
