@@ -76,11 +76,11 @@
 │   │   ├── /images/                                 #Images
 │   │   ├── /js/                                     #Extra libs folder
 │   │   └── /styles/                                 #Styles folder
-│   │       ├── /css/                                #CSS, place external css files here
-│   │       └── /sass/                               #SASS
-│   │           ├── /fonts.scss                      #Fonts SASS file, define your fonts here.
-│   │           ├── /index.scss                      #Index SASS entry file, bundles all SASS files.
-│   │           └── /main.scss                       #Main SASS file, define your global styling here.
+│   │   │   ├── /css/                                #CSS, place external css files here
+│   │   │   └── /sass/                               #SASS
+│   │   │   │   ├── /fonts.scss                      #Fonts SASS file, define your fonts here.
+│   │   │   │   ├── /index.scss                      #Index SASS entry file, bundles all SASS files.
+│   │   │   │   └── /main.scss                       #Main SASS file, define your global styling here.
 │   ├── favicon.ico                                  #Application icon to be displayed in bookmarks
 │   └── tpl-index.ejs                                #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 ├── .babelrc                                         #Babel config with presets and plugins
