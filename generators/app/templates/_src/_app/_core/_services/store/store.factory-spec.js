@@ -1,7 +1,7 @@
 import angular from 'angular';
 import 'angular-mocks';
 
-import * as storeFactory from './services/store/store.factory';
+import * as storeFactory from './store.factory';
 
 describe('store service', () => {
 
@@ -11,9 +11,9 @@ describe('store service', () => {
       angular.mock.module('dummyModule');
   });
 
-  it('should...', angular.mock.inject((store) => {
+  it('should...', angular.mock.inject((storeFactory) => {
 
-  //  expect(store.getData()).toEqual(3); //  Example test
+  //  expect(storeFactory.getData()).toEqual(3); //  Example test
 
   }));
 
