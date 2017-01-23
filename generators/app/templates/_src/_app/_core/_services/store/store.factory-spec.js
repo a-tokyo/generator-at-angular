@@ -11,9 +11,9 @@ describe('store service', () => {
       angular.mock.module('dummyModule');
   });
 
-  it('should...', angular.mock.inject((storeFactory) => {
+  it('should...', angular.mock.inject((store) => {
 
-  //  expect(storeFactory.getData()).toEqual(3); //  Example test
+  //  expect(store.getData()).toEqual(3); //  Example test
 
   }));
 

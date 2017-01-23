@@ -11,7 +11,7 @@ describe('<%= serviceNameCamel %> service', () => {
       angular.mock.module('dummyModule');
   });
 
-  it('should...', angular.mock.inject((<%= serviceNameCamel %>Factory) => {
+  it('should...', angular.mock.inject((<%= serviceNameCamel %>) => {
 
   //  expect(<%= serviceNameCamel %>.getData()).toEqual(3); //  Example test
 
