@@ -20,8 +20,10 @@ module.exports = function(AngularATGenerator) {
           var appRelPath = '/src/app/core/services';
           fullPath = this.destinationRoot() + '/src/app/core/services/' + data.serviceName;
             try {
+                // import service into core module
                 var coreModulesWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceName + ".factory';";
                 utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + '/src/app/core');
+                // add service to core module
                 var addToModuleWriteLine = "shared.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
                 utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/core');
             } catch (err) {
