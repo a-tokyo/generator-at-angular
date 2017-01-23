@@ -44,13 +44,13 @@
 │   │   │   │   └── /component.component.scss        #Component styles             
 │   │   ├── /core/                                   #Shared angular services/directives
 │   │   │   ├── /directives/                         #Shared directives
-│   │   │       └── /directive/                      #Shared directive. Place directive's templates and controller here.
+│   │   │   │   └── /directive/                      #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /directive.directive-spec.js #Directive unit tests
 │   │   │   │   │   ├── /directive.directive.js      #Directive definition, link and controller
 │   │   │   │   │   ├── /directive.html              #Directive template (optional)
 │   │   │   │   │   └── /directive.scss              #Directive styles (optional)
 │   │   │   ├── /services/                           #Shared services
-│   │   │       └── /service/                        #Shared directive. Place directive's templates and controller here.
+│   │   │   │   └── /service/                        #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /service.factory-spec.js     #Service unit tests
 │   │   │   │   │   └── /service.factory.js          #Service definition
 │   │   │   └── /core.module.js                      #Import of all core components should be here
