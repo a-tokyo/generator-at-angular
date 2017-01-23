@@ -1,9 +1,7 @@
-export default function (app) {
-    app.factory('store', storeFactory);
+function storeFactory() {
+  return {
 
-        function storeFactory () {
-            return {
-
-            };
-        }
+  };
 }
+
+export default storeFactory;

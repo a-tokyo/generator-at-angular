@@ -1,18 +1,20 @@
 import angular from 'angular';
 import 'angular-mocks';
 
+import * as <%= serviceNameCamel %>Factory from './<%= serviceName %>.factory';
+
 describe('<%= serviceNameCamel %> service', () => {
 
   beforeEach(() => {
       const dummyModule = angular.module('dummyModule', []);
-      require('./<%= serviceNameCamel %>.factory')(dummyModule);
+      dummyModule.factory('<%= serviceNameCamel %>', <%= serviceNameCamel %>Factory);
       angular.mock.module('dummyModule');
   });
 
-  it('should...', angular.mock.inject((<%= serviceNameCamel %>) => {
+  it('should...', angular.mock.inject((<%= serviceNameCamel %>Factory) => {
 
   //  expect(<%= serviceNameCamel %>.getData()).toEqual(3); //  Example test
-  
+
   }));
 
 });
