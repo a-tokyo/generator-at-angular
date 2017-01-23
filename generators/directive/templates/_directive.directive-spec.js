@@ -6,9 +6,9 @@ import * as <%= directiveNameCamel %>Directive from './<%= directiveName %>.dire
 describe('<%= directiveNameCamel %> directive', () => {
 
   beforeEach(() => {
-      const dummyModule =  angular.module('dummyModule',[]);
-      dummyModule.directive('<%= directiveNameCamel %>', <%= directiveNameCamel %>Directive);
-      angular.mock.module('dummyModule');
+    const dummyModule =  angular.module('dummyModule',[]);
+    dummyModule.directive('<%= directiveNameCamel %>', <%= directiveNameCamel %>Directive);
+    angular.mock.module('dummyModule');
   });
 
   it('should...', angular.mock.inject(($rootScope, $compile) => {

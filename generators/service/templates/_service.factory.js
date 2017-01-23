@@ -1,7 +1,7 @@
 function <%= serviceNameCamel %>Factory() {
-    return {
+  return {
 
-    };
+  };
 }
 
 export default <%= serviceNameCamel %>Factory;

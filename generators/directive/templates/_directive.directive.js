@@ -1,16 +1,16 @@
 <% if (needsPartial) { %>import directiveTpl from './<%= directiveName %>.html';
 <% } %>
 function <%= directiveNameCamel %>Directive() {
-    'ngInject';
+  'ngInject';
 
-return {
+  return {
     restrict: 'EA',
     scope: {},<% if (needsPartial) { %>
     templateUrl: directiveTpl, <% } %>
     link: linkFn
   };
 
-function linkFn(scope, elem, attrs, fn) {
+  function linkFn(scope, elem, attrs, fn) {
 
   }
 }

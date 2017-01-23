@@ -6,9 +6,9 @@ import * as <%= serviceNameCamel %>Factory from './<%= serviceName %>.factory';
 describe('<%= serviceNameCamel %> service', () => {
 
   beforeEach(() => {
-      const dummyModule = angular.module('dummyModule', []);
-      dummyModule.factory('<%= serviceNameCamel %>', <%= serviceNameCamel %>Factory);
-      angular.mock.module('dummyModule');
+    const dummyModule = angular.module('dummyModule', []);
+    dummyModule.factory('<%= serviceNameCamel %>', <%= serviceNameCamel %>Factory);
+    angular.mock.module('dummyModule');
   });
 
   it('should...', angular.mock.inject((<%= serviceNameCamel %>) => {
