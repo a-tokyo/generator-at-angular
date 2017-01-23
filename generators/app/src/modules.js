@@ -35,7 +35,7 @@ module.exports = function (AngularATGenerator) {
       .map(function (dependency) {
         return '\"' + dependency + '\"';
       })
-      .join(', \r\n\t');
+      .join(', \r\n\t\t');
   };
 
   /**
