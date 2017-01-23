@@ -19,8 +19,13 @@ module.exports = function(AngularATGenerator) {
         };
         //if the component has no parent
         if (pathAsArray.length === 1) {
+          try {
             var indexModulesWriteLine = "require('./components/" + data.componentName + "/" + data.componentName + ".module').name,";
             utils.addToFile('index.components.js', indexModulesWriteLine, utils.COMPONENT_MARKER, this.destinationRoot() + '/src/app');
+          } catch (err) {
+              this.log('Could not generate this item due to missing file structure.');
+              return;
+          }
         } else {
             //if the component is nested in a parent component
             parentName = pathAsArray[pathAsArray.length - 2];
