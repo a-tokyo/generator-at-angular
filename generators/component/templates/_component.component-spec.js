@@ -11,7 +11,7 @@ describe('<%= componentNameCamel %> component', () => {
     angular.mock.module('<%= componentNameCamel %>');
   });
 
-  it('should render blank page', angular.mock.inject(($rootScope, $compile) => {
+  it('should render <%= componentName %> component', angular.mock.inject(($rootScope, $compile) => {
     const element = $compile('<<%= componentName %>></<%= componentName %>>')($rootScope);
     $rootScope.$digest();
     expect(element).not.toBeNull();
