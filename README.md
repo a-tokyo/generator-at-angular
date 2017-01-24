@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular)
 
-> Yeoman generator for AngularJS + Webpack with ES6 and SASS.
+> Yeoman generator for AngularJS + Webpack with ES6 and SASS.[wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
 
 > * Babel 6 with ES2017 features.
 > * Latest Webpack with Tree Shaking feature enabled.
@@ -154,6 +154,7 @@ Running the project:
 ### Tips:
 - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
 - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+- For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
 
 
 ### Known bugs:
