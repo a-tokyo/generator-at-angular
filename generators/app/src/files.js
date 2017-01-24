@@ -52,6 +52,10 @@ module.exports = function (AngularATGenerator) {
           this.destinationPath('.babelrc')
         );
         this.fs.copy(
+          this.templatePath('_.editorconfig'),
+          this.destinationPath('.editorconfig')
+        );
+        this.fs.copy(
           this.templatePath('_.eslintrc.json'),
           this.destinationPath('.eslintrc.json')
         );
@@ -84,7 +88,7 @@ module.exports = function (AngularATGenerator) {
             this.templatePath('_src/_tpl-index.ejs'),
             this.destinationPath(this.destinationRoot()+'/src/tpl-index.ejs')
         );
-        
+
         this.fs.copyTpl(
             this.templatePath('_src/_assets/_styles/_sass/_index.scss'),
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/index.scss'),
