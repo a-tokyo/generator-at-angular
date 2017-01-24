@@ -25,8 +25,8 @@ exports.ADD_DIRECTIVE_TOMODULE_MARKER = '// Add directive to module above';
 exports.ADD_SERVICE_TOMODULE_MARKER = '// Add service to module above';
 
 exports.MAIN_SCSS_MARKER = '// Add Main SCSS Above';
-exports.ROUTE_MARKER = '/* Add New Routes Above */';
-exports.STATE_MARKER = '/* Add New States Above */';
+exports.ROUTE_MARKER = '// Add new routes above';
+exports.STATE_MARKER = '// Add new states above';
 
 exports.DOCS_ASSETS_PATH = '/docs/docs-assets';
 exports.DOCS_STORAGE_FILENAME = 'docs.js';
