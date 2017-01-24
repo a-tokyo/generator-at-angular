@@ -6,7 +6,6 @@ _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
 
-// exports.COMPONENT_MARKER = '/* Add New COMPONENTS Above */';
 exports.COMPONENT_MARKER = '// Add new components above';
 exports.SERVICE_MARKER = '// Add new services above';
 exports.PAGE_MARKER = '// Add new pages above';
