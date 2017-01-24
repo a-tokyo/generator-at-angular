@@ -5,7 +5,7 @@ module.exports = function (AngularATGenerator) {
     // Install optional dependencies
     AngularATGenerator.prototype.installDependencies = function installDependencies() {
 
-        let deps = [
+        var deps = [
             "angular",
             "angular-ui-router"
         ];

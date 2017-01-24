@@ -5,8 +5,8 @@ module.exports = {
         return _.isObject(obj) && obj.package && obj.import !== false;
     },
     stripPackageName: function (pkgName) {
-        let regexp = /(.*?)@/;
-        let match = pkgName.match(regexp);
+        var regexp = /(.*?)@/;
+        var match = pkgName.match(regexp);
         if (match) {
             return match[1];
         }

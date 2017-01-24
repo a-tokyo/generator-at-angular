@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const prompts = require('../prompts.json');
 
 function logChoice(prompt, prop) {
-    let choice = _.find(prompt.choices, {value: prop});
+    var choice = _.find(prompt.choices, {value: prop});
     this.log('\t*', choice.name);
 }
 
@@ -20,7 +20,7 @@ module.exports = function (AngularATGenerator) {
             this.log('You use ' + chalk.green('--default') + ' option:');
 
             _.forEach(this.props, function (propOrProps, key) {
-                let prompt = _.find(prompts, {name: key});
+                var prompt = _.find(prompts, {name: key});
                 if (_.isArray(propOrProps)) {
                     propOrProps.forEach(function (prop) {
                         logChoice.call(this, prompt, prop);
