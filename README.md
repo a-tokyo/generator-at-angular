@@ -84,6 +84,7 @@
 │   ├── favicon.ico                                  #Application icon to be displayed in bookmarks
 │   └── tpl-index.ejs                                #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 ├── .babelrc                                         #Babel config with presets and plugins
+├── .editorconfig                                     #Editor config to help developers define and maintain consistent coding styles.
 ├── .eslintrc.json                                   #eslint config with parse options, rules, etc.
 ├── .gitignore                                       #List of files to ignore by git
 ├── .yo-rc.json                                      #Defines the root of the project, allows your user to run commands in subdirectories.
