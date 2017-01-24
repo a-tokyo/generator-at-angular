@@ -35,7 +35,11 @@ module.exports = function(AngularATGenerator) {
             // if the directive has a parent component, it belongs to that component
             var appRelPath = '/src/app/components';
             parentName = relPathAsArray[relPathAsArray.length - 2];
-            parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
+            var joinString = '/'; //single parent
+            if (relPathAsArray.length>2) {
+              var joinString = '/components/'; //single parent
+            }
+            parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), joinString);
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;
             try {
                 // import directive into parent module

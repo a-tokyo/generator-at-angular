@@ -29,7 +29,11 @@ module.exports = function(AngularATGenerator) {
         } else {
             //if the component is nested in a parent component
             parentName = pathAsArray[pathAsArray.length - 2];
-            parentPath = _.join(pathAsArray.slice(0, pathAsArray.length - 1), '/');
+            var joinString = '/'; //single parent
+            if (pathAsArray.length>2) {
+              var joinString = '/components/'; //single parent
+            }
+            parentPath = _.join(pathAsArray.slice(0, pathAsArray.length - 1), joinString);
             fullPath = parentPath + '/components/' + data.componentName;
             // importing files to parent component
             try {

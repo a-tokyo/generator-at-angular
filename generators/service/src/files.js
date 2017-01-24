@@ -34,10 +34,16 @@ module.exports = function(AngularATGenerator) {
             // service within a component
             var appRelPath = '/src/app/components';
             parentName = relPathAsArray[relPathAsArray.length - 2];
-            parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), '/');
+            var joinString = '/'; //single parent
+            if (relPathAsArray.length>2) {
+              var joinString = '/components/'; //single parent
+            }
+            parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), joinString);
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/services/' + data.serviceName;
             try {
                 // import service into parent module
+                console.log(appRelPath + '/' + parentPath);
+                console.log(parentName);
                 var importInParentModuleWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceName + ".factory';";
                 utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
                 // add service to parent module
