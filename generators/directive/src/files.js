@@ -5,12 +5,12 @@ module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
         // setting defaults, directive name and path settings
-        var relPathAsArray = this.props.directiveName.split('/');
-        var directiveName = relPathAsArray[relPathAsArray.length - 1];
-        var fullPath;
-        var parentName;
-        var parentPath;
-        var isDuplicate = false;
+        let relPathAsArray = this.props.directiveName.split('/');
+        let directiveName = relPathAsArray[relPathAsArray.length - 1];
+        let fullPath;
+        let parentName;
+        let parentPath;
+        let isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'directiveName': directiveName,
@@ -19,7 +19,7 @@ module.exports = function(AngularATGenerator) {
         };
         // if the directive has no parent, it is shared and belongs to the app
         if (relPathAsArray.length === 1) {
-            var appRelPath = '/src/app/core/directives';
+            let appRelPath = '/src/app/core/directives';
             fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
             try {
                 // import directive into core module
@@ -34,10 +34,10 @@ module.exports = function(AngularATGenerator) {
             }
         } else {
             // if the directive has a parent component, it belongs to that component
-            var appRelPath = '/src/app/components';
+            let appRelPath = '/src/app/components';
             parentName = relPathAsArray[relPathAsArray.length - 2];
             // if single parent, join by '/' else join by '/components/' to nest within the parent components
-            var joinString = (relPathAsArray.length>2)?'/components/':'/';
+            let joinString = (relPathAsArray.length>2)?'/components/':'/';
             parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), joinString);
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;
             try {
@@ -75,7 +75,7 @@ module.exports = function(AngularATGenerator) {
             // if the directive has a parent, Link it to its parent
             if (parentPath) {
               // Foreign Key String for directive is injected into the parent component
-              var directiveDocForeignKeyJSONString = '{"path": "' + this.props.directiveName + '", "name": "' + data.directiveNameCamel + '"},';
+              const directiveDocForeignKeyJSONString = '{"path": "' + this.props.directiveName + '", "name": "' + data.directiveNameCamel + '"},';
               utils.addToFile(utils.DOCS_STORAGE_FILENAME, directiveDocForeignKeyJSONString, utils.DIRECTIVE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
             }
           } catch (err) {

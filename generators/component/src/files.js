@@ -5,12 +5,12 @@ module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
         // setting defaults, component name and path settings
-        var fullPath = this.props.componentName;
-        var pathAsArray = fullPath.split('/');
-        var componentName = pathAsArray[pathAsArray.length - 1];
-        var parentName = null;
-        var parentPath = null;
-        var isDuplicate = false;
+        let fullPath = this.props.componentName;
+        let pathAsArray = fullPath.split('/');
+        let componentName = pathAsArray[pathAsArray.length - 1];
+        let parentName = null;
+        let parentPath = null;
+        let isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'componentName': componentName,
@@ -31,7 +31,7 @@ module.exports = function(AngularATGenerator) {
             //if the component is nested in a parent component
             parentName = pathAsArray[pathAsArray.length - 2];
             // if single parent, join by '/' else join by '/components/' to nest within the parent components
-            var joinString = (pathAsArray.length>2)?'/components/':'/';
+            let joinString = (pathAsArray.length>2)?'/components/':'/';
             parentPath = _.join(pathAsArray.slice(0, pathAsArray.length - 1), joinString);
             fullPath = parentPath + '/components/' + data.componentName;
             // importing files to parent component
@@ -68,9 +68,9 @@ module.exports = function(AngularATGenerator) {
             utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocJSONString, utils.COMPONENT_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
             // if the component has a parent, Link it to its parent
             if (pathAsArray.length !== 1) {
-              var nestedLineMarkExtensionOfParent = " for "+parentPath;
+              const nestedLineMarkExtensionOfParent = " for "+parentPath;
               // Foreign Key String for component is injected into the parent component
-              var componentDocForeignKeyJSONString = '{"path": "' + this.props.componentName + '", "name": "' + data.componentName + '"},';
+              const componentDocForeignKeyJSONString = '{"path": "' + this.props.componentName + '", "name": "' + data.componentName + '"},';
               utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocForeignKeyJSONString, utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtensionOfParent, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
             }
           } catch (err) {

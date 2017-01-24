@@ -4,7 +4,7 @@ var utils = require("../../utils.js");
 module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
-        var isDuplicate = false;
+        let isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'pageName': this.props.pageName,

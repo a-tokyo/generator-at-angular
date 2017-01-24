@@ -5,12 +5,12 @@ module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
         // setting defaults, service name and path settings
-        var relPathAsArray = this.props.serviceName.split('/');
-        var serviceName = relPathAsArray[relPathAsArray.length - 1];
-        var fullPath;
-        var parentName;
-        var parentPath;
-        var isDuplicate = false;
+        let relPathAsArray = this.props.serviceName.split('/');
+        let serviceName = relPathAsArray[relPathAsArray.length - 1];
+        let fullPath;
+        let parentName;
+        let parentPath;
+        let isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'serviceName': serviceName,
@@ -18,7 +18,7 @@ module.exports = function(AngularATGenerator) {
         };
         // if the service has no parent, it is shared and belongs to the app
         if (relPathAsArray.length === 1) {
-          var appRelPath = '/src/app/core/services';
+          let appRelPath = '/src/app/core/services';
           fullPath = this.destinationRoot() + '/src/app/core/services/' + data.serviceName;
             try {
                 // import service into core module
@@ -33,10 +33,10 @@ module.exports = function(AngularATGenerator) {
             }
         } else {
             // service within a component
-            var appRelPath = '/src/app/components';
+            let appRelPath = '/src/app/components';
             parentName = relPathAsArray[relPathAsArray.length - 2];
             // if single parent, join by '/' else join by '/components/' to nest within the parent components
-            var joinString = (relPathAsArray.length>2)?'/components/':'/';
+            let joinString = (relPathAsArray.length>2)?'/components/':'/';
             parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), joinString);
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/services/' + data.serviceName;
             try {
