@@ -1,5 +1,5 @@
 // Docs in JSON format
-var docs =
+let docs =
 {
   "components": [
     // Add new components above
