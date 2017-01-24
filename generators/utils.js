@@ -5,7 +5,7 @@ let _ = require('lodash');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
-
+// Defining Markers
 exports.COMPONENT_MARKER = '// Add new components above';
 exports.SERVICE_MARKER = '// Add new services above';
 exports.PAGE_MARKER = '// Add new pages above';
@@ -31,6 +31,12 @@ exports.STATE_MARKER = '/* Add New States Above */';
 exports.DOCS_ASSETS_PATH = '/docs/docs-assets';
 exports.DOCS_STORAGE_FILENAME = 'docs.js';
 
+// Defining utility functions
+
+/*
+ * writes a line to a file before a marker
+ * takes as inputs the file name, line to add, marker, and full path
+ */
 exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     try {
         let fullPath = path.resolve(fullpathI,filename);
@@ -49,6 +55,9 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     }
 };
 
+/*
+ * checks if a given path exists synchronously
+ */
 exports.existsSync = function(path){
   return fs.existsSync(path);
 };
