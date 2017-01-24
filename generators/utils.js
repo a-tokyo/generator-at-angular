@@ -34,12 +34,12 @@ exports.DOCS_STORAGE_FILENAME = 'docs.js';
 
 exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     try {
-        var fullPath = path.resolve(fullpathI,filename);
-        var fileSrc = fs.readFileSync(fullPath,'utf8');
+        let fullPath = path.resolve(fullpathI,filename);
+        let fileSrc = fs.readFileSync(fullPath,'utf8');
 
-        var indexOf = fileSrc.indexOf(beforeMarker);
-        var lineStart = fileSrc.substring(0,indexOf).lastIndexOf('\n') + 1;
-        var indent = fileSrc.substring(lineStart,indexOf);
+        let indexOf = fileSrc.indexOf(beforeMarker);
+        let lineStart = fileSrc.substring(0,indexOf).lastIndexOf('\n') + 1;
+        let indent = fileSrc.substring(lineStart,indexOf);
         fileSrc = fileSrc.substring(0,indexOf) + lineToAdd + "\n" + indent + fileSrc.substring(indexOf);
 
         fs.writeFileSync(fullPath,fileSrc);
