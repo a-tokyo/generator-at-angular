@@ -1,3 +1,4 @@
+'use strict';
 const mkdirp = require('mkdirp');
 const _ = require('lodash');
 

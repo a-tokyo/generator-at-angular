@@ -1,3 +1,4 @@
+'use strict';
 const yeoman = require('yeoman-generator').Base;
 const chalk = require('chalk');
 const _ = require('lodash');
