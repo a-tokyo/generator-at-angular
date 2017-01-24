@@ -3,7 +3,7 @@ const utils = require("./utils");
 
 module.exports = function (AngularATGenerator) {
 
-  var imports = [];
+  let imports = [];
 
   AngularATGenerator.prototype.defaultImports = function defaultImports() {
     imports.push(this.props.resource);
@@ -20,7 +20,7 @@ module.exports = function (AngularATGenerator) {
    * Compute Angular's module to load and format the dependency list to insert
    */
   AngularATGenerator.prototype.computeModules = function computeModules() {
-    var ngModules = this.props.angularModules.map(function (module) {
+    let ngModules = this.props.angularModules.map(function (module) {
       return module.module;
     });
 
