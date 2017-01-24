@@ -1,5 +1,5 @@
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = function(_path) {
   return {
