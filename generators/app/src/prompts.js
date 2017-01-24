@@ -1,10 +1,10 @@
-var _ = require('lodash');
-var chalk = require('chalk');
+const _ = require('lodash');
+const chalk = require('chalk');
 
-var prompts = require('../prompts.json');
+const prompts = require('../prompts.json');
 
 function logChoice(prompt, prop) {
-    var choice = _.find(prompt.choices, {value: prop});
+    let choice = _.find(prompt.choices, {value: prop});
     this.log('\t*', choice.name);
 }
 
@@ -20,7 +20,7 @@ module.exports = function (AngularATGenerator) {
             this.log('You use ' + chalk.green('--default') + ' option:');
 
             _.forEach(this.props, function (propOrProps, key) {
-                var prompt = _.find(prompts, {name: key});
+                let prompt = _.find(prompts, {name: key});
                 if (_.isArray(propOrProps)) {
                     propOrProps.forEach(function (prop) {
                         logChoice.call(this, prompt, prop);

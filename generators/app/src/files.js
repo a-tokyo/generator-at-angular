@@ -1,11 +1,11 @@
-var mkdirp = require('mkdirp');
-var _ = require('lodash');
+const mkdirp = require('mkdirp');
+const _ = require('lodash');
 
 module.exports = function (AngularATGenerator) {
 
     AngularATGenerator.prototype.adjustPropsForFiles = function adjustPropsForFiles() {
       this.props.styles = {};
-      var that = this;
+      let that = this;
       this.props.angularModules.forEach(function(elm){
         if(elm.key === 'material'){
           that.props.styles.material = true;

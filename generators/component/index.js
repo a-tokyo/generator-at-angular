@@ -1,7 +1,7 @@
-var yeoman = require('yeoman-generator').Base;
-var chalk = require('chalk');
-var _ = require('lodash');
-var prompts = require('./prompts.json');
+const yeoman = require('yeoman-generator').Base;
+const chalk = require('chalk');
+const _ = require('lodash');
+const prompts = require('./prompts.json');
 
 var AngularATGenerator = yeoman.extend({
 

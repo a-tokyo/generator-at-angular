@@ -1,12 +1,11 @@
-var path = require('path');
-var fs = require('fs');
-var _ = require('lodash');
-var chalk = require('chalk');
+const path = require('path');
+const fs = require('fs');
+const chalk = require('chalk');
+let _ = require('lodash');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
-
-// exports.COMPONENT_MARKER = '/* Add New COMPONENTS Above */';
+// Defining Markers
 exports.COMPONENT_MARKER = '// Add new components above';
 exports.SERVICE_MARKER = '// Add new services above';
 exports.PAGE_MARKER = '// Add new pages above';
@@ -26,20 +25,26 @@ exports.ADD_DIRECTIVE_TOMODULE_MARKER = '// Add directive to module above';
 exports.ADD_SERVICE_TOMODULE_MARKER = '// Add service to module above';
 
 exports.MAIN_SCSS_MARKER = '// Add Main SCSS Above';
-exports.ROUTE_MARKER = '/* Add New Routes Above */';
-exports.STATE_MARKER = '/* Add New States Above */';
+exports.ROUTE_MARKER = '// Add new routes above';
+exports.STATE_MARKER = '// Add new states above';
 
 exports.DOCS_ASSETS_PATH = '/docs/docs-assets';
 exports.DOCS_STORAGE_FILENAME = 'docs.js';
 
+// Defining utility functions
+
+/*
+ * writes a line to a file before a marker
+ * takes as inputs the file name, line to add, marker, and full path
+ */
 exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     try {
-        var fullPath = path.resolve(fullpathI,filename);
-        var fileSrc = fs.readFileSync(fullPath,'utf8');
+        let fullPath = path.resolve(fullpathI,filename);
+        let fileSrc = fs.readFileSync(fullPath,'utf8');
 
-        var indexOf = fileSrc.indexOf(beforeMarker);
-        var lineStart = fileSrc.substring(0,indexOf).lastIndexOf('\n') + 1;
-        var indent = fileSrc.substring(lineStart,indexOf);
+        let indexOf = fileSrc.indexOf(beforeMarker);
+        let lineStart = fileSrc.substring(0,indexOf).lastIndexOf('\n') + 1;
+        let indent = fileSrc.substring(lineStart,indexOf);
         fileSrc = fileSrc.substring(0,indexOf) + lineToAdd + "\n" + indent + fileSrc.substring(indexOf);
 
         fs.writeFileSync(fullPath,fileSrc);
@@ -48,4 +53,11 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
       console.log('Could not write data to files');
       throw e;
     }
+};
+
+/*
+ * checks if a given path exists synchronously
+ */
+exports.existsSync = function(path){
+  return fs.existsSync(path);
 };

@@ -1,7 +1,7 @@
 function routeConfig($urlRouterProvider, $stateProvider) {
   'ngInject';
-  /* Add New States Above */
-  /* Add New Routes Above */
+  // Add new states above
+  // Add new routes above
   $urlRouterProvider.otherwise('/');
 }
 
