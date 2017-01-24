@@ -28,7 +28,7 @@ let AngularATGenerator = yeoman.extend({
             return;
         }
 
-        var done = this.async();
+        let done = this.async();
         // calling prompts async
         this.prompt(prompts, function(props) {
             this.props = _.merge(this.props, props);
