@@ -1,7 +1,7 @@
-var yeoman = require('yeoman-generator').Base;
-var yosay = require('yosay');
-var chalk = require('chalk');
-var pkg = require('../../package.json');
+const yeoman = require('yeoman-generator').Base;
+const yosay = require('yosay');
+const chalk = require('chalk');
+const pkg = require('../../package.json');
 
 var AngularATGenerator = yeoman.extend({
     //loging the AT greeting message
