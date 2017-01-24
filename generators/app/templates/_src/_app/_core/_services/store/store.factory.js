@@ -1,4 +1,5 @@
 function storeFactory() {
+  'ngInject';
   return {
 
   };

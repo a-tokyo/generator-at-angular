@@ -1,4 +1,5 @@
 function <%= serviceNameCamel %>Factory() {
+  'ngInject';
   return {
 
   };
