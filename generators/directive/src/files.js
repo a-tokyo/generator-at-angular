@@ -23,10 +23,10 @@ module.exports = function(AngularATGenerator) {
             fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
             try {
                 // import directive into core module
-                var coreModulesWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
+                const coreModulesWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
                 utils.addToFile('core.module.js', coreModulesWriteLine, utils.DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
                 // add directive to core module
-                var addToModuleWriteLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
+                const addToModuleWriteLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
                 utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/core');
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');

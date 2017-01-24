@@ -22,10 +22,10 @@ module.exports = function(AngularATGenerator) {
           fullPath = this.destinationRoot() + '/src/app/core/services/' + data.serviceName;
             try {
                 // import service into core module
-                var coreModulesWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceName + ".factory';";
+                const coreModulesWriteLine = "import * as " + data.serviceNameCamel + 'Factory' + " from './services/" + data.serviceName + '/' + data.serviceName + ".factory';";
                 utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_SERVICE_MARKER, this.destinationRoot() + '/src/app/core');
                 // add service to core module
-                var addToModuleWriteLine = "shared.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
+                const addToModuleWriteLine = "shared.factory('" + data.serviceNameCamel + 'Factory' + "', " + data.serviceNameCamel + 'Factory' + ");";
                 utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/core');
             } catch (err) {
                 this.log('Could not generate this item due to missing file structure.');
