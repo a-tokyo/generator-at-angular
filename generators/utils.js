@@ -1,7 +1,7 @@
-var path = require('path');
-var fs = require('fs');
-var _ = require('lodash');
-var chalk = require('chalk');
+const path = require('path');
+const fs = require('fs');
+const chalk = require('chalk');
+let _ = require('lodash');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 

@@ -1,5 +1,5 @@
-var mkdirp = require('mkdirp');
-var _ = require('lodash');
+const mkdirp = require('mkdirp');
+const _ = require('lodash');
 
 module.exports = function (AngularATGenerator) {
 

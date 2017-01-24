@@ -1,5 +1,5 @@
-var _ = require('lodash');
-var chalk = require('chalk');
+const _ = require('lodash');
+const chalk = require('chalk');
 
 var prompts = require('../prompts.json');
 

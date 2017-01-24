@@ -1,5 +1,5 @@
-var _ = require('lodash');
-var utils = require("./utils");
+const _ = require('lodash');
+const utils = require("./utils");
 
 module.exports = function (AngularATGenerator) {
 
