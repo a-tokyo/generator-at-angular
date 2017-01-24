@@ -34,10 +34,8 @@ module.exports = function(AngularATGenerator) {
             // service within a component
             var appRelPath = '/src/app/components';
             parentName = relPathAsArray[relPathAsArray.length - 2];
-            var joinString = '/'; //single parent
-            if (relPathAsArray.length>2) {
-              var joinString = '/components/'; //single parent
-            }
+            // if single parent, join by '/' else join by '/components/' to nest within the parent components
+            var joinString = (relPathAsArray.length>2)?'/components/':'/';
             parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), joinString);
             fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/services/' + data.serviceName;
             try {
