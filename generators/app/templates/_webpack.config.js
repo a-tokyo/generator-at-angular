@@ -10,7 +10,7 @@ let _configs = {
   development: require(__dirname + '/config/webpack/environments/development')
 };
 
-var _load = function() {
+let _load = function() {
   let ENV = process.env.NODE_ENV
     ? process.env.NODE_ENV
     : 'production';
