@@ -52,24 +52,30 @@ module.exports = function(AngularATGenerator) {
                 return;
             }
         }
+
+        // checking if the service exists, if so it is a duplicate
+        duplicate = (fs.existsSync(this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'));
+
         // copying templates
         this.fs.copyTpl(this.templatePath('_service.factory.js'), this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'), data);
         // copy testing file
         this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '.factory-spec.js'), data);
 
         // Documenting the creation of the service
-        try{
-          var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:serviceName + " service";
-          var serviceDocJSONString = '{"name": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + descriptionForDocs + '"},';
-          utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocJSONString, utils.SERVICE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-          // if the service has a parent, Link it to its parent
-          if (parentPath) {
-            // Foreign Key String for service is injected into the parent component
-            var serviceDocForeignKeyJSONString = '{"path": "' + this.props.serviceName + '", "name": "' + data.serviceNameCamel + '"},';
-            utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocForeignKeyJSONString, utils.SERVICE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-          }
-        } catch (err) {
+        if(!duplicate){
+          try{
+            var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:serviceName + " service";
+            var serviceDocJSONString = '{"name": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + descriptionForDocs + '"},';
+            utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocJSONString, utils.SERVICE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+            // if the service has a parent, Link it to its parent
+            if (parentPath) {
+              // Foreign Key String for service is injected into the parent component
+              var serviceDocForeignKeyJSONString = '{"path": "' + this.props.serviceName + '", "name": "' + data.serviceNameCamel + '"},';
+              utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocForeignKeyJSONString, utils.SERVICE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+            }
+          } catch (err) {
             this.log('Could not document this item due to missing documentation file.');
+          }
         }
     };
 };

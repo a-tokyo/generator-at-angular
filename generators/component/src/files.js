@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var utils = require('../../utils.js');
+var fs = require('fs');
 
 module.exports = function(AngularATGenerator) {
 
@@ -10,6 +11,7 @@ module.exports = function(AngularATGenerator) {
         var componentName = pathAsArray[pathAsArray.length - 1];
         var parentName = null;
         var parentPath = null;
+        var isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'componentName': componentName,
@@ -47,6 +49,9 @@ module.exports = function(AngularATGenerator) {
             }
         }
 
+        // checking if the module exists, if so it is a duplicate
+        duplicate = (fs.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.module.js')));
+
         // copy template files, no need for try and catch since file structure already exists from above
         this.fs.copyTpl(this.templatePath('_component.html'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component.html'), data);
         this.fs.copyTpl(this.templatePath('_component.scss'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component.scss'), data);
@@ -55,7 +60,8 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('_component.component-spec.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component-spec' + '.js'), data);
 
         // Documenting the creation of the component
-        try{
+        if(!duplicate){
+          try{
             var nestedLineMarkExtensionForDocs = " for "+fullPath;
             var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.componentName + " component";
             var componentDocJSONString = '{\n\t\t"name": "' + data.componentName + '", "path": "' + this.props.componentName + '",\n\t\t"components": [\n\t\t\t'+utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtensionForDocs+'\n\t\t],\n\t\t"directives": [\n\t\t\t'+utils.DIRECTIVE_NESTED_MARKER+nestedLineMarkExtensionForDocs+'\n\t\t],\n\t\t"services": [\n\t\t\t'+utils.SERVICE_NESTED_MARKER+nestedLineMarkExtensionForDocs+'\n\t\t],\n\t\t"description": "'+ descriptionForDocs + ' component"\n\t\t},'
@@ -68,8 +74,9 @@ module.exports = function(AngularATGenerator) {
               var componentDocForeignKeyJSONString = '{"path": "' + this.props.componentName + '", "name": "' + data.componentName + '"},';
               utils.addToFile(utils.DOCS_STORAGE_FILENAME, componentDocForeignKeyJSONString, utils.COMPONENT_NESTED_MARKER+nestedLineMarkExtensionOfParent, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
             }
-        } catch (err) {
+          } catch (err) {
             this.log('Could not document this item due to missing documentation file.');
+          }
         }
     };
 };
