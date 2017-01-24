@@ -20,7 +20,7 @@ module.exports = function(AngularATGenerator) {
 
         try{
           // import the page to the pages module
-          var indexModulesWriteLine = "require('./pages/" + data.pageName + "/" + data.pageName + ".module').name,";
+          const indexModulesWriteLine = "require('./pages/" + data.pageName + "/" + data.pageName + ".module').name,";
           utils.addToFile('index.module.js', indexModulesWriteLine, utils.PAGE_MARKER, this.destinationRoot() + '/src/app');
           // copy template files
           this.fs.copyTpl(this.templatePath('_page.html'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.html'), data);

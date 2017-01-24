@@ -37,10 +37,10 @@ module.exports = function(AngularATGenerator) {
             // importing files to parent component
             try {
                 //module
-                var moduleImport = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
+                const moduleImport = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
                 utils.addToFile(parentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
                 //dependency
-                var dependencyImport = "'" + data.componentModule + "',";
+                const dependencyImport = "'" + data.componentModule + "',";
                 utils.addToFile(parentName + '.module.js', dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
             } catch (err) {
                 this.log('Parent component files not found.');
