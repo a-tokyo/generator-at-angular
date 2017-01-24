@@ -166,7 +166,7 @@ Running the project:
 
   <hr/>
 
-  > * **Problem:** Webpack2 lastest build of today DEC 5 2016 throws an error while starting the server.
+  > * **Problem:** Webpack2 lastest build of today JAN 24 2017 2.2.0 throws an error and crashes while starting the server.
 
   >   **Workaround**: Fixed Webpack version to: 2.1.0-beta.25 and Webpack-dev-server to "2.1.0-beta.7" until the build is stable.
 
