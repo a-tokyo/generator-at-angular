@@ -4,6 +4,8 @@ var autoprefixer = require('autoprefixer');
 var Manifest = require('manifest-revision-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 var rootPublic = path.resolve('./src');
 var NODE_ENV = process.env.NODE_ENV || "production";
@@ -143,10 +145,10 @@ module.exports = function (_path) {
       * copies image files from src/assets/images to dist/assets/images
       * To be accessed through static links
       */
-      // new CopyWebpackPlugin([
-      //   { from: 'src/assets/data', to: `${_path}/dist/assets/data`},
-      //   { from: 'src/assets/images', to: `${_path}/dist/assets/images`}
-      // ]),
+      new CopyWebpackPlugin([
+        { from: 'src/assets/data', to: `${_path}/dist/assets/data`},
+        { from: 'src/assets/images', to: `${_path}/dist/assets/images`}
+      ]),
       new webpack.DefinePlugin({
         'NODE_ENV': JSON.stringify(NODE_ENV)
       }),
