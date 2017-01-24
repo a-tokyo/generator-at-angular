@@ -1,21 +1,22 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var Manifest = require('manifest-revision-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+'use strict';
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const Manifest = require('manifest-revision-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
-var rootPublic = path.resolve('./src');
-var NODE_ENV = process.env.NODE_ENV || "production";
-var DEVELOPMENT = NODE_ENV === "production" ? false : true;
-var stylesLoader = 'css?root=' + rootPublic + '&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true';
+const rootPublic = path.resolve('./src');
+const NODE_ENV = process.env.NODE_ENV || "production";
+const DEVELOPMENT = NODE_ENV === "production" ? false : true;
+const stylesLoader = 'css?root=' + rootPublic + '&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true';
 
 module.exports = function (_path) {
-  var rootAssetPath = _path + 'src';
+  const rootAssetPath = _path + 'src';
 
-  var webpackConfig = {
+  let webpackConfig = {
     // entry points
     entry: {
       app: _path + '/src/app/index.bootstrap.js'

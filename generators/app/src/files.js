@@ -6,7 +6,7 @@ module.exports = function (AngularATGenerator) {
 
     AngularATGenerator.prototype.adjustPropsForFiles = function adjustPropsForFiles() {
       this.props.styles = {};
-      var that = this;
+      let that = this;
       this.props.angularModules.forEach(function(elm){
         if(elm.key === 'material'){
           that.props.styles.material = true;

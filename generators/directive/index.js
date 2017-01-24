@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const _ = require('lodash');
 const prompts = require('./prompts.json');
 
-var AngularATGenerator = yeoman.extend({
+let AngularATGenerator = yeoman.extend({
 
     //exteding yoemen generator with custom code
     constructor: function () {
