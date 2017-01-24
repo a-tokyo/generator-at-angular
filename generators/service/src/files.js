@@ -55,7 +55,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // checking if the service exists, if so it is a duplicate
-        isDuplicate = (fs.existsSync(this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'));
+        isDuplicate = fs.existsSync(this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'));
 
         // copying templates
         this.fs.copyTpl(this.templatePath('_service.factory.js'), this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'), data);

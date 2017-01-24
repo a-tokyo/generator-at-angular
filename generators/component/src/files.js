@@ -50,7 +50,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // checking if the module exists, if so it is a duplicate
-        isDuplicate = (fs.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.module.js')));
+        isDuplicate = fs.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.module.js'));
 
         // copy template files, no need for try and catch since file structure already exists from above
         this.fs.copyTpl(this.templatePath('_component.html'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component.html'), data);

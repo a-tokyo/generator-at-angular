@@ -54,7 +54,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // checking if the directive exists, if so it is a duplicate
-        isDuplicate = (fs.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
+        isDuplicate = fs.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
 
         // copying templates
         this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
