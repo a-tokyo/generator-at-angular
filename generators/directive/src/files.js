@@ -10,6 +10,7 @@ module.exports = function(AngularATGenerator) {
         var fullPath;
         var parentName;
         var parentPath;
+        var isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'directiveName': directiveName,
@@ -53,7 +54,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // checking if the directive exists, if so it is a duplicate
-        duplicate = (fs.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
+        isDuplicate = (fs.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
 
         // copying templates
         this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
@@ -66,7 +67,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // Documenting the creation of the directive
-        if(!duplicate){
+        if(!isDuplicate){
           try{
             var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:directiveName + " directive";
             var directiveDocJSONString = '{"name": "' + data.directiveNameCamel + '", "path": "' + this.props.directiveName + '", "description": "' + descriptionForDocs + '"},';

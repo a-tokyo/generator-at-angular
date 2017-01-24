@@ -50,7 +50,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // checking if the module exists, if so it is a duplicate
-        duplicate = (fs.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.module.js')));
+        isDuplicate = (fs.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.module.js')));
 
         // copy template files, no need for try and catch since file structure already exists from above
         this.fs.copyTpl(this.templatePath('_component.html'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component.html'), data);
@@ -60,7 +60,7 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('_component.component-spec.js'), this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.component-spec' + '.js'), data);
 
         // Documenting the creation of the component
-        if(!duplicate){
+        if(!isDuplicate){
           try{
             var nestedLineMarkExtensionForDocs = " for "+fullPath;
             var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.componentName + " component";

@@ -10,6 +10,7 @@ module.exports = function(AngularATGenerator) {
         var fullPath;
         var parentName;
         var parentPath;
+        var isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'serviceName': serviceName,
@@ -54,7 +55,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // checking if the service exists, if so it is a duplicate
-        duplicate = (fs.existsSync(this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'));
+        isDuplicate = (fs.existsSync(this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'));
 
         // copying templates
         this.fs.copyTpl(this.templatePath('_service.factory.js'), this.destinationPath(fullPath + '/' + data.serviceName + '.factory.js'), data);
@@ -62,7 +63,7 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '.factory-spec.js'), data);
 
         // Documenting the creation of the service
-        if(!duplicate){
+        if(!isDuplicate){
           try{
             var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:serviceName + " service";
             var serviceDocJSONString = '{"name": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + descriptionForDocs + '"},';

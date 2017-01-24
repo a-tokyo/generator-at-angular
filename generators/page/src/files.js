@@ -4,6 +4,7 @@ var utils = require("../../utils.js");
 module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+        var isDuplicate = false;
         // data to be passed to templates and used to get info
         var data = {
             'pageName': this.props.pageName,
@@ -13,6 +14,9 @@ module.exports = function(AngularATGenerator) {
             'pageState': this.props.pageState === 'default: pageName' ? this.props.pageName:this.props.pageState,
             'pageRoute': this.props.pageRoute === 'default: /pageName' ? '/'+this.props.pageName : this.props.pageRoute
         };
+
+        // checking if the service exists, if so it is a duplicate
+        isDuplicate = (fs.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.module' + '.js'));
 
         try{
           // import the page to the pages module
@@ -31,12 +35,14 @@ module.exports = function(AngularATGenerator) {
         }
 
         // Documenting the creation of the page
-        try{
-          var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.pageName + " page";
-          var pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + descriptionForDocs + '"},';
-          utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-        } catch (err) {
-          this.log('Could not document this item due to missing documentation file.');
+        if(!isDuplicate){
+          try{
+            var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.pageName + " page";
+            var pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + descriptionForDocs + '"},';
+            utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+          } catch (err) {
+            this.log('Could not document this item due to missing documentation file.');
+          }
         }
     };
 };
