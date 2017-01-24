@@ -1,6 +1,6 @@
 import componentTpl from './<%= componentName %>.component.html';
 
-var <%= componentNameCamel %>Component = {
+let <%= componentNameCamel %>Component = {
   templateUrl: componentTpl,
   controller: <%= controllerName %>Controller,
   bindings: {}
