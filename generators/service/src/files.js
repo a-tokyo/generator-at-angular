@@ -69,7 +69,7 @@ module.exports = function(AngularATGenerator) {
             // if the service has a parent, Link it to its parent
             if (parentPath) {
               // Foreign Key String for service is injected into the parent component
-              var serviceDocForeignKeyJSONString = '{"path": "' + this.props.serviceName + '", "name": "' + data.serviceNameCamel + '"},';
+              const serviceDocForeignKeyJSONString = '{"path": "' + this.props.serviceName + '", "name": "' + data.serviceNameCamel + '"},';
               utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocForeignKeyJSONString, utils.SERVICE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
             }
           } catch (err) {
