@@ -1,6 +1,5 @@
 var _ = require("lodash");
 var utils = require("../../utils.js");
-var fs = require('fs');
 
 module.exports = function(AngularATGenerator) {
 
@@ -55,7 +54,7 @@ module.exports = function(AngularATGenerator) {
         }
 
         // checking if the directive exists, if so it is a duplicate
-        isDuplicate = fs.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
+        isDuplicate = utils.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
 
         // copying templates
         this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);

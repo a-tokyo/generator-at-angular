@@ -49,3 +49,7 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
       throw e;
     }
 };
+
+exports.existsSync = function(path){
+  return fs.existsSync(path);
+};

@@ -1,6 +1,5 @@
 var _ = require("lodash");
 var utils = require("../../utils.js");
-var fs = require('fs');
 
 module.exports = function(AngularATGenerator) {
 
@@ -17,7 +16,7 @@ module.exports = function(AngularATGenerator) {
         };
 
         // checking if the service exists, if so it is a duplicate
-        isDuplicate = fs.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.module' + '.js'));
+        isDuplicate = utils.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.module' + '.js'));
 
         try{
           // import the page to the pages module
