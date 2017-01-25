@@ -23,9 +23,7 @@ describe('at-angular:service', function() {
     // calling done
     done();
   });
-
 });
-
 
 describe('at-angular:service component/service', function() {
   beforeEach(function() {

@@ -26,7 +26,6 @@ describe('at-angular:component', function() {
     // calling done
     done();
   });
-
 });
 
 describe('at-angular:component component/component', function() {

@@ -27,5 +27,4 @@ describe('at-angular:page', function() {
     // calling done
     done();
   });
-
 });

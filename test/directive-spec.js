@@ -25,9 +25,7 @@ describe('at-angular:directive', function() {
     // calling done
     done();
   });
-
 });
-
 
 describe('at-angular:directive no partial', function() {
   beforeEach(function() {
