@@ -1,11 +1,13 @@
-var _ = require("lodash");
-var utils = require("../../utils.js");
+'use strict';
+const _ = require("lodash");
+const utils = require("../../utils.js");
 
 module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+        let isDuplicate = false;
         // data to be passed to templates and used to get info
-        var data = {
+        const data = {
             'pageName': this.props.pageName,
             'pageNameCamel': _.camelCase(this.props.pageName),
             'controllerName': _.upperFirst(_.camelCase(this.props.pageName)),
@@ -14,9 +16,12 @@ module.exports = function(AngularATGenerator) {
             'pageRoute': this.props.pageRoute === 'default: /pageName' ? '/'+this.props.pageName : this.props.pageRoute
         };
 
+        // checking if the service exists, if so it is a duplicate
+        isDuplicate = utils.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.module' + '.js'));
+
         try{
           // import the page to the pages module
-          var indexModulesWriteLine = "require('./pages/" + data.pageName + "/" + data.pageName + ".module').name,";
+          const indexModulesWriteLine = "require('./pages/" + data.pageName + "/" + data.pageName + ".module').name,";
           utils.addToFile('index.module.js', indexModulesWriteLine, utils.PAGE_MARKER, this.destinationRoot() + '/src/app');
           // copy template files
           this.fs.copyTpl(this.templatePath('_page.html'), this.destinationPath(this.destinationRoot() + '/src/app/pages/' + data.pageName + '/' + data.pageName + '.html'), data);
@@ -31,12 +36,14 @@ module.exports = function(AngularATGenerator) {
         }
 
         // Documenting the creation of the page
-        try{
-          var descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.pageName + " page";
-          var pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + descriptionForDocs + '"},';
-          utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-        } catch (err) {
-          this.log('Could not document this item due to missing documentation file.');
+        if(!isDuplicate){
+          try{
+            const descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:data.pageName + " page";
+            const pageDocJSONString = '{"name": "' + data.pageName + '", "route": "' + data.pageRoute + '", "state": "' + data.pageState + '", "description": "' + descriptionForDocs + '"},';
+            utils.addToFile(utils.DOCS_STORAGE_FILENAME, pageDocJSONString, utils.PAGE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+          } catch (err) {
+            this.log('Could not document this item due to missing documentation file.');
+          }
         }
     };
 };

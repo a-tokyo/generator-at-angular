@@ -1,8 +1,14 @@
 const shared = angular.module('core.shared', []);
 
-// Add new directives above
 
-require('./services/store/store.factory')(shared);
-// Add new services above
+// Add directive imports above
+
+import * as storeFactory from './services/store/store.factory';
+// Add service imports above
+
+// Add directive to module above
+
+shared.factory('store', storeFactory);
+// Add service to module above
 
 export default shared;

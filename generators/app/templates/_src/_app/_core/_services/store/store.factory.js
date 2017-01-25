@@ -1,9 +1,8 @@
-export default function (app) {
-    app.factory('store', storeFactory);
+function storeFactory() {
+  'ngInject';
+  return {
 
-        function storeFactory () {
-            return {
-
-            };
-        }
+  };
 }
+
+export default storeFactory;

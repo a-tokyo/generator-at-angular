@@ -1,11 +1,12 @@
-var mkdirp = require('mkdirp');
-var _ = require('lodash');
+'use strict';
+const mkdirp = require('mkdirp');
+const _ = require('lodash');
 
 module.exports = function (AngularATGenerator) {
 
     AngularATGenerator.prototype.adjustPropsForFiles = function adjustPropsForFiles() {
       this.props.styles = {};
-      var that = this;
+      let that = this;
       this.props.angularModules.forEach(function(elm){
         if(elm.key === 'material'){
           that.props.styles.material = true;
@@ -52,6 +53,10 @@ module.exports = function (AngularATGenerator) {
           this.destinationPath('.babelrc')
         );
         this.fs.copy(
+          this.templatePath('_.editorconfig'),
+          this.destinationPath('.editorconfig')
+        );
+        this.fs.copy(
           this.templatePath('_.eslintrc.json'),
           this.destinationPath('.eslintrc.json')
         );
@@ -84,7 +89,7 @@ module.exports = function (AngularATGenerator) {
             this.templatePath('_src/_tpl-index.ejs'),
             this.destinationPath(this.destinationRoot()+'/src/tpl-index.ejs')
         );
-        
+
         this.fs.copyTpl(
             this.templatePath('_src/_assets/_styles/_sass/_index.scss'),
             this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/index.scss'),

@@ -1,9 +1,10 @@
-var yeoman = require('yeoman-generator').Base;
-var chalk = require('chalk');
-var _ = require('lodash');
-var prompts = require('./prompts.json');
+'use strict';
+const yeoman = require('yeoman-generator').Base;
+const chalk = require('chalk');
+const _ = require('lodash');
+const prompts = require('./prompts.json');
 
-var AngularATGenerator = yeoman.extend({
+let AngularATGenerator = yeoman.extend({
 
     //exteding yoemen generator with custom code
     constructor: function () {
@@ -27,7 +28,7 @@ var AngularATGenerator = yeoman.extend({
             return;
         }
 
-        var done = this.async();
+        let done = this.async();
         // calling prompts async
         this.prompt(prompts, function (props) {
             this.props = _.merge(this.props, props);

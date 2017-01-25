@@ -1,5 +1,6 @@
-var _ = require('lodash');
-var _configs = {
+'use strict';
+const _ = require('lodash');
+let _configs = {
 
   // global section
   global: require(__dirname + '/config/webpack/global'),
@@ -9,8 +10,8 @@ var _configs = {
   development: require(__dirname + '/config/webpack/environments/development')
 };
 
-var _load = function() {
-  var ENV = process.env.NODE_ENV
+let _load = function() {
+  let ENV = process.env.NODE_ENV
     ? process.env.NODE_ENV
     : 'production';
 

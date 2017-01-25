@@ -1,11 +1,12 @@
-var _ = require("lodash");
+'use strict';
+const _ = require("lodash");
 
 module.exports = function (AngularATGenerator) {
 
     // Install optional dependencies
     AngularATGenerator.prototype.installDependencies = function installDependencies() {
 
-        var deps = [
+        let deps = [
             "angular",
             "angular-ui-router"
         ];
