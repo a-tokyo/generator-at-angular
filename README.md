@@ -1,6 +1,6 @@
 # generator-at-angular
 
-[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular)
+[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular) ![travis build](https://travis-ci.org/A-Tokyo/generator-at-angular.svg?branch=master)
 
 > Yeoman generator for AngularJS + Webpack with ES6 and SASS.[wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
 
