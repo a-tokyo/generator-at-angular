@@ -139,7 +139,7 @@ module.exports = function (AngularATGenerator) {
         );
 
         this.fs.copy(
-            this.templatePath('_src/_app/_core/core.module.js'),
+            this.templatePath('_src/_app/_core/_core.module.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/core/core.module.js')
         );
 
