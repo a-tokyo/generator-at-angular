@@ -13,7 +13,7 @@ module.exports = function(AngularATGenerator) {
         let parentPath = null;
         let isDuplicate = false;
         // data to be passed to templates and used to get info
-        var data = {
+        const data = {
             'componentName': componentName,
             'componentNameCamel': _.camelCase(componentName),
             'controllerName': _.upperFirst(_.camelCase(componentName)),

@@ -7,7 +7,7 @@ module.exports = function(AngularATGenerator) {
     AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
         let isDuplicate = false;
         // data to be passed to templates and used to get info
-        var data = {
+        const data = {
             'pageName': this.props.pageName,
             'pageNameCamel': _.camelCase(this.props.pageName),
             'controllerName': _.upperFirst(_.camelCase(this.props.pageName)),

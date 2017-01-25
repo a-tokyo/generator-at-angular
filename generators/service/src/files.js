@@ -13,7 +13,7 @@ module.exports = function(AngularATGenerator) {
         let parentPath;
         let isDuplicate = false;
         // data to be passed to templates and used to get info
-        var data = {
+        const data = {
             'serviceName': serviceName,
             'serviceNameCamel': _.camelCase(serviceName)
         };

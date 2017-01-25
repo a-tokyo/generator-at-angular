@@ -13,7 +13,7 @@ module.exports = function(AngularATGenerator) {
         let parentPath;
         let isDuplicate = false;
         // data to be passed to templates and used to get info
-        var data = {
+        const data = {
             'directiveName': directiveName,
             'directiveNameCamel': _.camelCase(directiveName),
             'needsPartial': this.props.needsPartial
