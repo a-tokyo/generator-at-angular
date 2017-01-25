@@ -27,10 +27,13 @@
     "type": "git",
     "url": "https://github.com/A-Tokyo/generator-at-angular.git"
   },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha"
+  },
+  "main": "generators/app/index.js",
   "files": [
     "generators/"
   ],
-  "main": "generators/app/index.js",
   "keywords": [
     "yeoman-generator",
     "generator",
