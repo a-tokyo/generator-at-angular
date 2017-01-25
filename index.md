@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular)
 
-> Yeoman generator for AngularJS + Webpack with ES6 and SASS.
+> Yeoman generator for AngularJS + Webpack with ES6 and SASS.[wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
 
 > * Babel 6 with ES2017 features.
 > * Latest Webpack with Tree Shaking feature enabled.
@@ -44,13 +44,13 @@
 │   │   │   │   └── /component.component.scss        #Component styles             
 │   │   ├── /core/                                   #Shared angular services/directives
 │   │   │   ├── /directives/                         #Shared directives
-│   │   │       └── /directive/                      #Shared directive. Place directive's templates and controller here.
+│   │   │   │   └── /directive/                      #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /directive.directive-spec.js #Directive unit tests
 │   │   │   │   │   ├── /directive.directive.js      #Directive definition, link and controller
 │   │   │   │   │   ├── /directive.html              #Directive template (optional)
 │   │   │   │   │   └── /directive.scss              #Directive styles (optional)
 │   │   │   ├── /services/                           #Shared services
-│   │   │       └── /service/                        #Shared directive. Place directive's templates and controller here.
+│   │   │   │   └── /service/                        #Shared directive. Place directive's templates and controller here.
 │   │   │   │   │   ├── /service.factory-spec.js     #Service unit tests
 │   │   │   │   │   └── /service.factory.js          #Service definition
 │   │   │   └── /core.module.js                      #Import of all core components should be here
@@ -84,6 +84,7 @@
 │   ├── favicon.ico                                  #Application icon to be displayed in bookmarks
 │   └── tpl-index.ejs                                #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 ├── .babelrc                                         #Babel config with presets and plugins
+├── .editorconfig                                     #Editor config to help developers define and maintain consistent coding styles.
 ├── .eslintrc.json                                   #eslint config with parse options, rules, etc.
 ├── .gitignore                                       #List of files to ignore by git
 ├── .yo-rc.json                                      #Defines the root of the project, allows your user to run commands in subdirectories.
@@ -154,6 +155,8 @@ Running the project:
 ### Tips:
 - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
 - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+- For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
+- For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 
 ### Known bugs:
@@ -163,7 +166,7 @@ Running the project:
 
   <hr/>
 
-  > * **Problem:** Webpack2 lastest build of today DEC 5 2016 throws an error while starting the server.
+  > * **Problem:** Webpack2 lastest build of today JAN 24 2017 2.2.0 throws an error and crashes while starting the server.
 
   >   **Workaround**: Fixed Webpack version to: 2.1.0-beta.25 and Webpack-dev-server to "2.1.0-beta.7" until the build is stable.
 
