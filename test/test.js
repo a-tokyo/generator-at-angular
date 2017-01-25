@@ -37,7 +37,7 @@ describe('at-angular generator', function() {
     done();
   });
 
-  it('should create the general expected files', function(done) {
+  it('should create the expected general files', function(done) {
     const expected = [
       // add files you expect to exist here.
       '.babelrc',
@@ -48,6 +48,30 @@ describe('at-angular generator', function() {
       'package.json',
       'README.md',
       'test-context.js'
+    ];
+    assert.file(expected);
+    // calling done
+    done();
+  });
+
+  it('should create the expected angular application files', function(done) {
+    const expected = [
+      // add files you expect to exist here.
+      'src/assets/styles/sass/fonts.scss',
+      'src/assets/styles/sass/index.scss',
+      'src/assets/styles/sass/main.scss',
+      'src/favicon.ico',
+      'src/tpl-index.ejs',
+      'src/app/components',
+      'src/app/core/core.module.js',
+      'src/app/index.bootstrap.js',
+      'src/app/index.components.js',
+      'src/app/index.config.js',
+      'src/app/index.module.js',
+      'src/app/index.routes.js',
+      'src/app/index.run.js',
+      'src/app/index.vendor.js',
+      'src/app/pages'
     ];
     assert.file(expected);
     // calling done
