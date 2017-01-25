@@ -4,7 +4,7 @@ const helpers = require('yeoman-test');
 const assert = require('assert');
 // const fs = require('fs');
 
-describe('at-angular generator', function() {
+describe('at-angular', function() {
   beforeEach(function() {
     // The object returned act like a promise, so return it to wait until the process is done
     return helpers.run(path.join(__dirname, '../generators/app'))
