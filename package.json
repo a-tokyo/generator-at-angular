@@ -17,10 +17,10 @@
       "organization": "dreidev"
     },
     {
-     "name": "Clive Makamara",
-     "email": "clive@makamara.me",
-     "url": "http://github.com/cmosh",
-     "organization": "dreidev"
+      "name": "Clive Makamara",
+      "email": "clive@makamara.me",
+      "url": "http://github.com/cmosh",
+      "organization": "dreidev"
     }
   ],
   "repository": {
@@ -72,6 +72,7 @@
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
+    "fs-extra": "^2.0.0",
     "mocha": "^3.2.0",
     "yeoman-test": "^1.6.0"
   }
