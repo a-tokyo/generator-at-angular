@@ -5,4 +5,7 @@ node_js:
   - "4"
   - "iojs"
 notifications:
-  email: false  
+  email: false
+script: npm run coverage
+after_success:
+  - npm run coveralls  
