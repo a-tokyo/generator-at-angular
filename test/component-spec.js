@@ -3,13 +3,12 @@ const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('assert');
 const fs = require('fs-extra');
-const mkdirp = require('mkdirp');
 
 describe('at-angular:component', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/component')).inTmpDir(function(dir) {
       console.log('running in tmp dir:\n' + dir + '\n')
-      mkdirp('src/app/components');
+      fs.mkdirp('src/app/components');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
     })
