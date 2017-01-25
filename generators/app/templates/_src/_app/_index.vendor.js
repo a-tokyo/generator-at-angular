@@ -3,7 +3,7 @@ import 'angular';
 
 import 'angular-ui-router';
 
-<% for(var i=0; i<importList.length; i++) { %>
+<% for(let i=0; i<importList.length; i++) { %>
 import '<%= importList[i] %>';
 <% } %>
 
