@@ -77,5 +77,4 @@ describe('at-angular', function() {
     // calling done
     done();
   });
-
 });

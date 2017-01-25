@@ -1,6 +1,6 @@
 # generator-at-angular
 
-[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular) ![travis build](https://travis-ci.org/A-Tokyo/generator-at-angular.svg?branch=master)
+[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular) ![travis build](https://travis-ci.org/A-Tokyo/generator-at-angular.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/A-Tokyo/generator-at-angular/badge.svg?branch=feature%2Fcoverage)](https://coveralls.io/github/A-Tokyo/generator-at-angular?branch=feature%2Fcoverage)
 
 > Yeoman generator for AngularJS + Webpack with ES6 and SASS.[wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
 
@@ -84,7 +84,7 @@
 │   ├── favicon.ico                                  #Application icon to be displayed in bookmarks
 │   └── tpl-index.ejs                                #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 ├── .babelrc                                         #Babel config with presets and plugins
-├── .editorconfig                                     #Editor config to help developers define and maintain consistent coding styles.
+├── .editorconfig                                    #Editor config to help developers define and maintain consistent coding styles.
 ├── .eslintrc.json                                   #eslint config with parse options, rules, etc.
 ├── .gitignore                                       #List of files to ignore by git
 ├── .yo-rc.json                                      #Defines the root of the project, allows your user to run commands in subdirectories.

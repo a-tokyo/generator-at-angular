@@ -3,13 +3,13 @@ const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('assert');
 const fs = require('fs-extra');
-const mkdirp = require('mkdirp');
+const testUtils = require('./test-utils');
 
 describe('at-angular:page', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/page')).inTmpDir(function(dir) {
-      console.log('running in tmp dir:\n' + dir + '\n')
-      mkdirp('src/app/pages');
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      fs.mkdirp('src/app/pages');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.module.js'), dir + '/src/app/index.module.js');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
     })
@@ -28,5 +28,4 @@ describe('at-angular:page', function() {
     // calling done
     done();
   });
-
 });
