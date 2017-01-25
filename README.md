@@ -118,6 +118,7 @@ Creating a project:
 
 Running a generator:
 
+    yo at-angular                                                # Generates an angular appplication
     yo at-angular:page my-page                                   # Generates a page (partial)
     yo at-angular:service my-service                             # Generates a service
     yo at-angular:service my-component/my-service                # Generates a service in a component
