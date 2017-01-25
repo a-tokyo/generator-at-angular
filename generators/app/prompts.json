@@ -1,5 +1,4 @@
-[
-  {
+[{
     "type": "input",
     "name": "appName",
     "message": "Your application name",
@@ -15,8 +14,7 @@
     "type": "checkbox",
     "name": "angularModules",
     "message": "What Angular modules would you like to have?",
-    "choices": [
-      {
+    "choices": [{
         "value": {
           "key": "animate",
           "module": "ngAnimate",
@@ -70,14 +68,35 @@
         "name": "angular-material.js (Angular UI Component framework provides a set of reusable UI components based on Google’s Material Design.)",
         "checked": true
       }
+    ],
+    "default": [{
+        "key": "animate",
+        "module": "ngAnimate",
+        "package": "angular-animate"
+      },{
+        "key": "sanitize",
+        "module": "ngSanitize",
+        "package": "angular-sanitize"
+      },{
+        "key": "messages",
+        "module": "ngMessages",
+        "package": "angular-messages"
+      },{
+        "key": "aria",
+        "module": "ngAria",
+        "package": "angular-aria"
+      },{
+        "key": "material",
+        "module": "ngMaterial",
+        "package": "angular-material"
+      }
     ]
   },
   {
     "type": "list",
     "name": "jQuery",
     "message": "Do you need jQuery?",
-    "choices": [
-      {
+    "choices": [{
         "value": {
           "key": "jquery3",
           "package": "jquery@3"
@@ -104,14 +123,16 @@
         },
         "name": "None (Angular will use its own jqLite)"
       }
-    ]
+    ],
+    "default": {
+        "key": "jqLite"
+    }
   },
   {
     "type": "list",
     "name": "resource",
     "message": "Would you like to use a REST resource library?",
-    "choices": [
-      {
+    "choices": [{
         "value": {
           "key": "angular-resource",
           "module": "ngResource",
@@ -134,7 +155,11 @@
         },
         "name": "None, $http is enough!"
       }
-    ]
+    ],
+    "default": {
+        "key": "$http",
+        "module": null
+    }
   },
   {
     "type": "confirm",
