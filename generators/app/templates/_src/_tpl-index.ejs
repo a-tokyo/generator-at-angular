@@ -9,11 +9,11 @@
     <base href="/">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- LINKING STYLE SHEETS -->
-    <% for(let i=0; i < htmlWebpackPlugin.files.css; i++) { %>
+    <% for(var i=0; i < htmlWebpackPlugin.files.css; i++) { %>
     <link href="<%= htmlWebpackPlugin.files.css[i] %>" rel="stylesheet">
     <% } %>
       <!-- LINKING JS FILES -->
-    <% for(let i=0; i < htmlWebpackPlugin.files.chunks; i++) { %>
+    <% for(var i=0; i < htmlWebpackPlugin.files.chunks; i++) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[i].entry %>" defer></script>
     <% } %>
   </head>
