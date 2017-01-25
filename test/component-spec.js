@@ -44,7 +44,10 @@ describe('at-angular:component component/component', function() {
   it('should create the expected component files', function(done) {
     const expected = [
       'src/app/components/component/components/named-component/named-component.component-spec.js',
-      'src/app/components/component/components/named-component/named-component.component.js'
+      'src/app/components/component/components/named-component/named-component.component.js',
+      'src/app/components/component/components/named-component/named-component.module.js',
+      'src/app/components/component/components/named-component/named-component.component.html',
+      'src/app/components/component/components/named-component/named-component.component.scss'
     ];
     assert.file(expected);
     done();
