@@ -9,7 +9,10 @@ notifications:
 script: npm run coverage
 after_success:
   - npm run coveralls  
+  - mkdir recursive
+  - npm install -g yo
   - npm link
-  - mkdir /tmp/recursive && cd /tmp/recursive
-  - yo at-angular --default
+  - cd recursive && yo at-angular --default
+  - pwd
+  - ls
   - npm test
