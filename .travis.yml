@@ -13,6 +13,4 @@ after_success:
   - npm install -g yo
   - npm link
   - cd recursive && yo at-angular --default
-  - pwd
-  - ls
   - npm test
