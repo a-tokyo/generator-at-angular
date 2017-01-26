@@ -1,4 +1,5 @@
 'use strict';
+console.log("Hello");
 const _ = require('lodash');
 const utils = require("./utils");
 
@@ -6,16 +7,16 @@ module.exports = function (AngularATGenerator) {
 
   let imports = [];
 
-  AngularATGenerator.prototype.defaultImports = function defaultImports() {
-    imports.push(this.props.resource);
+  // AngularATGenerator.prototype.defaultImports = function defaultImports() {
+  //   imports.push(this.props.resource);
 
-    if (this.props.ocLazyLoad) {
-      imports.push({
-        module: "oc.lazyLoad",
-        package: "oclazyload"
-      });
-    }
-  };
+  //   if (this.props.ocLazyLoad) {
+  //     imports.push({
+  //       module: "oc.lazyLoad",
+  //       package: "oclazyload"
+  //     });
+  //   }
+  // };
 
   /**
    * Compute Angular's module to load and format the dependency list to insert
