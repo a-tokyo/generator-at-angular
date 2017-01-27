@@ -25,12 +25,12 @@
       },
       {
         "value": {
-          "key": "cookies",
-          "module": "ngCookies",
-          "package": "angular-cookies"
+          "key": "angular-local-storage",
+          "module": "LocalStorageModule",
+          "package": "angular-local-storage"
         },
-        "name": "angular-cookies.js (handle cookie management)",
-        "checked": false
+        "name": "angular-local-storage (handle local storage and fall back to cookies)",
+        "checked": true
       },
       {
         "value": {
