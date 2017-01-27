@@ -20,7 +20,7 @@
           "module": "ngAnimate",
           "package": "angular-animate"
         },
-        "name": "angular-animate.js (enable animation features)",
+        "name": "angular-animate (enable animation features)",
         "checked": true
       },
       {
@@ -38,7 +38,7 @@
           "module": "ngSanitize",
           "package": "angular-sanitize"
         },
-        "name": "angular-sanitize.js (to securely parse, translate and manipulate HTML)",
+        "name": "angular-sanitize (to securely parse, translate and manipulate HTML)",
         "checked": true
       },
       {
@@ -47,7 +47,7 @@
           "module": "ngMessages",
           "package": "angular-messages"
         },
-        "name": "angular-messages.js (enhanced support for displaying messages (i.e validation) within templates)",
+        "name": "angular-messages (enhanced support for displaying messages (i.e validation) within templates)",
         "checked": true
       },
       {
@@ -56,7 +56,7 @@
           "module": "ngAria",
           "package": "angular-aria"
         },
-        "name": "angular-aria.js (support for common ARIA attributes)",
+        "name": "angular-aria (support for common ARIA attributes)",
         "checked": true
       },
       {
@@ -65,18 +65,26 @@
           "module": "ngMaterial",
           "package": "angular-material"
         },
-        "name": "angular-material.js (Angular UI Component framework provides a set of reusable UI components based on Google’s Material Design.)",
+        "name": "angular-material (Angular UI Component framework provides a set of reusable UI components based on Google’s Material Design.)",
         "checked": true
       },
       {
-          "value": {
-            "key": "satellizer",
-            "module": "satellizer",
-            "package": "satellizer"
-          },
-          "name": "angular-satellizer.js (a simple to use, end-to-end, token-based authentication module for AngularJS with built-in support for social media)",
-          "checked": true
-        }
+        "value": {
+          "key": "satellizer",
+          "module": "satellizer",
+          "package": "satellizer"
+        },
+        "name": "angular-satellizer (a simple to use, end-to-end, token-based authentication module for AngularJS with built-in support for social media)",
+        "checked": true
+      },{
+        "value": {
+          "key": "translate",
+          "module": "pascalprecht.translate",
+          "package": "angular-translate"
+        },
+        "name": "angular-translate (translation in your app made easy)",
+        "checked": true
+      }
     ],
     "default": [{
         "key": "animate",
@@ -102,6 +110,14 @@
         "key": "material",
         "module": "ngMaterial",
         "package": "angular-material"
+      },{
+        "key": "satellizer",
+        "module": "satellizer",
+        "package": "satellizer"
+      },{
+        "key": "translate",
+        "module": "pascalprecht.translate",
+        "package": "angular-translate"
       }
     ]
   },
