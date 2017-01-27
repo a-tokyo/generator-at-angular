@@ -160,6 +160,21 @@ module.exports = function (AngularATGenerator) {
             this.destinationPath(this.destinationRoot()+'/src/app/core/services'),
             this
         );
+
+        // Dreidev option files
+        if (this.options.dreidev) {
+          this.fs.copyTpl(
+              this.templatePath('_src/_assets/_styles/_sass/_variables.css'),
+              this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/variables.scss'),
+              this
+          );
+          this.fs.copyTpl(
+              this.templatePath('_src/_assets/_styles/_sass/_mixins.scss'),
+              this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/mixins.scss'),
+              this
+          );
+        }
+
     };
 
 };
