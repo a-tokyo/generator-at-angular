@@ -3,10 +3,10 @@ const _ = require('lodash');
 const chalk = require('chalk');
 const prompts = require('../prompts.json');
 
-function logChoice(prompt, prop) {
-  let choice = _.find(prompt.choices, {value: prop});
-  this.log('\t*', choice.name);
-}
+// function logChoice(prompt, prop) {
+//   let choice = _.find(prompt.choices, {value: prop});
+//   this.log('\t*', choice.name);
+// }
 
 function getDefaultProps() {
   let defaults = {};
