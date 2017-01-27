@@ -154,3 +154,23 @@ describe('at-angular:directive not-existing/directive', function() {
     done();
   });
 });
+
+describe('at-angular:directive documentation', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/directive')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.mkdirp('src/app/core/directives');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
+    })
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not throw error if docs not found but exit gracefuly', function() {
+  }).should.not.throw();
+});

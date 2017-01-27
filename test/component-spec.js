@@ -3,6 +3,7 @@ const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('assert');
 const fs = require('fs-extra');
+const should = require('should');
 const testUtils = require('./test-utils');
 let testDir = null;
 
@@ -92,4 +93,25 @@ describe('at-angular:component not-existing/component', function() {
     assert.noFile(notExpected);
     done();
   });
+});
+
+
+describe('at-angular:component documentation', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/component')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.mkdirp('src/app/components');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
+    })
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not throw error if docs not found but exit gracefuly', function() {
+  }).should.not.throw();
 });
