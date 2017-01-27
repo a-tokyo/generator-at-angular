@@ -1,6 +1,6 @@
 # generator-at-angular
 
-[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular)
+[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular) ![travis build](https://travis-ci.org/A-Tokyo/generator-at-angular.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/A-Tokyo/generator-at-angular/badge.svg?branch=master)](https://coveralls.io/repos/github/A-Tokyo/generator-at-angular/badge.svg?branch=master)
 
 > Yeoman generator for AngularJS + Webpack with ES6 and SASS.[wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
 
@@ -84,7 +84,7 @@
 │   ├── favicon.ico                                  #Application icon to be displayed in bookmarks
 │   └── tpl-index.ejs                                #Template for html-webpack-plugin that will be transpiled into index.html in /dist
 ├── .babelrc                                         #Babel config with presets and plugins
-├── .editorconfig                                     #Editor config to help developers define and maintain consistent coding styles.
+├── .editorconfig                                    #Editor config to help developers define and maintain consistent coding styles.
 ├── .eslintrc.json                                   #eslint config with parse options, rules, etc.
 ├── .gitignore                                       #List of files to ignore by git
 ├── .yo-rc.json                                      #Defines the root of the project, allows your user to run commands in subdirectories.
@@ -95,9 +95,7 @@
 └── webpack.config.js                                #Bundling and optimization settings for Webpack
 ```
 
-
-Getting Started
----------------
+## Getting Started
 
 Prerequisites: Node, Yeoman and Webpack.
   > * To install Node, visit [nodeJS](https://nodejs.org/en/)
@@ -118,6 +116,7 @@ Creating a project:
 
 Running a generator:
 
+    yo at-angular                                                # Generates an angular appplication
     yo at-angular:page my-page                                   # Generates a page (partial)
     yo at-angular:service my-service                             # Generates a service
     yo at-angular:service my-component/my-service                # Generates a service in a component
@@ -142,9 +141,9 @@ Running the project:
 
 ### Out of the box optional supports:
 
-  > * **Angular Material:**
+  - **Angular Material:**
        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
-  > * **Boostrap Sass:**
+  - **Boostrap Sass:**
        bootstrap-sass is a Sass-powered version of Bootstrap (Once Boostrap 4 is stable it'll be used instead of 3)       
 
 ### Extra Features
@@ -152,11 +151,17 @@ Running the project:
     - Documentation can be view in docs/docs.html which is a simple angular application to view the docs in a neat way.
     - The Documentation itself is stored in docs/docs-assets/docs.js in JSON that can be edited and customized.  
 
-### Tips:
-- To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
-- To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
-- For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
-- For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+### Generator options
+  - To create an angular application quickly using the defaults run <br/>
+      `yo at-angular --d` or `yo at-angular --default`
+  - To create an angular application quickly using the [DREIDEV](http://dreidev.com) structure and defaults run <br/>
+      `yo at-angular --dreidev`
+
+### Tips
+  - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
+  - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+  - For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
+  - For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 
 ### Known bugs:
@@ -169,15 +174,10 @@ Running the project:
   > * **Problem:** Webpack2 lastest build of today JAN 24 2017 2.2.0 throws an error and crashes while starting the server.
 
   >   **Workaround**: Fixed Webpack version to: 2.1.0-beta.25 and Webpack-dev-server to "2.1.0-beta.7" until the build is stable.
+  
+### Changelog
+Checkout the [Changelog](https://github.com/A-Tokyo/releases) to monitor the changes, update or migrate your version.
 
 ### Contribution:
 
-#### To Contribute:
-  > * Fork repository and clone it.
-  > * Install npm packages and create new branch.
-  > * Link local project to be able use generator with `yo` by running: `npm link`
-  > * Contribute to the project and push your changes.
-  > * Make a Pull Request.
-
-#### Style Guide:
-  This project uses single-quotes, two space indentation, multiple var statements and multiple comments per function. Use a single space after keywords. Ex: var x = function() { ... }
+Check the [contribution](https://github.com/A-Tokyo/generator-at-angular/wiki/Contribution) guide and dig in.
