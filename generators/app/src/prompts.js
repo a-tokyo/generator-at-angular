@@ -34,9 +34,10 @@ module.exports = function(AngularATGenerator) {
    * Complete responses with null answers for questions not asked
    */
   AngularATGenerator.prototype.askQuestions = function askQuestions() {
-    if (this.skipConfig) {
-      return;
-    } else if (this.options.default) {
+    // if (this.skipConfig) {
+    //   return;
+    // } else
+    if (this.options.default) {
       // calling default options
       this.props = _.merge(this.props, getDefaultProps());
       return;
