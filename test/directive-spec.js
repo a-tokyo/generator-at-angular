@@ -145,7 +145,7 @@ describe('at-angular:directive not-existing/directive', function() {
     }
   });
 
-  it('should create the expected directive files', function(done) {
+  it('should not create directive files for a nested directive when parent not found', function(done) {
     const notExpected = [
       'src/app/components/not-existing/directives/directive/directive.directive.js',
       'src/app/components/not-existing/directives/directive/directive.directive-spec.js'
