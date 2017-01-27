@@ -164,8 +164,7 @@ Running the project:
   - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
   - For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
   - For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
-
-
+  
 ### Known bugs
   > * **Problem:** Webpack2 unable to import function with only export default value.
 
@@ -177,14 +176,6 @@ Running the project:
 
   >   **Workaround**: Fixed Webpack version to: 2.1.0-beta.25 and Webpack-dev-server to "2.1.0-beta.7" until the build is stable.
 
-### Contribution:
+### [Changelog](https://github.com/A-Tokyo/generator-at-angular/releases)
 
-#### To Contribute:
-  > * Fork repository and clone it.
-  > * Install npm packages and create new branch.
-  > * Link local project to be able use generator with `yo` by running: `npm link`
-  > * Contribute to the project and push your changes.
-  > * Make a Pull Request.
-
-#### Style Guide:
-  This project uses single-quotes, two space indentation, multiple var statements and multiple comments per function. Use a single space after keywords. Ex: var x = function() { ... }
+### [Contribution](https://github.com/A-Tokyo/generator-at-angular/wiki/Contribution)
