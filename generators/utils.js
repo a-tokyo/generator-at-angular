@@ -2,9 +2,6 @@
 const path = require('path');
 const fs = require('fs');
 const chalk = require('chalk');
-let _ = require('lodash');
-_.str = require('underscore.string');
-_.mixin(_.str.exports());
 
 // Defining Markers
 exports.COMPONENT_MARKER = '// Add new components above';

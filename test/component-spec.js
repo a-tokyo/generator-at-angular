@@ -30,7 +30,7 @@ describe('at-angular:component', function() {
       'src/app/components/component/component.component.js',
       'src/app/components/component/component.component.html',
       'src/app/components/component/component.module.js',
-      'src/app/components/component/component.component.scss',
+      'src/app/components/component/component.component.scss'
     ];
     assert.file(expected);
     // calling done
@@ -87,7 +87,39 @@ describe('at-angular:component not-existing/component', function() {
 
   it('should not create component files for a nested component when parent not found', function(done) {
     const notExpected = [
+      'src/app/components/component/component.component-spec.js',
+      'src/app/components/component/component.component.js',
       'src/app/components/component/component.component.html',
+      'src/app/components/component/component.module.js',
+      'src/app/components/component/component.component.scss'
+    ];
+    assert.noFile(notExpected);
+    done();
+  });
+});
+
+describe('at-angular:component (with no parent module)', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/component')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.mkdirp('src/app/components');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+    })
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not create component files when parent not found', function(done) {
+    const notExpected = [
+      'src/app/components/component/component.component-spec.js',
+      'src/app/components/component/component.component.js',
+      'src/app/components/component/component.component.html',
+      'src/app/components/component/component.module.js',
       'src/app/components/component/component.component.scss'
     ];
     assert.noFile(notExpected);

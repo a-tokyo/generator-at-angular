@@ -51,8 +51,11 @@ describe('at-angular --dreidev', function() {
     return helpers.run(path.join(__dirname, '../generators/app')).withOptions({dreidev: true}); // Mock some prompt answers, and depend on defaults for others
   });
 
-  it('should create the expected angular application files', function(done) {
-    assert.file(expectedAngularAppFiles);
+  it('should create the expected dreidev angular application files', function(done) {
+    const dreidevExpectedAngularAppFiles = expectedAngularAppFiles.concat(
+      ['src/assets/styles/sass/variables.scss', 'src/assets/styles/sass/mixins.scss']
+    );
+    assert.file(dreidevExpectedAngularAppFiles);
     done();
   });
 });
