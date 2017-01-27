@@ -89,6 +89,32 @@ describe('at-angular:service not-existing/service', function() {
   });
 });
 
+describe('at-angular:service (with no parent module)', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.mkdirp('src/app/core/services');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+    })
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not create service files when parent module not found', function(done) {
+    const notExpected = [
+      'src/app/core/services/service/service.service-spec.js',
+      'src/app/core/services/service/service.service.js',
+    ];
+    assert.noFile(notExpected);
+    done();
+  });
+});
+
 describe('at-angular:service documentation', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {

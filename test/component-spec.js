@@ -76,7 +76,7 @@ describe('at-angular:component not-existing/component', function() {
       testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
       testDir = dir;
       fs.mkdirp('src/app/components');
-    })
+    }).withArguments(['not-existing/component']);
   });
 
   afterEach(function(){
