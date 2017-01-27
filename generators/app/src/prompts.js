@@ -22,7 +22,6 @@ function getDreidevProps() {
   let dreidevProps = getDefaultProps();
   dreidevProps.bootstrapSass = false;
   dreidevProps.appName = 'dreidevATApp';
-  dreidevProps.angularModules.push({key: 'at-flex-grid', module: null, package: 'at-flex-grid'});
   return dreidevProps;
 }
 
