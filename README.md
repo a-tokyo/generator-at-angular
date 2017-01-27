@@ -164,17 +164,6 @@ Running the project:
   - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
   - For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
   - For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
-  
-### Known bugs
-  > * **Problem:** Webpack2 unable to import function with only export default value.
-
-  >   **Workaround**: Use ```import * as variable from 'package' ``` instead of ```import variable from 'package' ```
-
-  <hr/>
-
-  > * **Problem:** Webpack2 lastest build of today JAN 24 2017 2.2.0 throws an error and crashes while starting the server.
-
-  >   **Workaround**: Fixed Webpack version to: 2.1.0-beta.25 and Webpack-dev-server to "2.1.0-beta.7" until the build is stable.
 
 ### [Changelog](https://github.com/A-Tokyo/generator-at-angular/releases)
 
