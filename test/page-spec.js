@@ -37,3 +37,33 @@ describe('at-angular:page', function() {
     done();
   });
 });
+
+describe('at-angular:page', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/page')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+    })
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not create the page files when module does not exist', function(done) {
+    const notExpected = [
+      'src/app/pages/page/page.controller-spec.js',
+      'src/app/pages/page/page.controller.js',
+      'src/app/pages/page/page.html',
+      'src/app/pages/page/page.module.js',
+      'src/app/pages/page/page.route.js',
+      'src/app/pages/page/page.scss'
+    ];
+    assert.noFile(notExpected);
+    // calling done
+    done();
+  });
+});
