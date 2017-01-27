@@ -38,7 +38,7 @@ describe('at-angular:page', function() {
   });
 });
 
-describe('at-angular:page', function() {
+describe('at-angular:page named-page', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/page')).inTmpDir(function(dir) {
       testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
