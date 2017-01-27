@@ -8,7 +8,7 @@ describe('at-angular', function() {
   beforeEach(function() {
     // The object returned act like a promise, so return it to wait until the process is done
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({appName: "testApp", bootstrapSass: false}); // Mock some prompt answers, and depend on defaults for others
+      .withPrompts({appName: "testApp"}); // Mock some prompt answers, and depend on defaults for others
   });
 
   it('should create the expected webpack config files', function(done) {
