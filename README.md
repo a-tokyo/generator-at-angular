@@ -159,14 +159,14 @@ Running the project:
   - To create an angular application quickly using the [DREIDEV](http://dreidev.com) structure and defaults run <br/>
       `yo at-angular --dreidev`
 
-### Tips:
+### Tips
   - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
   - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
   - For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
   - For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 
-### Known bugs:
+### Known bugs
   > * **Problem:** Webpack2 unable to import function with only export default value.
 
   >   **Workaround**: Use ```import * as variable from 'package' ``` instead of ```import variable from 'package' ```
