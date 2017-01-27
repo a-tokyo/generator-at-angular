@@ -27,13 +27,12 @@
     "type": "git",
     "url": "https://github.com/A-Tokyo/generator-at-angular.git"
   },
-  "main": "src/app/index.bootstrap.js",
+  "main": "generators/app/index.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha",
     "coverage": "./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha",
     "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
-  "main": "generators/app/index.js",
   "files": [
     "generators/"
   ],
@@ -80,6 +79,7 @@
   "devDependencies": {
     "fs-extra": "^2.0.0",
     "mocha": "^3.2.0",
+    "should": "^11.2.0",
     "yeoman-test": "^1.6.0"
   }
 }
