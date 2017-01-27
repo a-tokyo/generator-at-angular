@@ -150,10 +150,7 @@ describe('at-angular:directive not-existing/directive', function() {
       'src/app/components/not-existing/directives/directive/directive.directive.js',
       'src/app/components/not-existing/directives/directive/directive.directive-spec.js'
     ];
-    fs.stat('src/app/core/directives/directive/directive.directive.html', function(err, stat){
-      assert(err!=null);
-      // calling done
-      done();
-    });
+    assert.noFile(notExpected);
+    done();
   });
 });

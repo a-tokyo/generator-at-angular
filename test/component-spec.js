@@ -89,10 +89,7 @@ describe('at-angular:component not-existing/component', function() {
       'src/app/components/component/component.component.html',
       'src/app/components/component/component.component.scss'
     ];
-    fs.stat('src/app/components/component/component.component.html', function(err, stat){
-      assert(err!=null);
-      // calling done
-      done();
-    });
+    assert.noFile(notExpected);
+    done();
   });
 });

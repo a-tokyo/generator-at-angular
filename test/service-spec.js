@@ -62,3 +62,29 @@ describe('at-angular:service component/service', function() {
     done();
   });
 });
+
+describe('at-angular:service not-existing/service', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.mkdirp('src/app/components');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+    }).withArguments(['not-existing/service']);
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not create service files for a nested service when parent not found', function(done) {
+    const notExpected = [
+      'src/app/components/not-existing/services/service/service.factory.js',
+      'src/app/components/not-existing/services/service/service.factory-spec.js'
+    ];
+    assert.noFile(notExpected);
+    done();
+  });
+});
