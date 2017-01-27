@@ -34,7 +34,6 @@
     "es6-promise": "^4.0.3",
     "font-awesome": "^4.6.3",
     "manifest-revision-webpack-plugin": "^0.3.0",
-    "ng-storage": "^0.3.2",
     "url": "^0.11.0",
     "webpack": "2.1.0-beta.25"
   },
