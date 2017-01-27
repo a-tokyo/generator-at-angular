@@ -143,9 +143,9 @@ Running the project:
 
 ### Out of the box optional supports:
 
-  > * **Angular Material:**
+  - **Angular Material:**
        UI Component framework provides a set of reusable UI components based on Google’s Material Design. https://material.angularjs.org/latest/getting-started
-  > * **Boostrap Sass:**
+  - **Boostrap Sass:**
        bootstrap-sass is a Sass-powered version of Bootstrap (Once Boostrap 4 is stable it'll be used instead of 3)       
 
 ### Extra Features
@@ -154,16 +154,16 @@ Running the project:
     - The Documentation itself is stored in docs/docs-assets/docs.js in JSON that can be edited and customized.  
 
 ### Generator options
-To create an angular application quickly using the defaults by running
-  `yo at-angular --d` or `yo at-angular --default`
-To create an angular application quickly using the [DREIDEV](http://dreidev.com) structure and defaults run
-  `yo at-angular --dreidev`
+  - To create an angular application quickly using the defaults run <br/>
+      `yo at-angular --d` or `yo at-angular --default`
+  - To create an angular application quickly using the [DREIDEV](http://dreidev.com) structure and defaults run <br/>
+      `yo at-angular --dreidev`
 
 ### Tips:
-- To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
-- To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
-- For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
-- For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+  - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
+  - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+  - For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
+  - For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 
 ### Known bugs:
