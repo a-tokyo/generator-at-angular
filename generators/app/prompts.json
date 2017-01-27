@@ -110,6 +110,14 @@
         "key": "material",
         "module": "ngMaterial",
         "package": "angular-material"
+      },{
+        "key": "satellizer",
+        "module": "satellizer",
+        "package": "satellizer"
+      },{
+        "key": "translate",
+        "module": "pascalprecht.translate",
+        "package": "angular-translate"
       }
     ]
   },
