@@ -12,6 +12,13 @@ module.exports = function (AngularATGenerator) {
           that.props.styles.material = true;
         }
       });
+      if(this.props.extraDeps){
+        this.props.extraDeps.forEach(function(elm){
+          if(elm.dependancy === 'at-flex-grid'){
+            that.props.styles.atFlex = true;
+          }
+        });
+      }
     };
 
     AngularATGenerator.prototype.copyFiles = function copyFiles() {

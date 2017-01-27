@@ -27,6 +27,12 @@ module.exports = function (AngularATGenerator) {
             deps.push("material-icons");
         }
 
+        if(this.props.extraDeps){
+          this.props.extraDeps.forEach(function(dep){
+            deps.push(dep.dependency);
+          });
+        }
+
         deps = _.concat(deps, this.importList);
 
         this.npmInstall(deps, {'save': true});

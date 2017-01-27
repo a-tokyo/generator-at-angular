@@ -28,11 +28,11 @@ function getDreidevProps() {
 
 module.exports = function(AngularATGenerator) {
 
-  /**
-     * Ask all questions from prompts.json
-     * Add conditional tests on those depending on first responses
-     * Complete responses with null answers for questions not asked
-     */
+  /*
+   * Ask all questions from prompts.json
+   * Add conditional tests on those depending on first responses
+   * Complete responses with null answers for questions not asked
+   */
   AngularATGenerator.prototype.askQuestions = function askQuestions() {
     if (this.skipConfig) {
       return;
@@ -42,6 +42,7 @@ module.exports = function(AngularATGenerator) {
       return;
     } else if (this.options.dreidev) {
       this.props = _.merge(this.props, getDreidevProps());
+      this.props.extraDeps = [{dependancy: 'at-flex-grid'}];
       return;
     } else {
       let done = this.async();
