@@ -153,6 +153,12 @@ Running the project:
     - Documentation can be view in docs/docs.html which is a simple angular application to view the docs in a neat way.
     - The Documentation itself is stored in docs/docs-assets/docs.js in JSON that can be edited and customized.  
 
+### Generator options
+To create an angular application quickly using the defaults by running
+  `yo at-angular --d` or `yo at-angular --default`
+To create an angular application quickly using the [DREIDEV](http://dreidev.com) structure and defaults run
+  `yo at-angular --dreidev`
+
 ### Tips:
 - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
 - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
