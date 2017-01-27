@@ -30,7 +30,7 @@
           "package": "angular-cookies"
         },
         "name": "angular-cookies.js (handle cookie management)",
-        "checked": true
+        "checked": false
       },
       {
         "value": {
@@ -67,12 +67,25 @@
         },
         "name": "angular-material.js (Angular UI Component framework provides a set of reusable UI components based on Google’s Material Design.)",
         "checked": true
-      }
+      },
+      {
+          "value": {
+            "key": "satellizer",
+            "module": "satellizer",
+            "package": "satellizer"
+          },
+          "name": "angular-satellizer.js (a simple to use, end-to-end, token-based authentication module for AngularJS with built-in support for social media)",
+          "checked": true
+        }
     ],
     "default": [{
         "key": "animate",
         "module": "ngAnimate",
         "package": "angular-animate"
+      },{
+        "key": "sanitize",
+        "module": "ngSanitize",
+        "package": "angular-sanitize"
       },{
         "key": "sanitize",
         "module": "ngSanitize",

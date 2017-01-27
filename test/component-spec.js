@@ -68,3 +68,28 @@ describe('at-angular:component component/component', function() {
     done();
   });
 });
+
+describe('at-angular:component not-existing/component', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/component')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.mkdirp('src/app/components');
+    })
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not create component files for a nested component when parent not found', function(done) {
+    const notExpected = [
+      'src/app/components/component/component.component.html',
+      'src/app/components/component/component.component.scss'
+    ];
+    assert.noFile(notExpected);
+    done();
+  });
+});

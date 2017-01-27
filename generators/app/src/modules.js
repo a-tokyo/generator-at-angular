@@ -6,7 +6,8 @@ module.exports = function (AngularATGenerator) {
 
   let imports = [];
 
-  AngularATGenerator.prototype.defaultImports = function defaultImports() {
+  AngularATGenerator.prototype.prepareImports = function defaultImports() {
+    //pushing resource
     imports.push(this.props.resource);
 
     if (this.props.ocLazyLoad) {

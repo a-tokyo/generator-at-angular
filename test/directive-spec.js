@@ -128,3 +128,29 @@ describe('at-angular:directive component/directive', function() {
     done();
   });
 });
+
+describe('at-angular:directive not-existing/directive', function() {
+  beforeEach(function() {
+    return helpers.run(path.join(__dirname, '../generators/directive')).inTmpDir(function(dir) {
+      testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+      testDir = dir;
+      fs.mkdirp('src/app/components');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+    }).withArguments(['not-existing/directive']);
+  });
+
+  afterEach(function(){
+    if(testDir != null){
+      testUtils.deleteDirRecursive(testDir);
+    }
+  });
+
+  it('should not create directive files for a nested directive when parent not found', function(done) {
+    const notExpected = [
+      'src/app/components/not-existing/directives/directive/directive.directive.js',
+      'src/app/components/not-existing/directives/directive/directive.directive-spec.js'
+    ];
+    assert.noFile(notExpected);
+    done();
+  });
+});
