@@ -42,7 +42,7 @@ module.exports = function(AngularATGenerator) {
       return;
     } else if (this.options.dreidev) {
       this.props = _.merge(this.props, getDreidevProps());
-      this.props.extraDeps = [{dependancy: 'at-flex-grid'}];
+      this.props.extraDeps = [{dependency: "at-flex-grid"}];
       return;
     } else {
       let done = this.async();

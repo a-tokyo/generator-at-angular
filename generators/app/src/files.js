@@ -14,7 +14,7 @@ module.exports = function (AngularATGenerator) {
       });
       if(this.props.extraDeps){
         this.props.extraDeps.forEach(function(elm){
-          if(elm.dependancy === 'at-flex-grid'){
+          if(elm.dependency === 'at-flex-grid'){
             that.props.styles.atFlex = true;
           }
         });
@@ -112,6 +112,10 @@ module.exports = function (AngularATGenerator) {
             this
         );
 
+        this.fs.copy(
+          this.templatePath('_src/_app/_index.components.js'),
+          this.destinationPath(this.destinationRoot()+'/src/app/index.components.js')
+        );
         this.fs.copyTpl(
             this.templatePath('_src/_app/_index.bootstrap.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/index.bootstrap.js'),
@@ -122,28 +126,40 @@ module.exports = function (AngularATGenerator) {
             this.destinationPath(this.destinationRoot()+'/src/app/index.module.js'),
             this
         );
-        this.fs.copy(
-            this.templatePath('_src/_app/_index.components.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.components.js')
-        );
-        this.fs.copy(
-            this.templatePath('_src/_app/_index.config.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js')
-        );
         this.fs.copyTpl(
             this.templatePath('_src/_app/_index.routes.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/index.routes.js'),
             this
-        );
-        this.fs.copy(
-            this.templatePath('_src/_app/_index.run.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js')
         );
         this.fs.copyTpl(
             this.templatePath('_src/_app/_index.vendor.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/index.vendor.js'),
             this
         );
+        if(!this.options.dreidev){
+          this.fs.copyTpl(
+            this.templatePath('_src/_app/_index.config.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js'),
+            this
+          );
+          this.fs.copyTpl(
+            this.templatePath('_src/_app/_index.run.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js'),
+            this
+          );
+        }else{
+          this.fs.copyTpl(
+            this.templatePath('_dreidev/_src/_app/_index.config.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js'),
+            this
+          );
+          this.fs.copyTpl(
+            this.templatePath('_dreidev/_src/_app/_index.run.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js'),
+            this
+          );
+        }
+
 
         this.fs.copy(
             this.templatePath('_src/_app/_core/_core.module.js'),
@@ -164,7 +180,7 @@ module.exports = function (AngularATGenerator) {
         // Dreidev option files
         if (this.options.dreidev) {
           this.fs.copyTpl(
-              this.templatePath('_src/_assets/_styles/_sass/_variables.css'),
+              this.templatePath('_src/_assets/_styles/_sass/_variables.scss'),
               this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/variables.scss'),
               this
           );
@@ -172,6 +188,22 @@ module.exports = function (AngularATGenerator) {
               this.templatePath('_src/_assets/_styles/_sass/_mixins.scss'),
               this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/mixins.scss'),
               this
+          );
+          this.fs.copyTpl(
+            this.templatePath('_src/_assets/_styles/_sass/_dreidev-reset.scss'),
+            this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/dreidev-reset.scss'),
+            this
+          );
+          this.fs.copy(
+              this.templatePath('_dreidev/_src/_tpl-index.ejs'),
+              this.destinationPath(this.destinationRoot()+'/src/tpl-index.ejs')
+          );
+        }
+
+        if (this.props.angularModules){
+          this.fs.copy(
+              this.templatePath('_src/_assets/_js/_translate.js'),
+              this.destinationPath(this.destinationRoot()+'/src/assets/js/translate.js')
           );
         }
 

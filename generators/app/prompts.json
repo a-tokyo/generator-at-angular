@@ -192,6 +192,12 @@
   },
   {
     "type": "confirm",
+    "name": "normalize",
+    "message": "Would you like to include normalize-css - A css library that makes browsers render all elements more consistently and in line with modern standards.",
+    "default": true
+  },
+  {
+    "type": "confirm",
     "name": "lodash",
     "message": "Would you like to include Lodash - A modern JavaScript utility library delivering modularity, performance & extras.",
     "default": true
