@@ -76,7 +76,7 @@
         },
         "name": "angular-satellizer (a simple to use, end-to-end, token-based authentication module for AngularJS with built-in support for social media)",
         "checked": true
-      },{
+      }, {
         "value": {
           "key": "translate",
           "module": "pascalprecht.translate",
@@ -84,42 +84,49 @@
         },
         "name": "angular-translate (translation in your app made easy)",
         "checked": true
+      }, {
+        "value": {
+          "key": "angular-resource",
+          "module": "ngResource",
+          "package": "angular-resource"
+        },
+        "name": "angular-resource (the official support for RESTful services)",
+        "checked": false
       }
     ],
     "default": [{
-        "key": "animate",
-        "module": "ngAnimate",
-        "package": "angular-animate"
-      },{
-        "key": "angular-local-storage",
-        "module": "LocalStorageModule",
-        "package": "angular-local-storage"
-      },{
-        "key": "sanitize",
-        "module": "ngSanitize",
-        "package": "angular-sanitize"
-      },{
-        "key": "messages",
-        "module": "ngMessages",
-        "package": "angular-messages"
-      },{
-        "key": "aria",
-        "module": "ngAria",
-        "package": "angular-aria"
-      },{
-        "key": "material",
-        "module": "ngMaterial",
-        "package": "angular-material"
-      },{
-        "key": "satellizer",
-        "module": "satellizer",
-        "package": "satellizer"
-      },{
-        "key": "translate",
-        "module": "pascalprecht.translate",
-        "package": "angular-translate"
-      }
-    ]
+      "key": "animate",
+      "module": "ngAnimate",
+      "package": "angular-animate"
+    }, {
+      "key": "angular-local-storage",
+      "module": "LocalStorageModule",
+      "package": "angular-local-storage"
+    }, {
+      "key": "sanitize",
+      "module": "ngSanitize",
+      "package": "angular-sanitize"
+    }, {
+      "key": "messages",
+      "module": "ngMessages",
+      "package": "angular-messages"
+    }, {
+      "key": "aria",
+      "module": "ngAria",
+      "package": "angular-aria"
+    }, {
+      "key": "material",
+      "module": "ngMaterial",
+      "package": "angular-material"
+    }, {
+      "key": "satellizer",
+      "module": "satellizer",
+      "package": "satellizer"
+    }, {
+      "key": "translate",
+      "module": "pascalprecht.translate",
+      "package": "angular-translate"
+    }]
   },
   {
     "type": "list",
@@ -154,40 +161,7 @@
       }
     ],
     "default": {
-        "key": "jqLite"
-    }
-  },
-  {
-    "type": "list",
-    "name": "resource",
-    "message": "Would you like to use a REST resource library?",
-    "choices": [{
-        "value": {
-          "key": "angular-resource",
-          "module": "ngResource",
-          "package": "angular-resource"
-        },
-        "name": "ngResource, the official support for RESTful services"
-      },
-      {
-        "value": {
-          "key": "restangular",
-          "module": "restangular",
-          "package": "restangular"
-        },
-        "name": "Restangular, an alternative service to handle RESTful requests"
-      },
-      {
-        "value": {
-          "key": "$http",
-          "module": null
-        },
-        "name": "None, $http is enough!"
-      }
-    ],
-    "default": {
-        "key": "$http",
-        "module": null
+      "key": "jqLite"
     }
   },
   {
