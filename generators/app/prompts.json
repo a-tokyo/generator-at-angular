@@ -76,7 +76,7 @@
         },
         "name": "angular-satellizer (a simple to use, end-to-end, token-based authentication module for AngularJS with built-in support for social media)",
         "checked": true
-      },{
+      }, {
         "value": {
           "key": "translate",
           "module": "pascalprecht.translate",
@@ -84,7 +84,7 @@
         },
         "name": "angular-translate (translation in your app made easy)",
         "checked": true
-      },{
+      }, {
         "value": {
           "key": "angular-resource",
           "module": "ngResource",
@@ -95,39 +95,38 @@
       }
     ],
     "default": [{
-        "key": "animate",
-        "module": "ngAnimate",
-        "package": "angular-animate"
-      },{
-        "key": "angular-local-storage",
-        "module": "LocalStorageModule",
-        "package": "angular-local-storage"
-      },{
-        "key": "sanitize",
-        "module": "ngSanitize",
-        "package": "angular-sanitize"
-      },{
-        "key": "messages",
-        "module": "ngMessages",
-        "package": "angular-messages"
-      },{
-        "key": "aria",
-        "module": "ngAria",
-        "package": "angular-aria"
-      },{
-        "key": "material",
-        "module": "ngMaterial",
-        "package": "angular-material"
-      },{
-        "key": "satellizer",
-        "module": "satellizer",
-        "package": "satellizer"
-      },{
-        "key": "translate",
-        "module": "pascalprecht.translate",
-        "package": "angular-translate"
-      }
-    ]
+      "key": "animate",
+      "module": "ngAnimate",
+      "package": "angular-animate"
+    }, {
+      "key": "angular-local-storage",
+      "module": "LocalStorageModule",
+      "package": "angular-local-storage"
+    }, {
+      "key": "sanitize",
+      "module": "ngSanitize",
+      "package": "angular-sanitize"
+    }, {
+      "key": "messages",
+      "module": "ngMessages",
+      "package": "angular-messages"
+    }, {
+      "key": "aria",
+      "module": "ngAria",
+      "package": "angular-aria"
+    }, {
+      "key": "material",
+      "module": "ngMaterial",
+      "package": "angular-material"
+    }, {
+      "key": "satellizer",
+      "module": "satellizer",
+      "package": "satellizer"
+    }, {
+      "key": "translate",
+      "module": "pascalprecht.translate",
+      "package": "angular-translate"
+    }]
   },
   {
     "type": "list",
@@ -162,7 +161,7 @@
       }
     ],
     "default": {
-        "key": "jqLite"
+      "key": "jqLite"
     }
   },
   {
@@ -187,13 +186,6 @@
     "type": "confirm",
     "name": "ocLazyLoad",
     "message": "Would you like to include angularOclazyLoad plugin to load angular modules asynchronously.",
-    "default": {
-      "module": "oc.lazyLoad",
-      "package": "oclazyload"
-    },
-    "value": {
-      "module": "oc.lazyLoad",
-      "package": "oclazyload"
-    }
+    "default": true
   }
 ]

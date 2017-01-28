@@ -2,9 +2,16 @@
 const _ = require('lodash');
 const utils = require("../../utils");
 
-module.exports = function (AngularATGenerator) {
+module.exports = function(AngularATGenerator) {
 
-  const extraModules = [{ key: 'ocLazyLoad', module: 'oc.lazyLoad', package: 'oclazyload'}];
+  // angular modules that are propmted as questions not in the angular modules selection phase
+  const extraModules = [
+    {
+      key: 'ocLazyLoad',
+      module: 'oc.lazyLoad',
+      package: 'oclazyload'
+    }
+  ];
 
   let imports = [];
   /**
@@ -12,56 +19,41 @@ module.exports = function (AngularATGenerator) {
    */
   AngularATGenerator.prototype.computeModules = function computeModules() {
     // ngModules holds angular modules from props
-    let ngModules = this.props.angularModules.map(function (module) {
+    let ngModules = this.props.angularModules.map(function(module) {
       return module.module;
     });
-
     // prepare extra angular module from extra quetions in props
-    extraModules.forEach(function(item){
-      if(this.props[item.key]){
+    extraModules.forEach(function(item) {
+      if (this.props[item.key]) {
         imports.push(item);
       }
     }.bind(this));
     // add extra angular modules to ngModules
-    imports.forEach(function (mod) {
+    imports.forEach(function(mod) {
       if (mod.module) {
         ngModules.push(mod.module);
       }
     });
     // this.modulesDependencies to be read in index.vendor and index.module and imported
-    this.modulesDependencies = ngModules
-      .filter(_.isString)
-      .map(function (dependency) {
-        return '\"' + dependency + '\"';
-      })
-      .join(', \r\n\t\t');
+    this.modulesDependencies = ngModules.filter(_.isString).map(function(dependency) {
+      return '\"' + dependency + '\"';
+    }).join(', \r\n\t\t');
   };
-
-  // /**
-  //  * Simplify the model to simplify access to angular modules from the templates
-  //  */
-  // AngularATGenerator.prototype.prepareAngularModules = function prepareAngularModules() {
-  //   this.angularModulesObject = {};
-  //
-  //   this.props.angularModules.forEach(function (module) {
-  //     this[module.key] = module.module;
-  //   }, this.angularModulesObject);
-  // };
 
   /**
    * Prepare list for vendor imports
    */
   AngularATGenerator.prototype.prepareImportsList = function prepareImportsList() {
-
+    // prepare the list of imports to feed to index.vendor
     this.importList = [];
 
-    imports.forEach(function (mod) {
+    imports.forEach(function(mod) {
       if (mod.module && mod.package) {
         this.importList.push(mod.package);
       }
     }, this);
 
-    this.props.forEach(function(section) {
+    _.forEach(this.props, function(section) {
       if (_.isArray(section)) {
         section.forEach(function(prop) {
           if (utils.isHasPackage(prop)) {
@@ -69,10 +61,10 @@ module.exports = function (AngularATGenerator) {
           }
         }, this);
       } else if (utils.isHasPackage(section)) {
+        console.log('dakhalnaaa');
         this.importList.push(utils.stripPackageName(section.package));
       }
     }.bind(this));
-
   };
 
 };
