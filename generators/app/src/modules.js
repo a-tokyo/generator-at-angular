@@ -14,6 +14,19 @@ module.exports = function(AngularATGenerator) {
   ];
 
   let imports = [];
+
+  let extractPackagesToImport = function(importList, props){
+    _.forEach(props, function(prop) {
+      if(_.isArray(prop)){
+        extractPackagesToImport(importList, prop);
+      }else{
+        if (utils.isHasPackage(prop)) {
+          importList.push(utils.stripPackageName(prop.package));
+        }
+      }
+    });
+  };
+
   /**
    * Compute Angular's module to load and format the dependency list to insert
    */
@@ -53,17 +66,7 @@ module.exports = function(AngularATGenerator) {
       }
     }, this);
 
-    _.forEach(this.props, function(section) {
-      if (_.isArray(section)) {
-        section.forEach(function(prop) {
-          if (utils.isHasPackage(prop)) {
-            this.importList.push(utils.stripPackageName(prop.package));
-          }
-        }, this);
-      } else if (utils.isHasPackage(section)) {
-        this.importList.push(utils.stripPackageName(section.package));
-      }
-    }.bind(this));
+    extractPackagesToImport(this.importList, this.props);
   };
 
 };
