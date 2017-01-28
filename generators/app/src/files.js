@@ -14,7 +14,7 @@ module.exports = function (AngularATGenerator) {
       });
       if(this.props.extraDeps){
         this.props.extraDeps.forEach(function(elm){
-          if(elm.dependancy === 'at-flex-grid'){
+          if(elm.dependency === 'at-flex-grid'){
             that.props.styles.atFlex = true;
           }
         });
