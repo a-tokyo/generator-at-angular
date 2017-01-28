@@ -3,8 +3,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';<% } %><% if (props.styles.material) { %>
 @import '~angular-material/angular-material.scss';
 @import '~material-icons/css/material-icons.css';
-<% } %>
-@import './fonts.scss';
+<% } %><% if (props.styles.atFlex) { %>
+@import '~at-flex-grid/src/scss/at-flex-grid.scss';
+<% } %>@import './fonts.scss';
 @import './main.scss';
 // Add style imports above
 
