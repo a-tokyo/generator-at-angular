@@ -180,7 +180,7 @@ module.exports = function (AngularATGenerator) {
         // Dreidev option files
         if (this.options.dreidev) {
           this.fs.copyTpl(
-              this.templatePath('_src/_assets/_styles/_sass/_variables.css'),
+              this.templatePath('_src/_assets/_styles/_sass/_variables.scss'),
               this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/variables.scss'),
               this
           );
@@ -188,6 +188,11 @@ module.exports = function (AngularATGenerator) {
               this.templatePath('_src/_assets/_styles/_sass/_mixins.scss'),
               this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/mixins.scss'),
               this
+          );
+          this.fs.copyTpl(
+            this.templatePath('_src/_assets/_styles/_sass/_dreidev-reset.scss'),
+            this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/dreidev-reset.scss'),
+            this
           );
           this.fs.copy(
               this.templatePath('_dreidev/_src/_tpl-index.ejs'),

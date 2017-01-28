@@ -1,0 +1,48 @@
+/*!
+* Author: Ahmed Tokyo
+* tokyo@dreidev.com
+* https://www.dreidev.com
+*/
+* {
+    box-sizing: border-box;
+}
+
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+// Body reset
+html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    overflow: auto;
+}
+
+body {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $text-color-default;
+    box-sizing: border-box;
+    counter-reset: item;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: auto;
+}
+
+// Reset fonts for relevant elements
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+// Horizontal rules
+hr {
+    margin-top: $line-height-computed;
+    margin-bottom: $line-height-computed;
+    border: 0;
+    border-top: 1px solid $hr-color-border;
+}
