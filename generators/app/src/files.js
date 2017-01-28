@@ -127,18 +127,8 @@ module.exports = function (AngularATGenerator) {
             this
         );
         this.fs.copyTpl(
-            this.templatePath('_src/_app/_index.config.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js'),
-            this
-        );
-        this.fs.copyTpl(
             this.templatePath('_src/_app/_index.routes.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/index.routes.js'),
-            this
-        );
-        this.fs.copyTpl(
-            this.templatePath('_src/_app/_index.run.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js'),
             this
         );
         this.fs.copyTpl(
@@ -146,6 +136,30 @@ module.exports = function (AngularATGenerator) {
             this.destinationPath(this.destinationRoot()+'/src/app/index.vendor.js'),
             this
         );
+        if(!this.options.dreidev){
+          this.fs.copyTpl(
+            this.templatePath('_src/_app/_index.config.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js'),
+            this
+          );
+          this.fs.copyTpl(
+            this.templatePath('_src/_app/_index.run.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js'),
+            this
+          );
+        }else{
+          this.fs.copyTpl(
+            this.templatePath('_dreidev/_src/_app/_index.config.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js'),
+            this
+          );
+          this.fs.copyTpl(
+            this.templatePath('__dreidev/_src/_app/_index.run.js'),
+            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js'),
+            this
+          );
+        }
+
 
         this.fs.copy(
             this.templatePath('_src/_app/_core/_core.module.js'),
