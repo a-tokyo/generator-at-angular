@@ -1,4 +1,5 @@
-function config($logProvider<%if (options.dreidev) {%>, $authProvider, localStorageServiceProvider, $translateProvider, $mdThemingProvider<%}%>) {
+<%if (options.dreidev) {%>import * as translation from '../assets/js/translate.js';
+<%}%>function config($logProvider<%if (options.dreidev) {%>, $authProvider, localStorageServiceProvider, $translateProvider, $mdThemingProvider<%}%>) {
 	'ngInject';
 
 <%if (options.dreidev) {%>
@@ -8,9 +9,9 @@ function config($logProvider<%if (options.dreidev) {%>, $authProvider, localStor
   // localStorageServiceProvider.setStorageCookie(300, '/', true);
 
   // translation configuration
-  // $translateProvider.translations('en', translation.en);
-  // $translateProvider.preferredLanguage('en');
-  // $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
+  $translateProvider.translations('en', translation.en);
+  $translateProvider.preferredLanguage('en');
+  $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
 
   // authentication configuretion
   $authProvider.signupUrl = '/api/rest-auth/registration/';
