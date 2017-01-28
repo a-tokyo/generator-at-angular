@@ -22,7 +22,7 @@ const AngularATGenerator = yeoman.extend({
             required: false
         });
 
-        this.version = pkg.version;
+        this.atVersion = pkg.version;
 
         this.props = {};
 
