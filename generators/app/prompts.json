@@ -5,12 +5,6 @@
     "default": "myATApp"
   },
   {
-    "type": "confirm",
-    "name": "bootstrapSass",
-    "message": "Would you like to include Bootstrap for Sass?",
-    "default": true
-  },
-  {
     "type": "checkbox",
     "name": "angularModules",
     "message": "What Angular modules would you like to have?",
@@ -127,6 +121,12 @@
       "module": "pascalprecht.translate",
       "package": "angular-translate"
     }]
+  },
+  {
+    "type": "confirm",
+    "name": "bootstrapSass",
+    "message": "Would you like to include Bootstrap for Sass?",
+    "default": true
   },
   {
     "type": "list",
