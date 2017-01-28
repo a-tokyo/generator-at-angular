@@ -30,7 +30,7 @@ module.exports = function (AngularATGenerator) {
         if (this.props.styles.material) {
             deps.push("material-icons");
         }
-
+        // extraDeps are added by flags only not by user input
         if(this.props.extraDeps){
           this.props.extraDeps.forEach(function(dep){
             deps.push(dep.dependency);
