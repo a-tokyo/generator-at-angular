@@ -53,7 +53,7 @@ describe('at-angular --dreidev', function() {
 
   it('should create the expected dreidev angular application files', function(done) {
     const dreidevExpectedAngularAppFiles = expectedAngularAppFiles.concat(
-      ['src/assets/styles/sass/variables.scss', 'src/assets/styles/sass/mixins.scss']
+      ['src/assets/js/translate.js', 'src/assets/styles/sass/dreidev-reset.scss', 'src/assets/styles/sass/variables.scss', 'src/assets/styles/sass/mixins.scss']
     );
     assert.file(dreidevExpectedAngularAppFiles);
     done();

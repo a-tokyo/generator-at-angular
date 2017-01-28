@@ -37,3 +37,7 @@ Run a sub-generator:
 ### Tips:
   - To keep the SASS/SCSS clean and modular use [BEM Syntax](http://css-tricks.com/bem-101/)
   - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+<% if (options.dreidev) { %>
+
+#### Organization: [DREIDEV](http://dreidev.com)
+<% } %>
