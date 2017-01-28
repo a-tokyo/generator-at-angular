@@ -19,9 +19,6 @@ let AngularATGenerator = yeoman.extend({
         this.props = {};
     },
     prompting: function () {
-        // if (this.skipConfig || this.options.default) {
-        //     return;
-        // }
         if (this.arguments[0]) {
             // if directive name was provided in arguments, set it and skip
             this.props.directiveName = this.arguments[0];
