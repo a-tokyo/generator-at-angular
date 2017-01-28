@@ -13,7 +13,7 @@
 // $warn-color-400: ;
 
 // Static colors
-// $text-color-default: ;
+$text-color-default: black;
 // $modal-backdrop-bg: ;
 $hr-color-border: #EEEEEE !default;
 
@@ -24,13 +24,13 @@ $hidden-outline: rgba(0,0,0,0);
 // Default spacings
 $content-spacing-y-primary: 50px;
 
+// Font sizes
+$font-size-base: 14px !default; //** Unit-less `line-height` for use in components like buttons.
+
 // line height
 $line-height-base: 1.428571429 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
-
-// Font sizes
-$font-size-base: 14px !default; //** Unit-less `line-height` for use in components like buttons.
 
 // Font stacks
 $font-stack-fallback: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; //Add Main style variables above
