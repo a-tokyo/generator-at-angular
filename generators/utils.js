@@ -2,6 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const chalk = require('chalk');
+const _ = require("lodash");
 
 // Defining Markers
 exports.COMPONENT_MARKER = '// Add new components above';
@@ -59,3 +60,16 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
 exports.existsSync = function(path){
   return fs.existsSync(path);
 };
+
+exports.isHasPackage = function (obj) {
+    return _.isObject(obj) && obj.package && obj.import !== false;
+}
+
+exports.stripPackageName = function (pkgName) {
+    let regexp = /(.*?)@/;
+    let match = pkgName.match(regexp);
+    if (match) {
+        return match[1];
+    }
+    return pkgName;
+}
