@@ -5,9 +5,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~angular-material/angular-material.scss';
 @import '~material-icons/css/material-icons.css';
 <% } %><% if (options.dreidev) { %>
-@import './dreidev-reset.scss';
 @import './variables.scss';
 @import './mixins.scss';
+@import './dreidev-reset.scss';
 <%}%>
 <% if (props.styles.atFlex) { %>@import '~at-flex-grid/src/scss/at-flex-grid.scss';
 <% } %>@import './fonts.scss';
