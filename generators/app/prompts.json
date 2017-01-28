@@ -84,6 +84,14 @@
         },
         "name": "angular-translate (translation in your app made easy)",
         "checked": true
+      },{
+        "value": {
+          "key": "angular-resource",
+          "module": "ngResource",
+          "package": "angular-resource"
+        },
+        "name": "angular-resource (the official support for RESTful services)",
+        "checked": false
       }
     ],
     "default": [{
@@ -158,39 +166,6 @@
     }
   },
   {
-    "type": "list",
-    "name": "resource",
-    "message": "Would you like to use a REST resource library?",
-    "choices": [{
-        "value": {
-          "key": "angular-resource",
-          "module": "ngResource",
-          "package": "angular-resource"
-        },
-        "name": "ngResource, the official support for RESTful services"
-      },
-      {
-        "value": {
-          "key": "restangular",
-          "module": "restangular",
-          "package": "restangular"
-        },
-        "name": "Restangular, an alternative service to handle RESTful requests"
-      },
-      {
-        "value": {
-          "key": "$http",
-          "module": null
-        },
-        "name": "None, $http is enough!"
-      }
-    ],
-    "default": {
-        "key": "$http",
-        "module": null
-    }
-  },
-  {
     "type": "confirm",
     "name": "normalize",
     "message": "Would you like to include normalize-css - A css library that makes browsers render all elements more consistently and in line with modern standards.",
@@ -212,6 +187,13 @@
     "type": "confirm",
     "name": "ocLazyLoad",
     "message": "Would you like to include angularOclazyLoad plugin to load angular modules asynchronously.",
-    "default": true
+    "default": {
+      "module": "oc.lazyLoad",
+      "package": "oclazyload"
+    },
+    "value": {
+      "module": "oc.lazyLoad",
+      "package": "oclazyload"
+    }
   }
 ]
