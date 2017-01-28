@@ -1,3 +1,4 @@
+<% if (props.normalize) { %>@import '~normalize-css/normalize.css';<%}%>
 <% if (props.bootstrapSass) { %>
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';<% } %><% if (props.styles.material) { %>

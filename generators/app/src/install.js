@@ -23,6 +23,10 @@ module.exports = function (AngularATGenerator) {
             deps.push("moment");
         }
 
+        if (this.props.normalize) {
+            deps.push("normalize-css");
+        }
+
         if (this.props.styles.material) {
             deps.push("material-icons");
         }
