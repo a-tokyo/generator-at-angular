@@ -6,18 +6,17 @@ module.exports = function (AngularATGenerator) {
 
     AngularATGenerator.prototype.adjustPropsForFiles = function adjustPropsForFiles() {
       this.props.styles = {};
-      let that = this;
       this.props.angularModules.forEach(function(elm){
         if(elm.key === 'material'){
-          that.props.styles.material = true;
+          this.props.styles.material = true;
         }
-      });
+      }.bind(this));
       if(this.props.extraDeps){
         this.props.extraDeps.forEach(function(elm){
           if(elm.dependency === 'at-flex-grid'){
-            that.props.styles.atFlex = true;
+            this.props.styles.atFlex = true;
           }
-        });
+        }.bind(this));
       }
     };
 

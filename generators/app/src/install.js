@@ -44,6 +44,7 @@ module.exports = function (AngularATGenerator) {
 
     // Install dependencies from package.json
     AngularATGenerator.prototype.install = function install() {
+        // install templated dependencies
         this.npmInstall();
     };
 
