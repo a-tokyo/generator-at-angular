@@ -112,6 +112,10 @@ module.exports = function (AngularATGenerator) {
             this
         );
 
+        this.fs.copy(
+          this.templatePath('_src/_app/_index.components.js'),
+          this.destinationPath(this.destinationRoot()+'/src/app/index.components.js')
+        );
         this.fs.copyTpl(
             this.templatePath('_src/_app/_index.bootstrap.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/index.bootstrap.js'),
@@ -122,22 +126,20 @@ module.exports = function (AngularATGenerator) {
             this.destinationPath(this.destinationRoot()+'/src/app/index.module.js'),
             this
         );
-        this.fs.copy(
-            this.templatePath('_src/_app/_index.components.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.components.js')
-        );
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('_src/_app/_index.config.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js')
+            this.destinationPath(this.destinationRoot()+'/src/app/index.config.js'),
+            this
         );
         this.fs.copyTpl(
             this.templatePath('_src/_app/_index.routes.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/index.routes.js'),
             this
         );
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('_src/_app/_index.run.js'),
-            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js')
+            this.destinationPath(this.destinationRoot()+'/src/app/index.run.js'),
+            this
         );
         this.fs.copyTpl(
             this.templatePath('_src/_app/_index.vendor.js'),
