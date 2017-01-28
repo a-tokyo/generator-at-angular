@@ -154,7 +154,7 @@ module.exports = function (AngularATGenerator) {
             this
           );
           this.fs.copyTpl(
-            this.templatePath('__dreidev/_src/_app/_index.run.js'),
+            this.templatePath('_dreidev/_src/_app/_index.run.js'),
             this.destinationPath(this.destinationRoot()+'/src/app/index.run.js'),
             this
           );
