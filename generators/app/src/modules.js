@@ -11,22 +11,24 @@ module.exports = function (AngularATGenerator) {
    * Compute Angular's module to load and format the dependency list to insert
    */
   AngularATGenerator.prototype.computeModules = function computeModules() {
+    // ngModules holds angular modules from props
     let ngModules = this.props.angularModules.map(function (module) {
       return module.module;
     });
 
+    // prepare extra angular module from extra quetions in props
     extraModules.forEach(function(item){
       if(this.props[item.key]){
         imports.push(item);
       }
     }.bind(this));
-
+    // add extra angular modules to ngModules
     imports.forEach(function (mod) {
       if (mod.module) {
         ngModules.push(mod.module);
       }
     });
-
+    // this.modulesDependencies to be read in index.vendor and index.module and imported
     this.modulesDependencies = ngModules
       .filter(_.isString)
       .map(function (dependency) {
@@ -35,16 +37,16 @@ module.exports = function (AngularATGenerator) {
       .join(', \r\n\t\t');
   };
 
-  /**
-   * Simplify the model to simplify access to angular modules from the templates
-   */
-  AngularATGenerator.prototype.prepareAngularModules = function prepareAngularModules() {
-    this.angularModulesObject = {};
-
-    this.props.angularModules.forEach(function (module) {
-      this[module.key] = module.module;
-    }, this.angularModulesObject);
-  };
+  // /**
+  //  * Simplify the model to simplify access to angular modules from the templates
+  //  */
+  // AngularATGenerator.prototype.prepareAngularModules = function prepareAngularModules() {
+  //   this.angularModulesObject = {};
+  //
+  //   this.props.angularModules.forEach(function (module) {
+  //     this[module.key] = module.module;
+  //   }, this.angularModulesObject);
+  // };
 
   /**
    * Prepare list for vendor imports
