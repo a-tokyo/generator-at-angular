@@ -4,9 +4,9 @@
 
 <%if (options.dreidev) {%>
   // local storage configuration
-  // localStorageServiceProvider.setPrefix('');
+  localStorageServiceProvider.setPrefix('');
   // fallback in case localStorage was not supported
-  // localStorageServiceProvider.setStorageCookie(300, '/', true);
+  localStorageServiceProvider.setStorageCookie(300, '/', true);
 
   // translation configuration
   $translateProvider.translations('en', translation.en);
