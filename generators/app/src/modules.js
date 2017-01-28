@@ -4,16 +4,23 @@ const utils = require("../../utils");
 
 module.exports = function (AngularATGenerator) {
 
+  const extraModules = [{ key: 'ocLazyLoad', module: 'oc.lazyLoad', package: 'oclazyload'}];
+
   let imports = [];
   /**
    * Compute Angular's module to load and format the dependency list to insert
    */
   AngularATGenerator.prototype.computeModules = function computeModules() {
-    imports.push({ key: 'oc.lazyLoad', module: 'oc.lazyLoad' });
     let ngModules = this.props.angularModules.map(function (module) {
       return module.module;
     });
-    console.log(imports);
+
+    extraModules.forEach(function(item){
+      if(this.props[item.key]){
+        imports.push(item);
+      }
+    }.bind(this));
+
     imports.forEach(function (mod) {
       if (mod.module) {
         ngModules.push(mod.module);
@@ -51,8 +58,8 @@ module.exports = function (AngularATGenerator) {
         this.importList.push(mod.package);
       }
     }, this);
-    _.forEach(this.props, function(section) {
 
+    this.props.forEach(function(section) {
       if (_.isArray(section)) {
         section.forEach(function(prop) {
           if (utils.isHasPackage(prop)) {
@@ -60,10 +67,8 @@ module.exports = function (AngularATGenerator) {
           }
         }, this);
       } else if (utils.isHasPackage(section)) {
-        console.log('dakhalnaaa');
         this.importList.push(utils.stripPackageName(section.package));
       }
-
     }.bind(this));
 
   };
