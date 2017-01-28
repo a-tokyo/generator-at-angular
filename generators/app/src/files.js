@@ -200,6 +200,13 @@ module.exports = function (AngularATGenerator) {
           );
         }
 
+        if (this.props.angularModules){
+          this.fs.copy(
+              this.templatePath('_src/_assets/_js/_translate.js'),
+              this.destinationPath(this.destinationRoot()+'/src/assets/js/translate.js')
+          );
+        }
+
     };
 
 };
