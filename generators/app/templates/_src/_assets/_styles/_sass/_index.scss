@@ -3,10 +3,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';<% } %><% if (props.styles.material) { %>
 @import '~angular-material/angular-material.scss';
 @import '~material-icons/css/material-icons.css';
-<% } %>
-<% if (options.dreidev) { %>
-@import 'src/assets/styles/sass/variables.scss';
-@import 'src/assets/styles/sass/mixins.scss';
+<% } %><% if (options.dreidev) { %>
+@import './variables.scss';
+@import './mixins.scss';
 <%}%>
 <% if (props.styles.atFlex) { %>@import '~at-flex-grid/src/scss/at-flex-grid.scss';
 <% } %>@import './fonts.scss';
