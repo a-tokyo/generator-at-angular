@@ -2,7 +2,7 @@
 const _ = require("lodash");
 const utils = require("../../utils.js");
 const jsonfile = require('jsonfile');
-const jsonQuery = require('json-query')
+const jsonQuery = require('json-query');
 
 module.exports = function(AngularATGenerator) {
 
