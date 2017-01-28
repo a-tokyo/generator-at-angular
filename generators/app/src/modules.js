@@ -61,7 +61,6 @@ module.exports = function(AngularATGenerator) {
           }
         }, this);
       } else if (utils.isHasPackage(section)) {
-        console.log('dakhalnaaa');
         this.importList.push(utils.stripPackageName(section.package));
       }
     }.bind(this));
