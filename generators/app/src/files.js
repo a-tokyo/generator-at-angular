@@ -189,6 +189,10 @@ module.exports = function (AngularATGenerator) {
               this.destinationPath(this.destinationRoot()+'/src/assets/styles/sass/mixins.scss'),
               this
           );
+          this.fs.copy(
+              this.templatePath('_dreidev/_src/_tpl-index.ejs'),
+              this.destinationPath(this.destinationRoot()+'/src/tpl-index.ejs')
+          );
         }
 
     };
