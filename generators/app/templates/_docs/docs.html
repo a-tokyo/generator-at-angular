@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./docs-assets/docs.css">
 </head>
 
-<body ng-controller="docsCtrl" ng-cloak data-spy="scroll" data-target=".navbar" data-offset="56">
+<body ng-controller="docsCtrl" data-spy="scroll" data-target=".navbar" data-offset="56">
   <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary docs-navbar">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
       </ul>
     </div>
   </nav>
-  <article class="docs-body">
+  <article class="docs-body" ng-cloak>
   <header class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-3 main-h">{{appName || 'App'}} Documentation</h1>
