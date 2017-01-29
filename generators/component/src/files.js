@@ -3,6 +3,7 @@ const _ = require('lodash');
 const utils = require('../../utils.js');
 const jsonfile = require('jsonfile');
 const jsonQuery = require('json-query');
+const fs = require('fs-extra');
 
 module.exports = function(AngularATGenerator) {
 
@@ -21,6 +22,16 @@ module.exports = function(AngularATGenerator) {
       'controllerName': _.upperFirst(_.camelCase(componentName)),
       'componentModule': _.camelCase(componentName)
     };
+
+    if (this.options.r && pathAsArray.length === 1) {
+      try {
+        const indexModulesRemoveLine = "require('./components/" + data.componentName + "/" + data.componentName + ".module').name,";
+        utils.removeFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
+        utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + data.componentName);
+      } catch (err) {}
+      return;
+    }
+
     //if the component has no parent
     if (pathAsArray.length === 1) {
       try {

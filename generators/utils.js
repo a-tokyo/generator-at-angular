@@ -1,6 +1,6 @@
 'use strict';
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 const chalk = require('chalk');
 const _ = require("lodash");
 
@@ -54,6 +54,22 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     }
 };
 
+exports.removeFromFile = function(filename,lineToRemove, fullpathI){
+    try {
+        let fullPath = path.resolve(fullpathI,filename);
+        let fileSrc = fs.readFileSync(fullPath,'utf8');
+        let indexOf = fileSrc.indexOf(lineToRemove);
+        let topHalf = fileSrc.substring(0,indexOf);
+        let bottomHalf = fileSrc.substring(indexOf);
+        fileSrc = topHalf + bottomHalf.substring(bottomHalf.indexOf('\n')+3);
+        fs.writeFileSync(fullPath,fileSrc);
+        // console.log('Written data to files');
+    } catch(e) {
+      console.log('Could not write data to files');
+      throw e;
+    }
+};
+
 /*
  * checks if a given path exists synchronously
  */
@@ -73,3 +89,17 @@ exports.stripPackageName = function (pkgName) {
     }
     return pkgName;
 }
+
+exports.deleteDirRecursive = function(path) {
+  if (fs.existsSync(path)) {
+    fs.readdirSync(path).forEach(function(file, index) {
+      var curPath = path + "/" + file;
+      if (fs.lstatSync(curPath).isDirectory()) { // recurse
+        exports.deleteDirRecursive(curPath);
+      } else { // delete file
+        fs.unlinkSync(curPath);
+      }
+    });
+    fs.rmdirSync(path);
+  }
+};
