@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./docs-assets/docs.css">
 </head>
 
-<body ng-controller="docsCtrl" ng-cloak data-spy="scroll" data-target=".navbar" data-offset="56">
+<body ng-controller="docsCtrl" data-spy="scroll" data-target=".navbar" data-offset="56">
   <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary docs-navbar">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
       </ul>
     </div>
   </nav>
-  <article class="docs-body">
+  <article class="docs-body" ng-cloak>
   <header class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-3 main-h">{{appName || 'App'}} Documentation</h1>
@@ -223,10 +223,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <!-- docs as a JSON global object -->
+  <!-- docs angular application -->
   <script src="./docs-assets/docs.js" charset="utf-8"></script>
-  <!-- docs-app.js script -->
-  <script src="./docs-assets/docs-app.js" charset="utf-8"></script>
 </body>
 
 </html>

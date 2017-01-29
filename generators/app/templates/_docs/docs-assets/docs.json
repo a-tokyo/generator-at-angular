@@ -1,0 +1,7 @@
+{
+  "components": [],
+  "directives": [],
+  "services": [{"name": "store", "nameCamel": "store", "path": "store", "description": "Store service fetches and holds some application data like arrays for dropdowns and so on."}],
+  "pages": [],
+  "info": {"appName":"<%= props.appName %>", "port": 8080}
+}

@@ -1,6 +1,8 @@
 'use strict';
 const _ = require('lodash');
 const utils = require('../../utils.js');
+const jsonfile = require('jsonfile');
+const jsonQuery = require('json-query');
 
 module.exports = function(AngularATGenerator) {
 
@@ -62,20 +64,32 @@ module.exports = function(AngularATGenerator) {
         this.fs.copyTpl(this.templatePath('_service.factory-spec.js'), this.destinationPath(fullPath + '/'  + data.serviceName + '.factory-spec.js'), data);
 
         // Documenting the creation of the service
-        if(!isDuplicate){
-          try{
-            const descriptionForDocs = (this.props.description && this.props.description.length>0)?this.props.description:serviceName + " service";
-            const serviceDocJSONString = '{"name": "' + data.serviceNameCamel + '", "path": "' + this.props.serviceName + '", "description": "' + descriptionForDocs + '"},';
-            utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocJSONString, utils.SERVICE_MARKER, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
-            // if the service has a parent, Link it to its parent
+        if (!isDuplicate) {
+          const file = this.destinationPath(this.destinationRoot() + '/docs/docs-assets/docs.json');
+          jsonfile.readFile(file, function(err, docsJSON) {
+            if (err) {
+              this.log('Could not document this item due to missing or corrupted documentation file.');
+              return;
+            }
+            const descriptionForDocs = (this.props.description && this.props.description.length > 0)
+              ? this.props.description
+              : serviceName + " service";
+            const serviceDocJSON = {
+              "name": data.serviceNameCamel,
+              "path": this.props.serviceName,
+              "description": descriptionForDocs
+            };
+            docsJSON.services.push(serviceDocJSON);
             if (parentPath) {
               // Foreign Key String for service is injected into the parent component
-              const serviceDocForeignKeyJSONString = '{"path": "' + this.props.serviceName + '", "name": "' + data.serviceNameCamel + '"},';
-              utils.addToFile(utils.DOCS_STORAGE_FILENAME, serviceDocForeignKeyJSONString, utils.SERVICE_NESTED_MARKER+" for "+parentPath, this.destinationRoot() + utils.DOCS_ASSETS_PATH);
+              const serviceDocForeignKeyJSON = {
+                "path": this.props.serviceName,
+                "name": data.serviceNameCamel
+              };
+              docsJSON.components[jsonQuery('components[path=' + parentPath + ']', {data: docsJSON}).key].services.push(serviceDocForeignKeyJSON);
             }
-          } catch (err) {
-            this.log('Could not document this item due to missing documentation file.');
-          }
+            jsonfile.writeFile(file, docsJSON, function(err) {}.bind(this));
+          }.bind(this));
         }
     };
 };

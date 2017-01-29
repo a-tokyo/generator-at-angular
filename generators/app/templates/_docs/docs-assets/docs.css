@@ -4,6 +4,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+[ng-cloak] {
+  display: none !important;
+}
+
 /*Navbar*/
 .docs-navbar {
     position: fixed;

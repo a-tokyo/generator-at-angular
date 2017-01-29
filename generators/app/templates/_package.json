@@ -12,7 +12,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p --colors",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
-    "docs": "open -a \"Google Chrome\" docs/docs.html || open docs/docs.html || xdg-open docs/docs.html || explorer docs/docs.html",
+    "docs": "node_modules/node-static/bin/cli.js ./docs -i docs.html -p 8081",
     "start": "npm run dev",
     "test": "karma start --log-level debug --single-run",
     "tests": "karma start --log-level debug"
@@ -49,7 +49,6 @@
     "eslint-loader": "~1.5.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "file-loader": "^0.9.0",
-    "generator-at-angular": "^<%- atVersion %>",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
     "imagemin-pngquant": "^5.0.0",
@@ -61,6 +60,7 @@
     "karma-webpack": "^1.6.0",
     "ngtemplate-loader": "^1.3.1",
     "node-sass": "^3.4.0",
+    "node-static": "^0.7.9",
     "postcss-loader": "^0.13.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
