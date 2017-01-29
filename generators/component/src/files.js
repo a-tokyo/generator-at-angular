@@ -23,14 +23,27 @@ module.exports = function(AngularATGenerator) {
       'componentModule': _.camelCase(componentName)
     };
 
-    if (this.options.r && pathAsArray.length === 1) {
-      try {
-        const indexModulesRemoveLine = "require('./components/" + data.componentName + "/" + data.componentName + ".module').name,";
-        utils.removeFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
-        utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + data.componentName);
-      } catch (err) {}
-      return;
-    }
+    // if (this.options.r) {
+    //
+    //   if (pathAsArray.length === 1) {
+    //     try {
+    //       const indexModulesRemoveLine = "require('./components/" + data.componentName + "/" + data.componentName + ".module').name,";
+    //       utils.removeFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
+    //       utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + data.componentName);
+    //     } catch (err) {}
+    //   }else{
+    //     parentName = pathAsArray[pathAsArray.length - 2];
+    //
+    //     // //module
+    //     // const moduleImportRemoveLine = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
+    //     // utils.addToFile(parentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+    //     // //dependency
+    //     // const dependencyImport = "'" + data.componentModule + "',";
+    //     // utils.addToFile(parentName + '.module.js', dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+    //
+    //   }
+    //   return;
+    // }
 
     //if the component has no parent
     if (pathAsArray.length === 1) {
