@@ -2,7 +2,7 @@
 var docsApp = angular.module('generator-at-angular-docs', []);
 // Docs main controller
 docsApp.controller('docsCtrl', function ($scope, $http){
-  return $http({'method': "GET", 'url': 'docs-assets/docs.json', cache: false}).then(function(res){
+  $http({'method': "GET", 'url': 'docs-assets/docs.json', cache: false}).then(function(res){
     // attaching appName to scope
     $scope.appName = res.data.info.appName;
     // attaching docs to scope
