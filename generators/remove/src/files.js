@@ -106,7 +106,10 @@ module.exports = function(AngularATGenerator) {
       switch (this.props.type) {
         case 'component':
         if (pathAsArray.length > 1) {
-          // TODO remove foreign key
+          let parentPath = pathAsArray.slice(0, -1).join('/');
+          let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
+          let nestedCompKey = jsonQuery('components[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+          docsJSON.components[parentCompElement.key].components.splice(nestedCompKey, 1);
         }
           let compElement = jsonQuery('components[path=' + this.props.itemName + ']', {data: docsJSON});
           let nestedComps = (compElement.value.components);
