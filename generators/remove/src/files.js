@@ -6,7 +6,7 @@ const jsonQuery = require('json-query');
 
 module.exports = function(AngularATGenerator) {
 
-  AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+  AngularATGenerator.prototype.removeFiles = function copyFiles() {
     const pathAsArray = this.props.itemName.split('/');
 
     switch (this.props.type) {
