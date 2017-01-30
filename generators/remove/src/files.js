@@ -26,21 +26,21 @@ module.exports = function(AngularATGenerator) {
           break;
         case 'directive':
         let directiveName = pathAsArray[pathAsArray.length - 1];
-        const data = {
+        const directiveData = {
           'directiveName': directiveName,
           'directiveNameCamel': _.camelCase(directiveName),
           'needsPartial': this.props.needsPartial
-        }
+        };
 
         if (pathAsArray.length === 1) {
           let appRelPath = '/src/app/core/directives';
-          let fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
+          let fullPath = this.destinationRoot() + appRelPath + '/' + directiveData.directiveName;
           try {
             // import directive into core module
-            const coreModulesRemoveLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
+            const coreModulesRemoveLine = "import * as " + directiveData.directiveNameCamel + 'Directive' + " from './directives/" + directiveData.directiveName + '/' + directiveData.directiveName + ".directive';";
             utils.removeLineFromFile('core.module.js', coreModulesRemoveLine, this.destinationRoot() + '/src/app/core');
             // add directive to core module
-            const addToModuleRemoveLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
+            const addToModuleRemoveLine = "shared.directive('" + directiveData.directiveNameCamel + "', " + directiveData.directiveNameCamel + 'Directive' + ");";
             utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
 
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/directives/' + directiveName);
@@ -53,7 +53,26 @@ module.exports = function(AngularATGenerator) {
 
           break;
         case 'service':
-
+        let serviceName = pathAsArray[pathAsArray.length - 1];
+        const serviceData = {
+          'serviceName': serviceName,
+          'serviceNameCamel': _.camelCase(serviceName)
+        };
+        if (pathAsArray.length === 1) {
+          let appRelPath = '/src/app/core/services';
+          let fullPath = this.destinationRoot() + appRelPath + '/' + serviceData.serviceName;
+          try {
+            // import service into core module
+            const coreModulesRemoveLine = "import * as " + serviceData.serviceNameCamel + 'Factory' + " from './services/" + serviceData.serviceName + '/' + serviceData.serviceName + ".factory';";
+            utils.removeLineFromFile('core.module.js', coreModulesRemoveLine, this.destinationRoot() + '/src/app/core');
+            // add service to core module
+            const addToModuleRemoveLine = "shared.factory('" + serviceData.serviceNameCamel + 'Factory' + "', " + serviceData.serviceNameCamel + 'Factory' + ");";
+            utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
+            utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/services/' + serviceName);
+          } catch (err) {
+            console.log(err);
+          }
+        }
           break;
       }
     };
