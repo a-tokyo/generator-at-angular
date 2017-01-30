@@ -106,7 +106,27 @@ module.exports = function(AngularATGenerator) {
       switch (this.props.type) {
         case 'component':
           if (pathAsArray.length == 1) {
-            this.log(docsJSON.components.splice(jsonQuery('components[path=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
+            let compElement = jsonQuery('components[path=' + pathAsArray[0] + ']', {data: docsJSON});
+            let nestedComps = (compElement.value.components);
+            nestedComps.forEach(function(nestedComp){
+              let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
+              docsJSON.components.splice(nestedCompKey, 1)
+            });
+
+            let nestedDirectives = (compElement.value.directives);
+            nestedDirectives.forEach(function(nestedDirective){
+              let nestedDirectiveKey = jsonQuery('directives[path=' + nestedDirective.path + ']', {data: docsJSON}).key;
+              docsJSON.directives.splice(nestedDirectiveKey, 1)
+            });
+
+            let nestedServices = (compElement.value.services);
+            nestedServices.forEach(function(nestedService){
+              let nestedServiceKey = jsonQuery('services[path=' + nestedService.path + ']', {data: docsJSON}).key;
+              docsJSON.services.splice(nestedServiceKey, 1)
+            });
+            this.log(docsJSON.components.splice(compElement.key, 1));
+          }else{
+            //nested
           }
           break;
         case 'directive':
