@@ -138,6 +138,12 @@ module.exports = function(AngularATGenerator) {
             this.log(docsJSON.pages.splice(jsonQuery('pages[name=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
         case 'service':
+        if(pathAsArray.length>1){
+          let parentPath = pathAsArray.slice(0, -1).join('/');
+          let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
+          let nestedServiceKey = jsonQuery('services[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+          docsJSON.components[parentCompElement.key].services.splice(nestedServiceKey, 1);
+        }
             this.log(docsJSON.services.splice(jsonQuery('services[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
       }
