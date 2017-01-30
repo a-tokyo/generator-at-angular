@@ -6,7 +6,7 @@ const jsonQuery = require('json-query');
 
 module.exports = function(AngularATGenerator) {
 
-  AngularATGenerator.prototype.removeFiles = function copyFiles() {
+  AngularATGenerator.prototype.removeFiles = function removeFiles() {
     if(!this.props.confirmRemove){
       this.log('Item was not removed.');
       return;
@@ -88,4 +88,11 @@ module.exports = function(AngularATGenerator) {
         break;
     }
   };
+
+  AngularATGenerator.prototype.removeDocumentation = function removeDocumentation() {
+    if(!this.props.confirmRemove){
+      return;
+    }
+  };
+
 };
