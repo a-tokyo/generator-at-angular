@@ -7,12 +7,12 @@ const genUtils = require('../generators/utils.js');
 const jsonfile = require('jsonfile');
 const jsonQuery = require('json-query');
 
-describe('at-angular:remove', function() {
-  beforeEach(function() {
-    return helpers.run(path.join(__dirname, '../generators/remove')).withProps({}); // Mock some prompt answers, and depend on defaults for others
-  });
-
-  it('should remove', function(done) {
-    done();
-  });
-});
+// describe('at-angular:remove', function() {
+//   beforeEach(function() {
+//     return helpers.run(path.join(__dirname, '../generators/remove')).withProps({}); // Mock some prompt answers, and depend on defaults for others
+//   });
+//
+//   it('should remove', function(done) {
+//     done();
+//   });
+// });
