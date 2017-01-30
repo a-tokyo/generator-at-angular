@@ -51,9 +51,13 @@ module.exports = function(AngularATGenerator) {
         break;
       case 'page':
         let pageName = this.props.itemName;
-        const indexModulesRemoveLine = "require('./pages/" + pageName + "/" + pageName + ".module').name,";
-        utils.removeLineFromFile('index.module.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app');
-        utils.deleteDirRecursive(this.destinationRoot() + '/src/app/pages/' + pageName);
+        try {
+          const indexModulesRemoveLine = "require('./pages/" + pageName + "/" + pageName + ".module').name,";
+          utils.removeLineFromFile('index.module.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app');
+          utils.deleteDirRecursive(this.destinationRoot() + '/src/app/pages/' + pageName);
+        } catch (err) {
+          console.log(err);
+        }
         break;
       case 'service':
         let serviceName = pathAsArray[pathAsArray.length - 1];
