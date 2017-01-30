@@ -105,46 +105,46 @@ module.exports = function(AngularATGenerator) {
 
       switch (this.props.type) {
         case 'component':
-            let compElement = jsonQuery('components[path=' + this.props.itemName + ']', {data: docsJSON});
-            let nestedComps = (compElement.value.components);
-            nestedComps.forEach(function(nestedComp){
-              let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
-              docsJSON.components.splice(nestedCompKey, 1)
-            });
+          let compElement = jsonQuery('components[path=' + this.props.itemName + ']', {data: docsJSON});
+          let nestedComps = (compElement.value.components);
+          nestedComps.forEach(function(nestedComp) {
+            let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
+            docsJSON.components.splice(nestedCompKey, 1)
+          });
 
-            let nestedDirectives = (compElement.value.directives);
-            nestedDirectives.forEach(function(nestedDirective){
-              let nestedDirectiveKey = jsonQuery('directives[path=' + nestedDirective.path + ']', {data: docsJSON}).key;
-              docsJSON.directives.splice(nestedDirectiveKey, 1)
-            });
+          let nestedDirectives = (compElement.value.directives);
+          nestedDirectives.forEach(function(nestedDirective) {
+            let nestedDirectiveKey = jsonQuery('directives[path=' + nestedDirective.path + ']', {data: docsJSON}).key;
+            docsJSON.directives.splice(nestedDirectiveKey, 1)
+          });
 
-            let nestedServices = (compElement.value.services);
-            nestedServices.forEach(function(nestedService){
-              let nestedServiceKey = jsonQuery('services[path=' + nestedService.path + ']', {data: docsJSON}).key;
-              docsJSON.services.splice(nestedServiceKey, 1)
-            });
-            this.log(docsJSON.components.splice(compElement.key, 1));
+          let nestedServices = (compElement.value.services);
+          nestedServices.forEach(function(nestedService) {
+            let nestedServiceKey = jsonQuery('services[path=' + nestedService.path + ']', {data: docsJSON}).key;
+            docsJSON.services.splice(nestedServiceKey, 1)
+          });
+          this.log(docsJSON.components.splice(compElement.key, 1));
           break;
         case 'directive':
-            if(pathAsArray.length>1){
-              let parentPath = pathAsArray.slice(0, -1).join('/');
-              let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
-              let nestedDirectiveKey = jsonQuery('directives[path=' + this.props.itemName + ']', {data: parentCompElement.value});
-              docsJSON.components[parentCompElement.key].directives.splice(nestedDirectiveKey, 1);
-            }
-            this.log(docsJSON.directives.splice(jsonQuery('directives[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
+          if (pathAsArray.length > 1) {
+            let parentPath = pathAsArray.slice(0, -1).join('/');
+            let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
+            let nestedDirectiveKey = jsonQuery('directives[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+            docsJSON.components[parentCompElement.key].directives.splice(nestedDirectiveKey, 1);
+          }
+          this.log(docsJSON.directives.splice(jsonQuery('directives[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
         case 'page':
-            this.log(docsJSON.pages.splice(jsonQuery('pages[name=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
+          this.log(docsJSON.pages.splice(jsonQuery('pages[name=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
         case 'service':
-        if(pathAsArray.length>1){
-          let parentPath = pathAsArray.slice(0, -1).join('/');
-          let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
-          let nestedServiceKey = jsonQuery('services[path=' + this.props.itemName + ']', {data: parentCompElement.value});
-          docsJSON.components[parentCompElement.key].services.splice(nestedServiceKey, 1);
-        }
-            this.log(docsJSON.services.splice(jsonQuery('services[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
+          if (pathAsArray.length > 1) {
+            let parentPath = pathAsArray.slice(0, -1).join('/');
+            let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
+            let nestedServiceKey = jsonQuery('services[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+            docsJSON.components[parentCompElement.key].services.splice(nestedServiceKey, 1);
+          }
+          this.log(docsJSON.services.splice(jsonQuery('services[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
       }
 
