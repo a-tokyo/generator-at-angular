@@ -2,7 +2,9 @@
 const path = require('path');
 const fs = require('fs-extra');
 const chalk = require('chalk');
-const _ = require("lodash");
+const _ = require('lodash')
+const beautify = require('js-beautify').js_beautify;
+const jsBeautifyOptions = { indent_size: 2, preserve_newlines: false, end_with_newline: true };
 
 // Defining Markers
 exports.COMPONENT_MARKER = '// Add new components above';
@@ -54,18 +56,23 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     }
 };
 
-exports.removeFromFile = function(filename,lineToRemove, fullpathI){
+exports.removeFromFile = function(filename,lineToRemove, fullpathI, indent, fullLine){
     try {
         let fullPath = path.resolve(fullpathI,filename);
         let fileSrc = fs.readFileSync(fullPath,'utf8');
         let indexOf = fileSrc.indexOf(lineToRemove);
+        if(indexOf===-1){
+          throw new Error('line not found');
+        }
         let topHalf = fileSrc.substring(0,indexOf);
+        topHalf = topHalf.substring(0, topHalf.lastIndexOf('\n'))
         let bottomHalf = fileSrc.substring(indexOf);
-        fileSrc = topHalf + bottomHalf.substring(bottomHalf.indexOf('\n')+3);
+        fileSrc = topHalf + bottomHalf.substring(bottomHalf.indexOf('\n'));
+        // fileSrc = beautify(fileSrc, jsBeautifyOptions);
         fs.writeFileSync(fullPath,fileSrc);
         // console.log('Written data to files');
     } catch(e) {
-      console.log('Could not write data to files');
+      console.log('Could not remove data from files');
       throw e;
     }
 };

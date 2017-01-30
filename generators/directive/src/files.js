@@ -27,7 +27,7 @@ module.exports = function(AngularATGenerator) {
       try {
         // import directive into core module
         const coreModulesWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
-        utils.addToFile('core.module.js', coreModulesWriteLine, utils.DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
+        utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
         // add directive to core module
         const addToModuleWriteLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
         utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/core');
