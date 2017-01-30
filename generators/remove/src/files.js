@@ -105,7 +105,7 @@ module.exports = function(AngularATGenerator) {
 
       switch (this.props.type) {
         case 'component':
-            let compElement = jsonQuery('components[path=' + pathAsArray[0] + ']', {data: docsJSON});
+            let compElement = jsonQuery('components[path=' + pathAsArray[pathAsArray.length-1] + ']', {data: docsJSON});
             let nestedComps = (compElement.value.components);
             nestedComps.forEach(function(nestedComp){
               let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
