@@ -93,16 +93,16 @@ module.exports = function(AngularATGenerator) {
     if (!this.props.confirmRemove) {
       return;
     }
-
+    // documentation remove logic
     const pathAsArray = this.props.itemName.split('/');
     const docsFile = this.destinationPath(this.destinationRoot() + '/docs/docs-assets/docs.json');
-
+    // reading the docs JSON
     jsonfile.readFile(docsFile, function(err, docsJSON) {
       if (err) {
-        this.log('Could not document this item due to missing or corrupted documentation file.');
+        this.log('Could not load the documentation file.');
         return;
       }
-
+      // switching on type to remove
       switch (this.props.type) {
         case 'component':
         if (pathAsArray.length > 1) {
@@ -129,8 +129,10 @@ module.exports = function(AngularATGenerator) {
             let nestedServiceKey = jsonQuery('services[path=' + nestedService.path + ']', {data: docsJSON}).key;
             docsJSON.services.splice(nestedServiceKey, 1)
           });
-          this.log(docsJSON.components.splice(compElement.key, 1));
+          docsJSON.components.splice(compElement.key, 1);
+          this.log(this.props.itemName + "'s documentation was removed.");
           break;
+
         case 'directive':
           if (pathAsArray.length > 1) {
             let parentPath = pathAsArray.slice(0, -1).join('/');
@@ -138,11 +140,15 @@ module.exports = function(AngularATGenerator) {
             let nestedDirectiveKey = jsonQuery('directives[path=' + this.props.itemName + ']', {data: parentCompElement.value});
             docsJSON.components[parentCompElement.key].directives.splice(nestedDirectiveKey, 1);
           }
-          this.log(docsJSON.directives.splice(jsonQuery('directives[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
+          docsJSON.directives.splice(jsonQuery('directives[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1);
+          this.log(this.props.itemName + "'s documentation was removed.");
           break;
+
         case 'page':
-          this.log(docsJSON.pages.splice(jsonQuery('pages[name=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
+          docsJSON.pages.splice(jsonQuery('pages[name=' + this.props.itemName + ']', {data: docsJSON}).key, 1);
+          this.log(this.props.itemName + "'s documentation was removed.");
           break;
+
         case 'service':
           if (pathAsArray.length > 1) {
             let parentPath = pathAsArray.slice(0, -1).join('/');
@@ -150,13 +156,14 @@ module.exports = function(AngularATGenerator) {
             let nestedServiceKey = jsonQuery('services[path=' + this.props.itemName + ']', {data: parentCompElement.value});
             docsJSON.components[parentCompElement.key].services.splice(nestedServiceKey, 1);
           }
-          this.log(docsJSON.services.splice(jsonQuery('services[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
+          docsJSON.services.splice(jsonQuery('services[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1);
+          this.log(this.props.itemName + "'s documentation was removed.");
           break;
-      }
 
+      }
+      // writing back the docs JSON
       jsonfile.writeFile(docsFile, docsJSON, function(err) {}.bind(this));
     }.bind(this));
-
   };
 
 };
