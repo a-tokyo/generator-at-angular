@@ -15,7 +15,7 @@ module.exports = function(AngularATGenerator) {
             let componentName = pathAsArray[pathAsArray.length - 1];
             try {
               const indexModulesRemoveLine = "require('./components/" + componentName + "/" + componentName + ".module').name,";
-              utils.removeFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
+              utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
               utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + componentName);
             } catch (err) {
               console.log(err);
@@ -38,10 +38,10 @@ module.exports = function(AngularATGenerator) {
           try {
             // import directive into core module
             const coreModulesRemoveLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
-            utils.removeFromFile('core.module.js', coreModulesRemoveLine, this.destinationRoot() + '/src/app/core');
+            utils.removeLineFromFile('core.module.js', coreModulesRemoveLine, this.destinationRoot() + '/src/app/core');
             // add directive to core module
             const addToModuleRemoveLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
-            utils.removeFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
+            utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
 
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/directives/' + directiveName);
           } catch (err) {

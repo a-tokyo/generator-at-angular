@@ -56,7 +56,7 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     }
 };
 
-exports.removeFromFile = function(filename,lineToRemove, fullpathI, indent, fullLine){
+exports.removeLineFromFile = function(filename,lineToRemove, fullpathI, indent, fullLine){
     try {
         let fullPath = path.resolve(fullpathI,filename);
         let fileSrc = fs.readFileSync(fullPath,'utf8');

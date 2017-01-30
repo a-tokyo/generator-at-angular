@@ -28,7 +28,7 @@ module.exports = function(AngularATGenerator) {
     //   if (pathAsArray.length === 1) {
     //     try {
     //       const indexModulesRemoveLine = "require('./components/" + data.componentName + "/" + data.componentName + ".module').name,";
-    //       utils.removeFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
+    //       utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
     //       utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + data.componentName);
     //     } catch (err) {}
     //   }else{
