@@ -93,6 +93,30 @@ module.exports = function(AngularATGenerator) {
     if(!this.props.confirmRemove){
       return;
     }
+
+    const pathAsArray = this.props.itemName.split('/');
+
+    switch (this.props.type) {
+      case 'component':
+
+        const docsFile = this.destinationPath(this.destinationRoot() + '/docs/docs-assets/docs.json');
+        jsonfile.readFile(docsFile, function(err, docsJSON) {
+          if (err) {
+            this.log('Could not document this item due to missing or corrupted documentation file.');
+            return;
+          }
+          if (pathAsArray.length == 1) {
+            this.log(docsJSON.components.splice(jsonQuery('components[path=' + pathAsArray[0] + ']', {data: docsJSON}).key,1));
+          }
+          jsonfile.writeFile(docsFile, docsJSON, function(err) {}.bind(this));
+        }.bind(this));
+
+
+
+      break;
+    }
+
+
   };
 
 };
