@@ -10,12 +10,6 @@ let AngularATGenerator = yeoman.extend({
     constructor: function () {
         yeoman.apply(this, arguments);
 
-        // Define arguments
-        this.argument('serviceName', {
-            type: String,
-            required: false
-        });
-
         this.props = {};
     },
     prompting: function () {
