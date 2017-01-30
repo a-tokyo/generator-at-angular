@@ -1,0 +1,28 @@
+[{
+    "type": "list",
+    "name": "type",
+    "message": "What would you like to remove?",
+    "choices": [{
+        "value": "component",
+        "name": "component"
+      },
+      {
+        "value": "directive",
+        "name": "directive"
+      },
+      {
+        "value": "page",
+        "name": "page"
+      },
+      {
+        "value": "service",
+        "name": "service"
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "name": "itemName",
+    "message": "What's the full name of the item to remove?"
+  }
+]
