@@ -7,6 +7,11 @@ const jsonQuery = require('json-query');
 module.exports = function(AngularATGenerator) {
 
   AngularATGenerator.prototype.removeFiles = function copyFiles() {
+    if(!this.props.confirmRemove){
+      this.log('Item was not removed.');
+      return;
+    }
+
     const pathAsArray = this.props.itemName.split('/');
 
     switch (this.props.type) {
