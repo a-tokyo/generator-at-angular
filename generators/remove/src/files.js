@@ -6,25 +6,25 @@ const jsonQuery = require('json-query');
 
 module.exports = function(AngularATGenerator) {
 
-    AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
-      const pathAsArray = this.props.itemName.split('/');
+  AngularATGenerator.prototype.copyCopmFiles = function copyFiles() {
+    const pathAsArray = this.props.itemName.split('/');
 
-      switch (this.props.type) {
-        case 'component':
-          if (pathAsArray.length === 1){
-            let componentName = pathAsArray[pathAsArray.length - 1];
-            try {
-              const indexModulesRemoveLine = "require('./components/" + componentName + "/" + componentName + ".module').name,";
-              utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
-              utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + componentName);
-            } catch (err) {
-              console.log(err);
-            }
-          }else{
-            // component is nested
+    switch (this.props.type) {
+      case 'component':
+        if (pathAsArray.length === 1) {
+          let componentName = pathAsArray[pathAsArray.length - 1];
+          try {
+            const indexModulesRemoveLine = "require('./components/" + componentName + "/" + componentName + ".module').name,";
+            utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
+            utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + componentName);
+          } catch (err) {
+            console.log(err);
           }
-          break;
-        case 'directive':
+        } else {
+          // component is nested
+        }
+        break;
+      case 'directive':
         let directiveName = pathAsArray[pathAsArray.length - 1];
         const directiveData = {
           'directiveName': directiveName,
@@ -48,11 +48,14 @@ module.exports = function(AngularATGenerator) {
             console.log(err);
           }
         }
-          break;
-        case 'page':
-
-          break;
-        case 'service':
+        break;
+      case 'page':
+        let pageName = this.props.itemName;
+        const indexModulesRemoveLine = "require('./pages/" + pageName + "/" + pageName + ".module').name,";
+        utils.removeLineFromFile('index.module.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app');
+        utils.deleteDirRecursive(this.destinationRoot() + '/src/app/pages/' + pageName);
+        break;
+      case 'service':
         let serviceName = pathAsArray[pathAsArray.length - 1];
         const serviceData = {
           'serviceName': serviceName,
@@ -73,7 +76,7 @@ module.exports = function(AngularATGenerator) {
             console.log(err);
           }
         }
-          break;
-      }
-    };
+        break;
+    }
+  };
 };
