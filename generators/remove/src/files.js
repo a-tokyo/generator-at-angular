@@ -105,7 +105,7 @@ module.exports = function(AngularATGenerator) {
 
       switch (this.props.type) {
         case 'component':
-            let compElement = jsonQuery('components[path=' + pathAsArray[pathAsArray.length-1] + ']', {data: docsJSON});
+            let compElement = jsonQuery('components[path=' + this.props.itemName + ']', {data: docsJSON});
             let nestedComps = (compElement.value.components);
             nestedComps.forEach(function(nestedComp){
               let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
@@ -126,19 +126,13 @@ module.exports = function(AngularATGenerator) {
             this.log(docsJSON.components.splice(compElement.key, 1));
           break;
         case 'directive':
-          if (pathAsArray.length == 1) {
-            this.log(docsJSON.directives.splice(jsonQuery('directives[path=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
-          }
+            this.log(docsJSON.directives.splice(jsonQuery('directives[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
         case 'page':
-          if (pathAsArray.length == 1) {
-            this.log(docsJSON.pages.splice(jsonQuery('pages[name=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
-          }
+            this.log(docsJSON.pages.splice(jsonQuery('pages[name=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
         case 'service':
-          if (pathAsArray.length == 1) {
-            this.log(docsJSON.services.splice(jsonQuery('services[path=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
-          }
+            this.log(docsJSON.services.splice(jsonQuery('services[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
       }
 
