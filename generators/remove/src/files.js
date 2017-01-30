@@ -126,6 +126,12 @@ module.exports = function(AngularATGenerator) {
             this.log(docsJSON.components.splice(compElement.key, 1));
           break;
         case 'directive':
+            if(pathAsArray.length>1){
+              let parentPath = pathAsArray.slice(0, -1).join('/');
+              let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
+              let nestedDirectiveKey = jsonQuery('directives[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+              docsJSON.components[parentCompElement.key].directives.splice(nestedDirectiveKey, 1);
+            }
             this.log(docsJSON.directives.splice(jsonQuery('directives[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1));
           break;
         case 'page':
