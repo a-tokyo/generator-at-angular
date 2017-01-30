@@ -7,7 +7,7 @@ const jsonQuery = require('json-query');
 module.exports = function(AngularATGenerator) {
 
   AngularATGenerator.prototype.removeFiles = function removeFiles() {
-    if(!this.props.confirmRemove){
+    if (!this.props.confirmRemove) {
       this.log('Item was not removed.');
       return;
     }
@@ -90,32 +90,44 @@ module.exports = function(AngularATGenerator) {
   };
 
   AngularATGenerator.prototype.removeDocumentation = function removeDocumentation() {
-    if(!this.props.confirmRemove){
+    if (!this.props.confirmRemove) {
       return;
     }
 
     const pathAsArray = this.props.itemName.split('/');
+    const docsFile = this.destinationPath(this.destinationRoot() + '/docs/docs-assets/docs.json');
 
-    switch (this.props.type) {
-      case 'component':
+    jsonfile.readFile(docsFile, function(err, docsJSON) {
+      if (err) {
+        this.log('Could not document this item due to missing or corrupted documentation file.');
+        return;
+      }
 
-        const docsFile = this.destinationPath(this.destinationRoot() + '/docs/docs-assets/docs.json');
-        jsonfile.readFile(docsFile, function(err, docsJSON) {
-          if (err) {
-            this.log('Could not document this item due to missing or corrupted documentation file.');
-            return;
-          }
+      switch (this.props.type) {
+        case 'component':
           if (pathAsArray.length == 1) {
-            this.log(docsJSON.components.splice(jsonQuery('components[path=' + pathAsArray[0] + ']', {data: docsJSON}).key,1));
+            this.log(docsJSON.components.splice(jsonQuery('components[path=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
           }
-          jsonfile.writeFile(docsFile, docsJSON, function(err) {}.bind(this));
-        }.bind(this));
+          break;
+        case 'directive':
+          if (pathAsArray.length == 1) {
+            this.log(docsJSON.directives.splice(jsonQuery('directives[path=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
+          }
+          break;
+        case 'page':
+          if (pathAsArray.length == 1) {
+            this.log(docsJSON.pages.splice(jsonQuery('pages[name=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
+          }
+          break;
+        case 'service':
+          if (pathAsArray.length == 1) {
+            this.log(docsJSON.services.splice(jsonQuery('services[path=' + pathAsArray[0] + ']', {data: docsJSON}).key, 1));
+          }
+          break;
+      }
 
-
-
-      break;
-    }
-
+      jsonfile.writeFile(docsFile, docsJSON, function(err) {}.bind(this));
+    }.bind(this));
 
   };
 
