@@ -105,7 +105,6 @@ module.exports = function(AngularATGenerator) {
 
       switch (this.props.type) {
         case 'component':
-          if (pathAsArray.length == 1) {
             let compElement = jsonQuery('components[path=' + pathAsArray[0] + ']', {data: docsJSON});
             let nestedComps = (compElement.value.components);
             nestedComps.forEach(function(nestedComp){
@@ -125,9 +124,6 @@ module.exports = function(AngularATGenerator) {
               docsJSON.services.splice(nestedServiceKey, 1)
             });
             this.log(docsJSON.components.splice(compElement.key, 1));
-          }else{
-            //nested
-          }
           break;
         case 'directive':
           if (pathAsArray.length == 1) {
