@@ -68,7 +68,25 @@ module.exports = function(AngularATGenerator) {
             console.log(err);
           }
         }else{
+          // if the directive has a parent component, it belongs to that component
+          let appRelPath = '/src/app/components';
+          let parentName = pathAsArray[pathAsArray.length - 2];
+          let parentPath = pathAsArray.slice(0, -1).join('/components/');
 
+          try {
+            // import directive into parent module
+            const importInParentModuleRemoveLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
+            utils.removeLineFromFile(parentName + '.module.js', importInParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+            // remove add directive to parent module
+            const addDirToParentModuleRemoveLine = "componentModule.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
+            utils.removeLineFromFile(parentName + '.module.js', addDirToParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+
+            // remove the directory
+            utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;);
+          } catch (err) {
+            this.log('Parent component files not found.');
+            return;
+          }
         }
         break;
       case 'page':
