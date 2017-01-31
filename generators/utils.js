@@ -109,6 +109,7 @@ exports.deleteDirRecursive = function(path) {
     });
     fs.rmdirSync(path);
   }else{
-    throw new Error("Could not remove directory due to invalid path.");
+    console.log("invalid path: " + path);
+    // throw new Error("Could not remove directory due to invalid path.");
   }
 };

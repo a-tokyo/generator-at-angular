@@ -22,6 +22,7 @@ module.exports = function(AngularATGenerator) {
             const indexModulesRemoveLine = "require('./components/" + componentName + "/" + componentName + ".module').name,";
             utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + componentName);
+            this.log('/src/app/components/' + componentName + ' was removed.')
           } catch (err) {
             console.log(err);
           }
@@ -39,6 +40,7 @@ module.exports = function(AngularATGenerator) {
           utils.removeLineFromFile(parentName + '.module.js', dependencyImportRemoveLine, this.destinationRoot() + '/src/app/components/' + parentTRUEPath);
           // Delete the directory
           utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + parentTRUEPath + '/components/' + componentName);
+          this.log('/src/app/components/' + parentTRUEPath + '/components/' + componentName + ' was removed.')
         }catch(err){
           console.log(err);
         }
@@ -64,6 +66,7 @@ module.exports = function(AngularATGenerator) {
             utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
 
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/directives/' + directiveName);
+            this.log('/src/app/core/directives/' + directiveName + ' was removed.')
           } catch (err) {
             console.log(err);
           }
@@ -75,14 +78,15 @@ module.exports = function(AngularATGenerator) {
 
           try {
             // import directive into parent module
-            const importInParentModuleRemoveLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
+            const importInParentModuleRemoveLine = "import * as " + directiveData.directiveNameCamel + 'Directive' + " from './directives/" + directiveData.directiveName + '/' + directiveData.directiveName + ".directive';";
             utils.removeLineFromFile(parentName + '.module.js', importInParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
             // remove add directive to parent module
-            const addDirToParentModuleRemoveLine = "componentModule.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
+            const addDirToParentModuleRemoveLine = "componentModule.directive('" + directiveData.directiveNameCamel + "', " + directiveData.directiveNameCamel + 'Directive' + ");";
             utils.removeLineFromFile(parentName + '.module.js', addDirToParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
 
             // remove the directory
-            utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;);
+            utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath+'/directives/'+directiveData.directiveName);
+            this.log(appRelPath + '/' + parentPath+'/directives/'+directiveData.directiveName+' was removed.')
           } catch (err) {
             this.log('Parent component files not found.');
             return;
@@ -95,6 +99,7 @@ module.exports = function(AngularATGenerator) {
           const indexModulesRemoveLine = "require('./pages/" + pageName + "/" + pageName + ".module').name,";
           utils.removeLineFromFile('index.module.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app');
           utils.deleteDirRecursive(this.destinationRoot() + '/src/app/pages/' + pageName);
+          this.log('/src/app/pages/' + pageName + ' was removed.')
         } catch (err) {
           console.log(err);
         }
@@ -116,6 +121,7 @@ module.exports = function(AngularATGenerator) {
             const addToModuleRemoveLine = "shared.factory('" + serviceData.serviceNameCamel + 'Factory' + "', " + serviceData.serviceNameCamel + 'Factory' + ");";
             utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/services/' + serviceName);
+            this.log('/src/app/core/services/' + serviceName + ' was removed.')
           } catch (err) {
             console.log(err);
           }
