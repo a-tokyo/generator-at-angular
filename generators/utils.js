@@ -65,7 +65,8 @@ exports.removeLineFromFile = function(filename,lineToRemove, fullpathI, indent, 
           throw new Error('line not found');
         }
         let topHalf = fileSrc.substring(0,indexOf);
-        topHalf = topHalf.substring(0, topHalf.lastIndexOf('\n'))
+        let topHalfIndexOf = topHalf.lastIndexOf('\n')!=-1?topHalf.lastIndexOf('\n'):topHalf.length;
+        topHalf = topHalf.substring(0, topHalfIndexOf);
         let bottomHalf = fileSrc.substring(indexOf);
         fileSrc = topHalf + bottomHalf.substring(bottomHalf.indexOf('\n'));
         // fileSrc = beautify(fileSrc, jsBeautifyOptions);
