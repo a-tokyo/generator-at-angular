@@ -16,8 +16,8 @@ module.exports = function(AngularATGenerator) {
 
     switch (this.props.type) {
       case 'component':
+      let componentName = pathAsArray[pathAsArray.length - 1];
         if (pathAsArray.length === 1) {
-          let componentName = pathAsArray[pathAsArray.length - 1];
           try {
             const indexModulesRemoveLine = "require('./components/" + componentName + "/" + componentName + ".module').name,";
             utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
@@ -26,8 +26,23 @@ module.exports = function(AngularATGenerator) {
             console.log(err);
           }
         } else {
+          try{
           // component is nested
+          let parentTRUEPath = pathAsArray.slice(0, -1).join('/components/');
+          let parentName = pathAsArray[pathAsArray.length - 2];
+          let componentModule = _.camelCase(componentName)
+
+          const moduleImportRemoveLine = "import * as " + componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
+          utils.removeLineFromFile(parentName + '.module.js', moduleImportRemoveLine, this.destinationRoot() + '/src/app/components/' + parentTRUEPath);
+          //dependency
+          const dependencyImportRemoveLine = "'" + componentModule + "',";
+          utils.removeLineFromFile(parentName + '.module.js', dependencyImportRemoveLine, this.destinationRoot() + '/src/app/components/' + parentTRUEPath);
+          // Delete the directory
+          utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + parentTRUEPath + '/components/' + componentName);
+        }catch(err){
+          console.log(err);
         }
+      }
         break;
       case 'directive':
         let directiveName = pathAsArray[pathAsArray.length - 1];
