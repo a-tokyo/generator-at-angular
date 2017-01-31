@@ -165,7 +165,7 @@ module.exports = function(AngularATGenerator) {
     }
     // documentation remove logic
     const pathAsArray = this.props.itemName.split('/');
-    const docsFile = this.destinationPath(this.destinationRoot() + '/docs/docs-assets/docs.json');
+    const docsFile = this.destinationPath(this.destinationRoot() + utils.DOCS_ASSETS_PATH+'/'+utils.DOCS_STORAGE_FILENAME);
     // reading the docs JSON
     jsonfile.readFile(docsFile, function(err, docsJSON) {
       if (err) {
