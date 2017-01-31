@@ -30,7 +30,32 @@ describe('at-angular:remove', function() {
     });
 
     it('should remove component files along with nested components, directives and services', function(done) {
-      const notExpected = ['src/app/components/comp', 'src/app/components/comp'];
+      const notExpected = ['src/app/components/comp'];
+      assert.noFile(notExpected);
+      // calling done
+      done();
+    });
+
+  });
+
+  describe('at-angular:remove nested-component', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'component', itemName: 'comp/nested-comp', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should remove nested component files along with nested components, directives and services', function(done) {
+      const notExpected = ['src/app/components/comp/components/nested-comp'];
       assert.noFile(notExpected);
       // calling done
       done();
