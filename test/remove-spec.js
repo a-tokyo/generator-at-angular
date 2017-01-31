@@ -63,6 +63,32 @@ describe('at-angular:remove', function() {
 
   });
 
+
+  describe('at-angular:remove nested-directive', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'directive', itemName: 'comp/nested-directive', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should remove directive files', function(done) {
+      const notExpected = ['src/app/components/comp/directives/nested-directive'];
+      assert.noFile(notExpected);
+      // calling done
+      done();
+    });
+
+  });
+
   describe('at-angular:remove service', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
@@ -81,6 +107,32 @@ describe('at-angular:remove', function() {
 
     it('should remove service files', function(done) {
       const notExpected = ['src/app/services/service'];
+      assert.noFile(notExpected);
+      // calling done
+      done();
+    });
+
+  });
+
+
+  describe('at-angular:remove nested-service', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'service', itemName: 'comp/nested-service', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should remove nested service files', function(done) {
+      const notExpected = ['src/app/components/comp/services/nested-service'];
       assert.noFile(notExpected);
       // calling done
       done();
