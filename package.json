@@ -1,6 +1,6 @@
 {
   "name": "generator-at-angular",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Yeoman angular application generator thet uses Webpack, SASS, UI router, Karma and Jasmine for testing, and auto generated docs.",
   "homepage": "http://a-tokyo.github.io/generator-at-angular/",
   "author": {
