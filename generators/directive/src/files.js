@@ -74,7 +74,7 @@ module.exports = function(AngularATGenerator) {
     // Documenting the creation of the directive
 
     if (!isDuplicate) {
-      const file = this.destinationPath(this.destinationRoot() + '/docs/docs-assets/docs.json');
+      const file = this.destinationPath(this.destinationRoot() + utils.DOCS_ASSETS_PATH+'/'+utils.DOCS_STORAGE_FILENAME);
       jsonfile.readFile(file, function(err, docsJSON) {
         if (err) {
           this.log('Could not document this item due to missing or corrupted documentation file.');
