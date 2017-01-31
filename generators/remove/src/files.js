@@ -10,7 +10,7 @@ module.exports = function(AngularATGenerator) {
 
   AngularATGenerator.prototype.removeFiles = function removeFiles() {
     if (!this.props.confirmRemove) {
-      this.log('Item was not removed.');
+      this.log(this.props.itemName + ' was not removed.');
       return;
     }
 
@@ -26,7 +26,8 @@ module.exports = function(AngularATGenerator) {
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + componentName);
             this.log('/src/app/components/' + componentName + ' was removed.')
           } catch (err) {
-            console.log(err);
+            this.log(err);
+            return;
           }
         } else {
           try {
@@ -44,7 +45,8 @@ module.exports = function(AngularATGenerator) {
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + parentTRUEPath + '/components/' + componentName);
             this.log('/src/app/components/' + parentTRUEPath + '/components/' + componentName + ' was removed.')
           } catch (err) {
-            console.log(err);
+            this.log(err);
+            return;
           }
         }
         break;
@@ -70,7 +72,8 @@ module.exports = function(AngularATGenerator) {
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/directives/' + directiveName);
             this.log('/src/app/core/directives/' + directiveName + ' was removed.')
           } catch (err) {
-            console.log(err);
+            this.log(err);
+            return;
           }
         } else {
           // if the directive has a parent component, it belongs to that component
@@ -90,7 +93,7 @@ module.exports = function(AngularATGenerator) {
             utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + directiveData.directiveName);
             this.log(appRelPath + '/' + parentPath + '/directives/' + directiveData.directiveName + ' was removed.')
           } catch (err) {
-            this.log('Parent component files not found.');
+            this.log(err);
             return;
           }
         }
@@ -103,7 +106,8 @@ module.exports = function(AngularATGenerator) {
           utils.deleteDirRecursive(this.destinationRoot() + '/src/app/pages/' + pageName);
           this.log('/src/app/pages/' + pageName + ' was removed.')
         } catch (err) {
-          console.log(err);
+          this.log(err);
+          return;
         }
         break;
       case 'service':
@@ -125,7 +129,8 @@ module.exports = function(AngularATGenerator) {
             utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/services/' + serviceName);
             this.log('/src/app/core/services/' + serviceName + ' was removed.')
           } catch (err) {
-            console.log(err);
+            this.log(err);
+            return;
           }
         } else {
           // if the service has a parent component, it belongs to that component
@@ -145,7 +150,7 @@ module.exports = function(AngularATGenerator) {
             utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath + '/services/' + serviceData.serviceName);
             this.log(appRelPath + '/' + parentPath + '/services/' + serviceData.serviceName + ' was removed.')
           } catch (err) {
-            this.log('Parent component files not found.');
+            this.log(err);
             return;
           }
         }

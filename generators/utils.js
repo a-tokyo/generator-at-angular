@@ -30,7 +30,7 @@ exports.ROUTE_MARKER = '// Add new routes above';
 exports.STATE_MARKER = '// Add new states above';
 
 exports.DOCS_ASSETS_PATH = '/docs/docs-assets';
-exports.DOCS_STORAGE_FILENAME = 'docs.js';
+exports.DOCS_STORAGE_FILENAME = 'docs.json';
 
 // Defining utility functions
 
@@ -109,7 +109,6 @@ exports.deleteDirRecursive = function(path) {
     });
     fs.rmdirSync(path);
   }else{
-    console.log("invalid path: " + path);
-    // throw new Error("Could not remove directory due to invalid path.");
+    console.log("invalid path: " + path + " was not deleted.");
   }
 };
