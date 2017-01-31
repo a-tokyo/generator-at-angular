@@ -52,6 +52,8 @@ module.exports = function(AngularATGenerator) {
           } catch (err) {
             console.log(err);
           }
+        }else{
+
         }
         break;
       case 'page':
@@ -84,6 +86,8 @@ module.exports = function(AngularATGenerator) {
           } catch (err) {
             console.log(err);
           }
+        }else{
+
         }
         break;
     }
