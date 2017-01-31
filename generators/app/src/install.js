@@ -38,14 +38,17 @@ module.exports = function (AngularATGenerator) {
         }
 
         deps = _.concat(deps, this.importList);
-
-        this.npmInstall(deps, {'save': true});
+        if(!this.options.skipinstall){
+          this.npmInstall(deps, {'save': true});
+        }
     };
 
     // Install dependencies from package.json
     AngularATGenerator.prototype.install = function install() {
         // install templated dependencies
+        if(!this.options.skipinstall){
         this.npmInstall();
+      }
     };
 
 };

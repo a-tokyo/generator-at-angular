@@ -5,7 +5,7 @@ const jsonfile = require('jsonfile');
 /*
  * debuging mode flag, set to true to enable dir logging and debug features
  */
-exports.debugMode = false;
+exports.debugMode = true;
 /*
  * logs something if the boolean value is true
  */
