@@ -2,7 +2,7 @@
 <% if (props.bootstrapSass) { %>
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';<% } %><% if (props.styles.material) { %>
-@import '~angular-material/angular-material.scss';
+@import '~angular-material/angular-material.css';
 @import '~material-icons/css/material-icons.css';
 <% } %><% if (options.dreidev) { %>
 @import './variables.scss';
