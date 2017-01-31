@@ -10,7 +10,7 @@ module.exports = function(AngularATGenerator) {
 
   AngularATGenerator.prototype.removeFiles = function removeFiles() {
     if (!this.props.confirmRemove) {
-      this.log('Item was not removed.');
+      this.log(this.props.itemName + ' was not removed.');
       return;
     }
 
