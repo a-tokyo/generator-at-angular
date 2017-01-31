@@ -30,7 +30,7 @@ exports.ROUTE_MARKER = '// Add new routes above';
 exports.STATE_MARKER = '// Add new states above';
 
 exports.DOCS_ASSETS_PATH = '/docs/docs-assets';
-exports.DOCS_STORAGE_FILENAME = 'docs.js';
+exports.DOCS_STORAGE_FILENAME = 'docs.json';
 
 // Defining utility functions
 
