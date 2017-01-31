@@ -3,6 +3,7 @@ const _ = require('lodash');
 const utils = require('../../utils.js');
 const jsonfile = require('jsonfile');
 const jsonQuery = require('json-query');
+const fs = require('fs-extra');
 
 module.exports = function(AngularATGenerator) {
 
@@ -21,6 +22,29 @@ module.exports = function(AngularATGenerator) {
       'controllerName': _.upperFirst(_.camelCase(componentName)),
       'componentModule': _.camelCase(componentName)
     };
+
+    // if (this.options.r) {
+    //
+    //   if (pathAsArray.length === 1) {
+    //     try {
+    //       const indexModulesRemoveLine = "require('./components/" + data.componentName + "/" + data.componentName + ".module').name,";
+    //       utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
+    //       utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + data.componentName);
+    //     } catch (err) {}
+    //   }else{
+    //     parentName = pathAsArray[pathAsArray.length - 2];
+    //
+    //     // //module
+    //     // const moduleImportRemoveLine = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
+    //     // utils.addToFile(parentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+    //     // //dependency
+    //     // const dependencyImport = "'" + data.componentModule + "',";
+    //     // utils.addToFile(parentName + '.module.js', dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
+    //
+    //   }
+    //   return;
+    // }
+
     //if the component has no parent
     if (pathAsArray.length === 1) {
       try {

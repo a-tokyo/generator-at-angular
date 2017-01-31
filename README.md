@@ -127,6 +127,7 @@ Running a generator:
     yo at-angular:component my-component                         # Generates a component
     yo at-angular:component my-component/my-nested-component     # Generates a nested component
     yo at-angular:component my-component/my-nested-component/... # Generates a multiple nested component
+    yo at-angular:remove                                         # Runs the at removal tool to remove a generated item
 
 Running the project:
 
