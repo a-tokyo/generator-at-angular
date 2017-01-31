@@ -113,4 +113,30 @@ describe('at-angular:remove', function() {
 
   });
 
+
+  describe('at-angular:remove', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'component', itemName: 'comp', confirmRemove: false});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should not remove files when the user cancels', function(done) {
+      const expected = ['src/app/components/comp'];
+      assert.file(expected);
+      // calling done
+      done();
+    });
+
+  });
+
 });
