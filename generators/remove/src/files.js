@@ -126,7 +126,26 @@ module.exports = function(AngularATGenerator) {
             console.log(err);
           }
         }else{
+          // if the service has a parent component, it belongs to that component
+          let appRelPath = '/src/app/components';
+          let parentName = pathAsArray[pathAsArray.length - 2];
+          let parentPath = pathAsArray.slice(0, -1).join('/components/');
 
+          try {
+            // import service into parent module
+            const importInParentModuleRemoveLine = "import * as " + serviceData.serviceNameCamel + 'Factory' + " from './services/" + serviceData.serviceName + '/' + serviceData.serviceName + ".factory';";
+            utils.removeLineFromFile(parentName + '.module.js', importInParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+            // remove add service to parent module
+            const addDirToParentModuleRemoveLine = "componentModule.factory('" + serviceData.serviceNameCamel + 'Factory' + "', " + serviceData.serviceNameCamel + 'Factory' + ");";
+            utils.removeLineFromFile(parentName + '.module.js', addDirToParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+
+            // remove the directory
+            utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath+'/services/'+serviceData.serviceName);
+            this.log(appRelPath + '/' + parentPath+'/services/'+serviceData.serviceName+' was removed.')
+          } catch (err) {
+            this.log('Parent component files not found.');
+            return;
+          }
         }
         break;
     }
