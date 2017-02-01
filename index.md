@@ -172,6 +172,6 @@ Running the project:
 Checkout the [Changelog](https://github.com/A-Tokyo/releases) to monitor the changes, update or migrate your version.
 
 
-### Contribution:
+### Contribution
 
 Check the [contribution](https://github.com/A-Tokyo/generator-at-angular/wiki/Contribution) guide and dig in.
