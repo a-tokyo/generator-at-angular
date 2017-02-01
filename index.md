@@ -1,6 +1,6 @@
 # generator-at-angular
 
-[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular) ![travis build](https://travis-ci.org/A-Tokyo/generator-at-angular.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/A-Tokyo/generator-at-angular/badge.svg?branch=master)](https://coveralls.io/repos/github/A-Tokyo/generator-at-angular/badge.svg?branch=master)
+[![npm version](https://badge.fury.io/js/generator-at-angular.svg)](https://badge.fury.io/js/generator-at-angular) [![Build Status](https://travis-ci.org/A-Tokyo/generator-at-angular.svg?branch=master)](https://travis-ci.org/A-Tokyo/generator-at-angular) [![Coverage Status](https://coveralls.io/repos/github/A-Tokyo/generator-at-angular/badge.svg?branch=master)](https://coveralls.io/github/A-Tokyo/generator-at-angular?branch=master)
 
 > Yeoman generator for AngularJS + Webpack with ES6 and SASS.[wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
 
@@ -95,7 +95,9 @@
 └── webpack.config.js                                #Bundling and optimization settings for Webpack
 ```
 
-## Getting Started
+
+Getting Started
+---------------
 
 Prerequisites: Node, Yeoman and Webpack.
   > * To install Node, visit [nodeJS](https://nodejs.org/en/)
@@ -125,6 +127,7 @@ Running a generator:
     yo at-angular:component my-component                         # Generates a component
     yo at-angular:component my-component/my-nested-component     # Generates a nested component
     yo at-angular:component my-component/my-nested-component/... # Generates a multiple nested component
+    yo at-angular:remove                                         # Runs the at removal tool to remove a generated item
 
 Running the project:
 
@@ -162,21 +165,12 @@ Running the project:
   - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
   - For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
   - For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
-
-
-### Known bugs:
-  > * **Problem:** Webpack2 unable to import function with only export default value.
-
-  >   **Workaround**: Use ```import * as variable from 'package' ``` instead of ```import variable from 'package' ```
-
-  <hr/>
-
-  > * **Problem:** Webpack2 lastest build of today JAN 24 2017 2.2.0 throws an error and crashes while starting the server.
-
-  >   **Workaround**: Fixed Webpack version to: 2.1.0-beta.25 and Webpack-dev-server to "2.1.0-beta.7" until the build is stable.
+  
   
 ### Changelog
+
 Checkout the [Changelog](https://github.com/A-Tokyo/releases) to monitor the changes, update or migrate your version.
+
 
 ### Contribution:
 
