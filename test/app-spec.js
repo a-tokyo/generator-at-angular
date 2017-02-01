@@ -5,7 +5,7 @@ const assert = require('assert');
 
 // const expected files
 const expectedConfigFiles = ['config/webpack/global.js', 'config/webpack/environments/development.js', 'config/webpack/environments/production.js', 'webpack.config.js'];
-const expectedDocsFiles = ['docs/docs.html', 'docs/docs-assets/docs-app.js', 'docs/docs-assets/docs.css', 'docs/docs-assets/docs.js'];
+const expectedDocsFiles = ['docs/docs.html', 'docs/docs-assets/docs.css', 'docs/docs-assets/docs.js', 'docs/docs-assets/docs.json'];
 const expectedGeneralFiles = [
   '.babelrc',
   '.editorconfig',

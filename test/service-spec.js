@@ -43,6 +43,7 @@ describe('at-angular:service component/service', function() {
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
       fs.copySync(path.join(__dirname, '../generators/component/templates/_component.module.js'), dir + '/src/app/components/component/component.module.js');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      testUtils.dummyComponentInDocs(dir + '/docs/docs-assets/docs.json');
     })
     .withArguments(['component/named-service']);
   });
