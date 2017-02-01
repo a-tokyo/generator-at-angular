@@ -182,23 +182,25 @@ module.exports = function(AngularATGenerator) {
             docsJSON.components[parentCompElement.key].components.splice(nestedCompKey, 1);
           }
           let compElement = jsonQuery('components[path=' + this.props.itemName + ']', {data: docsJSON});
-          let nestedComps = (compElement.value.components);
-          nestedComps.forEach(function(nestedComp) {
-            let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
-            docsJSON.components.splice(nestedCompKey, 1)
-          });
+          if(compElement.value){
+            let nestedComps = (compElement.value.components);
+            nestedComps.forEach(function(nestedComp) {
+              let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
+              docsJSON.components.splice(nestedCompKey, 1)
+            });
 
-          let nestedDirectives = (compElement.value.directives);
-          nestedDirectives.forEach(function(nestedDirective) {
-            let nestedDirectiveKey = jsonQuery('directives[path=' + nestedDirective.path + ']', {data: docsJSON}).key;
-            docsJSON.directives.splice(nestedDirectiveKey, 1)
-          });
+            let nestedDirectives = (compElement.value.directives);
+            nestedDirectives.forEach(function(nestedDirective) {
+              let nestedDirectiveKey = jsonQuery('directives[path=' + nestedDirective.path + ']', {data: docsJSON}).key;
+              docsJSON.directives.splice(nestedDirectiveKey, 1)
+            });
 
-          let nestedServices = (compElement.value.services);
-          nestedServices.forEach(function(nestedService) {
-            let nestedServiceKey = jsonQuery('services[path=' + nestedService.path + ']', {data: docsJSON}).key;
-            docsJSON.services.splice(nestedServiceKey, 1)
-          });
+            let nestedServices = (compElement.value.services);
+            nestedServices.forEach(function(nestedService) {
+              let nestedServiceKey = jsonQuery('services[path=' + nestedService.path + ']', {data: docsJSON}).key;
+              docsJSON.services.splice(nestedServiceKey, 1)
+            });
+          }
           docsJSON.components.splice(compElement.key, 1);
           this.log(this.props.itemName + "'s documentation was removed.");
           break;
