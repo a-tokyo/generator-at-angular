@@ -63,6 +63,28 @@ describe('at-angular:remove', function() {
 
   });
 
+  describe('at-angular:remove notexisting-component', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'component', itemName: 'notexisting-component', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should not throw when the component is not found, but exit gracefuly', function() {
+      // calling done
+    });
+
+  });
+
   describe('at-angular:remove directive', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
@@ -110,6 +132,28 @@ describe('at-angular:remove', function() {
       assert.noFile(notExpected);
       // calling done
       done();
+    });
+
+  });
+
+  describe('at-angular:remove notexisting-directive', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'directive', itemName: 'notexisting-directive', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should not throw when the directive is not found, but exit gracefuly', function() {
+      // calling done
     });
 
   });
@@ -165,6 +209,29 @@ describe('at-angular:remove', function() {
 
   });
 
+  describe('at-angular:remove notexisting-service', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'service', itemName: 'notexisting-service', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should not throw when the service is not found, but exit gracefuly', function() {
+      // calling done
+    });
+
+  });
+
+
   describe('at-angular:remove page', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
@@ -186,6 +253,28 @@ describe('at-angular:remove', function() {
       assert.noFile(notExpected);
       // calling done
       done();
+    });
+
+  });
+
+
+  describe('at-angular:remove notexisting-page', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'page', itemName: 'notexisting-page', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should not throw when the page is not found, but exit gracefuly', function() {
     });
 
   });
