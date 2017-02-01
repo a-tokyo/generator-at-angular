@@ -280,7 +280,7 @@ describe('at-angular:remove', function() {
   });
 
 
-  describe('at-angular:remove', function() {
+  describe('at-angular:remove cancel', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
         testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
@@ -301,6 +301,26 @@ describe('at-angular:remove', function() {
       assert.file(expected);
       // calling done
       done();
+    });
+
+  });
+
+  describe('at-angular:remove no-docs', function() {
+    beforeEach(function() {
+      return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
+        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testDir = dir;
+        fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
+      }).withPrompts({type: 'component', itemName: 'comp', confirmRemove: true});
+    });
+
+    afterEach(function() {
+      if (testDir != null && !testUtils.debugMode) {
+        testUtils.deleteDirRecursive(testDir);
+      }
+    });
+
+    it('should not throw when the docs file is not found, but exit gracefuly', function() {
     });
 
   });
