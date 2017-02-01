@@ -223,7 +223,9 @@ module.exports = function(AngularATGenerator) {
     if(compElement.value){
       let nestedComps = (compElement.value.components);
       nestedComps.forEach(function(nestedComp) {
-        let nestedCompKey = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON}).key;
+        let nestedCompElement = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON});
+        let nestedCompKey = nestedCompElement.key;
+        removeCompDocs(nestedCompElement, docsJSON);
         docsJSON.components.splice(nestedCompKey, 1)
       });
 
