@@ -88,7 +88,7 @@ module.exports = function(AngularATGenerator) {
               };
               docsJSON.components[jsonQuery('components[path=' + parentPath + ']', {data: docsJSON}).key].services.push(serviceDocForeignKeyJSON);
             }
-            jsonfile.writeFile(file, docsJSON, function(err) {}.bind(this));
+            jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
           }.bind(this));
         }
     };

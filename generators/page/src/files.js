@@ -59,7 +59,7 @@ module.exports = function(AngularATGenerator) {
           "description": descriptionForDocs
         };
         docsJSON.pages.push(pageDocJSON);
-        jsonfile.writeFile(file, docsJSON, function(err) {}.bind(this));
+        jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
       }.bind(this));
     }
   };

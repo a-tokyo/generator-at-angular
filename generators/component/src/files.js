@@ -115,7 +115,7 @@ module.exports = function(AngularATGenerator) {
           };
           docsJSON.components[jsonQuery('components[path=' + pathAsArray.slice(0, -1).join('/') + ']', {data: docsJSON}).key].components.push(componentDocForeignKeyJSON);
         }
-        jsonfile.writeFile(file, docsJSON, function(err) {}.bind(this));
+        jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
       }.bind(this));
     }
   };
