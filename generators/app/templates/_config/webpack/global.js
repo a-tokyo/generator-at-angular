@@ -29,6 +29,20 @@ module.exports = function (_path) {
       publicPath: '/'
     },
 
+    // // global dev server configs
+    // devServer: {
+    //   // configure proxy
+    //   // uncomment the following lines if you need to configure a proxy
+    //   proxy: {
+    //     '/api/*': {
+    //       target: 'https://jsonplaceholder.typicode.com/',
+    //       changeOrigin: true,
+    //       // uncomment this if you need to remove the /api prefix from the url
+    //       // pathRewrite: {'^/api': ''},
+    //     },
+    //   },
+    // },
+
     // resolves modules
     resolve: {
       extensions: ['.js', '.es6', '.jsx', '.scss', '.css'],
