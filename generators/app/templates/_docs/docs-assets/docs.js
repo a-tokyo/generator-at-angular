@@ -12,6 +12,8 @@ docsApp.controller('docsCtrl', function ($scope, $http){
     $scope.pages = res.data.pages;
     // Base href for app routes
     $scope.apphost = 'http://localhost:'+res.data.info.port;
+    // Hash prefix
+    $scope.hashPrefix = '/#!';
   });
   // attaching currentYear to scope
   $scope.currentYear = new Date().getFullYear();
