@@ -34,7 +34,7 @@ module.exports = function(AngularATGenerator) {
       this.fs.copyTpl(this.templatePath('_page.module.js'), this.destinationPath(`${this.destinationRoot()}/src/app/pages/${data.pageName}/${data.pageName}.module.js`), data);
       this.fs.copyTpl(this.templatePath('_page.route.js'), this.destinationPath(`${this.destinationRoot()}/src/app/pages/${data.pageName}/${data.pageName}.route.js`), data);
       this.fs.copyTpl(this.templatePath('_page.controller.js'), this.destinationPath(`${this.destinationRoot()}/src/app/pages/${data.pageName}/${data.pageName}.controller.js`), data);
-      this.fs.copyTpl(this.templatePath('_page.controller-spec.js'), this.destinationPath(t`${this.destinationRoot()}/src/app/pages/${data.pageName}/${data.pageName}.controller-spec.js`), data);
+      this.fs.copyTpl(this.templatePath('_page.controller-spec.js'), this.destinationPath(`${this.destinationRoot()}/src/app/pages/${data.pageName}/${data.pageName}.controller-spec.js`), data);
     } catch (err) {
       this.log('Could not generate this item due to missing file structure.');
       return;
