@@ -29,7 +29,7 @@ module.exports = function(AngularATGenerator) {
         const coreModulesWriteLine = `import * as ${data.directiveNameCamel}Directive from './directives/${data.directiveName}/${data.directiveName}.directive';`;
         utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_DIRECTIVE_MARKER, `${this.destinationRoot()}/src/app/core`);
         // add directive to core module
-        const addToModuleWriteLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
+        const addToModuleWriteLine = `shared.directive('${data.directiveNameCamel}', ${data.directiveNameCamel}Directive);`;
         utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, `${this.destinationRoot()}/src/app/core`);
       } catch (err) {
         this.log('Could not generate this item due to missing file structure.');
@@ -47,8 +47,8 @@ module.exports = function(AngularATGenerator) {
       fullPath = `${this.destinationRoot()}${appRelPath}/${parentPath}/directives/${data.directiveName}`;
       try {
         // import directive into parent module
-        const importInParentModuleWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
-        utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
+        const importInParentModuleWriteLine = `import * as ${data.directiveNameCamel}Directive from './directives/${data.directiveName}/${data.directiveName}.directive';`;
+        utils.addToFile(`${parentName}.module.js`, importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER,  `${this.destinationRoot()}${appRelPath}/${parentPath}`);
         //add directive to parent module
         const addDirToParentModuleWriteLine = "componentModule.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
         utils.addToFile(parentName + '.module.js', addDirToParentModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
