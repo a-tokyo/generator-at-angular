@@ -30,9 +30,9 @@ module.exports = function (_path) {
     },
 
     // // global dev server configs
+    // // uncomment the following lines if you need to configure a proxy globaly
     // devServer: {
     //   // configure proxy
-    //   // uncomment the following lines if you need to configure a proxy
     //   proxy: {
     //     '/api/*': {
     //       target: 'https://jsonplaceholder.typicode.com/',
