@@ -101,7 +101,7 @@ exports.stripPackageName = function (pkgName) {
 exports.deleteDirRecursive = function(path) {
   if (fs.existsSync(path)) {
     fs.readdirSync(path).forEach(function(file, index) {
-      var curPath = path + "/" + file;
+      var curPath = `${path}/${file}`;
       if (fs.lstatSync(curPath).isDirectory()) { // recurse
         exports.deleteDirRecursive(curPath);
       } else { // delete file
@@ -110,6 +110,6 @@ exports.deleteDirRecursive = function(path) {
     });
     fs.rmdirSync(path);
   }else{
-    console.log("invalid path: " + path + " was not deleted.");
+    console.log(`invalid path: ${path} was not deleted.`);
   }
 };
