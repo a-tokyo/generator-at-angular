@@ -84,16 +84,16 @@ module.exports = function(AngularATGenerator) {
           ? this.props.description
           : directiveName + " directive";
         const directiveDocJSON = {
-          "name": data.directiveNameCamel,
-          "path": this.props.directiveName,
-          "description": descriptionForDocs
+          'name': data.directiveNameCamel,
+          'path': this.props.directiveName,
+          'description': descriptionForDocs
         };
         docsJSON.directives.push(directiveDocJSON);
         if (parentPath) {
           // Foreign Key String for directive is injected into the parent component
           const directiveDocForeignKeyJSON = {
-            "path": this.props.directiveName,
-            "name": data.directiveNameCamel
+            'path': this.props.directiveName,
+            'name': data.directiveNameCamel
           };
           docsJSON.components[jsonQuery('components[path=' + parentPath + ']', {data: docsJSON}).key].directives.push(directiveDocForeignKeyJSON);
         }
