@@ -23,14 +23,14 @@ module.exports = function(AngularATGenerator) {
     // if the directive has no parent, it is shared and belongs to the app
     if (relPathAsArray.length === 1) {
       let appRelPath = '/src/app/core/directives';
-      fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
+      fullPath = `${this.destinationRoot()}${appRelPath}/${data.directiveName}`;
       try {
         // import directive into core module
-        const coreModulesWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
-        utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
+        const coreModulesWriteLine = `import * as ${data.directiveNameCamel}Directive from './directives/${data.directiveName}/${data.directiveName}.directive';`;
+        utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_DIRECTIVE_MARKER, `${this.destinationRoot()}/src/app/core`);
         // add directive to core module
         const addToModuleWriteLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
-        utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/core');
+        utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, `${this.destinationRoot()}/src/app/core`);
       } catch (err) {
         this.log('Could not generate this item due to missing file structure.');
         return;
@@ -44,7 +44,7 @@ module.exports = function(AngularATGenerator) {
         ? '/components/'
         : '/';
       parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), joinString);
-      fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;
+      fullPath = `${this.destinationRoot()}${appRelPath}/${parentPath}/directives/${data.directiveName}`;
       try {
         // import directive into parent module
         const importInParentModuleWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
