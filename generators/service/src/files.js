@@ -45,10 +45,10 @@ module.exports = function(AngularATGenerator) {
             try {
                 // import service into parent module
                 const importInParentModuleWriteLine = `import * as ${data.serviceNameCamel}Factory from './services/${data.serviceName}/${data.serviceName}.factory';`;
-                utils.addToFile(`${parentName}.module.js`, importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, `${this.destinationRoot()}appRelPath/${parentPath}`);
+                utils.addToFile(`${parentName}.module.js`, importInParentModuleWriteLine, utils.IMPORT_SERVICE_MARKER, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
                 // add service to parent module
                 const addToParentModuleWriteLine = `componentModule.factory('${data.serviceNameCamel}Factory', ${data.serviceNameCamel}Factory);`;
-                utils.addToFile(`parentName.module.js`, addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
+                utils.addToFile(`${parentName}.module.js`, addToParentModuleWriteLine, utils.ADD_SERVICE_TOMODULE_MARKER, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
             } catch (err) {
                 this.log('Parent component files not found.');
                 return;
