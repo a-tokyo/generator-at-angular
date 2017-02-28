@@ -50,8 +50,8 @@ module.exports = function(AngularATGenerator) {
         const importInParentModuleWriteLine = `import * as ${data.directiveNameCamel}Directive from './directives/${data.directiveName}/${data.directiveName}.directive';`;
         utils.addToFile(`${parentName}.module.js`, importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER,  `${this.destinationRoot()}${appRelPath}/${parentPath}`);
         //add directive to parent module
-        const addDirToParentModuleWriteLine = "componentModule.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
-        utils.addToFile(parentName + '.module.js', addDirToParentModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
+        const addDirToParentModuleWriteLine = `componentModule.directive('${data.directiveNameCamel}', ${data.directiveNameCamel}Directive);`;
+        utils.addToFile(`${parentName}.module.js`, addDirToParentModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
       } catch (err) {
         this.log('Parent component files not found.');
         return;
@@ -82,7 +82,7 @@ module.exports = function(AngularATGenerator) {
         }
         const descriptionForDocs = (this.props.description && this.props.description.length > 0)
           ? this.props.description
-          : directiveName + " directive";
+          : `${directiveName} directive`;
         const directiveDocJSON = {
           'name': data.directiveNameCamel,
           'path': this.props.directiveName,
@@ -95,7 +95,7 @@ module.exports = function(AngularATGenerator) {
             'path': this.props.directiveName,
             'name': data.directiveNameCamel
           };
-          docsJSON.components[jsonQuery('components[path=' + parentPath + ']', {data: docsJSON}).key].directives.push(directiveDocForeignKeyJSON);
+          docsJSON.components[jsonQuery(`components[path=${parentPath}]`, {data: docsJSON}).key].directives.push(directiveDocForeignKeyJSON);
         }
         jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
       }.bind(this));
