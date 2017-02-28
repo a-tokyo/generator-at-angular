@@ -62,13 +62,13 @@ module.exports = function(AngularATGenerator) {
     isDuplicate = utils.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
 
     // copying templates
-    this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
+    this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.js`), data);
     // copy testing file
     this.fs.copyTpl(this.templatePath('_directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
     // copy view html and css templates if needed
     if (this.props.needsPartial) {
-      this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive.html'), data);
-      this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive.scss'), data);
+      this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.html`), data);
+      this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.scss`), data);
     }
 
     // Documenting the creation of the directive
