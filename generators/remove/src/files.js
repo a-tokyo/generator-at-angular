@@ -21,10 +21,10 @@ module.exports = function(AngularATGenerator) {
         let componentName = pathAsArray[pathAsArray.length - 1];
         if (pathAsArray.length === 1) {
           try {
-            const indexModulesRemoveLine = "require('./components/" + componentName + "/" + componentName + ".module').name,";
-            utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
-            utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + componentName);
-            this.log('/src/app/components/' + componentName + ' was removed.')
+            const indexModulesRemoveLine = `require('./components/${componentName}/${componentName}.module').name,`;
+            utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, `${this.destinationRoot()}/src/app`);
+            utils.deleteDirRecursive(`${this.destinationRoot()}/src/app/components/${componentName}`);
+            this.log(`/src/app/components/${componentName}` + ' was removed.');
           } catch (err) {
             this.log(err);
             return;
@@ -34,16 +34,16 @@ module.exports = function(AngularATGenerator) {
             // component is nested
             let parentTRUEPath = pathAsArray.slice(0, -1).join('/components/');
             let parentName = pathAsArray[pathAsArray.length - 2];
-            let componentModule = _.camelCase(componentName)
+            let componentModule = _.camelCase(componentName);
 
-            const moduleImportRemoveLine = "import * as " + componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
-            utils.removeLineFromFile(parentName + '.module.js', moduleImportRemoveLine, this.destinationRoot() + '/src/app/components/' + parentTRUEPath);
+            const moduleImportRemoveLine = `import * as ${componentModule} from './components/${componentName}/${componentName}.module';`;
+            utils.removeLineFromFile(`${parentName}.module.js`, moduleImportRemoveLine, `${this.destinationRoot()}/src/app/components/${parentTRUEPath}`);
             //dependency
-            const dependencyImportRemoveLine = "'" + componentModule + "',";
-            utils.removeLineFromFile(parentName + '.module.js', dependencyImportRemoveLine, this.destinationRoot() + '/src/app/components/' + parentTRUEPath);
+            const dependencyImportRemoveLine = `'${componentModule}',`;
+            utils.removeLineFromFile(parentName + '.module.js', dependencyImportRemoveLine, `${this.destinationRoot()}/src/app/components/${parentTRUEPath}`);
             // Delete the directory
-            utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + parentTRUEPath + '/components/' + componentName);
-            this.log('/src/app/components/' + parentTRUEPath + '/components/' + componentName + ' was removed.')
+            utils.deleteDirRecursive(`${this.destinationRoot()}/src/app/components/${parentTRUEPath}/components/${componentName}`);
+            this.log(`/src/app/components/${parentTRUEPath}/components/${componentName} was removed.`);
           } catch (err) {
             this.log(err);
             return;
@@ -177,11 +177,11 @@ module.exports = function(AngularATGenerator) {
         case 'component':
           if (pathAsArray.length > 1) {
             let parentPath = pathAsArray.slice(0, -1).join('/');
-            let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
-            let nestedCompKey = jsonQuery('components[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+            let parentCompElement = jsonQuery(`components[path=${parentPath}]`, {data: docsJSON});
+            let nestedCompKey = jsonQuery(`components[path=${this.props.itemName}]`, {data: parentCompElement.value});
             docsJSON.components[parentCompElement.key].components.splice(nestedCompKey, 1);
           }
-          let compElement = jsonQuery('components[path=' + this.props.itemName + ']', {data: docsJSON});
+          let compElement = jsonQuery(`components[path=${this.props.itemName}]`, {data: docsJSON});
           removeCompDocs(compElement, docsJSON);
           this.log(this.props.itemName + "'s documentation was removed.");
           break;
@@ -189,27 +189,27 @@ module.exports = function(AngularATGenerator) {
         case 'directive':
           if (pathAsArray.length > 1) {
             let parentPath = pathAsArray.slice(0, -1).join('/');
-            let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
-            let nestedDirectiveKey = jsonQuery('directives[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+            let parentCompElement = jsonQuery(`components[path=${parentPath}]`, {data: docsJSON});
+            let nestedDirectiveKey = jsonQuery(`directives[path=${this.props.itemName}]`, {data: parentCompElement.value});
             docsJSON.components[parentCompElement.key].directives.splice(nestedDirectiveKey, 1);
           }
-          docsJSON.directives.splice(jsonQuery('directives[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1);
+          docsJSON.directives.splice(jsonQuery(`directives[path=${this.props.itemName}]`, {data: docsJSON}).key, 1);
           this.log(this.props.itemName + "'s documentation was removed.");
           break;
 
         case 'page':
-          docsJSON.pages.splice(jsonQuery('pages[name=' + this.props.itemName + ']', {data: docsJSON}).key, 1);
+          docsJSON.pages.splice(jsonQuery(`pages[name=${this.props.itemName}]`, {data: docsJSON}).key, 1);
           this.log(this.props.itemName + "'s documentation was removed.");
           break;
 
         case 'service':
           if (pathAsArray.length > 1) {
             let parentPath = pathAsArray.slice(0, -1).join('/');
-            let parentCompElement = jsonQuery('components[path=' + parentPath + ']', {data: docsJSON});
-            let nestedServiceKey = jsonQuery('services[path=' + this.props.itemName + ']', {data: parentCompElement.value});
+            let parentCompElement = jsonQuery(`components[path=${parentPath}]`, {data: docsJSON});
+            let nestedServiceKey = jsonQuery(`services[path=${this.props.itemName}]`, {data: parentCompElement.value});
             docsJSON.components[parentCompElement.key].services.splice(nestedServiceKey, 1);
           }
-          docsJSON.services.splice(jsonQuery('services[path=' + this.props.itemName + ']', {data: docsJSON}).key, 1);
+          docsJSON.services.splice(jsonQuery(`services[path=${this.props.itemName}]`, {data: docsJSON}).key, 1);
           this.log(this.props.itemName + "'s documentation was removed.");
           break;
 
@@ -223,7 +223,7 @@ module.exports = function(AngularATGenerator) {
     if(compElement.value){
       let nestedComps = (compElement.value.components);
       nestedComps.forEach(function(nestedComp) {
-        let nestedCompElement = jsonQuery('components[path=' + nestedComp.path + ']', {data: docsJSON});
+        let nestedCompElement = jsonQuery(`components[path=${nestedComp.path}]`, {data: docsJSON});
         let nestedCompKey = nestedCompElement.key;
         removeCompDocs(nestedCompElement, docsJSON);
         docsJSON.components.splice(nestedCompKey, 1)
@@ -231,13 +231,13 @@ module.exports = function(AngularATGenerator) {
 
       let nestedDirectives = (compElement.value.directives);
       nestedDirectives.forEach(function(nestedDirective) {
-        let nestedDirectiveKey = jsonQuery('directives[path=' + nestedDirective.path + ']', {data: docsJSON}).key;
+        let nestedDirectiveKey = jsonQuery(`directives[path=${nestedDirective.path}]`, {data: docsJSON}).key;
         docsJSON.directives.splice(nestedDirectiveKey, 1)
       });
 
       let nestedServices = (compElement.value.services);
       nestedServices.forEach(function(nestedService) {
-        let nestedServiceKey = jsonQuery('services[path=' + nestedService.path + ']', {data: docsJSON}).key;
+        let nestedServiceKey = jsonQuery(`services[path=${nestedService.path}]`, {data: docsJSON}).key;
         docsJSON.services.splice(nestedServiceKey, 1)
       });
     }
