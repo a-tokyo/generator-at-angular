@@ -15,6 +15,7 @@ describe('at-angular:service', function() {
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
     })
+    .withPrompts({description: 'a service'});
   });
 
   afterEach(function(){

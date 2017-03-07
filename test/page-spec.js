@@ -14,7 +14,7 @@ describe('at-angular:page', function() {
       fs.mkdirp('src/app/pages');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.module.js'), dir + '/src/app/index.module.js');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
-    })
+    }).withPrompts({description: 'a page'});
   });
 
   afterEach(function(){
