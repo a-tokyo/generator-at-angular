@@ -32,10 +32,14 @@ exports.DOCS_STORAGE_FILENAME = 'docs.json';
 
 // Defining utility functions
 
-/*
- * writes a line to a file before a marker
- * takes as inputs the file name, line to add, marker, and full path
- */
+ /**
+  * addToFile - writes a line to a file before a marker
+  *
+  * @param  {String} filename     filename
+  * @param  {String} lineToAdd    line to add to file
+  * @param  {String} beforeMarker marker to add the line before it
+  * @param  {String} fullpathI    path to the file
+  */
 exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
     try {
         let fullPath = path.resolve(fullpathI,filename);
@@ -45,16 +49,21 @@ exports.addToFile = function(filename,lineToAdd,beforeMarker,fullpathI){
         let lineStart = fileSrc.substring(0,indexOf).lastIndexOf('\n') + 1;
         let indent = fileSrc.substring(lineStart,indexOf);
         fileSrc = fileSrc.substring(0,indexOf) + lineToAdd + "\n" + indent + fileSrc.substring(indexOf);
-
         fs.writeFileSync(fullPath,fileSrc);
-        // console.log('Written data to files');
     } catch(e) {
       console.log('Could not write data to files');
       throw e;
     }
 };
 
-exports.removeLineFromFile = function(filename,lineToRemove, fullpathI, indent, fullLine){
+/**
+ * removeLineFromFile - removes a given line from a file
+ *
+ * @param  {String} filename     filename
+ * @param  {String} lineToRemove line to remove from file
+ * @param  {String} fullpathI    path to the file
+ */
+exports.removeLineFromFile = function(filename,lineToRemove, fullpathI){
     try {
         let fullPath = path.resolve(fullpathI,filename);
         let fileSrc = fs.readFileSync(fullPath,'utf8');
@@ -74,17 +83,32 @@ exports.removeLineFromFile = function(filename,lineToRemove, fullpathI, indent, 
     }
 };
 
-/*
- * checks if a given path exists synchronously
- */
+ /**
+  * existsSync - checks if a given path exists synchronously
+  *
+  * @param  {type} path    path
+  * @return {Boolean}      true if the path exists
+  */
 exports.existsSync = function(path){
   return fs.existsSync(path);
 };
 
+/**
+ * isHasPackage - checks if the object has a package
+ *
+ * @param  {JSON} obj    object to inspect
+ * @return {Boolean}     true if the object has a package and obj.import is true
+ */
 exports.isHasPackage = function (obj) {
     return _.isObject(obj) && obj.package && obj.import !== false;
 };
 
+/**
+ * stripPackageName - strips the package name
+ *
+ * @param  {String} pkgName package name
+ * @return {String}         stripped package name
+ */
 exports.stripPackageName = function (pkgName) {
     let regexp = /(.*?)@/;
     let match = pkgName.match(regexp);
@@ -94,6 +118,11 @@ exports.stripPackageName = function (pkgName) {
     return pkgName;
 };
 
+/**
+ * deleteDirRecursive - deletes a directory recursively
+ *
+ * @param  {String} path path of directory
+ */
 exports.deleteDirRecursive = function(path) {
   if (fs.existsSync(path)) {
     fs.readdirSync(path).forEach(function(file, index) {
