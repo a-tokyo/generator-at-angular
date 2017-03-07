@@ -1,5 +1,5 @@
 'use strict';
-const _ = require("lodash");
+const _ = require('lodash');
 
 module.exports = function (AngularATGenerator) {
 
@@ -7,28 +7,28 @@ module.exports = function (AngularATGenerator) {
     AngularATGenerator.prototype.installDependencies = function installDependencies() {
 
         let deps = [
-            "angular",
-            "angular-ui-router"
+            'angular',
+            'angular-ui-router'
         ];
 
         if (this.props.bootstrapSass) {
-            deps.push("bootstrap-sass");
+            deps.push('bootstrap-sass');
         }
 
         if (this.props.lodash) {
-            deps.push("lodash");
+            deps.push('lodash');
         }
 
         if (this.props.moment) {
-            deps.push("moment");
+            deps.push('moment');
         }
 
         if (this.props.normalize) {
-            deps.push("normalize-css");
+            deps.push('normalize-css');
         }
 
         if (this.props.styles.material) {
-            deps.push("material-icons");
+            deps.push('material-icons');
         }
         // extraDeps are added by flags only not by user input
         if(this.props.extraDeps){

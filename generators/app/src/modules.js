@@ -1,6 +1,6 @@
 'use strict';
 const _ = require('lodash');
-const utils = require("../../utils");
+const utils = require('../../utils');
 
 module.exports = function(AngularATGenerator) {
 

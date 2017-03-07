@@ -9,7 +9,7 @@ let testDir = null;
 describe('at-angular:service', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {
-      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
+      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/core/services');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
@@ -38,7 +38,7 @@ describe('at-angular:service', function() {
 describe('at-angular:service component/service', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {
-      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
+      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/components/component');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
@@ -68,7 +68,7 @@ describe('at-angular:service component/service', function() {
 describe('at-angular:service not-existing/service', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {
-      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
+      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/components');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
@@ -94,11 +94,11 @@ describe('at-angular:service not-existing/service', function() {
 describe('at-angular:service (with no parent module)', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {
-      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
+      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/core/services');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
-    })
+    });
   });
 
   afterEach(function(){
@@ -120,11 +120,11 @@ describe('at-angular:service (with no parent module)', function() {
 describe('at-angular:service documentation', function() {
   beforeEach(function() {
     return helpers.run(path.join(__dirname, '../generators/service')).inTmpDir(function(dir) {
-      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
+      testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/core/services');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
-    })
+    });
   });
 
   afterEach(function(){
