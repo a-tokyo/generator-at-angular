@@ -101,10 +101,10 @@ module.exports = function(AngularATGenerator) {
       case 'page':
         let pageName = this.props.itemName;
         try {
-          const indexModulesRemoveLine = "require('./pages/" + pageName + "/" + pageName + ".module').name,";
-          utils.removeLineFromFile('index.module.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app');
-          utils.deleteDirRecursive(this.destinationRoot() + '/src/app/pages/' + pageName);
-          this.log('/src/app/pages/' + pageName + ' was removed.')
+          const indexModulesRemoveLine = `require('./pages/${pageName}/${pageName}.module').name,`;
+          utils.removeLineFromFile('index.module.js', indexModulesRemoveLine, `${this.destinationRoot()}/src/app`);
+          utils.deleteDirRecursive(`${this.destinationRoot()}/src/app/pages/${pageName}`);
+          this.log(`/src/app/pages/${pageName} was removed.`)
         } catch (err) {
           this.log(err);
           return;
