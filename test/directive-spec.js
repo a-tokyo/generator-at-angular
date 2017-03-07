@@ -45,7 +45,7 @@ describe('at-angular:directive no partial', function() {
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
     })
-    .withPrompts({needsPartial: false});
+    .withPrompts({needsPartial: false, description: 'a directive with no patial'});
   });
 
   afterEach(function(){
