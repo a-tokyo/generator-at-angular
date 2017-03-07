@@ -60,17 +60,17 @@ module.exports = function(AngularATGenerator) {
 
         if (pathAsArray.length === 1) {
           let appRelPath = '/src/app/core/directives';
-          let fullPath = this.destinationRoot() + appRelPath + '/' + directiveData.directiveName;
+          let fullPath = `${this.destinationRoot()}${appRelPath}/${directiveData.directiveName}`;
           try {
             // import directive into core module
-            const coreModulesRemoveLine = "import * as " + directiveData.directiveNameCamel + 'Directive' + " from './directives/" + directiveData.directiveName + '/' + directiveData.directiveName + ".directive';";
-            utils.removeLineFromFile('core.module.js', coreModulesRemoveLine, this.destinationRoot() + '/src/app/core');
+            const coreModulesRemoveLine = `import * as ${directiveData.directiveNameCamel}Directive from './directives/${directiveData.directiveName}/${directiveData.directiveName}.directive';`;
+            utils.removeLineFromFile('core.module.js', coreModulesRemoveLine, `${this.destinationRoot()}/src/app/core`);
             // add directive to core module
-            const addToModuleRemoveLine = "shared.directive('" + directiveData.directiveNameCamel + "', " + directiveData.directiveNameCamel + 'Directive' + ");";
-            utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
+            const addToModuleRemoveLine = `shared.directive('${directiveData.directiveNameCamel}', ${directiveData.directiveNameCamel}Directive);`;
+            utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, `${this.destinationRoot()}/src/app/core`);
 
-            utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/directives/' + directiveName);
-            this.log('/src/app/core/directives/' + directiveName + ' was removed.')
+            utils.deleteDirRecursive(`${this.destinationRoot()}/src/app/core/directives/${directiveName}`);
+            this.log(`/src/app/core/directives/'${directiveName} was removed.`);
           } catch (err) {
             this.log(err);
             return;
@@ -83,15 +83,15 @@ module.exports = function(AngularATGenerator) {
 
           try {
             // import directive into parent module
-            const importInParentModuleRemoveLine = "import * as " + directiveData.directiveNameCamel + 'Directive' + " from './directives/" + directiveData.directiveName + '/' + directiveData.directiveName + ".directive';";
-            utils.removeLineFromFile(parentName + '.module.js', importInParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+            const importInParentModuleRemoveLine = `import * as ${directiveData.directiveNameCamel}Directive from './directives/${directiveData.directiveName}/${directiveData.directiveName}.directive';`;
+            utils.removeLineFromFile(`${parentName}.module.js`, importInParentModuleRemoveLine, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
             // remove add directive to parent module
-            const addDirToParentModuleRemoveLine = "componentModule.directive('" + directiveData.directiveNameCamel + "', " + directiveData.directiveNameCamel + 'Directive' + ");";
+            const addDirToParentModuleRemoveLine = `componentModule.directive('${directiveData.directiveNameCamel}', ${directiveData.directiveNameCamel}Directive);`;
             utils.removeLineFromFile(parentName + '.module.js', addDirToParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
 
             // remove the directory
-            utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + directiveData.directiveName);
-            this.log(appRelPath + '/' + parentPath + '/directives/' + directiveData.directiveName + ' was removed.')
+            utils.deleteDirRecursive(`${this.destinationRoot()}${appRelPath}/${parentPath}/directives/${directiveData.directiveName}`);
+            this.log(`${appRelPath}/${parentPath}/directives/${directiveData.directiveName} was removed.`);
           } catch (err) {
             this.log(err);
             return;
