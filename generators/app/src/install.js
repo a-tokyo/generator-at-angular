@@ -1,4 +1,5 @@
 'use strict';
+
 const _ = require('lodash');
 
 module.exports = function(AngularATGenerator) {
@@ -32,7 +33,7 @@ module.exports = function(AngularATGenerator) {
         }
         // extraDeps are added by flags only not by user input
         if(this.props.extraDeps) {
-          this.props.extraDeps.forEach(function(dep){
+          this.props.extraDeps.forEach((dep) => {
             deps.push(dep.dependency);
           });
         }

@@ -16,7 +16,7 @@ module.exports = function(AngularATGenerator) {
   let imports = [];
 
   let extractPackagesToImport = function(importList, props){
-    _.forEach(props, function(prop) {
+    _.forEach(props, (prop) => {
       if(_.isArray(prop)) {
         extractPackagesToImport(importList, prop);
       }else{
@@ -32,7 +32,7 @@ module.exports = function(AngularATGenerator) {
    */
   AngularATGenerator.prototype.computeModules = function computeModules() {
     // ngModules holds angular modules from props
-    let ngModules = this.props.angularModules.map(function(module) {
+    let ngModules = this.props.angularModules.map((module) => {
       return module.module;
     });
     // prepare extra angular module from extra quetions in props
@@ -48,7 +48,7 @@ module.exports = function(AngularATGenerator) {
       }
     });
     // this.modulesDependencies to be read in index.vendor and index.module and imported
-    this.modulesDependencies = ngModules.filter(_.isString).map(function(dependency) {
+    this.modulesDependencies = ngModules.filter(_.isString).map((dependency) => {
       return `'${dependency}'`;
     }).join(', \r\n\t\t');
   };

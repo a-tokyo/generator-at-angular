@@ -227,7 +227,7 @@ module.exports = function(AngularATGenerator) {
   function removeCompDocs(compElement, docsJSON) {
     if(compElement.value) {
       let nestedComps = (compElement.value.components);
-      nestedComps.forEach(function(nestedComp) {
+      nestedComps.forEach((nestedComp) => {
         let nestedCompElement = jsonQuery(`components[path=${nestedComp.path}]`, {data: docsJSON});
         let nestedCompKey = nestedCompElement.key;
         removeCompDocs(nestedCompElement, docsJSON);
@@ -235,13 +235,13 @@ module.exports = function(AngularATGenerator) {
       });
 
       let nestedDirectives = (compElement.value.directives);
-      nestedDirectives.forEach(function(nestedDirective) {
+      nestedDirectives.forEach((nestedDirective) => {
         let nestedDirectiveKey = jsonQuery(`directives[path=${nestedDirective.path}]`, {data: docsJSON}).key;
         docsJSON.directives.splice(nestedDirectiveKey, 1);
       });
 
       let nestedServices = (compElement.value.services);
-      nestedServices.forEach(function(nestedService) {
+      nestedServices.forEach((nestedService) => {
         let nestedServiceKey = jsonQuery(`services[path=${nestedService.path}]`, {data: docsJSON}).key;
         docsJSON.services.splice(nestedServiceKey, 1);
       });

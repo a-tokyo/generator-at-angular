@@ -28,11 +28,11 @@ let AngularATGenerator = yeoman.extend({
 
         let done = this.async();
         // calling prompts async
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, (props) => {
             this.props = _.merge(this.props, props);
             // calling done to continue run loop
             done();
-        }.bind(this));
+        });
     }
 
   });
