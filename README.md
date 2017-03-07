@@ -163,6 +163,15 @@ Running the project:
   - To keep the git repository's branch model modular and scalable use [git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
   - For more information about versions, features and migration check the [wiki](http://github.com/A-Tokyo/generator-at-angular/wiki)
   - For help, questions, feature requests and bug reports, [submit an issue](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+  
+
+### Frequently faced problems
+##### While bulding, error css-loader module not found:
+ In your package.json replace 
+ ``"extract-text-webpack-plugin": "^2.0.0-beta.4",`` with ``"extract-text-webpack-plugin": "2.0.0-beta.5",`` 
+<hr>  
+
+
 
 ### [Changelog](https://github.com/A-Tokyo/generator-at-angular/releases)
 
