@@ -1,17 +1,16 @@
 'use strict';
 const mkdirp = require('mkdirp');
-const _ = require('lodash');
 
-module.exports = function (AngularATGenerator) {
+module.exports = function(AngularATGenerator) {
 
     AngularATGenerator.prototype.adjustPropsForFiles = function adjustPropsForFiles() {
       this.props.styles = {};
       this.props.angularModules.forEach(function(elm){
-        if(elm.key === 'material'){
+        if(elm.key === 'material') {
           this.props.styles.material = true;
         }
       }.bind(this));
-      if(this.props.extraDeps){
+      if(this.props.extraDeps) {
         this.props.extraDeps.forEach(function(elm){
           if(elm.dependency === 'at-flex-grid'){
             this.props.styles.atFlex = true;

@@ -22,7 +22,7 @@ module.exports = function(AngularATGenerator) {
         // if the service has no parent, it is shared and belongs to the app
         if (relPathAsArray.length === 1) {
           let appRelPath = '/src/app/core/services';
-          fullPath = `${this.destinationRoot()}/src/app/core/services/${data.serviceName}`;
+          fullPath = `${this.destinationRoot()}${appRelPath}/${data.serviceName}`;
             try {
                 // import service into core module
                 const coreModulesWriteLine = `import * as ${data.serviceNameCamel}Factory from './services/${data.serviceName}/${data.serviceName}.factory';`;
@@ -88,7 +88,7 @@ module.exports = function(AngularATGenerator) {
               };
               docsJSON.components[jsonQuery(`components[path=${parentPath}]`, {data: docsJSON}).key].services.push(serviceDocForeignKeyJSON);
             }
-            jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
+            jsonfile.writeFile(file, docsJSON, {spaces: 2}, (err) => {});
           }.bind(this));
         }
     };

@@ -1,6 +1,5 @@
 'use strict';
 const _ = require('lodash');
-const chalk = require('chalk');
 const prompts = require('../prompts.json');
 
 function getDefaultProps() {

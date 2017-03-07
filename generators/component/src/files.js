@@ -3,7 +3,7 @@ const _ = require('lodash');
 const utils = require('../../utils.js');
 const jsonfile = require('jsonfile');
 const jsonQuery = require('json-query');
-const fs = require('fs-extra');
+// const fs = require('fs-extra');
 
 module.exports = function(AngularATGenerator) {
 
@@ -23,7 +23,7 @@ module.exports = function(AngularATGenerator) {
       'componentModule': _.camelCase(componentName)
     };
 
-    //if the component has no parent
+    // if the component has no parent
     if (pathAsArray.length === 1) {
       try {
         const indexModulesWriteLine = `require('./components/${data.componentName}/${data.componentName}.module').name,`;
@@ -33,7 +33,7 @@ module.exports = function(AngularATGenerator) {
         return;
       }
     } else {
-      //if the component is nested in a parent component
+      // if the component is nested in a parent component
       parentName = pathAsArray[pathAsArray.length - 2];
       // if single parent, join by '/' else join by '/components/' to nest within the parent components
       const joinString = (pathAsArray.length > 2)
@@ -43,10 +43,10 @@ module.exports = function(AngularATGenerator) {
       fullPath = `${parentPath}/components/${data.componentName}`;
       // importing files to parent component
       try {
-        //module
+        // module
         const moduleImport = `import * as ${data.componentModule} from './components/${componentName}/${componentName}.module';`;
         utils.addToFile(`${parentName}.module.js`, moduleImport, utils.IMPORT_MODULE_MARKER, `${this.destinationRoot()}/src/app/components/${parentPath}`);
-        //dependency
+        // dependency
         const dependencyImport = `'${data.componentModule}',`;
         utils.addToFile(`${parentName}.module.js`, dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, `${this.destinationRoot()}/src/app/components/${parentPath}`);
       } catch (err) {
@@ -93,7 +93,7 @@ module.exports = function(AngularATGenerator) {
           };
           docsJSON.components[jsonQuery(`components[path=${pathAsArray.slice(0, -1).join('/')}]`, {data: docsJSON}).key].components.push(componentDocForeignKeyJSON);
         }
-        jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
+        jsonfile.writeFile(file, docsJSON, {spaces: 2}, (err) => {});
       }.bind(this));
     }
   };

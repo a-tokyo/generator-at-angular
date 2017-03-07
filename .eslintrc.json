@@ -21,7 +21,8 @@
     "max-len": [2, {
       "code": 150,
       "tabWidth": 2,
-      "ignoreUrls": true
+      "ignoreUrls": true,
+      "ignoreTemplateLiterals": true
     }]
   }
 }

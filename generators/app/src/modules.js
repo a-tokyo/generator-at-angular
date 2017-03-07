@@ -17,7 +17,7 @@ module.exports = function(AngularATGenerator) {
 
   let extractPackagesToImport = function(importList, props){
     _.forEach(props, function(prop) {
-      if(_.isArray(prop)){
+      if(_.isArray(prop)) {
         extractPackagesToImport(importList, prop);
       }else{
         if (utils.isHasPackage(prop)) {

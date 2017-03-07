@@ -1,6 +1,6 @@
 'use strict';
-const _ = require("lodash");
-const utils = require("../../utils.js");
+const _ = require('lodash');
+const utils = require('../../utils.js');
 const jsonfile = require('jsonfile');
 
 module.exports = function(AngularATGenerator) {
@@ -59,7 +59,7 @@ module.exports = function(AngularATGenerator) {
           'description': descriptionForDocs
         };
         docsJSON.pages.push(pageDocJSON);
-        jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
+        jsonfile.writeFile(file, docsJSON, {spaces: 2}, (err) => {});
       }.bind(this));
     }
   };

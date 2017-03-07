@@ -5,15 +5,16 @@ const chalk = require('chalk');
 const pkg = require('../../package.json');
 
 const AngularATGenerator = yeoman.extend({
-    //loging the AT greeting message
+    // loging the AT greeting message
     greeting: function () {
         this.log(yosay(
             'Welcome to the awesome ' + chalk.red('AT Angular') + ' generator!'
         ));
     },
 
-    //exteding yoemen generator with custom code
-    constructor: function () {
+    // exteding yoemen generator with custom code
+    constructor: function() {
+        // eslint-disable-next-line
         yeoman.apply(this, arguments);
 
         // Define arguments

@@ -1,6 +1,7 @@
 'use strict';
-const _ = require("lodash");
-const utils = require("../../utils.js");
+
+const _ = require('lodash');
+const utils = require('../../utils.js');
 const jsonfile = require('jsonfile');
 const jsonQuery = require('json-query');
 
@@ -48,8 +49,8 @@ module.exports = function(AngularATGenerator) {
       try {
         // import directive into parent module
         const importInParentModuleWriteLine = `import * as ${data.directiveNameCamel}Directive from './directives/${data.directiveName}/${data.directiveName}.directive';`;
-        utils.addToFile(`${parentName}.module.js`, importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER,  `${this.destinationRoot()}${appRelPath}/${parentPath}`);
-        //add directive to parent module
+        utils.addToFile(`${parentName}.module.js`, importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
+        // add directive to parent module
         const addDirToParentModuleWriteLine = `componentModule.directive('${data.directiveNameCamel}', ${data.directiveNameCamel}Directive);`;
         utils.addToFile(`${parentName}.module.js`, addDirToParentModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
       } catch (err) {
@@ -64,7 +65,7 @@ module.exports = function(AngularATGenerator) {
     // copying templates
     this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.js`), data);
     // copy testing file
-    this.fs.copyTpl(this.templatePath('_directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
+    this.fs.copyTpl(this.templatePath('_directive.directive-spec.js'), this.destinationPath(`${fullPath}/${data.directiveName}.directive-spec.js`), data);
     // copy view html and css templates if needed
     if (this.props.needsPartial) {
       this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.html`), data);
@@ -97,7 +98,7 @@ module.exports = function(AngularATGenerator) {
           };
           docsJSON.components[jsonQuery(`components[path=${parentPath}]`, {data: docsJSON}).key].directives.push(directiveDocForeignKeyJSON);
         }
-        jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
+        jsonfile.writeFile(file, docsJSON, {spaces: 2}, (err) => {});
       }.bind(this));
     }
 

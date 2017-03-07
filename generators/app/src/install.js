@@ -1,7 +1,7 @@
 'use strict';
 const _ = require('lodash');
 
-module.exports = function (AngularATGenerator) {
+module.exports = function(AngularATGenerator) {
 
     // Install optional dependencies
     AngularATGenerator.prototype.installDependencies = function installDependencies() {
@@ -31,7 +31,7 @@ module.exports = function (AngularATGenerator) {
             deps.push('material-icons');
         }
         // extraDeps are added by flags only not by user input
-        if(this.props.extraDeps){
+        if(this.props.extraDeps) {
           this.props.extraDeps.forEach(function(dep){
             deps.push(dep.dependency);
           });

@@ -17,7 +17,7 @@ module.exports = function(AngularATGenerator) {
     const pathAsArray = this.props.itemName.split('/');
 
     switch (this.props.type) {
-      case 'component':
+      case 'component': {
         let componentName = pathAsArray[pathAsArray.length - 1];
         if (pathAsArray.length === 1) {
           try {
@@ -38,7 +38,7 @@ module.exports = function(AngularATGenerator) {
 
             const moduleImportRemoveLine = `import * as ${componentModule} from './components/${componentName}/${componentName}.module';`;
             utils.removeLineFromFile(`${parentName}.module.js`, moduleImportRemoveLine, `${this.destinationRoot()}/src/app/components/${parentTRUEPath}`);
-            //dependency
+            // dependency
             const dependencyImportRemoveLine = `'${componentModule}',`;
             utils.removeLineFromFile(parentName + '.module.js', dependencyImportRemoveLine, `${this.destinationRoot()}/src/app/components/${parentTRUEPath}`);
             // Delete the directory
@@ -50,7 +50,8 @@ module.exports = function(AngularATGenerator) {
           }
         }
         break;
-      case 'directive':
+      }
+      case 'directive': {
         let directiveName = pathAsArray[pathAsArray.length - 1];
         const directiveData = {
           'directiveName': directiveName,
@@ -59,8 +60,8 @@ module.exports = function(AngularATGenerator) {
         };
 
         if (pathAsArray.length === 1) {
-          let appRelPath = '/src/app/core/directives';
-          let fullPath = `${this.destinationRoot()}${appRelPath}/${directiveData.directiveName}`;
+          // let appRelPath = '/src/app/core/directives';
+          // let fullPath = `${this.destinationRoot()}${appRelPath}/${directiveData.directiveName}`;
           try {
             // import directive into core module
             const coreModulesRemoveLine = `import * as ${directiveData.directiveNameCamel}Directive from './directives/${directiveData.directiveName}/${directiveData.directiveName}.directive';`;
@@ -87,7 +88,7 @@ module.exports = function(AngularATGenerator) {
             utils.removeLineFromFile(`${parentName}.module.js`, importInParentModuleRemoveLine, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
             // remove add directive to parent module
             const addDirToParentModuleRemoveLine = `componentModule.directive('${directiveData.directiveNameCamel}', ${directiveData.directiveNameCamel}Directive);`;
-            utils.removeLineFromFile(parentName + '.module.js', addDirToParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+            utils.removeLineFromFile(`${parentName}.module.js`, addDirToParentModuleRemoveLine, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
 
             // remove the directory
             utils.deleteDirRecursive(`${this.destinationRoot()}${appRelPath}/${parentPath}/directives/${directiveData.directiveName}`);
@@ -98,7 +99,8 @@ module.exports = function(AngularATGenerator) {
           }
         }
         break;
-      case 'page':
+      }
+      case 'page': {
         let pageName = this.props.itemName;
         try {
           const indexModulesRemoveLine = `require('./pages/${pageName}/${pageName}.module').name,`;
@@ -110,15 +112,16 @@ module.exports = function(AngularATGenerator) {
           return;
         }
         break;
-      case 'service':
+      }
+      case 'service': {
         let serviceName = pathAsArray[pathAsArray.length - 1];
         const serviceData = {
           'serviceName': serviceName,
           'serviceNameCamel': _.camelCase(serviceName)
         };
         if (pathAsArray.length === 1) {
-          let appRelPath = '/src/app/core/services';
-          let fullPath = `${this.destinationRoot()}${appRelPath}/${serviceData.serviceName}`;
+          // let appRelPath = '/src/app/core/services';
+          // let fullPath = `${this.destinationRoot()}${appRelPath}/${serviceData.serviceName}`;
           try {
             // import service into core module
             const coreModulesRemoveLine = `import * as ${serviceData.serviceNameCamel}Factory from './services/${serviceData.serviceName}/${serviceData.serviceName}.factory';`;
@@ -155,6 +158,7 @@ module.exports = function(AngularATGenerator) {
           }
         }
         break;
+      }
     }
     itemFilesDeleted = true;
   };
@@ -174,7 +178,7 @@ module.exports = function(AngularATGenerator) {
       }
       // switching on type to remove
       switch (this.props.type) {
-        case 'component':
+        case 'component': {
           if (pathAsArray.length > 1) {
             let parentPath = pathAsArray.slice(0, -1).join('/');
             let parentCompElement = jsonQuery(`components[path=${parentPath}]`, {data: docsJSON});
@@ -185,7 +189,7 @@ module.exports = function(AngularATGenerator) {
           removeCompDocs(compElement, docsJSON);
           this.log(`${this.props.itemName}'s documentation was removed.`);
           break;
-
+        }
         case 'directive':
           if (pathAsArray.length > 1) {
             let parentPath = pathAsArray.slice(0, -1).join('/');
@@ -215,12 +219,12 @@ module.exports = function(AngularATGenerator) {
 
       }
       // writing back the docs JSON
-      jsonfile.writeFile(docsFile, docsJSON, function(err) {}.bind(this));
+      jsonfile.writeFile(docsFile, docsJSON, (err) => {});
     }.bind(this));
   };
 
   function removeCompDocs(compElement, docsJSON) {
-    if(compElement.value){
+    if(compElement.value) {
       let nestedComps = (compElement.value.components);
       nestedComps.forEach(function(nestedComp) {
         let nestedCompElement = jsonQuery(`components[path=${nestedComp.path}]`, {data: docsJSON});
