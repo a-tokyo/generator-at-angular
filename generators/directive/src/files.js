@@ -23,14 +23,14 @@ module.exports = function(AngularATGenerator) {
     // if the directive has no parent, it is shared and belongs to the app
     if (relPathAsArray.length === 1) {
       let appRelPath = '/src/app/core/directives';
-      fullPath = this.destinationRoot() + appRelPath + '/' + data.directiveName;
+      fullPath = `${this.destinationRoot()}${appRelPath}/${data.directiveName}`;
       try {
         // import directive into core module
-        const coreModulesWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
-        utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + '/src/app/core');
+        const coreModulesWriteLine = `import * as ${data.directiveNameCamel}Directive from './directives/${data.directiveName}/${data.directiveName}.directive';`;
+        utils.addToFile('core.module.js', coreModulesWriteLine, utils.IMPORT_DIRECTIVE_MARKER, `${this.destinationRoot()}/src/app/core`);
         // add directive to core module
-        const addToModuleWriteLine = "shared.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
-        utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, this.destinationRoot() + '/src/app/core');
+        const addToModuleWriteLine = `shared.directive('${data.directiveNameCamel}', ${data.directiveNameCamel}Directive);`;
+        utils.addToFile('core.module.js', addToModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, `${this.destinationRoot()}/src/app/core`);
       } catch (err) {
         this.log('Could not generate this item due to missing file structure.');
         return;
@@ -44,14 +44,14 @@ module.exports = function(AngularATGenerator) {
         ? '/components/'
         : '/';
       parentPath = _.join(relPathAsArray.slice(0, relPathAsArray.length - 1), joinString);
-      fullPath = this.destinationRoot() + appRelPath + '/' + parentPath + '/directives/' + data.directiveName;
+      fullPath = `${this.destinationRoot()}${appRelPath}/${parentPath}/directives/${data.directiveName}`;
       try {
         // import directive into parent module
-        const importInParentModuleWriteLine = "import * as " + data.directiveNameCamel + 'Directive' + " from './directives/" + data.directiveName + '/' + data.directiveName + ".directive';";
-        utils.addToFile(parentName + '.module.js', importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
+        const importInParentModuleWriteLine = `import * as ${data.directiveNameCamel}Directive from './directives/${data.directiveName}/${data.directiveName}.directive';`;
+        utils.addToFile(`${parentName}.module.js`, importInParentModuleWriteLine, utils.IMPORT_DIRECTIVE_MARKER,  `${this.destinationRoot()}${appRelPath}/${parentPath}`);
         //add directive to parent module
-        const addDirToParentModuleWriteLine = "componentModule.directive('" + data.directiveNameCamel + "', " + data.directiveNameCamel + 'Directive' + ");";
-        utils.addToFile(parentName + '.module.js', addDirToParentModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, this.destinationRoot() + appRelPath + '/' + parentPath);
+        const addDirToParentModuleWriteLine = `componentModule.directive('${data.directiveNameCamel}', ${data.directiveNameCamel}Directive);`;
+        utils.addToFile(`${parentName}.module.js`, addDirToParentModuleWriteLine, utils.ADD_DIRECTIVE_TOMODULE_MARKER, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
       } catch (err) {
         this.log('Parent component files not found.');
         return;
@@ -62,13 +62,13 @@ module.exports = function(AngularATGenerator) {
     isDuplicate = utils.existsSync(this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'));
 
     // copying templates
-    this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive' + '.js'), data);
+    this.fs.copyTpl(this.templatePath('_directive.directive.js'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.js`), data);
     // copy testing file
     this.fs.copyTpl(this.templatePath('_directive.directive-spec.js'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive-spec.js'), data);
     // copy view html and css templates if needed
     if (this.props.needsPartial) {
-      this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive.html'), data);
-      this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(fullPath + '/' + data.directiveName + '.directive.scss'), data);
+      this.fs.copyTpl(this.templatePath('_directive.html'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.html`), data);
+      this.fs.copyTpl(this.templatePath('_directive.scss'), this.destinationPath(`${fullPath}/${data.directiveName}.directive.scss`), data);
     }
 
     // Documenting the creation of the directive
@@ -82,20 +82,20 @@ module.exports = function(AngularATGenerator) {
         }
         const descriptionForDocs = (this.props.description && this.props.description.length > 0)
           ? this.props.description
-          : directiveName + " directive";
+          : `${directiveName} directive`;
         const directiveDocJSON = {
-          "name": data.directiveNameCamel,
-          "path": this.props.directiveName,
-          "description": descriptionForDocs
+          'name': data.directiveNameCamel,
+          'path': this.props.directiveName,
+          'description': descriptionForDocs
         };
         docsJSON.directives.push(directiveDocJSON);
         if (parentPath) {
           // Foreign Key String for directive is injected into the parent component
           const directiveDocForeignKeyJSON = {
-            "path": this.props.directiveName,
-            "name": data.directiveNameCamel
+            'path': this.props.directiveName,
+            'name': data.directiveNameCamel
           };
-          docsJSON.components[jsonQuery('components[path=' + parentPath + ']', {data: docsJSON}).key].directives.push(directiveDocForeignKeyJSON);
+          docsJSON.components[jsonQuery(`components[path=${parentPath}]`, {data: docsJSON}).key].directives.push(directiveDocForeignKeyJSON);
         }
         jsonfile.writeFile(file, docsJSON, {spaces: 2}, function(err) {}.bind(this));
       }.bind(this));

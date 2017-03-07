@@ -34,12 +34,12 @@ exports.deleteDirRecursive = function(path) {
 exports.dummyComponentInDocs = function(docsFilePath) {
   let docsJSON = jsonfile.readFileSync(docsFilePath);
   const componentDocJSON = {
-    "name": "component",
-    "path": "component",
-    "components": [],
-    "directives": [],
-    "services": [],
-    "description": ""
+    'name': 'component',
+    'path': 'component',
+    'components': [],
+    'directives': [],
+    'services': [],
+    'description': ''
   };
   docsJSON.components.push(componentDocJSON);
   jsonfile.writeFileSync(docsFilePath, docsJSON);

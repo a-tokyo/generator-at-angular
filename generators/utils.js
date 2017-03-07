@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const chalk = require('chalk');
-const _ = require('lodash')
+const _ = require('lodash');
 const beautify = require('js-beautify').js_beautify;
 const jsBeautifyOptions = { indent_size: 2, preserve_newlines: false, end_with_newline: true };
 
@@ -87,7 +87,7 @@ exports.existsSync = function(path){
 
 exports.isHasPackage = function (obj) {
     return _.isObject(obj) && obj.package && obj.import !== false;
-}
+};
 
 exports.stripPackageName = function (pkgName) {
     let regexp = /(.*?)@/;
@@ -96,12 +96,12 @@ exports.stripPackageName = function (pkgName) {
         return match[1];
     }
     return pkgName;
-}
+};
 
 exports.deleteDirRecursive = function(path) {
   if (fs.existsSync(path)) {
     fs.readdirSync(path).forEach(function(file, index) {
-      var curPath = path + "/" + file;
+      var curPath = `${path}/${file}`;
       if (fs.lstatSync(curPath).isDirectory()) { // recurse
         exports.deleteDirRecursive(curPath);
       } else { // delete file
@@ -110,6 +110,6 @@ exports.deleteDirRecursive = function(path) {
     });
     fs.rmdirSync(path);
   }else{
-    console.log("invalid path: " + path + " was not deleted.");
+    console.log(`invalid path: ${path} was not deleted.`);
   }
 };
