@@ -1,4 +1,5 @@
 'use strict';
+
 const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('assert');
@@ -13,12 +14,12 @@ describe('at-angular:page', function() {
       testDir = dir;
       fs.mkdirp('src/app/pages');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.module.js'), dir + '/src/app/index.module.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     }).withPrompts({description: 'a page'});
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -45,12 +46,12 @@ describe('at-angular:page named-page', function() {
       testDir = dir;
       fs.mkdirp('src/app/pages');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.module.js'), dir + '/src/app/index.module.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     }).withArguments(['named-page']);
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -75,12 +76,12 @@ describe('at-angular:page', function() {
     return helpers.run(path.join(__dirname, '../generators/page')).inTmpDir(function(dir) {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     });
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -110,8 +111,8 @@ describe('at-angular:page documentation', function() {
     });
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });

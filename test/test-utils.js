@@ -1,4 +1,5 @@
 'use strict';
+
 const fs = require('fs-extra');
 const jsonfile = require('jsonfile');
 
@@ -20,7 +21,7 @@ exports.logIf = function(valueToLog, canLog) {
 exports.deleteDirRecursive = function(path) {
   if (fs.existsSync(path)) {
     fs.readdirSync(path).forEach(function(file, index) {
-      var curPath = `${path}/${file}`;
+      const curPath = `${path}/${file}`;
       if (fs.lstatSync(curPath).isDirectory()) { // recurse
         exports.deleteDirRecursive(curPath);
       } else { // delete file

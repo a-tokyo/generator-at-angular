@@ -1,13 +1,9 @@
 'use strict';
+
 const path = require('path');
 const fs = require('fs-extra');
 const helpers = require('yeoman-test');
 const assert = require('assert');
-const should = require('should');
-const _ = require('lodash');
-const genUtils = require('../generators/utils.js');
-const jsonfile = require('jsonfile');
-const jsonQuery = require('json-query');
 const testUtils = require('./test-utils');
 let testDir = null;
 

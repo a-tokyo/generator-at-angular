@@ -1,10 +1,12 @@
 'use strict';
+
 const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('assert');
 const fs = require('fs-extra');
-const should = require('should');
 const testUtils = require('./test-utils');
+// eslint-disable-next-line
+const should = require('should');
 let testDir = null;
 
 describe('at-angular:component', function() {
@@ -13,14 +15,14 @@ describe('at-angular:component', function() {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/components');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), `${dir}/src/app/index.components.js`);
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     })
     .withPrompts({description: 'a component'});
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -45,16 +47,17 @@ describe('at-angular:component component/component', function() {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/components/component');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
-      fs.copySync(path.join(__dirname, '../generators/component/templates/_component.module.js'), dir + '/src/app/components/component/component.module.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), `${dir}/src/app/index.components.js`);
+      fs.copySync(path.join(__dirname, '../generators/component/templates/_component.module.js'),
+      `${dir}/src/app/components/component/component.module.js`);
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
       testUtils.dummyComponentInDocs(dir + '/docs/docs-assets/docs.json');
     })
     .withArguments(['component/named-component']);
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -81,8 +84,8 @@ describe('at-angular:component not-existing/component', function() {
     }).withArguments(['not-existing/component']);
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -106,12 +109,12 @@ describe('at-angular:component (with no parent module)', function() {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/components');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     })
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -136,12 +139,12 @@ describe('at-angular:component documentation', function() {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/components');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), `${dir}/src/app/index.components.js`);
     })
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });

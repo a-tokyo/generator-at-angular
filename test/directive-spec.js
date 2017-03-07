@@ -1,4 +1,5 @@
 'use strict';
+
 const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('assert');
@@ -12,13 +13,13 @@ describe('at-angular:directive', function() {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/core/directives');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), `${dir}/src/app/core/core.module.js`);
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     })
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -43,13 +44,13 @@ describe('at-angular:directive no partial', function() {
       testDir = dir;
       fs.mkdirp('src/app/core/directives');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     })
     .withPrompts({needsPartial: false, description: 'a directive with no patial'});
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -60,10 +61,6 @@ describe('at-angular:directive no partial', function() {
       'src/app/core/directives/directive/directive.directive.js'
     ];
     assert.file(expected);
-    const notExpected = [
-      'src/app/core/directives/directive/directive.directive.html',
-      'src/app/core/directives/directive/directive.directive.scss'
-    ];
     fs.stat('src/app/core/directives/directive/directive.directive.html', function(err, stat){
       assert(err!=null);
       // calling done
@@ -79,13 +76,13 @@ describe('at-angular:directive named-directive', function() {
       testDir = dir;
       fs.mkdirp('src/app/core/directives');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_core/_core.module.js'), dir + '/src/app/core/core.module.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     })
     .withArguments(['named-directive']);
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -107,15 +104,16 @@ describe('at-angular:directive component/directive', function() {
       testDir = dir;
       fs.mkdirp('src/app/components/component');
       fs.copySync(path.join(__dirname, '../generators/app/templates/_src/_app/_index.components.js'), dir + '/src/app/index.components.js');
-      fs.copySync(path.join(__dirname, '../generators/component/templates/_component.module.js'), dir + '/src/app/components/component/component.module.js');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
-      testUtils.dummyComponentInDocs(dir + '/docs/docs-assets/docs.json');
+      fs.copySync(path.join(__dirname,
+        '../generators/component/templates/_component.module.js'), `${dir}/src/app/components/component/component.module.js`);
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
+      testUtils.dummyComponentInDocs(`${dir}/docs/docs-assets/docs.json`);
     })
     .withArguments(['component/named-directive']);
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -136,12 +134,12 @@ describe('at-angular:directive not-existing/directive', function() {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/components');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     }).withArguments(['not-existing/directive']);
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -162,12 +160,12 @@ describe('at-angular:directive (with no parent module)', function() {
       testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode);
       testDir = dir;
       fs.mkdirp('src/app/core/directives');
-      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), dir + '/docs/');
+      fs.copySync(path.join(__dirname, '../generators/app/templates/_docs/'), `${dir}/docs/`);
     })
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
@@ -192,8 +190,8 @@ describe('at-angular:directive documentation', function() {
     })
   });
 
-  afterEach(function(){
-    if(testDir != null){
+  afterEach(function() {
+    if(testDir != null) {
       testUtils.deleteDirRecursive(testDir);
     }
   });
