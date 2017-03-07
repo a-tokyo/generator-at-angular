@@ -49,7 +49,7 @@ module.exports = function(AngularATGenerator) {
     });
     // this.modulesDependencies to be read in index.vendor and index.module and imported
     this.modulesDependencies = ngModules.filter(_.isString).map(function(dependency) {
-      return '\'' + dependency + '\'';
+      return `'${dependency}'`;
     }).join(', \r\n\t\t');
   };
 

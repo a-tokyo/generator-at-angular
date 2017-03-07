@@ -1,4 +1,4 @@
-<% if (needsPartial) { %>import directiveTpl from './<%= directiveName.directive %>.html';
+<% if (needsPartial) { %>import directiveTpl from './<%= directiveName %>.directive.html';
 <% } %>
 function <%= directiveNameCamel %>Directive() {
   'ngInject';
