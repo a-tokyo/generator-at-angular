@@ -183,7 +183,7 @@ module.exports = function(AngularATGenerator) {
           }
           let compElement = jsonQuery(`components[path=${this.props.itemName}]`, {data: docsJSON});
           removeCompDocs(compElement, docsJSON);
-          this.log(this.props.itemName + "'s documentation was removed.");
+          this.log(`${this.props.itemName}'s documentation was removed.`);
           break;
 
         case 'directive':
@@ -194,12 +194,12 @@ module.exports = function(AngularATGenerator) {
             docsJSON.components[parentCompElement.key].directives.splice(nestedDirectiveKey, 1);
           }
           docsJSON.directives.splice(jsonQuery(`directives[path=${this.props.itemName}]`, {data: docsJSON}).key, 1);
-          this.log(this.props.itemName + "'s documentation was removed.");
+          this.log(`${this.props.itemName}'s documentation was removed.`);
           break;
 
         case 'page':
           docsJSON.pages.splice(jsonQuery(`pages[name=${this.props.itemName}]`, {data: docsJSON}).key, 1);
-          this.log(this.props.itemName + "'s documentation was removed.");
+          this.log(`${this.props.itemName}'s documentation was removed.`);
           break;
 
         case 'service':
@@ -210,7 +210,7 @@ module.exports = function(AngularATGenerator) {
             docsJSON.components[parentCompElement.key].services.splice(nestedServiceKey, 1);
           }
           docsJSON.services.splice(jsonQuery(`services[path=${this.props.itemName}]`, {data: docsJSON}).key, 1);
-          this.log(this.props.itemName + "'s documentation was removed.");
+          this.log(`${this.props.itemName}'s documentation was removed.`);
           break;
 
       }
@@ -226,19 +226,19 @@ module.exports = function(AngularATGenerator) {
         let nestedCompElement = jsonQuery(`components[path=${nestedComp.path}]`, {data: docsJSON});
         let nestedCompKey = nestedCompElement.key;
         removeCompDocs(nestedCompElement, docsJSON);
-        docsJSON.components.splice(nestedCompKey, 1)
+        docsJSON.components.splice(nestedCompKey, 1);
       });
 
       let nestedDirectives = (compElement.value.directives);
       nestedDirectives.forEach(function(nestedDirective) {
         let nestedDirectiveKey = jsonQuery(`directives[path=${nestedDirective.path}]`, {data: docsJSON}).key;
-        docsJSON.directives.splice(nestedDirectiveKey, 1)
+        docsJSON.directives.splice(nestedDirectiveKey, 1);
       });
 
       let nestedServices = (compElement.value.services);
       nestedServices.forEach(function(nestedService) {
         let nestedServiceKey = jsonQuery(`services[path=${nestedService.path}]`, {data: docsJSON}).key;
-        docsJSON.services.splice(nestedServiceKey, 1)
+        docsJSON.services.splice(nestedServiceKey, 1);
       });
     }
     docsJSON.components.splice(compElement.key, 1);
