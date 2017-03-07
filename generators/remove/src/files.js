@@ -172,7 +172,7 @@ module.exports = function(AngularATGenerator) {
     const pathAsArray = this.props.itemName.split('/');
     const docsFile = this.destinationPath(this.destinationRoot() + utils.DOCS_ASSETS_PATH+'/'+utils.DOCS_STORAGE_FILENAME);
     // reading the docs JSON
-    jsonfile.readFile(docsFile, function(err, docsJSON) {
+    jsonfile.readFile(docsFile, (err, docsJSON) => {
       if (err) {
         this.log('Could not load the documentation file.');
         return;
@@ -221,7 +221,7 @@ module.exports = function(AngularATGenerator) {
       }
       // writing back the docs JSON
       jsonfile.writeFile(docsFile, docsJSON, (err) => {});
-    }.bind(this));
+    });
   };
 
   function removeCompDocs(compElement, docsJSON) {

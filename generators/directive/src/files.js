@@ -76,7 +76,7 @@ module.exports = function(AngularATGenerator) {
 
     if (!isDuplicate) {
       const file = this.destinationPath(this.destinationRoot() + utils.DOCS_ASSETS_PATH+'/'+utils.DOCS_STORAGE_FILENAME);
-      jsonfile.readFile(file, function(err, docsJSON) {
+      jsonfile.readFile(file, (err, docsJSON) => {
         if (err) {
           this.log('Could not document this item due to missing or corrupted documentation file.');
           return;
@@ -99,7 +99,7 @@ module.exports = function(AngularATGenerator) {
           docsJSON.components[jsonQuery(`components[path=${parentPath}]`, {data: docsJSON}).key].directives.push(directiveDocForeignKeyJSON);
         }
         jsonfile.writeFile(file, docsJSON, {spaces: 2}, (err) => {});
-      }.bind(this));
+      });
     }
 
   };
