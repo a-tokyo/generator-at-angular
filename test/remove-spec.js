@@ -16,7 +16,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove component', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -41,7 +41,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove nested-component', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -66,7 +66,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove notexisting-nested-component', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -86,7 +86,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove notexisting-component', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -106,7 +106,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove directive', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -131,7 +131,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove nested-directive', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -156,7 +156,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove notexisting-nested-directive', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -176,7 +176,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove notexisting-directive', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -198,7 +198,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove service', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -223,7 +223,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove nested-service', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -248,7 +248,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove notexisting-service', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -270,7 +270,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove notexisting-nested-service', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -291,7 +291,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove page', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -316,7 +316,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove notexisting-page', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -336,7 +336,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove cancel', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/docs'), dir + '/docs');
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
@@ -361,7 +361,7 @@ describe('at-angular:remove', function() {
   describe('at-angular:remove no-docs', function() {
     beforeEach(function() {
       return helpers.run(path.join(__dirname, '../generators/remove')).inTmpDir(function(dir) {
-        testUtils.logIf('running in tmp dir:\n' + dir + '\n', testUtils.debugMode)
+        testUtils.logIf(`running in tmp dir:\n${dir}\n`, testUtils.debugMode)
         testDir = dir;
         fs.copySync(path.join(__dirname, './test-scenarios/test-remove/src'), dir + '/src');
       }).withPrompts({type: 'component', itemName: 'comp', confirmRemove: true});
