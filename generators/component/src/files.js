@@ -23,28 +23,6 @@ module.exports = function(AngularATGenerator) {
       'componentModule': _.camelCase(componentName)
     };
 
-    // if (this.options.r) {
-    //
-    //   if (pathAsArray.length === 1) {
-    //     try {
-    //       const indexModulesRemoveLine = "require('./components/" + data.componentName + "/" + data.componentName + ".module').name,";
-    //       utils.removeLineFromFile('index.components.js', indexModulesRemoveLine, this.destinationRoot() + '/src/app')
-    //       utils.deleteDirRecursive(this.destinationRoot() + '/src/app/components/' + data.componentName);
-    //     } catch (err) {}
-    //   }else{
-    //     parentName = pathAsArray[pathAsArray.length - 2];
-    //
-    //     // //module
-    //     // const moduleImportRemoveLine = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
-    //     // utils.addToFile(parentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
-    //     // //dependency
-    //     // const dependencyImport = "'" + data.componentModule + "',";
-    //     // utils.addToFile(parentName + '.module.js', dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
-    //
-    //   }
-    //   return;
-    // }
-
     //if the component has no parent
     if (pathAsArray.length === 1) {
       try {
@@ -66,12 +44,9 @@ module.exports = function(AngularATGenerator) {
       // importing files to parent component
       try {
         //module
-        // const moduleImport = "import * as " + data.componentModule + " from './components/" + componentName + '/' + componentName + ".module';";
         const moduleImport = `import * as ${data.componentModule} from './components/${componentName}/${componentName}.module';`;
-        // utils.addToFile(parentName + '.module.js', moduleImport, utils.IMPORT_MODULE_MARKER, this.destinationRoot() + '/src/app/components/' + parentPath);
         utils.addToFile(`${parentName}.module.js`, moduleImport, utils.IMPORT_MODULE_MARKER, `${this.destinationRoot()}/src/app/components/${parentPath}`);
         //dependency
-        // const dependencyImport = "'" + data.componentModule + "',";
         const dependencyImport = `'${data.componentModule}',`;
         utils.addToFile(`${parentName}.module.js`, dependencyImport, utils.IMPORT_DEPENDENCY_MARKER, `${this.destinationRoot()}/src/app/components/${parentPath}`);
       } catch (err) {
@@ -81,7 +56,6 @@ module.exports = function(AngularATGenerator) {
     }
 
     // checking if the module exists, if so it is a duplicate
-    // isDuplicate = utils.existsSync(this.destinationPath(this.destinationRoot() + '/src/app/components/' + fullPath + '/' + data.componentName + '.module.js'));
     isDuplicate = utils.existsSync(this.destinationPath(`${this.destinationRoot()}/src/app/components/${fullPath}/${data.componentName}.module.js`));
 
     // copy template files, no need for try and catch since file structure already exists from above
