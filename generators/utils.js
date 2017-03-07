@@ -3,8 +3,6 @@ const path = require('path');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const _ = require('lodash');
-const beautify = require('js-beautify').js_beautify;
-const jsBeautifyOptions = { indent_size: 2, preserve_newlines: false, end_with_newline: true };
 
 // Defining Markers
 exports.COMPONENT_MARKER = '// Add new components above';
@@ -69,9 +67,7 @@ exports.removeLineFromFile = function(filename,lineToRemove, fullpathI, indent, 
         topHalf = topHalf.substring(0, topHalfIndexOf);
         let bottomHalf = fileSrc.substring(indexOf);
         fileSrc = topHalf + bottomHalf.substring(bottomHalf.indexOf('\n'));
-        // fileSrc = beautify(fileSrc, jsBeautifyOptions);
         fs.writeFileSync(fullPath,fileSrc);
-        // console.log('Written data to files');
     } catch(e) {
       console.log('Could not remove data from files');
       throw e;
