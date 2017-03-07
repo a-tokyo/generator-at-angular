@@ -104,7 +104,7 @@ module.exports = function(AngularATGenerator) {
           const indexModulesRemoveLine = `require('./pages/${pageName}/${pageName}.module').name,`;
           utils.removeLineFromFile('index.module.js', indexModulesRemoveLine, `${this.destinationRoot()}/src/app`);
           utils.deleteDirRecursive(`${this.destinationRoot()}/src/app/pages/${pageName}`);
-          this.log(`/src/app/pages/${pageName} was removed.`)
+          this.log(`/src/app/pages/${pageName} was removed.`);
         } catch (err) {
           this.log(err);
           return;
@@ -118,16 +118,16 @@ module.exports = function(AngularATGenerator) {
         };
         if (pathAsArray.length === 1) {
           let appRelPath = '/src/app/core/services';
-          let fullPath = this.destinationRoot() + appRelPath + '/' + serviceData.serviceName;
+          let fullPath = `${this.destinationRoot()}${appRelPath}/${serviceData.serviceName}`;
           try {
             // import service into core module
-            const coreModulesRemoveLine = "import * as " + serviceData.serviceNameCamel + 'Factory' + " from './services/" + serviceData.serviceName + '/' + serviceData.serviceName + ".factory';";
-            utils.removeLineFromFile('core.module.js', coreModulesRemoveLine, this.destinationRoot() + '/src/app/core');
+            const coreModulesRemoveLine = `import * as ${serviceData.serviceNameCamel}Factory from './services/${serviceData.serviceName}/${serviceData.serviceName}.factory';`;
+            utils.removeLineFromFile('core.module.js', coreModulesRemoveLine, `${this.destinationRoot()}/src/app/core`);
             // add service to core module
-            const addToModuleRemoveLine = "shared.factory('" + serviceData.serviceNameCamel + 'Factory' + "', " + serviceData.serviceNameCamel + 'Factory' + ");";
-            utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, this.destinationRoot() + '/src/app/core');
-            utils.deleteDirRecursive(this.destinationRoot() + '/src/app/core/services/' + serviceName);
-            this.log('/src/app/core/services/' + serviceName + ' was removed.')
+            const addToModuleRemoveLine = `shared.factory('${serviceData.serviceNameCamel}Factory', ${serviceData.serviceNameCamel}Factory);`;
+            utils.removeLineFromFile('core.module.js', addToModuleRemoveLine, `${this.destinationRoot()}/src/app/core`);
+            utils.deleteDirRecursive(`${this.destinationRoot()}/src/app/core/services/${serviceName}`);
+            this.log(`/src/app/core/services/${serviceName} was removed.`);
           } catch (err) {
             this.log(err);
             return;
@@ -140,15 +140,15 @@ module.exports = function(AngularATGenerator) {
 
           try {
             // import service into parent module
-            const importInParentModuleRemoveLine = "import * as " + serviceData.serviceNameCamel + 'Factory' + " from './services/" + serviceData.serviceName + '/' + serviceData.serviceName + ".factory';";
-            utils.removeLineFromFile(parentName + '.module.js', importInParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+            const importInParentModuleRemoveLine = `import * as ${serviceData.serviceNameCamel}Factory from './services/${serviceData.serviceName}/${serviceData.serviceName}.factory';`;
+            utils.removeLineFromFile(`${parentName}.module.js`, importInParentModuleRemoveLine, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
             // remove add service to parent module
-            const addDirToParentModuleRemoveLine = "componentModule.factory('" + serviceData.serviceNameCamel + 'Factory' + "', " + serviceData.serviceNameCamel + 'Factory' + ");";
-            utils.removeLineFromFile(parentName + '.module.js', addDirToParentModuleRemoveLine, this.destinationRoot() + appRelPath + '/' + parentPath);
+            const addDirToParentModuleRemoveLine = `componentModule.factory('${serviceData.serviceNameCamel}Factory', ${serviceData.serviceNameCamel}Factory);`;
+            utils.removeLineFromFile(`${parentName}.module.js`, addDirToParentModuleRemoveLine, `${this.destinationRoot()}${appRelPath}/${parentPath}`);
 
             // remove the directory
-            utils.deleteDirRecursive(this.destinationRoot() + appRelPath + '/' + parentPath + '/services/' + serviceData.serviceName);
-            this.log(appRelPath + '/' + parentPath + '/services/' + serviceData.serviceName + ' was removed.')
+            utils.deleteDirRecursive(`${this.destinationRoot()}${appRelPath}/${parentPath}/services/${serviceData.serviceName}`);
+            this.log(`${appRelPath}/${parentPath}/services/${serviceData.serviceName} was removed.`);
           } catch (err) {
             this.log(err);
             return;
