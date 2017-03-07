@@ -1,4 +1,5 @@
 'use strict';
+
 const _ = require('lodash');
 const utils = require('../../utils.js');
 const jsonfile = require('jsonfile');
