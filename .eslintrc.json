@@ -1,4 +1,10 @@
 {
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": ["eslint:recommended", "dreidev"],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -6,7 +12,16 @@
       "jsx": true
     }
   },
+  "plugins": [
+    "ejs"
+  ],
   "rules": {
-        "semi": 2
+    "require-jsdoc": 0,
+    "no-console": 0,
+    "max-len": [2, {
+      "code": 150,
+      "tabWidth": 2,
+      "ignoreUrls": true
+    }]
   }
 }
