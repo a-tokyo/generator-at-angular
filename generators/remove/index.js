@@ -1,4 +1,5 @@
 'use strict';
+
 const yeoman = require('yeoman-generator').Base;
 const _ = require('lodash');
 const prompts = require('./prompts.json');
