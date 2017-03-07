@@ -11,7 +11,6 @@
 > * Karma and Jasmine for testing.
 > * All necessary webpack loaders already included (Sass, Images, Fonts, ngAnnotate, ngTemplateCache, etc.)
 > * Proxy configured to make cross origin requests with a simple prefix.
-> * Karma + Jasmine Testing
 > * Automatic Application Documentation
 
 ### Directory Layout
