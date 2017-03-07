@@ -62,7 +62,7 @@ describe('at-angular --dreidev', function() {
 
 describe('at-angular --default', function() {
   beforeEach(function() {
-    return helpers.run(path.join(__dirname, '../generators/app')).withOptions({default: true}); // Mock some prompt answers, and depend on defaults for others
+    return helpers.run(path.join(__dirname, '../generators/app')).withOptions({default: true, skipinstall: true}); // Mock some prompt answers, and depend on defaults for others
   });
 
   it('should create the expected angular application files', function(done) {
