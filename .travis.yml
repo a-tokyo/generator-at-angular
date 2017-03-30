@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - "7"
   - "6"
   - "5"
   - "4"
@@ -17,3 +18,4 @@ after_success:
   - npm link
   - cd recursive && yo at-angular --default
   - npm test
+  - npm run build

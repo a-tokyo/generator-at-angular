@@ -1,0 +1,27 @@
+environment:
+  matrix:
+    # node.js
+    - nodejs_version: "7"
+    - nodejs_version: "6"
+    - nodejs_version: "6"
+    - nodejs_version: "4"
+    # io.js
+    - nodejs_version: "1.0"
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+
+  # Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
+  - mkdir recursive
+  - npm install -g yo
+  - npm link
+  - cd recursive && yo at-angular --default
+  - npm test
+  - npm run build
