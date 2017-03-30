@@ -25,3 +25,5 @@ test_script:
   - cd recursive && yo at-angular --default
   - npm test
   - npm run build
+
+build: off
