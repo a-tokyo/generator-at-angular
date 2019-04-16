@@ -1,0 +1,19 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.3
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:lodash:20180130':
+    - generator-git-init > yeoman-generator > lodash:
+        patched: '2019-04-16T22:20:27.194Z'
+    - yeoman-generator > html-wiring > cheerio > lodash:
+        patched: '2019-04-16T22:20:27.194Z'
+    - generator-git-init > yeoman-generator > inquirer > lodash:
+        patched: '2019-04-16T22:20:27.194Z'
+    - generator-git-init > yeoman-generator > html-wiring > cheerio > lodash:
+        patched: '2019-04-16T22:20:27.194Z'
+  'npm:tunnel-agent:20170305':
+    - yeoman-generator > download > caw > tunnel-agent:
+        patched: '2019-04-16T22:20:27.194Z'
+    - generator-git-init > yeoman-generator > download > caw > tunnel-agent:
+        patched: '2019-04-16T22:20:27.194Z'
